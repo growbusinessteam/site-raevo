@@ -1,0 +1,288 @@
+<section id="simulador" class="section simulator-section">
+  <div class="container">
+    <p class="eyebrow">Simulador</p>
+    <h2 class="section-title">Monte seu plano de Crescimento Previsível.</h2>
+    <p class="lead">
+      Escolha os módulos que fazem sentido para o momento da sua clínica e veja
+      uma estimativa antes de falar com a nossa equipe.
+    </p>
+
+    <div class="simulator" id="lead-price-simulator">
+      <div class="modules">
+        <article class="module base">
+          <span>Base obrigatória</span>
+          <strong>Acompanhamento Estratégico Comercial</strong>
+          <p>Análise mensal, direcionamento comercial, plano de ação e leitura dos indicadores.</p>
+          <b>€400/mês</b>
+        </article>
+
+        <label class="module">
+          <input type="checkbox" data-name="Gestão Comercial e CRM" data-monthly="400" />
+          <span>+ €400/mês</span>
+          <strong>Gestão Comercial e CRM</strong>
+          <p>Revisão de oportunidades, follow-up, motivos de perda e gargalos comerciais.</p>
+        </label>
+
+        <label class="module">
+          <input type="checkbox" data-name="Tráfego Pago" data-monthly="600" data-extra=" + verba de mídia" />
+          <span>+ €600/mês</span>
+          <strong>Tráfego Pago</strong>
+          <p>Campanhas pagas conectadas a leitura comercial e qualidade dos leads.</p>
+        </label>
+
+        <label class="module">
+          <input type="checkbox" data-name="Planejamento de Conteúdo e Criativos" data-monthly="300" />
+          <span>+ €300/mês</span>
+          <strong>Planejamento de Conteúdo e Criativos</strong>
+          <p>Ideias, ângulos, roteiros curtos, briefing de gravação e calendário comercial.</p>
+        </label>
+
+        <label class="module">
+          <input type="checkbox" data-name="Produção de Criativos" data-monthly="500" />
+          <span>+ €500/mês</span>
+          <strong>Produção de Criativos</strong>
+          <p>Peças estáticas, criativos para anúncios e edições simples de vídeos curtos.</p>
+        </label>
+
+        <label class="module">
+          <input type="checkbox" data-name="Landing Page de Captação" data-monthly="150" data-setup="500" />
+          <span>+ €500 setup + €150/mês</span>
+          <strong>Landing Page de Captação</strong>
+          <p>Copy, layout, formulário, integração básica com CRM, pixel e eventos básicos.</p>
+        </label>
+
+        <label class="module">
+          <input type="checkbox" data-name="Reativação de Base" data-monthly="300" />
+          <span>+ €300/mês</span>
+          <strong>Reativação de Base</strong>
+          <p>Segmentação, campanhas de reativação, scripts e fluxos de follow-up.</p>
+        </label>
+
+        <label class="module">
+          <input type="checkbox" data-name="IA no Atendimento" data-monthly="200" data-setup="750" data-setup-label="a partir de €750" />
+          <span>+ €750 setup + €200/mês</span>
+          <strong>IA no Atendimento</strong>
+          <p>Assistente, respostas assistidas, qualificação inicial e automações inteligentes.</p>
+        </label>
+
+        <label class="module">
+          <input type="checkbox" data-name="Automações Avançadas e Integrações" data-diagnostic="true" />
+          <span>Sob diagnóstico</span>
+          <strong>Automações Avançadas e Integrações</strong>
+          <p>Conexões entre ferramentas, fluxos avançados e processos específicos da clínica.</p>
+        </label>
+      </div>
+
+      <aside class="summary" aria-live="polite">
+        <div>
+          <p class="summary-label">Selecionado</p>
+          <ul id="selected-modules">
+            <li>Acompanhamento Estratégico Comercial</li>
+          </ul>
+        </div>
+        <div class="price-box">
+          <span>Valor mensal estimado</span>
+          <strong id="monthly-total">€400/mês</strong>
+          <small id="monthly-extra">Base estratégica obrigatória incluída.</small>
+        </div>
+        <div class="price-box">
+          <span>Setup inicial</span>
+          <strong id="setup-total">€0</strong>
+          <small id="setup-extra">A simulação mostra uma estimativa.</small>
+        </div>
+        <a id="send-simulation" class="button" href="https://wa.me/?text=Ol%C3%A1%2C%20Raevo.%20Quero%20simular%20meu%20plano%20de%20Crescimento%20Previs%C3%ADvel." target="_blank" rel="noreferrer">
+          Enviar minha simulação
+        </a>
+        <a class="button secondary" href="/contato">Falar com a Raevo sobre este plano</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  const simulator = document.querySelector("#lead-price-simulator");
+
+  if (simulator) {
+    const inputs = Array.from(simulator.querySelectorAll("input[type='checkbox']"));
+    const selectedList = simulator.querySelector("#selected-modules");
+    const monthlyTotal = simulator.querySelector("#monthly-total");
+    const monthlyExtra = simulator.querySelector("#monthly-extra");
+    const setupTotal = simulator.querySelector("#setup-total");
+    const setupExtra = simulator.querySelector("#setup-extra");
+    const sendLink = simulator.querySelector("#send-simulation");
+    const format = (value) => `€${value.toLocaleString("pt-PT")}`;
+
+    const updateSimulation = () => {
+      let monthly = 400;
+      let setup = 0;
+      const names = ["Acompanhamento Estratégico Comercial"];
+      const notes = [];
+      const setupNotes = [];
+
+      inputs.forEach((input) => {
+        if (!input.checked) return;
+        names.push(input.dataset.name || "");
+        monthly += Number(input.dataset.monthly || 0);
+        setup += Number(input.dataset.setup || 0);
+        if (input.dataset.extra) notes.push(input.dataset.extra);
+        if (input.dataset.diagnostic) setupNotes.push("Automações avançadas sob diagnóstico");
+        if (input.dataset.setupLabel) setupNotes.push(input.dataset.setupLabel);
+      });
+
+      selectedList.innerHTML = names.map((name) => `<li>${name}</li>`).join("");
+      monthlyTotal.textContent = `${format(monthly)}/mês${notes.join("")}`;
+      monthlyExtra.textContent = notes.length
+        ? "Verbas e custos externos não estão incluídos."
+        : "Base estratégica obrigatória incluída.";
+      setupTotal.textContent = setup ? format(setup) : "€0";
+      setupExtra.textContent = setupNotes.length
+        ? setupNotes.join(" · ")
+        : "A simulação mostra uma estimativa.";
+
+      const message = `Olá, Raevo. Vi a landing page e quero entender qual plano faz mais sentido para minha clínica. Módulos: ${names.join(", ")}. Valor estimado: ${format(monthly)}/mês. Setup: ${setup ? format(setup) : "€0"}.`;
+      sendLink.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    };
+
+    inputs.forEach((input) => input.addEventListener("change", updateSimulation));
+    updateSimulation();
+  }
+</script>
+
+<style>
+  .simulator-section {
+    background: rgba(220, 207, 190, 0.5);
+  }
+
+  .simulator {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+    gap: 22px;
+    align-items: start;
+    margin-top: 44px;
+  }
+
+  .modules {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .module {
+    position: relative;
+    display: grid;
+    gap: 12px;
+    min-height: 210px;
+    padding: 22px;
+    border: 1px solid rgba(184, 171, 152, 0.64);
+    border-radius: 8px;
+    background: rgba(233, 228, 218, 0.78);
+    cursor: pointer;
+  }
+
+  .module:has(input:checked) {
+    border-color: var(--color-cian);
+    box-shadow: inset 0 0 0 1px rgba(0, 184, 198, 0.4);
+  }
+
+  .module input {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-cian);
+  }
+
+  .module span {
+    color: var(--color-champagne);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .module strong {
+    max-width: 82%;
+    font-family: var(--font-display);
+    font-size: 1.24rem;
+    line-height: 1.15;
+  }
+
+  .module p {
+    margin: 0;
+    color: rgba(31, 31, 31, 0.68);
+    line-height: 1.6;
+  }
+
+  .module b {
+    align-self: end;
+    color: var(--color-cian);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+  }
+
+  .summary {
+    position: sticky;
+    top: 98px;
+    display: grid;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid rgba(199, 169, 122, 0.35);
+    border-radius: 8px;
+    background: var(--color-carvao);
+    color: var(--color-pedra);
+  }
+
+  .summary-label,
+  .price-box span {
+    margin: 0 0 10px;
+    color: var(--color-champagne);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  ul {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding-left: 18px;
+    color: rgba(233, 228, 218, 0.76);
+  }
+
+  .price-box {
+    padding-top: 16px;
+    border-top: 1px solid rgba(199, 169, 122, 0.24);
+  }
+
+  .price-box strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1;
+  }
+
+  .price-box small {
+    display: block;
+    margin-top: 10px;
+    color: rgba(233, 228, 218, 0.62);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 980px) {
+    .simulator {
+      grid-template-columns: 1fr;
+    }
+
+    .summary {
+      position: static;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .modules {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

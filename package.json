@@ -1,0 +1,22 @@
+{
+  "name": "site-raevo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node tests/site-structure.test.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.6",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.16.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

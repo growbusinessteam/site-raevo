@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTA from "../../components/CTA.astro";
+---
+
+<BaseLayout title="Sistemas inteligentes" description="Sistemas sob medida para transformar conhecimento em fluxo de trabalho.">
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Sistemas inteligentes</p>
+        <h1 class="section-title">Sistemas que organizam o crescimento.</h1>
+      </div>
+      <div class="text-stack">
+        <p>
+          Desenvolvemos portais, plataformas internas e integracoes que reune
+          informacao, processo e decisao em uma experiencia unica.
+        </p>
+        <p>
+          Cada sistema nasce do desenho operacional: ele precisa ser usado,
+          medido e melhorado com o negocio.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section section-dark">
+    <div class="container grid three">
+      <article class="panel"><h2>Portais</h2><p>Ambientes digitais para clientes, equipes, parceiros e operacoes internas.</p></article>
+      <article class="panel"><h2>Integracoes</h2><p>Camadas que conectam ferramentas e eliminam transferencias manuais.</p></article>
+      <article class="panel"><h2>Produtos</h2><p>Aplicacoes sob medida para novos servicos, modelos comerciais e escala.</p></article>
+    </div>
+  </section>
+  <CTA title="Desenhe um sistema para o seu jeito de crescer." />
+</BaseLayout>
+
+<style>
+  .panel {
+    padding: 28px;
+  }
+
+  h2 {
+    margin: 0 0 16px;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  .panel p {
+    margin: 0;
+    color: rgba(233, 228, 218, 0.72);
+    line-height: 1.7;
+  }
+</style>

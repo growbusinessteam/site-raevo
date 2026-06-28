@@ -1,0 +1,834 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PlanSimulator from "../components/PlanSimulator.astro";
+---
+
+<BaseLayout
+  title="Raevo | Faça o paciente ver além do preço"
+  description="Implementação Comercial e Crescimento Previsível para clínicas high-ticket que querem parar de disputar preço e vender valor antes do orçamento."
+>
+  <section class="lp-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Clínicas high-ticket</p>
+        <h1>Faça o paciente ver além do preço.</h1>
+        <p class="hero-lead">
+          A Raevo ajuda clínicas high-ticket a conectarem marketing, atendimento,
+          CRM e dados para atrair pacientes com mais perfil, construir valor antes
+          da venda e crescer com mais previsibilidade.
+        </p>
+        <p class="hero-support">
+          Se sua clínica vende tratamentos de alto valor, o problema não é apenas
+          gerar mais leads. É fazer o paciente certo entender por que você vale
+          mais antes de comparar orçamento.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#simulador">Simular meu plano</a>
+          <a class="button secondary" href="#implementacao">Ver implementação comercial</a>
+        </div>
+        <small>Preços visíveis. Sem surpresa em reunião. Você entende a estrutura antes de falar com a nossa equipe.</small>
+      </div>
+
+      <div class="hero-system" aria-label="Fluxo comercial Raevo">
+        <img src="/assets/brand/raevo-logo-champagne-cyan.png" alt="" />
+        <ol>
+          <li>Lead</li>
+          <li>Atendimento</li>
+          <li>CRM</li>
+          <li>Follow-up</li>
+          <li>Paciente</li>
+        </ol>
+        <div class="hero-warning">Tratamento premium não pode ser vendido como orçamento comum.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problema" class="section pain-section">
+    <div class="container">
+      <div class="split">
+        <div>
+          <p class="eyebrow">O problema</p>
+          <h2 class="section-title">Você não estudou anos para virar comparação de preço no WhatsApp.</h2>
+        </div>
+        <div class="text-stack">
+          <p>Você investiu em formação, estrutura, equipe, tecnologia, reputação e experiência.</p>
+          <p>
+            Mas quando o paciente chega sem entender valor, toda essa construção
+            pode ser reduzida a uma pergunta: <strong>"Quanto custa?"</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="symptom-grid">
+        <article><strong>WhatsApp cheio de curioso</strong><span>Muitas mensagens, pouca intenção real de compra.</span></article>
+        <article><strong>Paciente comparando orçamento</strong><span>A decisão fica presa no preço antes do valor ser entendido.</span></article>
+        <article><strong>Agência comemorando lead</strong><span>Mas ninguém sabe quantos viraram consulta, venda ou retorno.</span></article>
+        <article><strong>Secretária sem roteiro comercial</strong><span>O atendimento responde, mas não conduz.</span></article>
+        <article><strong>Médico sem clareza para investir</strong><span>Mais tráfego? Trocar agencia? Baixar preço? Ninguém sabe.</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark enemies-section">
+    <div class="container">
+      <p class="eyebrow">Mapa dos inimigos</p>
+      <h2 class="section-title">O problema não é só o paciente perguntar preço.</h2>
+      <p class="lead">
+        O problema é a sua clínica chegar até essa conversa sem ter construído
+        valor antes.
+      </p>
+
+      <div class="enemy-grid">
+        <article><span>01</span><h3>Paciente que só quer preço</h3><p>Ele ainda não entendeu a diferença entre preço, segurança, técnica, experiência e resultado.</p></article>
+        <article><span>02</span><h3>Concorrente barato</h3><p>Quando o paciente não entende diferença, escolhe pelo menor preço.</p></article>
+        <article><span>03</span><h3>Agência barata que entrega curioso</h3><p>Lead não é resultado. Lead e só o começo da conversa.</p></article>
+        <article><span>04</span><h3>Atendimento que responde preço</h3><p>Quando a clínica responde como orçamento, perde autoridade antes da consulta.</p></article>
+        <article><span>05</span><h3>Médico perdido no escuro comercial</h3><p>Sem CRM, dados e processo, qualquer decisão vira aposta.</p></article>
+      </div>
+
+      <div class="quote-line">O inimigo não é o preço. É o paciente não enxergar valor antes de comparar.</div>
+    </div>
+  </section>
+
+  <section class="section turn-section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">A virada</p>
+        <h2 class="section-title">Mais leads não resolvem uma clínica que ainda vende valor como preço.</h2>
+      </div>
+      <div class="text-stack">
+        <p>
+          Se sua clínica atrai mais pessoas, mas elas chegam sem perfil, sem
+          educação e sem percepção de valor, o volume só aumenta o problema.
+        </p>
+        <p>
+          Antes de colocar mais dinheiro em tráfego, sua clínica precisa saber
+          se atrai o paciente certo, se o atendimento conduz, se existe CRM e
+          onde as vendas estão vazando.
+        </p>
+        <strong class="impact">Não adianta aumentar a torneira se o comercial continua vazando valor.</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="section system-section">
+    <div class="container">
+      <p class="eyebrow">Sistema Raevo</p>
+      <h2 class="section-title">A Raevo ajuda sua clínica a construir valor antes da venda.</h2>
+      <p class="lead">
+        Sua clínica já tem valor. O que falta, muitas vezes, é fazer esse valor
+        aparecer no anúncio, na página, no WhatsApp, no CRM, no follow-up e nos dados.
+      </p>
+      <div class="pillar-grid">
+        <article><span>01</span><h3>Posicionamento</h3><p>Comunicação para não transformar tratamento premium em commodity.</p></article>
+        <article><span>02</span><h3>Captação</h3><p>Campanhas e canais pensados para atrair pacientes com mais perfil.</p></article>
+        <article><span>03</span><h3>Atendimento</h3><p>Scripts, condução, qualificação e respostas que constroem valor.</p></article>
+        <article><span>04</span><h3>CRM</h3><p>Funil, histórico, etapas, tarefas, follow-up e visibilidade comercial.</p></article>
+        <article><span>05</span><h3>Automação e IA</h3><p>Inteligência aplicada para reduzir esquecimentos e apoiar a equipe.</p></article>
+        <article><span>06</span><h3>Dados</h3><p>Dashboards para entender onde investir, corrigir e crescer.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="precos" class="section paths-section">
+    <div class="container">
+      <p class="eyebrow">Dois caminhos</p>
+      <h2 class="section-title">Escolha o caminho certo para o momento da sua clínica.</h2>
+      <div class="path-grid">
+        <article id="implementacao" class="path-card">
+          <p class="eyebrow">Organizar antes de acelerar</p>
+          <h3>Implementação Comercial</h3>
+          <strong>A partir de €1.997</strong>
+          <p>Para clínicas que precisam organizar atendimento, CRM, follow-up e processo comercial antes de acelerar.</p>
+          <ul>
+            <li>Briefing comercial e mapa da operação</li>
+            <li>Setup do CRM, funil e automações essenciais</li>
+            <li>Scripts de atendimento e objeções</li>
+            <li>Dashboard básico e treinamento da equipe</li>
+            <li>Até 4 encontros de acompanhamento</li>
+          </ul>
+          <a class="button" href="/contato">Quero implementar meu comercial</a>
+        </article>
+
+        <article id="crescimento" class="path-card featured">
+          <p class="eyebrow">Crescer com direção</p>
+          <h3>Crescimento Previsível</h3>
+          <strong>A partir de €400/mês</strong>
+          <p>Para clínicas que querem atrair pacientes com mais perfil, acompanhar o comercial e investir com mais clareza.</p>
+          <ul>
+            <li>Acompanhamento estratégico</li>
+            <li>Tráfego, conteúdo, landing pages e reativação</li>
+            <li>CRM, IA, automações e dashboards</li>
+            <li>Plano modular conforme a necessidade da clínica</li>
+          </ul>
+          <a class="button" href="#simulador">Simular meu plano de crescimento</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section implementation-detail">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Implementação Comercial</p>
+        <h2 class="section-title">Organize antes de acelerar.</h2>
+        <p class="lead">
+          A Implementação Comercial estrutura CRM, atendimento, follow-up,
+          scripts, automações e indicadores para que sua equipe saiba o que
+          fazer com cada lead.
+        </p>
+      </div>
+      <div class="steps-list">
+        <article><span>Etapa 1</span><h3>Briefing Comercial</h3><p>Entendemos tratamentos, canais, equipe, gargalos e perfil ideal de paciente.</p></article>
+        <article><span>Etapa 2</span><h3>Mapa da Operação</h3><p>Desenhamos jornada, funil, qualificação, perdas, follow-up e indicadores.</p></article>
+        <article><span>Etapa 3</span><h3>Setup do CRM</h3><p>Configuramos funis, etapas, campos, tags, tarefas, scripts e dashboard básico.</p></article>
+        <article><span>Etapa 4</span><h3>Acompanhamento</h3><p>Até 4 encontros para ajustar uso, tirar dúvidas e reforçar treinamento.</p></article>
+      </div>
+    </div>
+    <div class="container investment-strip">
+      <strong>A partir de €1.997</strong>
+      <span>Prazo estimado de até 90 dias. Valor pode variar por unidades, funis, canais, integrações, IA ou personalização.</span>
+    </div>
+  </section>
+
+  <PlanSimulator />
+
+  <section class="section compare-section">
+    <div class="container">
+      <p class="eyebrow">Comparativo</p>
+      <h2 class="section-title">A Raevo não é uma agência que só entrega lead.</h2>
+      <p class="lead">Lead é só o começo. O que importa é o que acontece depois que ele entra.</p>
+      <div class="compare-grid">
+        <article>
+          <h3>Agência tradicional</h3>
+          <ul>
+            <li>Foca em clique e lead</li>
+            <li>Mede custo por lead</li>
+            <li>Entrega campanha solta</li>
+            <li>Não acompanha atendimento</li>
+            <li>Não sabe se virou consulta</li>
+            <li>Não olha CRM</li>
+          </ul>
+        </article>
+        <article class="raevo-col">
+          <h3>Raevo</h3>
+          <ul>
+            <li>Conecta marketing e comercial</li>
+            <li>Olha perfil do paciente</li>
+            <li>Acompanha o caminho até a venda</li>
+            <li>Estrutura CRM e follow-up</li>
+            <li>Melhora atendimento</li>
+            <li>Usa dados para decisão</li>
+          </ul>
+        </article>
+      </div>
+      <div class="quote-line dark">Agência comum entrega movimento. A Raevo ajuda a construir direção.</div>
+    </div>
+  </section>
+
+  <section class="section fit-section">
+    <div class="container">
+      <p class="eyebrow">Qualificação</p>
+      <h2 class="section-title">Essa solução é para clínicas que querem crescer sem virar reféns de lead ruim.</h2>
+      <div class="fit-grid">
+        <article>
+          <h3>Para quem é</h3>
+          <ul>
+            <li>Clínicas que vendem tratamentos de maior valor</li>
+            <li>Querem parar de disputar preço</li>
+            <li>Recebem leads, mensagens ou oportunidades</li>
+            <li>Querem organizar CRM e follow-up</li>
+            <li>Valorizam processo, dados e acompanhamento</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Para quem não é</h3>
+          <ul>
+            <li>Quem quer apenas posts bonitos</li>
+            <li>Quem busca milagre sem participar do processo</li>
+            <li>Quem quer só lead barato</li>
+            <li>Quem não quer usar CRM</li>
+            <li>Quem acredita que baixar preço é a única saída</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark simple-path">
+    <div class="container">
+      <p class="eyebrow">Como começamos</p>
+      <h2 class="section-title">Um caminho simples, sem reunião confusa.</h2>
+      <div class="simple-grid">
+        <article><span>01</span><h3>Escolha o caminho</h3><p>Veja se sua clínica precisa de Implementação Comercial ou Crescimento Previsível.</p></article>
+        <article><span>02</span><h3>Simule ou fale com a Raevo</h3><p>Você entende a estrutura e o investimento antes da conversa.</p></article>
+        <article><span>03</span><h3>Organize, acompanhe e cresça</h3><p>Conectamos marketing, atendimento, CRM e dados para construir valor antes da venda.</p></article>
+      </div>
+      <a class="button" href="#simulador">Quero começar</a>
+    </div>
+  </section>
+
+  <section class="section authority-section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Autoridade</p>
+        <h2 class="section-title">Crescimento high-ticket exige mais do que anúncio.</h2>
+      </div>
+      <div class="authority-card">
+        Estruturamos operações comerciais para clínicas que precisam vender com
+        mais valor, clareza e previsibilidade, sem depender apenas de lead barato
+        ou de atendimento improvisado.
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section faq-section">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <div class="faq-list">
+        <details open><summary>Vocês garantem aumento de faturamento?</summary><p>Não. Estruturamos marketing, atendimento, CRM, follow-up e dados para melhorar clareza, controle e capacidade de crescimento.</p></details>
+        <details><summary>Preciso já ter CRM?</summary><p>Não. Se a clínica ainda não tem CRM, o caminho ideal costuma ser a Implementação Comercial.</p></details>
+        <details><summary>A mensalidade do CRM está incluída?</summary><p>Não. A mensalidade da ferramenta CRM é paga diretamente à plataforma ou conforme a contratação definida.</p></details>
+        <details><summary>Posso contratar só tráfego?</summary><p>Depende. Evitamos jogar mais leads em uma operação que ainda não está pronta para converter.</p></details>
+        <details><summary>Vocês fazem conteúdo?</summary><p>Sim. No Crescimento Previsível, a clínica pode contratar planejamento, produção de criativos ou ambos.</p></details>
+        <details><summary>Vocês implementam IA no atendimento?</summary><p>Sim, quando faz sentido para a operação e existe processo comercial claro.</p></details>
+        <details><summary>Quanto custa?</summary><p>A Implementação Comercial começa a partir de €1.997. O Crescimento Previsível começa a partir de €400/mês.</p></details>
+        <details><summary>Por que vocês mostram preço?</summary><p>Porque clínicas sérias não querem perder tempo em reuniões para descobrir se algo está fora da realidade.</p></details>
+        <details><summary>Em quanto tempo a implementação acontece?</summary><p>O prazo estimado é de até 90 dias, dependendo da complexidade da clínica, velocidade de envio das informações e validações.</p></details>
+        <details><summary>Isso serve para qualquer clínica?</summary><p>É mais indicado para clínicas que vendem serviços de maior valor e precisam melhorar percepção de valor, atendimento, CRM, follow-up e previsibilidade comercial.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-grid">
+      <div>
+        <p class="eyebrow">Próximo passo</p>
+        <h2>Pare de vender tratamento premium como orçamento comum.</h2>
+        <p>
+          Sua clínica não precisa disputar preço com quem não entrega o mesmo valor.
+          Ela precisa de processo para atrair o paciente certo, construir percepção
+          de valor, qualificar melhor e investir com mais clareza.
+        </p>
+        <strong>Faça o paciente ver além do preço.</strong>
+        <div>
+          <a class="button" href="#simulador">Simular meu plano</a>
+          <a class="button secondary" href="/contato">Falar com a Raevo</a>
+        </div>
+        <small>Preços visíveis. Conversa objetiva. Plano ajustado ao momento da sua clínica.</small>
+      </div>
+      <form class="contact-form" action="mailto:contato@raevo.com.br" method="post" enctype="text/plain">
+        <label>Nome<input name="nome" required /></label>
+        <label>Clínica<input name="clinica" required /></label>
+        <label>WhatsApp<input name="whatsapp" required /></label>
+        <label>Cidade/país<input name="cidade_pais" /></label>
+        <label>Especialidade<input name="especialidade" /></label>
+        <label>Faturamento mensal aproximado<input name="faturamento_mensal" /></label>
+        <label>Você já investe em marketing?
+          <select name="investe_marketing">
+            <option>Sim</option>
+            <option>Não</option>
+            <option>Estou retomando agora</option>
+          </select>
+        </label>
+        <label>Você já usa CRM?
+          <select name="usa_crm">
+            <option>Sim</option>
+            <option>Não</option>
+            <option>Uso, mas está desorganizado</option>
+          </select>
+        </label>
+        <label>Maior problema hoje
+          <select name="maior_problema">
+            <option>Muitos leads sem perfil</option>
+            <option>Paciente só pergunta preço</option>
+            <option>Atendimento desorganizado</option>
+            <option>Falta de follow-up</option>
+            <option>Não sei onde estou perdendo vendas</option>
+            <option>Quero crescer com mais previsibilidade</option>
+          </select>
+        </label>
+        <label>Plano de interesse
+          <select name="plano">
+            <option>Implementação Comercial</option>
+            <option>Crescimento Previsível</option>
+            <option>Ainda não sei</option>
+          </select>
+        </label>
+        <p class="form-note">
+          Recebemos suas informações para entender se sua clínica precisa primeiro
+          organizar o comercial, acelerar o crescimento ou fazer os dois em sequência.
+        </p>
+        <button class="button" type="submit">Enviar informações</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lp-hero {
+    min-height: calc(100vh - 88px);
+    padding: clamp(60px, 8vw, 108px) 0 64px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.72fr);
+    gap: clamp(36px, 7vw, 92px);
+    align-items: center;
+  }
+
+  h1 {
+    max-width: 900px;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(3.8rem, 10vw, 9.4rem);
+    font-weight: 500;
+    line-height: 0.9;
+  }
+
+  .hero-lead {
+    max-width: 720px;
+    margin: 30px 0 0;
+    font-size: clamp(1.12rem, 1.7vw, 1.35rem);
+    line-height: 1.7;
+  }
+
+  .hero-support,
+  .hero-copy small {
+    display: block;
+    max-width: 660px;
+    color: rgba(31, 31, 31, 0.68);
+    line-height: 1.7;
+  }
+
+  .hero-support {
+    margin: 18px 0 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 34px 0 14px;
+  }
+
+  .hero-system {
+    display: grid;
+    gap: 28px;
+    min-height: 560px;
+    padding: 30px;
+    border: 1px solid rgba(199, 169, 122, 0.36);
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(31, 31, 31, 0.95), rgba(31, 31, 31, 0.78)),
+      url("/assets/brand/raevo-brandboard.png") center / cover;
+    color: var(--color-pedra);
+  }
+
+  .hero-system img {
+    width: 210px;
+  }
+
+  .hero-system ol {
+    display: grid;
+    gap: 14px;
+    margin: auto 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero-system li {
+    position: relative;
+    padding: 14px 16px;
+    border: 1px solid rgba(199, 169, 122, 0.28);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 800;
+  }
+
+  .hero-system li::after {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 42px;
+    height: 2px;
+    background: var(--color-cian);
+    content: "";
+  }
+
+  .hero-warning {
+    padding: 18px;
+    border-left: 4px solid var(--color-cian);
+    background: rgba(0, 184, 198, 0.08);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.35;
+  }
+
+  .pain-section {
+    background: rgba(220, 207, 190, 0.42);
+  }
+
+  .text-stack strong {
+    color: var(--color-carvao);
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+  }
+
+  .symptom-grid,
+  .enemy-grid,
+  .pillar-grid,
+  .path-grid,
+  .compare-grid,
+  .fit-grid,
+  .simple-grid {
+    display: grid;
+    gap: 18px;
+    margin-top: 48px;
+  }
+
+  .symptom-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .symptom-grid article,
+  .enemy-grid article,
+  .pillar-grid article,
+  .path-card,
+  .compare-grid article,
+  .fit-grid article,
+  .simple-grid article,
+  .authority-card,
+  .faq-list details {
+    border: 1px solid rgba(184, 171, 152, 0.56);
+    border-radius: 8px;
+    background: rgba(233, 228, 218, 0.76);
+  }
+
+  .symptom-grid article {
+    display: grid;
+    gap: 12px;
+    min-height: 190px;
+    padding: 20px;
+  }
+
+  .symptom-grid strong,
+  .enemy-grid h3,
+  .pillar-grid h3,
+  .path-card h3,
+  .compare-grid h3,
+  .fit-grid h3,
+  .simple-grid h3,
+  .steps-list h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.15;
+  }
+
+  .symptom-grid span {
+    color: rgba(31, 31, 31, 0.66);
+    line-height: 1.55;
+  }
+
+  .enemy-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .enemy-grid article,
+  .simple-grid article {
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .enemy-grid span,
+  .pillar-grid span,
+  .simple-grid span,
+  .steps-list span {
+    color: var(--color-cian);
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+
+  .enemy-grid p,
+  .simple-grid p {
+    color: rgba(233, 228, 218, 0.7);
+    line-height: 1.65;
+  }
+
+  .quote-line {
+    margin-top: 34px;
+    padding: 22px;
+    border: 1px solid rgba(0, 184, 198, 0.32);
+    border-radius: 8px;
+    color: var(--color-pedra);
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 2.2rem);
+  }
+
+  .quote-line.dark {
+    color: var(--color-carvao);
+  }
+
+  .impact {
+    display: block;
+    padding-top: 20px;
+    border-top: 1px solid rgba(184, 171, 152, 0.56);
+    color: var(--color-cian);
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .system-section {
+    background: var(--color-carvao);
+    color: var(--color-pedra);
+  }
+
+  .pillar-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pillar-grid article {
+    min-height: 230px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .pillar-grid p,
+  .path-card p,
+  .compare-grid li,
+  .fit-grid li,
+  .steps-list p,
+  .faq-list p,
+  .final-cta p {
+    color: rgba(31, 31, 31, 0.7);
+    line-height: 1.65;
+  }
+
+  .system-section .pillar-grid p {
+    color: rgba(233, 228, 218, 0.7);
+  }
+
+  .path-grid,
+  .compare-grid,
+  .fit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .path-card {
+    display: grid;
+    gap: 18px;
+    padding: 30px;
+  }
+
+  .path-card.featured {
+    background: var(--color-carvao);
+    color: var(--color-pedra);
+  }
+
+  .path-card h3 {
+    font-size: clamp(2rem, 4vw, 4rem);
+  }
+
+  .path-card strong {
+    color: var(--color-cian);
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+  }
+
+  .path-card.featured p,
+  .path-card.featured li {
+    color: rgba(233, 228, 218, 0.72);
+  }
+
+  .path-card ul,
+  .compare-grid ul,
+  .fit-grid ul {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .steps-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .steps-list article {
+    padding: 22px 0;
+    border-top: 1px solid rgba(184, 171, 152, 0.56);
+  }
+
+  .investment-strip {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: center;
+    margin-top: 48px;
+    padding: 24px;
+    border: 1px solid rgba(199, 169, 122, 0.5);
+    border-radius: 8px;
+  }
+
+  .investment-strip strong {
+    color: var(--color-cian);
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 3rem);
+  }
+
+  .compare-section {
+    background: rgba(220, 207, 190, 0.5);
+  }
+
+  .compare-grid article,
+  .fit-grid article,
+  .authority-card {
+    padding: 28px;
+  }
+
+  .raevo-col {
+    border-color: rgba(0, 184, 198, 0.44) !important;
+  }
+
+  .simple-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .simple-path .button {
+    margin-top: 34px;
+  }
+
+  .authority-card {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.6rem);
+    line-height: 1.2;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 42px;
+  }
+
+  .faq-list details {
+    padding: 22px;
+  }
+
+  .faq-list summary {
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+  }
+
+  .final-cta {
+    background: var(--color-carvao);
+    color: var(--color-pedra);
+  }
+
+  .final-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+    gap: clamp(32px, 7vw, 82px);
+    align-items: start;
+  }
+
+  .final-cta h2 {
+    max-width: 760px;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 500;
+    line-height: 0.92;
+  }
+
+  .final-cta p {
+    max-width: 680px;
+    color: rgba(233, 228, 218, 0.72);
+  }
+
+  .final-cta strong {
+    display: block;
+    margin: 24px 0;
+    color: var(--color-cian);
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3.8rem);
+  }
+
+  .final-cta small {
+    display: block;
+    margin-top: 14px;
+    color: rgba(233, 228, 218, 0.58);
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 14px;
+    padding: 24px;
+    border: 1px solid rgba(199, 169, 122, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .contact-form label {
+    display: grid;
+    gap: 8px;
+    color: rgba(233, 228, 218, 0.75);
+    font-weight: 700;
+  }
+
+  .contact-form input,
+  .contact-form select {
+    min-height: 44px;
+    border: 1px solid rgba(199, 169, 122, 0.34);
+    border-radius: 6px;
+    background: rgba(31, 31, 31, 0.45);
+    color: var(--color-pedra);
+    padding: 10px 12px;
+  }
+
+  .contact-form select option {
+    color: var(--color-carvao);
+  }
+
+  .form-note {
+    margin: 0;
+    color: rgba(233, 228, 218, 0.62);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 1080px) {
+    .symptom-grid,
+    .enemy-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 880px) {
+    .hero-grid,
+    .pillar-grid,
+    .path-grid,
+    .compare-grid,
+    .fit-grid,
+    .simple-grid,
+    .final-grid,
+    .investment-strip {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-system {
+      min-height: 420px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .symptom-grid,
+    .enemy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

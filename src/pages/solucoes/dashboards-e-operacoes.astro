@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTA from "../../components/CTA.astro";
+---
+
+<BaseLayout title="Dashboards e operacoes" description="Dashboards e indicadores para liderar com clareza operacional.">
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Dashboards e operacoes</p>
+        <h1 class="section-title">Indicadores que aproximam decisao e acao.</h1>
+      </div>
+      <div class="text-stack">
+        <p>
+          Criamos paineis executivos e operacionais que mostram desempenho,
+          eficiencia, receita, funil, clientes e alertas em uma leitura clara.
+        </p>
+        <p>
+          O objetivo nao e colecionar graficos. E tornar visivel o que precisa
+          mudar, sustentar ou acelerar.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section section-dark">
+    <div class="container grid three">
+      <article class="panel"><h2>KPIs</h2><p>Definicao dos indicadores que realmente orientam a tomada de decisao.</p></article>
+      <article class="panel"><h2>Dados</h2><p>Consolidacao de fontes dispersas em uma camada confiavel de leitura.</p></article>
+      <article class="panel"><h2>Ritual</h2><p>Rotinas de acompanhamento para transformar painel em acao recorrente.</p></article>
+    </div>
+  </section>
+  <CTA title="Veja a operacao com mais nitidez." />
+</BaseLayout>
+
+<style>
+  .panel {
+    padding: 28px;
+  }
+
+  h2 {
+    margin: 0 0 16px;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  .panel p {
+    margin: 0;
+    color: rgba(233, 228, 218, 0.72);
+    line-height: 1.7;
+  }
+</style>

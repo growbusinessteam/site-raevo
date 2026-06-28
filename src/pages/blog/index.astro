@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostList from "../../components/PostList.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog" description="Ideias da Raevo sobre IA, automacao, sistemas e operacoes inteligentes.">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Blog Raevo</p>
+      <h1 class="section-title">Notas sobre sistemas, estrategia e crescimento.</h1>
+      <p class="lead">
+        Conteudo para lideres que querem transformar operacao em vantagem.
+      </p>
+      <div class="posts">
+        <PostList posts={posts} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .posts {
+    margin-top: 54px;
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+import { navItems } from "../data/site";
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="/assets/brand/raevo-logo-stone-cyan.png" alt="Raevo" />
+      <p>Visao para evoluir. Sistemas para crescer.</p>
+    </div>
+    <nav aria-label="Rodape">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a href="/privacidade">Privacidade</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 48px 0;
+    border-top: 1px solid rgba(184, 171, 152, 0.42);
+    background: var(--color-carvao);
+    color: var(--color-pedra);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+
+  img {
+    width: 156px;
+    height: auto;
+    margin-bottom: 18px;
+  }
+
+  p {
+    margin: 0;
+    color: rgba(233, 228, 218, 0.68);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  a {
+    color: rgba(233, 228, 218, 0.76);
+    font-weight: 700;
+  }
+
+  @media (max-width: 700px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

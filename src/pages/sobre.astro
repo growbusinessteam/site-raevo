@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<BaseLayout title="Sobre" description="Conheca o posicionamento da Raevo.">
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Sobre a Raevo</p>
+        <h1 class="section-title">Uma parceira para transformar visao em sistemas.</h1>
+      </div>
+      <div class="text-stack">
+        <p>
+          A Raevo nasceu para empresas que sentem o peso de processos dispersos,
+          dados subutilizados e crescimento sem arquitetura.
+        </p>
+        <p>
+          Nosso trabalho e dar forma ao invisivel: fluxos, indicadores, decisoes
+          e automacoes que fazem a operacao evoluir com consistencia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container method">
+      <p class="eyebrow">Metodo</p>
+      <h2 class="section-title">Diagnosticar, desenhar, implementar e evoluir.</h2>
+      <div class="grid three">
+        <article class="panel">
+          <h3>Clareza</h3>
+          <p>Mapeamos objetivos, gargalos e dados decisivos antes de propor tecnologia.</p>
+        </article>
+        <article class="panel">
+          <h3>Arquitetura</h3>
+          <p>Desenhamos sistemas, integracoes e automacoes com prioridade de impacto.</p>
+        </article>
+        <article class="panel">
+          <h3>Evolucao</h3>
+          <p>Medimos resultados e refinamos o sistema conforme o negocio amadurece.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CTA title="Construa uma operacao mais inteligente." />
+</BaseLayout>
+
+<style>
+  .method .grid {
+    margin-top: 42px;
+  }
+
+  .panel {
+    padding: 28px;
+  }
+
+  h3 {
+    margin: 0 0 18px;
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+  }
+
+  .panel p {
+    margin: 0;
+    color: rgba(233, 228, 218, 0.72);
+    line-height: 1.7;
+  }
+</style>

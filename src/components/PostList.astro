@@ -1,0 +1,73 @@
+---
+interface Post {
+  slug: string;
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    category: string;
+  };
+}
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="post-list">
+  {
+    posts.map((post) => (
+      <article>
+        <p>{post.data.category}</p>
+        <h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
+        <span>{post.data.description}</span>
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+          })}
+        </time>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .post-list {
+    display: grid;
+    gap: 18px;
+  }
+
+  article {
+    display: grid;
+    gap: 14px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(184, 171, 152, 0.58);
+  }
+
+  p,
+  time {
+    margin: 0;
+    color: rgba(31, 31, 31, 0.58);
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    max-width: 820px;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3.4rem);
+    font-weight: 500;
+    line-height: 1.05;
+  }
+
+  span {
+    max-width: 680px;
+    color: rgba(31, 31, 31, 0.72);
+    line-height: 1.7;
+  }
+</style>

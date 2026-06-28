@@ -1,0 +1,61 @@
+---
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+
+const {
+  title = "Transforme clareza em sistema.",
+  text = "Converse com a Raevo para mapear onde IA, automacao e dados podem destravar crescimento com consistencia.",
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="container cta-inner">
+    <div>
+      <p class="eyebrow">Proximo passo</p>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <a class="button" href={site.ctaHref}>{site.ctaLabel}</a>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    padding: 72px 0;
+    background: var(--color-carvao);
+    color: var(--color-pedra);
+  }
+
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: end;
+  }
+
+  h2 {
+    max-width: 760px;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 5rem);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  p:not(.eyebrow) {
+    max-width: 620px;
+    margin: 20px 0 0;
+    color: rgba(233, 228, 218, 0.72);
+    line-height: 1.75;
+  }
+
+  @media (max-width: 720px) {
+    .cta-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTA from "../../components/CTA.astro";
+---
+
+<BaseLayout title="IA e automacao" description="Automacoes inteligentes para reduzir atrito operacional e conectar decisoes.">
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">IA e automacao</p>
+        <h1 class="section-title">Automacoes que removem atrito e ampliam capacidade.</h1>
+      </div>
+      <div class="text-stack">
+        <p>
+          Criamos fluxos com IA para qualificar informacoes, acelerar tarefas
+          repetitivas e conectar ferramentas que hoje funcionam em silos.
+        </p>
+        <p>
+          A prioridade e gerar ganho operacional real: menos retrabalho, menos
+          espera e mais clareza sobre o que precisa de decisao humana.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section section-dark">
+    <div class="container grid three">
+      <article class="panel"><h2>Mapeamento</h2><p>Identificacao de rotinas, ferramentas, dados e decisores envolvidos.</p></article>
+      <article class="panel"><h2>Orquestracao</h2><p>Conexao entre IA, sistemas internos, CRM, planilhas e canais comerciais.</p></article>
+      <article class="panel"><h2>Controle</h2><p>Monitoramento de execucao, qualidade e impacto para evolucao continua.</p></article>
+    </div>
+  </section>
+  <CTA title="Leve IA para dentro da operacao." />
+</BaseLayout>
+
+<style>
+  .panel {
+    padding: 28px;
+  }
+
+  h2 {
+    margin: 0 0 16px;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  .panel p {
+    margin: 0;
+    color: rgba(233, 228, 218, 0.72);
+    line-height: 1.7;
+  }
+</style>

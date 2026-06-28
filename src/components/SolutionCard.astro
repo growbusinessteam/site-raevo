@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  eyebrow: string;
+  description: string;
+  href: string;
+}
+
+const { title, eyebrow, description, href } = Astro.props;
+---
+
+<article class="solution-card">
+  <p>{eyebrow}</p>
+  <h3>{title}</h3>
+  <div class="line"></div>
+  <span>{description}</span>
+  <a href={href} aria-label={`Conhecer ${title}`}>Conhecer</a>
+</article>
+
+<style>
+  .solution-card {
+    display: grid;
+    min-height: 310px;
+    padding: 28px;
+    border: 1px solid rgba(184, 171, 152, 0.55);
+    border-radius: 8px;
+    background: rgba(233, 228, 218, 0.76);
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-champagne);
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin: 24px 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+    font-weight: 500;
+    line-height: 1.05;
+  }
+
+  .line {
+    width: 42px;
+    height: 4px;
+    margin: 28px 0;
+    background: var(--color-cian);
+  }
+
+  span {
+    color: rgba(31, 31, 31, 0.7);
+    line-height: 1.7;
+  }
+
+  a {
+    align-self: end;
+    margin-top: 28px;
+    font-weight: 800;
+    color: #007d88;
+  }
+</style>

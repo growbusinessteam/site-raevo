@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTA from "../../components/CTA.astro";
+import SolutionCard from "../../components/SolutionCard.astro";
+import { solutions } from "../../data/site";
+---
+
+<BaseLayout title="Solucoes" description="IA, automacao, sistemas inteligentes e dashboards para empresas em transformacao.">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Solucoes Raevo</p>
+      <h1 class="section-title">Tecnologia aplicada onde o crescimento precisa de estrutura.</h1>
+      <p class="lead">
+        Unimos estrategia, dados e implementacao para transformar operacoes
+        complexas em sistemas claros, mensuraveis e escalaveis.
+      </p>
+      <div class="grid three solutions-grid">
+        {solutions.map((solution) => <SolutionCard {...solution} />)}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>
+
+<style>
+  .solutions-grid {
+    margin-top: 48px;
+  }
+</style>

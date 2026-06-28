@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contato" description="Fale com a Raevo para mapear IA, automacao e sistemas inteligentes.">
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Contato</p>
+        <h1 class="section-title">Falar com especialista.</h1>
+        <p class="lead">
+          Conte onde sua operacao precisa ganhar clareza. A Raevo responde com
+          um caminho inicial de diagnostico e proximos passos.
+        </p>
+      </div>
+      <form class="panel" action="mailto:contato@raevo.com.br" method="post" enctype="text/plain">
+        <label>
+          Nome
+          <input name="nome" type="text" autocomplete="name" required />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+        <label>
+          Empresa
+          <input name="empresa" type="text" autocomplete="organization" />
+        </label>
+        <label>
+          Mensagem
+          <textarea name="mensagem" rows="5" required></textarea>
+        </label>
+        <button class="button" type="submit">Falar com especialista</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  form {
+    display: grid;
+    gap: 18px;
+    padding: 28px;
+  }
+
+  label {
+    display: grid;
+    gap: 8px;
+    color: rgba(31, 31, 31, 0.72);
+    font-weight: 700;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: 1px solid rgba(184, 171, 152, 0.72);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.42);
+    color: var(--color-carvao);
+    padding: 12px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+import { navItems, site } from "../data/site";
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Raevo home">
+    <img src="/assets/brand/raevo-logo-dark-cyan.png" alt="Raevo" width="148" height="148" />
+  </a>
+  <nav aria-label="Principal">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+  <a class="header-cta" href={site.ctaHref}>{site.ctaLabel}</a>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 170px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    width: min(1180px, calc(100vw - 28px));
+    margin: 14px auto 0;
+    padding: 10px 12px;
+    border: 1px solid rgba(184, 171, 152, 0.42);
+    border-radius: 8px;
+    background: rgba(233, 228, 218, 0.86);
+    backdrop-filter: blur(18px);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 36px;
+  }
+
+  .brand img {
+    width: 142px;
+    height: auto;
+    transform: scale(1.26);
+    transform-origin: left center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: clamp(12px, 3vw, 34px);
+  }
+
+  nav a,
+  .header-cta {
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+
+  nav a {
+    color: rgba(31, 31, 31, 0.72);
+  }
+
+  nav a:hover {
+    color: var(--color-carvao);
+  }
+
+  .header-cta {
+    padding: 10px 14px;
+    border: 1px solid rgba(199, 169, 122, 0.75);
+    border-radius: 6px;
+    color: var(--color-carvao);
+  }
+
+  @media (max-width: 760px) {
+    .site-header {
+      grid-template-columns: 1fr auto;
+    }
+
+    nav {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-top: 6px;
+    }
+
+    .header-cta {
+      font-size: 0;
+    }
+
+    .header-cta::after {
+      content: "Simular";
+      font-size: 0.84rem;
+    }
+  }
+</style>
