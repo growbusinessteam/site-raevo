@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAEVO | Consultoria Especializada para Clínicas Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#725b32",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#ede8de",
+                        "inverse-surface": "#32302a",
+                        "on-error-container": "#93000a",
+                        "carvao": "#1F1F1F",
+                        "on-surface": "#1d1c16",
+                        "on-tertiary-fixed": "#002023",
+                        "on-tertiary-container": "#0095a0",
+                        "outline-variant": "#c4c7c7",
+                        "on-background": "#1d1c16",
+                        "primary-container": "#1f1f1f",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container": "#f2ede3",
+                        "surface-container-highest": "#e7e2d8",
+                        "on-secondary-container": "#796138",
+                        "surface-dim": "#dedad0",
+                        "on-secondary-fixed": "#271900",
+                        "caian": "#00B8C6",
+                        "pedra": "#E9E4DA",
+                        "taupe": "#B8AB98",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e7e2d8",
+                        "tertiary-container": "#002327",
+                        "surface-tint": "#5f5e5e",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#87f3ff",
+                        "on-surface-variant": "#444748",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#1b1b1c",
+                        "on-tertiary-fixed-variant": "#004f55",
+                        "primary-fixed": "#e5e2e1",
+                        "primary": "#060607",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#59431d",
+                        "secondary-fixed": "#ffdeab",
+                        "background": "#fef9ee",
+                        "tertiary": "#000709",
+                        "champagne": "#C7A97A",
+                        "areia": "#DCCFBE",
+                        "surface": "#fef9ee",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f8f3e9",
+                        "inverse-on-surface": "#f5f0e6",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#e2c291",
+                        "secondary-container": "#ffdeab",
+                        "tertiary-fixed-dim": "#49d9e7",
+                        "on-primary-container": "#888686",
+                        "outline": "#747878",
+                        "surface-bright": "#fef9ee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-safe": "32px",
+                        "stack-lg": "48px",
+                        "stack-sm": "8px",
+                        "stack-md": "24px",
+                        "section-padding": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-xl-mobile": ["Sora", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Sora", "sans-serif"],
+                        "headline-xl": ["Sora", "sans-serif"],
+                        "headline-sm": ["Sora", "sans-serif"],
+                        "headline-md": ["Sora", "sans-serif"],
+                        "headline-lg": ["Sora", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.7", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.carvao'); }
+        .glass-header {
+            background-color: rgba(233, 228, 218, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .architectural-grid {
+            background-image: 
+                linear-gradient(to right, rgba(184, 171, 152, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(184, 171, 152, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .lead-form-overlay {
+            background:
+                linear-gradient(135deg, rgba(31, 31, 31, 0.98), rgba(50, 48, 42, 0.94)),
+                radial-gradient(circle at 80% 20%, rgba(0, 184, 198, 0.16), transparent 30%);
+        }
+        .lead-form-grid {
+            background-image:
+                linear-gradient(to right, rgba(233, 228, 218, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(233, 228, 218, 0.08) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+        .lead-form-option[aria-pressed="true"],
+        .lead-form-region[aria-pressed="true"] {
+            border-color: #C7A97A;
+            background: rgba(199, 169, 122, 0.14);
+            color: #ffffff;
+        }
+        .lead-form-input {
+            caret-color: #00B8C6;
+        }
+        :root {
+            --raevo-ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --raevo-spring: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .motion-button,
+        .motion-card,
+        .motion-soft-card,
+        .motion-icon {
+            will-change: transform;
+        }
+        .motion-button {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            transition:
+                transform 360ms var(--raevo-spring),
+                box-shadow 360ms var(--raevo-spring),
+                border-color 360ms ease,
+                background-color 360ms ease,
+                color 360ms ease;
+        }
+        .motion-button::before {
+            content: "";
+            position: absolute;
+            inset: -40% auto -40% -55%;
+            width: 42%;
+            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+            transform: skewX(-18deg);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+            transition: transform 720ms var(--raevo-ease), opacity 260ms ease;
+        }
+        .motion-button:hover,
+        .motion-button:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 38px rgba(31, 31, 31, 0.16);
+        }
+        .motion-button:hover::before,
+        .motion-button:focus-visible::before {
+            opacity: 1;
+            transform: translateX(390%) skewX(-18deg);
+        }
+        .motion-card,
+        .motion-soft-card {
+            position: relative;
+            isolation: isolate;
+            transition:
+                transform 440ms var(--raevo-spring),
+                box-shadow 440ms var(--raevo-spring),
+                border-color 360ms ease,
+                background-color 360ms ease,
+                opacity 360ms ease;
+        }
+        .motion-card::after,
+        .motion-soft-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            opacity: 0;
+            background:
+                linear-gradient(135deg, rgba(199, 169, 122, 0.25), transparent 34%),
+                linear-gradient(315deg, rgba(0, 184, 198, 0.16), transparent 30%);
+            transition: opacity 360ms ease;
+            z-index: -1;
+        }
+        .motion-card:hover,
+        .motion-card:focus-within {
+            transform: translateY(-7px);
+            box-shadow: 0 24px 70px rgba(31, 31, 31, 0.16);
+        }
+        .motion-soft-card:hover,
+        .motion-soft-card:focus-within {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 44px rgba(31, 31, 31, 0.12);
+        }
+        .motion-card:hover::after,
+        .motion-soft-card:hover::after,
+        .motion-card:focus-within::after,
+        .motion-soft-card:focus-within::after {
+            opacity: 1;
+        }
+        .motion-card:hover .material-symbols-outlined,
+        .motion-soft-card:hover .material-symbols-outlined {
+            transform: translateY(-2px) scale(1.05);
+        }
+        .material-symbols-outlined {
+            transition: transform 360ms var(--raevo-spring), color 360ms ease, opacity 360ms ease;
+        }
+        .raevo-motion-ready [data-animate] {
+            opacity: 1;
+            transform: none;
+            filter: none;
+        }
+        .raevo-motion-ready [data-animate].is-visible {
+            animation: revealSectionIn 780ms var(--raevo-ease) both;
+            animation-delay: var(--reveal-delay, 0ms);
+        }
+        .raevo-motion-ready [data-animate-item] {
+            opacity: 1;
+            transform: none;
+        }
+        .raevo-motion-ready .is-visible [data-animate-item] {
+            animation: revealItemIn 640ms var(--raevo-ease) both;
+            animation-delay: var(--item-delay, 0ms);
+        }
+        .hero-choreo video {
+            transform: translateY(var(--hero-parallax, 0px)) scale(1.04);
+            transition: transform 120ms linear;
+            will-change: transform;
+        }
+        .hero-choreo .hero-motion {
+            opacity: 1;
+            transform: none;
+            animation: heroRise 980ms var(--raevo-ease) both;
+            animation-delay: var(--hero-delay, 0ms);
+        }
+        .hero-choreo .hero-float {
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+        .architectural-grid,
+        .lead-form-grid {
+            background-position: var(--grid-x, 0px) var(--grid-y, 0px);
+            transition: background-position 200ms linear;
+        }
+        .comparison-row {
+            transition: background-color 300ms ease, transform 300ms var(--raevo-spring);
+        }
+        .comparison-row:hover {
+            background: rgba(199, 169, 122, 0.08);
+            transform: translateX(4px);
+        }
+        .faq-motion {
+            transition: transform 340ms var(--raevo-spring), border-color 340ms ease, box-shadow 340ms ease;
+        }
+        .faq-motion:hover,
+        .faq-motion:focus-within {
+            transform: translateY(-3px);
+            border-color: rgba(199, 169, 122, 0.42);
+            box-shadow: 0 18px 42px rgba(31, 31, 31, 0.10);
+        }
+        .lead-form-overlay {
+            opacity: 0;
+            transform: scale(1.01);
+            transition: opacity 360ms ease, transform 520ms var(--raevo-ease);
+        }
+        .lead-form-overlay:not(.hidden) {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .lead-form-step-motion {
+            animation: leadStepIn 440ms var(--raevo-ease);
+        }
+        .lead-form-option,
+        .lead-form-region {
+            transition:
+                transform 260ms var(--raevo-spring),
+                border-color 260ms ease,
+                background-color 260ms ease,
+                color 260ms ease,
+                box-shadow 260ms ease;
+        }
+        .lead-form-option:hover,
+        .lead-form-option:focus-visible,
+        .lead-form-region:hover,
+        .lead-form-region:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+        }
+        .lead-form-option[aria-pressed="true"],
+        .lead-form-region[aria-pressed="true"] {
+            box-shadow: 0 0 0 1px rgba(199, 169, 122, 0.32), 0 18px 44px rgba(0, 0, 0, 0.20);
+        }
+        .lead-form-input {
+            transition: border-color 260ms ease, transform 260ms var(--raevo-spring);
+        }
+        .lead-form-input:focus {
+            transform: translateY(-2px);
+        }
+        .sim-total-pulse {
+            animation: valuePulse 520ms var(--raevo-ease);
+        }
+        @keyframes heroRise {
+            from {
+                opacity: 0.42;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes revealSectionIn {
+            from {
+                opacity: 0.65;
+                transform: translateY(22px);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+        @keyframes revealItemIn {
+            from {
+                opacity: 0.72;
+                transform: translateY(14px) scale(0.992);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes leadStepIn {
+            from {
+                opacity: 0.32;
+                transform: translateY(18px);
+                filter: blur(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+        @keyframes valuePulse {
+            0% { transform: scale(1); }
+            45% { transform: scale(1.035); color: #00B8C6; }
+            100% { transform: scale(1); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.001ms !important;
+            }
+            .raevo-motion-ready [data-animate],
+            .raevo-motion-ready [data-animate-item],
+            .hero-choreo .hero-motion {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-body-md antialiased overflow-x-hidden selection:bg-champagne selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-pedra border-b border-taupe/20 transition-shadow duration-300" id="main-header">
+<div class="flex justify-between items-center px-margin-safe py-4 max-w-7xl mx-auto">
+<div class="flex items-center">
+<img alt="Raevo" class="h-9 md:h-10 w-auto object-contain" height="166" src="../assets/brand/raevo-logo-official-transparent.png" width="755"/>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#problema">Problema</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#implementacao">Implementação</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#crescimento">Crescimento</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#precos">Preços</a>
+</nav>
+<a class="hidden md:inline-flex items-center justify-center px-6 py-3 bg-carvao text-pedra font-label-md text-label-md rounded-DEFAULT hover:bg-carvao/90 transition-all duration-300" data-open-lead-form="" href="#formulario-raevo">
+                Falar com especialista
+            </a>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden text-primary" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden absolute top-full left-0 w-full bg-pedra border-b border-taupe/20 py-4 px-margin-safe flex-col gap-4 shadow-lg" id="mobile-menu">
+<a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#problema">Problema</a>
+<a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#implementacao">Implementação</a>
+<a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#crescimento">Crescimento</a>
+<a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#precos">Preços</a>
+<a class="w-full inline-flex items-center justify-center px-6 py-3 bg-carvao text-pedra font-label-md text-label-md rounded-DEFAULT mt-2" data-open-lead-form="" href="#formulario-raevo">
+                Falar com especialista
+            </a>
+</div>
+</header>
+<main>
+<!-- 1. Hero Section -->
+<section class="relative min-h-[980px] md:min-h-[1100px] pt-[180px] pb-[160px] md:pt-[274px] md:pb-[200px] px-margin-safe overflow-hidden flex items-start">
+<video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover" loop="" muted="" playsinline="" preload="auto">
+<source src="../assets/video/raevo-hero-video-01.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-carvao/70"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-carvao/90 via-carvao/65 to-carvao/30"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-carvao/70 via-transparent to-carvao/35"></div>
+<div class="w-full max-w-7xl mx-auto flex flex-col items-start z-10 relative">
+<div class="inline-flex items-center gap-2 px-3 py-1 border border-white/20 bg-white/10 backdrop-blur-md rounded-full mb-6">
+<span class="w-2 h-2 rounded-full bg-caian animate-pulse"></span>
+<span class="font-label-md text-label-md text-pedra uppercase tracking-wider text-xs">Para médicos e clínicas high-ticket</span>
+</div>
+<h1 class="font-headline-xl-mobile text-[42px] leading-[1.08] md:font-headline-xl md:text-[42px] lg:text-[56px] text-white mb-6 max-w-3xl">
+                    Mais Pacientes, Menos Preocupações
+                </h1>
+<p class="font-body-lg text-body-lg text-pedra/85 mb-8 max-w-xl">
+                    Ajudamos clínicas a atraírem pacientes qualificados e estruturarem o atendimento com marketing, CRM e IA, para vender valor com mais controle e previsibilidade.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<a class="inline-flex items-center justify-center px-8 py-4 bg-pedra text-carvao font-label-md text-label-md rounded-DEFAULT hover:bg-white transition-all duration-300 w-full sm:w-auto" href="#crescimento">
+                        Simular meu plano
+                    </a>
+</div>
+<p class="font-label-md text-label-md text-pedra/70 mt-5 max-w-xl">
+                    Valorizamos a clareza: você pode simular seu plano sem precisar de uma reunião apenas para descobrir o preço.
+                </p>
+<div class="mt-9 flex flex-wrap gap-3">
+<div class="min-h-[68px] px-4 py-2 bg-white/10 border border-white/15 rounded-lg backdrop-blur-md text-center flex flex-col items-center justify-center">
+<div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider text-[11px]">Estratégia central</div>
+<div class="font-headline-sm text-headline-sm text-white text-lg">Valor antes do preço</div>
+</div>
+<div class="min-h-[68px] px-4 py-2 bg-white/10 border border-white/15 rounded-lg backdrop-blur-md text-center flex flex-col items-center justify-center">
+<div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider text-[11px]">Sistema conectado</div>
+<div class="font-label-md text-label-md text-pedra">Marketing, Atendimento, IA &amp; CRM</div>
+</div>
+</div>
+<!-- Mini-card -->
+<div class="mt-7 p-4 bg-white/10 border border-white/15 rounded-lg flex items-start gap-4 max-w-md backdrop-blur-md">
+<span class="material-symbols-outlined text-champagne shrink-0" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<p class="font-body-md text-body-md text-pedra/85 italic text-sm">
+                        "Tratamento premium não pode ser vendido como orçamento comum."
+                    </p>
+</div>
+</div>
+</section>
+<!-- 2. Pain Section -->
+<section class="py-section-padding px-margin-safe bg-surface-container-low border-y border-taupe/10" id="problema">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-5xl mx-auto mb-16">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-4">O que ajudamos a resolver</p>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-6">
+                        Clínicas premium não podem começar com atendimento comum.
+                    </h2>
+<p class="font-body-lg text-body-lg text-surface-tint max-w-3xl mx-auto">
+                        Clínicas modernas exigem uma boa experiência desde a chegada do lead no WhatsApp até o pós-atendimento.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Symptom Cards -->
+<div class="bg-white p-8 border border-taupe/20 rounded-lg hover:border-champagne/50 transition-colors group">
+<div class="w-12 h-12 bg-surface-container mb-6 flex items-center justify-center rounded-DEFAULT text-carvao group-hover:text-champagne transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-3">WhatsApp cheio</h3>
+<p class="font-body-md text-body-md text-surface-tint">Muito contacto. Pouca intenção.</p>
+</div>
+<div class="bg-white p-8 border border-taupe/20 rounded-lg hover:border-champagne/50 transition-colors group">
+<div class="w-12 h-12 bg-surface-container mb-6 flex items-center justify-center rounded-DEFAULT text-carvao group-hover:text-champagne transition-colors">
+<span class="material-symbols-outlined">balance</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-3">Preço antes de valor</h3>
+<p class="font-body-md text-body-md text-surface-tint">A conversa vira orçamento.</p>
+</div>
+<div class="bg-white p-8 border border-taupe/20 rounded-lg hover:border-champagne/50 transition-colors group">
+<div class="w-12 h-12 bg-surface-container mb-6 flex items-center justify-center rounded-DEFAULT text-carvao group-hover:text-champagne transition-colors">
+<span class="material-symbols-outlined">block</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-3">Lead sem perfil</h3>
+<p class="font-body-md text-body-md text-surface-tint">Ocupa tempo e não avança.</p>
+</div>
+<div class="bg-white p-8 border border-taupe/20 rounded-lg hover:border-champagne/50 transition-colors group lg:col-span-1 md:col-span-2">
+<div class="w-12 h-12 bg-surface-container mb-6 flex items-center justify-center rounded-DEFAULT text-carvao group-hover:text-champagne transition-colors">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-3">Follow-up perdido</h3>
+<p class="font-body-md text-body-md text-surface-tint">O paciente esfria e some.</p>
+</div>
+<div class="bg-carvao p-8 border border-carvao rounded-lg lg:col-span-2 md:col-span-2 flex flex-col justify-center relative overflow-hidden">
+<div class="absolute right-0 bottom-0 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">crisis_alert</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-pedra mb-3 relative z-10">Sem processo comercial</h3>
+<p class="font-body-md text-body-md text-pedra/70 relative z-10 max-w-md">Ninguém sabe onde a venda travou.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. The 5 Enemies (Bento Grid) -->
+<section class="py-section-padding px-margin-safe max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-taupe/20 pb-8">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-4">
+                        O cenário contra você
+                    </h2>
+<p class="font-body-lg text-body-lg text-surface-tint">
+                        Identificamos os gargalos silenciosos que sabotam o crescimento sustentável de clínicas de alto padrão.
+                    </p>
+</div>
+<div class="mt-6 md:mt-0 px-6 py-4 bg-areia/30 border-l-2 border-caian max-w-sm">
+<p class="font-label-md text-label-md text-carvao">
+                        "O inimigo não é o preço. É o paciente não enxergar valor antes de comparar."
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+<!-- Item 1: Large -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-high rounded-xl p-8 relative overflow-hidden flex flex-col justify-end group border border-taupe/10">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract visualization of financial comparison or pricing battles. minimalist graphic design style with clean lines. Colors are muted greys, taupe, and deep charcoal. The visual conveys the concept of 'price shopping' in a sophisticated, conceptual manner, avoiding literal medical imagery." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcHevvyGX81jop4qqtIdzyrznMEGAa2xyVlOfX_1iy6xMYtfR8EiuAU_afruxi1CJq6d76kU7eKz4GDxbhSR0oWiEyyDiRNE5DpAvMCt0Y0FKe1YIk3xH3sI4KnlYakxYTuPuZ2cujC4lINPyKVTvmZV-khwX4IdV5YaXTXMaV3byJfI6qBIVMRohGecjFcggCpROGKhlle4UGGbZc52haXFcfrlk9IuvQdC4gK1w9fpVvW_GGfpuncTLOzD4Ei-NWMDrX_qyRahyM')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-carvao via-carvao/60 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<span class="text-champagne font-headline-sm text-headline-sm mb-2 block">01.</span>
+<h3 class="font-headline-md text-headline-md text-white mb-2">A Busca Pelo Preço</h3>
+<p class="font-body-md text-body-md text-pedra/80 max-w-md">Pacientes treinados pelo mercado a buscar o tratamento como uma mercadoria (commodity), ignorando a expertise técnica e a segurança.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-white border border-taupe/20 rounded-xl p-6 flex flex-col">
+<span class="text-taupe font-headline-sm text-headline-sm mb-auto">02.</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-carvao mb-2">A Agência Genérica</h3>
+<p class="font-body-md text-body-md text-surface-tint text-sm">Estratégias de marketing de varejo aplicadas à saúde, gerando volume sem qualificação ou filtro de entrada.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-carvao border border-carvao rounded-xl p-6 flex flex-col">
+<span class="text-taupe/50 font-headline-sm text-headline-sm mb-auto">03.</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-pedra mb-2">Atendimento Passivo</h3>
+<p class="font-body-md text-body-md text-pedra/70 text-sm">Secretárias treinadas para dar informações, não para conduzir negociações ou contornar objeções de alto ticket.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-white border border-taupe/20 rounded-xl p-6 flex flex-col">
+<span class="text-taupe font-headline-sm text-headline-sm mb-auto">04.</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-carvao mb-2">Métricas de Vaidade</h3>
+<p class="font-body-md text-body-md text-surface-tint text-sm">Focar em curtidas e seguidores em vez de CAC (Custo de Aquisição) e LTV (Lifetime Value) do paciente.</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="md:col-span-2 bg-areia/20 border border-taupe/20 rounded-xl p-6 flex flex-row items-center gap-6">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shrink-0 border border-taupe/10">
+<span class="text-champagne font-headline-sm text-headline-sm">05.</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-carvao mb-2">Falta de Acompanhamento (Follow-up)</h3>
+<p class="font-body-md text-body-md text-surface-tint max-w-lg">Deixar dinheiro na mesa por não ter um sistema que nutre leads frios e reativa pacientes antigos de forma sistemática.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Narrative Shift -->
+<section class="py-section-padding bg-carvao text-pedra relative overflow-hidden">
+<!-- Architectural Background Lines -->
+<div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 100px 100px;"></div>
+<div class="max-w-7xl mx-auto px-margin-safe relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg mb-8 leading-tight">
+                            Mais leads não resolvem uma clínica que ainda vende valor como preço.
+                        </h2>
+<div class="space-y-6 border-l border-taupe/30 pl-6">
+<p class="font-body-lg text-body-lg text-pedra/80">
+                                Injetar mais tráfego em um funil vazado apenas acelera a frustração. O problema da maioria das clínicas premium não é atrair pessoas, é atrair as pessoas <em class="text-white font-semibold">certas</em> e saber convertê-las.
+                            </p>
+<p class="font-body-lg text-body-lg text-pedra/80">
+                                A transição exige sair do caos de contatos desorganizados para a clareza de um processo comercial arquitetado para alta conversão.
+                            </p>
+</div>
+</div>
+<div class="relative h-[400px] w-full rounded-xl overflow-hidden flex border border-taupe/20">
+<!-- Before/After Concept Visual -->
+<div class="w-1/2 h-full bg-surface-container flex flex-col items-center justify-center p-8 relative">
+<div class="absolute top-4 left-4 font-label-md text-label-md text-surface-tint uppercase bg-white/80 px-2 py-1 rounded">Caos (Hoje)</div>
+<span class="material-symbols-outlined text-[80px] text-surface-tint mb-4">blur_on</span>
+<div class="w-full space-y-3">
+<div class="h-2 w-full bg-taupe/30 rounded"></div>
+<div class="h-2 w-3/4 bg-taupe/30 rounded"></div>
+<div class="h-2 w-5/6 bg-taupe/30 rounded"></div>
+<div class="h-2 w-1/2 bg-taupe/30 rounded"></div>
+<div class="h-2 w-full bg-taupe/30 rounded"></div>
+</div>
+</div>
+<div class="w-[2px] h-full bg-champagne z-10"></div>
+<div class="w-1/2 h-full bg-carvao flex flex-col items-center justify-center p-8 relative">
+<div class="absolute top-4 right-4 font-label-md text-label-md text-pedra uppercase bg-white/10 px-2 py-1 rounded">Clareza (Raevo)</div>
+<span class="material-symbols-outlined text-[80px] text-caian mb-4" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-1/2 p-2 border border-taupe/30 rounded text-center text-xs text-pedra/70">Atração Qualificada</div>
+<div class="w-[1px] h-4 bg-taupe/50"></div>
+<div class="w-2/3 p-2 border border-caian/50 bg-caian/10 rounded text-center text-xs text-caian">Filtro CRM</div>
+<div class="w-[1px] h-4 bg-taupe/50"></div>
+<div class="w-full p-2 border border-champagne/50 bg-champagne/10 rounded text-center text-xs text-champagne">Conversão Premium</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Raevo Solution -->
+<section class="py-section-padding px-margin-safe max-w-7xl mx-auto architectural-grid" id="implementacao">
+<div class="text-center max-w-4xl mx-auto mb-16">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-6">
+                    O Sistema Raevo
+                </h2>
+<p class="font-body-lg text-body-lg text-carvao font-semibold">
+                    Marketing, CRM e IA conectados para atrair pacientes certos, atender melhor e vender valor antes do preço.
+                </p>
+</div>
+<!-- Integrated System Visual Flow -->
+<div class="relative">
+<!-- Connecting Line (Desktop) -->
+<div class="hidden md:block absolute top-[80px] left-0 w-full h-[1px] bg-taupe/30 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+<!-- System Step 1 -->
+<div class="bg-white p-8 border border-taupe/20 rounded-lg shadow-sm flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-5 border-2 border-white shadow-sm ring-1 ring-taupe/20">
+<span class="material-symbols-outlined text-caian">campaign</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-carvao text-xl mb-4">1. Atrair pacientes com mais perfil</h3>
+<p class="font-body-md text-body-md text-surface-tint">Campanhas e posicionamento pensados para atrair pessoas que valorizam o seu trabalho, não apenas curiosos perguntando preço.</p>
+</div>
+<!-- System Step 2 -->
+<div class="bg-white p-8 border border-taupe/20 rounded-lg shadow-sm flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-5 border-2 border-white shadow-sm ring-1 ring-taupe/20">
+<span class="material-symbols-outlined text-caian">support_agent</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-carvao text-xl mb-4">2. Converter com atendimento, CRM e IA</h3>
+<p class="font-body-md text-body-md text-surface-tint">Scripts, funis, automações e IA para qualificar leads, apoiar a secretária, organizar follow-ups e conduzir melhor cada oportunidade.</p>
+</div>
+<!-- System Step 3 -->
+<div class="bg-white p-8 border border-taupe/20 rounded-lg shadow-sm flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-5 border-2 border-white shadow-sm ring-1 ring-taupe/20">
+<span class="material-symbols-outlined text-caian">analytics</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-carvao text-xl mb-4">3. Crescer com dados e previsibilidade</h3>
+<p class="font-body-md text-body-md text-surface-tint">Dashboards e análise comercial para entender o que gera consultas, onde os leads travam e onde investir com mais segurança.</p>
+</div>
+</div>
+</div>
+<!-- Implementation Steps -->
+<div class="mt-24 max-w-4xl mx-auto bg-white border border-taupe/20 rounded-xl p-8 md:p-12 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-carvao mb-8 text-center border-b border-taupe/20 pb-6">Como implementamos</h3>
+<div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-taupe/30 before:to-transparent">
+<!-- Step 1 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-surface-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">1</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
+<h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Diagnóstico</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm">Mergulho profundo na operação atual, precificação e gargalos comerciais.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-surface-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">2</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
+<h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Mapa Estratégico</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm">Desenho arquitetônico do novo funil de vendas e scripts de atendimento.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-surface-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">3</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
+<h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Setup do Sistema</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm">Configuração técnica do CRM, automações e treinamento da equipe local.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-10 h-10 rounded-full border border-taupe bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">
+<span class="material-symbols-outlined text-caian text-lg">check</span>
+</div>
+<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
+<h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Acompanhamento</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm">Monitoramento de KPIs, ajustes de campanha e auditoria de vendas contínua.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Two Paths & 8. Simulator -->
+<section class="py-section-padding px-margin-safe bg-surface-container-low border-y border-taupe/10" id="crescimento">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-6">
+                        Dois Caminhos de Colaboração
+                    </h2>
+<p class="font-body-lg text-body-lg text-surface-tint">
+                        Escolha o modelo de parceria que melhor se adapta ao momento da sua clínica.
+                    </p>
+</div>
+<!-- Two Paths Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 max-w-5xl mx-auto">
+<!-- Path 1: Consultoria -->
+<div class="bg-white border border-taupe/20 rounded-xl p-8 flex flex-col hover:border-champagne/50 transition-colors">
+<div class="inline-flex px-3 py-1 bg-surface-container-highest rounded text-carvao text-xs font-bold uppercase tracking-wider mb-6 self-start">Projeto Pontual</div>
+<h3 class="font-headline-md text-headline-md text-carvao mb-2">Implementação Comercial</h3>
+<p class="font-body-md text-body-md text-surface-tint mb-6">Diagnóstico, estruturação do processo de vendas e setup do CRM. Entregamos a máquina pronta para sua equipe operar.</p>
+<div class="text-3xl font-headline-md text-carvao mb-8">A partir de €1.997</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-caian shrink-0 text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-carvao text-sm">Diagnóstico comercial completo</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-caian shrink-0 text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-carvao text-sm">Setup e parametrização de CRM</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-caian shrink-0 text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-carvao text-sm">Criação de scripts de vendas</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-caian shrink-0 text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-carvao text-sm">Treinamento da equipe de atendimento (1 sessão)</span>
+</li>
+</ul>
+<a class="w-full inline-flex items-center justify-center px-6 py-4 border-2 border-carvao text-carvao font-label-md text-label-md rounded-DEFAULT hover:bg-carvao hover:text-pedra transition-all duration-300" data-open-lead-form="" href="#formulario-raevo">
+                            Solicitar Implementação
+                        </a>
+</div>
+<!-- Path 2: Assessoria Continua -->
+<div class="bg-carvao border border-carvao rounded-xl p-8 flex flex-col relative overflow-hidden shadow-2xl">
+<div class="absolute top-0 right-0 bg-champagne text-white text-xs font-bold px-4 py-1 rounded-bl-lg">Recomendado</div>
+<div class="inline-flex px-3 py-1 bg-white/10 rounded text-pedra text-xs font-bold uppercase tracking-wider mb-6 self-start border border-white/10">Assessoria Contínua</div>
+<h3 class="font-headline-md text-headline-md text-pedra mb-2">Crescimento Previsível</h3>
+<p class="font-body-md text-body-md text-pedra/70 mb-6">Gestão ativa do seu comercial e tráfego pago. Nós construímos, operamos e otimizamos a máquina mês a mês.</p>
+<div class="text-3xl font-headline-md text-pedra mb-8">A partir de €400 <span class="text-sm font-body-md text-pedra/50 font-normal">/mês</span></div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-champagne shrink-0 text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-pedra text-sm">Tudo da Implementação Comercial incluso</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-champagne shrink-0 text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-pedra text-sm">Gestão de Tráfego Pago (Ads) contínua</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-champagne shrink-0 text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-pedra text-sm">Auditoria semanal de atendimento/vendas</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-champagne shrink-0 text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-pedra text-sm">Dashboard de BI e relatórios quinzenais</span>
+</li>
+</ul>
+<button class="w-full inline-flex items-center justify-center px-6 py-4 bg-champagne text-white font-label-md text-label-md rounded-DEFAULT hover:bg-champagne/90 transition-all duration-300" onclick="document.getElementById('simulator').scrollIntoView({behavior: 'smooth'})">
+                            Montar meu plano
+                        </button>
+</div>
+</div>
+<!-- Simulator Dashboard UI -->
+<div class="bg-white rounded-xl shadow-lg border border-taupe/20 overflow-hidden max-w-6xl mx-auto flex flex-col lg:flex-row" id="simulator">
+<!-- Left: Interactive Modules -->
+<div class="w-full lg:w-2/3 p-6 md:p-8 border-b lg:border-b-0 lg:border-r border-taupe/20">
+<div class="mb-8">
+<h3 class="font-headline-sm text-headline-sm text-carvao">Monte seu plano Raevo</h3>
+<p class="font-body-md text-body-md text-surface-tint text-sm mt-2">Simule a implementação e os módulos recorrentes necessários para a operação da sua clínica.</p>
+</div>
+<div class="mb-8 p-5 rounded-lg border-2 border-carvao bg-surface-bright">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+<div>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Implementação obrigatória</p>
+<h4 class="font-headline-sm text-headline-sm text-carvao text-lg">Quantos profissionais atuam no atendimento da clínica?</h4>
+<p class="font-body-md text-body-md text-surface-tint text-xs mt-2 max-w-xl">O primeiro profissional está incluído na implementação base. A partir do segundo, cada profissional adicional exige configuração, treinamento e adaptação do processo comercial.</p>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button aria-label="Diminuir profissionais" class="w-10 h-10 inline-flex items-center justify-center bg-white border border-taupe/30 rounded-DEFAULT text-carvao hover:border-carvao transition-colors" id="sim-professionals-minus" type="button">
+<span class="material-symbols-outlined text-xl">remove</span>
+</button>
+<input class="w-20 h-10 border border-taupe/30 rounded-DEFAULT text-center font-label-md text-label-md text-carvao focus:border-carvao focus:ring-carvao" id="sim-professionals" min="1" type="number" value="1"/>
+<button aria-label="Aumentar profissionais" class="w-10 h-10 inline-flex items-center justify-center bg-white border border-taupe/30 rounded-DEFAULT text-carvao hover:border-carvao transition-colors" id="sim-professionals-plus" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-end justify-between gap-4 mb-4">
+<div>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Mensalidade recorrente</p>
+<h4 class="font-headline-sm text-headline-sm text-carvao text-lg">Selecione os módulos recorrentes</h4>
+</div>
+<p class="font-body-md text-body-md text-surface-tint text-xs text-right hidden md:block">Manutenção CRM entra automaticamente se nenhum módulo for escolhido.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="sim-module-card flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="paidMedia">
+<div class="mt-1">
+<input class="sim-module w-5 h-5 rounded border-taupe text-champagne focus:ring-champagne" data-module="paidMedia" type="checkbox"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between gap-3 mb-1">
+<h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Mídia Paga + Copy</h5>
+<span class="font-label-md text-label-md text-surface-tint whitespace-nowrap">€500/mês</span>
+</div>
+<p class="font-body-md text-body-md text-surface-tint text-xs">Gestão de campanhas e copy para atrair pacientes com mais perfil.</p>
+</div>
+</label>
+<label class="sim-module-card flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="aiSecretary">
+<div class="mt-1">
+<input class="sim-module w-5 h-5 rounded border-taupe text-champagne focus:ring-champagne" data-module="aiSecretary" type="checkbox"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between gap-3 mb-1">
+<h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Secretária por IA</h5>
+<span class="font-label-md text-label-md text-surface-tint whitespace-nowrap">€500/mês</span>
+</div>
+<p class="font-body-md text-body-md text-surface-tint text-xs">IA para apoiar atendimento, qualificação, respostas, organização e follow-up comercial.</p>
+</div>
+</label>
+<label class="sim-module-card flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="creatives">
+<div class="mt-1">
+<input class="sim-module w-5 h-5 rounded border-taupe text-champagne focus:ring-champagne" data-module="creatives" type="checkbox"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between gap-3 mb-1">
+<h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Criativos</h5>
+<span class="font-label-md text-label-md text-surface-tint whitespace-nowrap">€400/mês</span>
+</div>
+<p class="font-body-md text-body-md text-surface-tint text-xs">Edição de vídeos, design e peças para campanhas.</p>
+<p class="sim-dependency-message font-body-md text-body-md text-champagne text-xs mt-2">Disponível apenas com Mídia Paga + Copy.</p>
+</div>
+</label>
+<label class="sim-module-card flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="commercialFollowup">
+<div class="mt-1">
+<input class="sim-module w-5 h-5 rounded border-taupe text-champagne focus:ring-champagne" data-module="commercialFollowup" type="checkbox"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between gap-3 mb-1">
+<h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Acompanhamento Comercial</h5>
+<span class="font-label-md text-label-md text-surface-tint whitespace-nowrap">€400/mês</span>
+</div>
+<p class="font-body-md text-body-md text-surface-tint text-xs">Gestão da equipa comercial da clínica, acompanhamento do uso do CRM e análise dos gargalos de conversão.</p>
+<p class="sim-dependency-message font-body-md text-body-md text-champagne text-xs mt-2">Disponível apenas com Mídia Paga + Copy.</p>
+</div>
+</label>
+<div class="md:col-span-2 p-4 rounded-lg border border-taupe/30 bg-surface-bright transition-opacity" id="sim-media-investment-card">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<h5 class="font-label-md text-label-md text-carvao">Quanto pretende investir em mídia?</h5>
+<p class="font-body-md text-body-md text-surface-tint text-xs mt-1">Investimento mínimo recomendado: €200/mês.</p>
+<p class="font-body-md text-body-md text-surface-tint text-xs mt-1">À medida que o investimento aumenta, o trabalho de gestão, análise e otimização também aumenta.</p>
+</div>
+<div class="shrink-0">
+<label class="sr-only" for="sim-media-investment">Investimento mensal em mídia</label>
+<div class="flex items-center bg-white border border-taupe/30 rounded-DEFAULT px-3 h-11">
+<span class="font-label-md text-label-md text-surface-tint mr-2">€</span>
+<input class="w-24 border-0 p-0 text-right font-label-md text-label-md text-carvao focus:ring-0" id="sim-media-investment" min="200" step="50" type="number" value="200"/>
+</div>
+</div>
+</div>
+<div class="md:col-span-2 p-4 rounded-lg border border-dashed border-taupe/30 bg-surface-container-low">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-caian shrink-0">settings</span>
+<div>
+<h5 class="font-label-md text-label-md text-carvao">Manutenção CRM</h5>
+<p class="font-body-md text-body-md text-surface-tint text-xs mt-1">Suporte leve e pequenos ajustes para manter o CRM funcionando após a implementação. Entra automaticamente por €50/mês quando nenhum módulo recorrente é selecionado.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Summary (Sticky-like on desktop) -->
+<div class="w-full lg:w-1/3 bg-carvao p-6 md:p-8 flex flex-col text-pedra">
+<h4 class="font-label-md text-label-md text-taupe uppercase tracking-widest mb-6">Resumo da Simulação</h4>
+<div class="flex-grow space-y-6 mb-8">
+<div>
+<div class="flex items-center justify-between gap-4 mb-3">
+<h5 class="font-headline-sm text-headline-sm text-pedra text-lg">Implementação</h5>
+<span class="font-label-md text-label-md text-caian">pagamento único</span>
+</div>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between gap-4">
+<span class="text-pedra/70">Base</span>
+<span id="sim-summary-implementation-base">€1.997</span>
+</div>
+<div class="flex justify-between gap-4">
+<span class="text-pedra/70">Profissionais adicionais</span>
+<span id="sim-summary-professionals">0 × €500</span>
+</div>
+</div>
+<div class="mt-4 p-4 rounded-lg bg-white/10 border border-white/10">
+<div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider">Valor da Implementação</div>
+<div class="text-3xl font-headline-sm text-champagne mt-1" id="sim-implementation-total">€2.497</div>
+<div class="font-body-md text-body-md text-pedra/60 text-xs mt-1">Total implementação</div>
+</div>
+</div>
+<div>
+<h5 class="font-headline-sm text-headline-sm text-pedra text-lg mb-3">Mensalidade</h5>
+<div class="space-y-2 text-sm" id="sim-monthly-items"></div>
+<div class="space-y-2 text-sm mt-2 hidden" id="sim-media-fee-row">
+<div class="flex justify-between gap-4">
+<span class="text-pedra/70">Gestão sobre mídia (10%)</span>
+<span id="sim-media-fee">€20/mês</span>
+</div>
+</div>
+<div class="mt-4 p-4 rounded-lg bg-white/10 border border-white/10">
+<div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider">Valor da Mensalidade</div>
+<div class="text-3xl font-headline-sm text-champagne mt-1" id="sim-monthly-total">€50/mês</div>
+<div class="font-body-md text-body-md text-pedra/60 text-xs mt-1">Total mensalidade</div>
+</div>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-taupe uppercase tracking-widest mb-3">Lista dos itens selecionados</h5>
+<ul class="space-y-2 text-sm text-pedra/70" id="sim-selected-items"></ul>
+</div>
+</div>
+<a class="w-full inline-flex items-center justify-center px-6 py-4 bg-pedra text-carvao font-label-md text-label-md rounded-DEFAULT hover:bg-white transition-all duration-300" data-open-lead-form="" href="#formulario-raevo">
+                            Validar Plano com Consultor
+                        </a>
+<p class="text-xs text-center text-pedra/50 mt-4">Valores simulados. O plano final depende do diagnóstico da operação comercial da clínica.</p>
+</div>
+</div>
+<script>
+                    const raevoPlanConfig = {
+                        implementation: {
+                            base: 1997,
+                            professionalPrice: 500
+                        },
+                        mediaInvestment: {
+                            minimum: 200,
+                            managementRate: 0.10
+                        },
+                        fallbackModule: {
+                            id: 'crmMaintenance',
+                            name: 'Manutenção CRM',
+                            price: 50,
+                            description: 'Suporte leve e pequenos ajustes para manter o CRM funcionando após a implementação.'
+                        },
+                        recurringModules: {
+                            paidMedia: {
+                                name: 'Mídia Paga + Copy',
+                                price: 500
+                            },
+                            aiSecretary: {
+                                name: 'Secretária por IA',
+                                price: 500
+                            },
+                            creatives: {
+                                name: 'Criativos',
+                                price: 400,
+                                requires: 'paidMedia'
+                            },
+                            commercialFollowup: {
+                                name: 'Acompanhamento Comercial',
+                                price: 400,
+                                requires: 'paidMedia'
+                            }
+                        }
+                    };
+
+                    function formatEuro(value) {
+                        return `€${value.toLocaleString('de-DE')}`;
+                    }
+
+                    function getCheckedModules() {
+                        return Array.from(document.querySelectorAll('.sim-module:checked')).map((input) => input.dataset.module);
+                    }
+
+                    function setModuleCardState(moduleId, isSelected, isDisabled) {
+                        const card = document.querySelector(`[data-module-card="${moduleId}"]`);
+                        const input = document.querySelector(`[data-module="${moduleId}"]`);
+                        if (!card || !input) return;
+
+                        input.disabled = isDisabled;
+                        card.classList.toggle('border-champagne', isSelected);
+                        card.classList.toggle('bg-champagne/5', isSelected);
+                        card.classList.toggle('border-taupe/30', !isSelected);
+                        card.classList.toggle('opacity-50', isDisabled);
+                        card.classList.toggle('cursor-not-allowed', isDisabled);
+                        card.classList.toggle('cursor-pointer', !isDisabled);
+                        card.querySelectorAll('.sim-dependency-message').forEach((message) => {
+                            message.classList.toggle('hidden', !isDisabled);
+                        });
+                    }
+
+                    function renderSummaryRow(name, value) {
+                        return `<div class="flex justify-between gap-4"><span class="text-pedra/70">${name}</span><span>${value}</span></div>`;
+                    }
+
+                    function updatePlanSimulation() {
+                        const professionalsInput = document.getElementById('sim-professionals');
+                        const professionals = Math.max(1, parseInt(professionalsInput.value || '1', 10));
+                        professionalsInput.value = professionals;
+                        const mediaInvestmentInput = document.getElementById('sim-media-investment');
+                        const mediaInvestment = Math.max(
+                            raevoPlanConfig.mediaInvestment.minimum,
+                            parseInt(mediaInvestmentInput.value || `${raevoPlanConfig.mediaInvestment.minimum}`, 10)
+                        );
+                        mediaInvestmentInput.value = mediaInvestment;
+
+                        const paidMediaInput = document.querySelector('[data-module="paidMedia"]');
+                        const hasPaidMedia = paidMediaInput.checked;
+                        const dependentModuleIds = ['creatives', 'commercialFollowup'];
+                        const mediaInvestmentCard = document.getElementById('sim-media-investment-card');
+                        mediaInvestmentInput.disabled = !hasPaidMedia;
+                        mediaInvestmentCard.classList.toggle('opacity-50', !hasPaidMedia);
+
+                        dependentModuleIds.forEach((moduleId) => {
+                            const input = document.querySelector(`[data-module="${moduleId}"]`);
+                            if (!hasPaidMedia) {
+                                input.checked = false;
+                            }
+                            setModuleCardState(moduleId, input.checked, !hasPaidMedia);
+                        });
+
+                        Object.keys(raevoPlanConfig.recurringModules)
+                            .filter((moduleId) => !dependentModuleIds.includes(moduleId))
+                            .forEach((moduleId) => {
+                                const input = document.querySelector(`[data-module="${moduleId}"]`);
+                                setModuleCardState(moduleId, input.checked, false);
+                            });
+
+                        const selectedModuleIds = getCheckedModules();
+                        const additionalProfessionals = Math.max(0, professionals - 1);
+                        const implementationTotal = raevoPlanConfig.implementation.base + (additionalProfessionals * raevoPlanConfig.implementation.professionalPrice);
+                        const mediaManagementFee = hasPaidMedia ? Math.round(mediaInvestment * raevoPlanConfig.mediaInvestment.managementRate) : 0;
+                        const monthlyTotal = selectedModuleIds.length
+                            ? selectedModuleIds.reduce((total, moduleId) => total + raevoPlanConfig.recurringModules[moduleId].price, 0) + mediaManagementFee
+                            : raevoPlanConfig.fallbackModule.price;
+
+                        document.getElementById('sim-summary-implementation-base').textContent = formatEuro(raevoPlanConfig.implementation.base);
+                        document.getElementById('sim-summary-professionals').textContent = `${additionalProfessionals} × ${formatEuro(raevoPlanConfig.implementation.professionalPrice)}`;
+                        document.getElementById('sim-implementation-total').textContent = formatEuro(implementationTotal);
+                        document.getElementById('sim-monthly-total').textContent = `${formatEuro(monthlyTotal)}/mês`;
+                        document.getElementById('sim-media-fee').textContent = `${formatEuro(mediaManagementFee)}/mês`;
+                        document.getElementById('sim-media-fee-row').classList.toggle('hidden', !hasPaidMedia);
+                        ['sim-implementation-total', 'sim-monthly-total'].forEach((id) => {
+                            const totalElement = document.getElementById(id);
+                            totalElement.classList.remove('sim-total-pulse');
+                            void totalElement.offsetWidth;
+                            totalElement.classList.add('sim-total-pulse');
+                        });
+
+                        const monthlyItems = document.getElementById('sim-monthly-items');
+                        monthlyItems.innerHTML = selectedModuleIds.length
+                            ? selectedModuleIds.map((moduleId) => {
+                                const module = raevoPlanConfig.recurringModules[moduleId];
+                                return renderSummaryRow(module.name, `${formatEuro(module.price)}/mês`);
+                            }).join('')
+                            : renderSummaryRow(raevoPlanConfig.fallbackModule.name, `${formatEuro(raevoPlanConfig.fallbackModule.price)}/mês`);
+
+                        const selectedItems = document.getElementById('sim-selected-items');
+                        const professionalLabel = professionals > 1 ? 'profissionais' : 'profissional';
+                        const implementationItem = `<li>Implementação base + ${professionals} ${professionalLabel} no atendimento</li>`;
+                        const recurringItems = selectedModuleIds.length
+                            ? selectedModuleIds.map((moduleId) => `<li>${raevoPlanConfig.recurringModules[moduleId].name}</li>`).join('')
+                            : `<li>${raevoPlanConfig.fallbackModule.name}</li>`;
+                        const mediaInvestmentItem = hasPaidMedia ? `<li>Investimento em mídia: ${formatEuro(mediaInvestment)}/mês</li>` : '';
+                        selectedItems.innerHTML = implementationItem + recurringItems + mediaInvestmentItem;
+                    }
+
+                    document.querySelectorAll('.sim-module').forEach((input) => {
+                        input.addEventListener('change', updatePlanSimulation);
+                    });
+
+                    document.getElementById('sim-professionals').addEventListener('input', updatePlanSimulation);
+                    document.getElementById('sim-media-investment').addEventListener('input', updatePlanSimulation);
+                    document.getElementById('sim-professionals-minus').addEventListener('click', () => {
+                        const input = document.getElementById('sim-professionals');
+                        input.value = Math.max(1, parseInt(input.value || '1', 10) - 1);
+                        updatePlanSimulation();
+                    });
+                    document.getElementById('sim-professionals-plus').addEventListener('click', () => {
+                        const input = document.getElementById('sim-professionals');
+                        input.value = Math.max(1, parseInt(input.value || '1', 10) + 1);
+                        updatePlanSimulation();
+                    });
+
+                    updatePlanSimulation();
+                </script>
+</div>
+</section>
+<!-- 9. Comparison Table -->
+<section class="py-section-padding px-margin-safe max-w-5xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-sm text-headline-sm text-carvao mb-2">Agência comum vs. Raevo</h2>
+</div>
+<div class="overflow-x-auto hide-scrollbar">
+<table class="w-full text-left border-collapse min-w-[600px]">
+<thead>
+<tr>
+<th class="p-4 border-b border-taupe/20 font-label-md text-label-md text-surface-tint w-1/3">Critério</th>
+<th class="p-4 border-b border-taupe/20 font-label-md text-label-md text-surface-tint w-1/3">Outras agências</th>
+<th class="p-4 border-b border-taupe/20 font-label-md text-label-md text-carvao bg-areia/20 rounded-t-lg w-1/3 text-center border-l border-r border-t border-taupe/20">RAEVO</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-sm">
+<tr>
+<td class="p-4 border-b border-taupe/10 font-semibold text-carvao">Foco principal</td>
+<td class="p-4 border-b border-taupe/10 text-surface-tint">Gerar volume de leads</td>
+<td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Atrair pacientes com perfil e conduzir até a venda</td>
+</tr>
+<tr>
+<td class="p-4 border-b border-taupe/10 font-semibold text-carvao">Estratégia</td>
+<td class="p-4 border-b border-taupe/10 text-surface-tint">Anúncios e posts</td>
+<td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Marketing, CRM, IA e atendimento conectados</td>
+</tr>
+<tr>
+<td class="p-4 border-b border-taupe/10 font-semibold text-carvao">Atendimento</td>
+<td class="p-4 border-b border-taupe/10 text-surface-tint">O lead chega e a clínica se vira</td>
+<td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Scripts, follow-up, CRM e IA para conduzir melhor</td>
+</tr>
+<tr>
+<td class="p-4 border-b border-taupe/10 font-semibold text-carvao">Empresas que atende</td>
+<td class="p-4 border-b border-taupe/10 text-surface-tint">Qualquer tipo de empresa</td>
+<td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Clínicas premium e operações de saúde high-ticket</td>
+</tr>
+<tr>
+<td class="p-4 font-semibold text-carvao">Resultado Alvo</td>
+<td class="p-4 text-surface-tint">Volume de contatos</td>
+<td class="p-4 text-carvao bg-areia/20 font-semibold text-center rounded-b-lg border-l border-r border-b border-taupe/20">Agenda qualificada, vendas e previsibilidade</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 10. Qualification -->
+<section class="py-section-padding bg-carvao px-margin-safe">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- For Whom -->
+<div>
+<h3 class="font-headline-md text-headline-md text-pedra mb-8 border-b border-taupe/30 pb-4">Para quem é a Raevo</h3>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-caian shrink-0 mt-1">check</span>
+<div>
+<h4 class="font-label-md text-label-md text-white mb-1">Clínicas de Alto Padrão</h4>
+<p class="font-body-md text-body-md text-pedra/70 text-sm">Cirurgia plástica, harmonização e especialidades médicas focadas em tratamentos de alto valor.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-caian shrink-0 mt-1">check</span>
+<div>
+<h4 class="font-label-md text-label-md text-white mb-1">Doutores Excelentes</h4>
+<p class="font-body-md text-body-md text-pedra/70 text-sm">Profissionais que confiam cegamente na qualidade do seu serviço, mas sentem que a percepção de valor do mercado não acompanha.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-caian shrink-0 mt-1">check</span>
+<div>
+<h4 class="font-label-md text-label-md text-white mb-1">Gestores dispostos a estruturar</h4>
+<p class="font-body-md text-body-md text-pedra/70 text-sm">Clínicas prontas para abandonar a gestão em planilhas e cadernos e adotar um processo comercial maduro.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Not For Whom -->
+<div class="opacity-80">
+<h3 class="font-headline-md text-headline-md text-taupe mb-8 border-b border-taupe/30 pb-4">Para quem NÃO é</h3>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-taupe/50 shrink-0 mt-1">close</span>
+<div>
+<h4 class="font-label-md text-label-md text-taupe mb-1">Clínicas que querem terceirizar tudo</h4>
+<p class="font-body-md text-body-md text-pedra/50 text-sm">Não é para quem quer contratar uma agência e largar tudo na mão dela. O método exige envolvimento da clínica para ajustar oferta, atendimento, CRM e rotina comercial.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-taupe/50 shrink-0 mt-1">close</span>
+<div>
+<h4 class="font-label-md text-label-md text-taupe mb-1">Busca por "Milagres"</h4>
+<p class="font-body-md text-body-md text-pedra/50 text-sm">Profissionais que querem triplicar o faturamento em 15 dias sem alterar nenhum processo interno.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-taupe/50 shrink-0 mt-1">close</span>
+<div>
+<h4 class="font-label-md text-label-md text-taupe mb-1">Clínicas sem recepção</h4>
+<p class="font-body-md text-body-md text-pedra/50 text-sm">Você precisa de pelo menos uma pessoa dedicada (ou você mesmo com tempo bloqueado) para executar os scripts e usar o CRM.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 13. FAQ -->
+<section class="py-section-padding px-margin-safe max-w-4xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-headline-md text-carvao">Perguntas Frequentes</h2>
+</div>
+<div class="space-y-4" id="faq-container">
+<!-- FAQ Item 1 -->
+<div class="border border-taupe/20 rounded-lg bg-white overflow-hidden">
+<button class="w-full text-left px-6 py-4 font-label-md text-label-md text-carvao flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+<span>Qual é a diferença entre a Raevo e uma agência de marketing?</span>
+<span class="material-symbols-outlined text-champagne transition-transform duration-300">expand_more</span>
+</button>
+<div class="px-6 pb-4 hidden font-body-md text-body-md text-surface-tint text-sm border-t border-taupe/10 pt-4">
+                        Agências focam em gerar cliques, curtidas e, na melhor das hipóteses, contatos no WhatsApp. A Raevo atua como uma assessoria de engenharia comercial: nós não só geramos o tráfego qualificado, mas implementamos o CRM, criamos os scripts de vendas, treinamos sua equipe e auditamos o atendimento para garantir que o lead vire paciente pagante.
+                    </div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="border border-taupe/20 rounded-lg bg-white overflow-hidden">
+<button class="w-full text-left px-6 py-4 font-label-md text-label-md text-carvao flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+<span>Minha secretária não sabe vender, a Raevo ajuda com isso?</span>
+<span class="material-symbols-outlined text-champagne transition-transform duration-300">expand_more</span>
+</button>
+<div class="px-6 pb-4 hidden font-body-md text-body-md text-surface-tint text-sm border-t border-taupe/10 pt-4">
+                        Sim, este é um dos nossos pilares centrais. Secretárias são treinadas para dar informações. Nós treinamos sua equipe para utilizar roteiros persuasivos (scripts) e contornar objeções de preço, guiando o paciente para o agendamento de forma elegante e resolutiva.
+                    </div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="border border-taupe/20 rounded-lg bg-white overflow-hidden">
+<button class="w-full text-left px-6 py-4 font-label-md text-label-md text-carvao flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+<span>Vocês atendem clínicas novas que acabaram de abrir?</span>
+<span class="material-symbols-outlined text-champagne transition-transform duration-300">expand_more</span>
+</button>
+<div class="px-6 pb-4 hidden font-body-md text-body-md text-surface-tint text-sm border-t border-taupe/10 pt-4">
+                        Atendemos, desde que a clínica nasça com a proposta de ser um negócio premium e o gestor tenha caixa para investir na construção da máquina (implementação comercial + verba de tráfego inicial). Não somos a solução ideal para clínicas que estão buscando "salvação rápida" para evitar falência.
+                    </div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="border border-taupe/20 rounded-lg bg-white overflow-hidden">
+<button class="w-full text-left px-6 py-4 font-label-md text-label-md text-carvao flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+<span>Qual é a diferença entre a Implementação Única e a Assessoria Contínua?</span>
+<span class="material-symbols-outlined text-champagne transition-transform duration-300">expand_more</span>
+</button>
+<div class="px-6 pb-4 hidden font-body-md text-body-md text-surface-tint text-sm border-t border-taupe/10 pt-4">
+                        A <strong class="text-carvao">Implementação</strong> é um projeto com início, meio e fim (aprox. 30 dias) onde construímos a infraestrutura (CRM, Funil, Scripts) e entregamos a "máquina" pronta para sua equipe operar. <br/><br/>A <strong class="text-carvao">Assessoria Contínua</strong> inclui toda a infraestrutura e, após a entrega, a Raevo atua mensalmente operando o tráfego pago, auditando as vendas da sua equipe e otimizando os resultados continuamente.
+                    </div>
+</div>
+</div>
+<script>
+                function toggleFaq(button) {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('.material-symbols-outlined');
+                    
+                    const allContents = document.querySelectorAll('#faq-container > div > div');
+                    const allIcons = document.querySelectorAll('#faq-container .material-symbols-outlined');
+                    
+                    if (content.classList.contains('hidden')) {
+                        allContents.forEach(c => c.classList.add('hidden'));
+                        allIcons.forEach(i => i.style.transform = 'rotate(0deg)');
+                        
+                        content.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        content.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                }
+            </script>
+</section>
+<!-- 14. Final CTA -->
+<section class="py-[160px] px-margin-safe bg-carvao relative overflow-hidden" id="contato">
+<div class="bg-cover bg-center" data-alt="A highly abstract, dark architectural composition. Focus on precise geometry, deep shadows, and subtle textures of stone (pedra) and metal. The scene should evoke a feeling of high-end corporate stability and modern luxury. Minimalist and clean, with a profound sense of depth. Lit with soft, directional light highlighting edges in champagne or cool tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBs9IllhG8qsr17hygdhl75_x4YB0RXDrHZzJ8wnYYZ_aWhrIVPCARqc3iziwVPa9uFh7qcWV55jxyN3mtlBaVAt5UlO_Z1gzOt8ndeaDDfOfvg8Y6jzF51Urectu8IxNGPrKbVXBMsq0SwTW98aI1E4HIkY2DeLC7--CT_g7lPz6cKYPQM-Iku0qUyEJVJ-EsJbvCzyLT6G1isDPTD6Aj5E8lt_CFDZiNFykhzJ1_S29HOpgiC6x4263II2xf9BvPLyE_uqL0epfi')"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile md:font-headline-xl md:text-headline-xl text-pedra mb-8">
+                    Pare de vender tratamento premium como orçamento comum.
+                </h2>
+<p class="font-body-lg text-body-lg text-pedra/70 mb-12 max-w-2xl mx-auto">
+                    Agende uma sessão estratégica gratuita. Avaliaremos sua operação atual e mostraremos a arquitetura exata que usamos para escalar clínicas de alto padrão.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="inline-flex items-center justify-center px-10 py-5 bg-champagne text-white font-label-md text-label-md rounded-DEFAULT hover:bg-champagne/90 hover:scale-105 transition-all duration-300 shadow-lg" data-open-lead-form="" href="#formulario-raevo">
+                        Agendar Sessão Estratégica
+                    </a>
+</div>
+<p class="font-body-md text-body-md text-pedra/50 mt-6 text-sm">Vagas limitadas para novas implementações mensais.</p>
+</div>
+</section>
+</main>
+<!-- Conversational Lead Form -->
+<div aria-hidden="true" class="lead-form-overlay fixed inset-0 z-[100] hidden overflow-y-auto text-pedra" id="raevo-lead-form">
+<div class="lead-form-grid min-h-screen px-margin-safe py-6 md:py-8 flex flex-col">
+<div class="w-full max-w-6xl mx-auto flex items-center justify-between gap-4">
+<button class="inline-flex items-center gap-3 text-pedra/70 hover:text-white transition-colors" data-close-lead-form="" type="button">
+<img alt="Raevo" class="h-8 w-auto object-contain" src="../assets/brand/raevo-logo-official-transparent.png"/>
+<span class="hidden sm:inline font-label-md text-label-md">Voltar para a landing</span>
+</button>
+<button aria-label="Fechar formulário" class="w-11 h-11 inline-flex items-center justify-center rounded-DEFAULT border border-pedra/20 bg-white/5 text-pedra hover:bg-white/10 hover:text-white transition-colors" data-close-lead-form="" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="w-full max-w-6xl mx-auto flex-1 flex flex-col justify-center py-10 md:py-14" id="raevo-lead-form-inner" novalidate="">
+<div class="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
+<aside class="hidden lg:block pt-4">
+<p class="font-label-md text-label-md text-champagne uppercase mb-5">Sessão estratégica Raevo</p>
+<div class="h-px w-full bg-pedra/15 mb-6"></div>
+<p class="font-body-lg text-body-lg text-pedra/70 max-w-sm">
+Preencha em poucos passos. Usamos estas informações para entender a operação antes da conversa, sem transformar a reunião em interrogatório.
+</p>
+<div class="mt-10 grid grid-cols-3 gap-2 max-w-xs" aria-hidden="true">
+<span class="h-1 bg-caian rounded-full"></span>
+<span class="h-1 bg-champagne rounded-full"></span>
+<span class="h-1 bg-pedra/25 rounded-full"></span>
+</div>
+</aside>
+<section>
+<div class="mb-8">
+<div class="flex items-center justify-between gap-4 mb-5">
+<p class="font-label-md text-label-md text-champagne uppercase" id="lead-form-progress">01 / 08</p>
+<p class="font-body-md text-body-md text-pedra/50 text-sm" id="lead-form-kind">Resposta curta</p>
+</div>
+<h2 class="font-headline-lg-mobile text-[34px] leading-tight md:font-headline-lg md:text-[46px] text-white" id="lead-form-question">Nome completo</h2>
+<p class="font-body-lg text-body-lg text-pedra/65 mt-4 max-w-2xl" id="lead-form-helper"></p>
+</div>
+<div id="lead-form-field"></div>
+<p class="hidden mt-5 font-body-md text-body-md text-caian text-sm" id="lead-form-error"></p>
+<div class="flex flex-col sm:flex-row sm:items-center gap-3 mt-10">
+<button class="inline-flex items-center justify-center gap-2 px-5 py-4 border border-pedra/20 text-pedra/80 font-label-md text-label-md rounded-DEFAULT hover:bg-white/10 hover:text-white transition-all duration-300" id="lead-form-back" type="button">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+Voltar
+</button>
+<button class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-pedra text-carvao font-label-md text-label-md rounded-DEFAULT hover:bg-white transition-all duration-300" id="lead-form-next" type="button">
+Continuar
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+<button class="hidden inline-flex items-center justify-center gap-2 px-7 py-4 bg-champagne text-white font-label-md text-label-md rounded-DEFAULT hover:bg-champagne/90 transition-all duration-300" id="lead-form-submit" type="submit">
+Enviar dados
+<span class="material-symbols-outlined text-xl">check</span>
+</button>
+<button class="sm:ml-auto inline-flex items-center justify-center px-5 py-4 text-pedra/60 hover:text-white font-label-md text-label-md transition-colors" data-close-lead-form="" type="button">
+Voltar para a landing
+</button>
+</div>
+</section>
+</div>
+</form>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-section-padding bg-carvao dark:bg-carvao border-t border-taupe/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-safe max-w-7xl mx-auto space-y-stack-md md:space-y-0">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="flex items-center gap-2">
+<img alt="Raevo Logo Minimal" class="w-6 h-6 object-contain opacity-80 filter invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiSWMIHXJ4sTkg4_0hmq0tYRjF1OSlURB_iCvev83NqalDxBS9YiypUCHMPtr81aI6YxXe-56g16O1Yu8D_B5NNLk-5OvpszErgYhQOp_99cCmiLLVssflZUdb4E9YuY9YZLCxNDUD8L4-ZVsBf-s-m5hMeG-xr4z__I7Ry9TKCFQF5_9mCinodehbv9_HpJFzfzErmyKw3UifEff7Enodo9nDOe4rZNGtro9754HGUC7OI07P_V5r-Jk1S0xbLVZsv30emCayFSfj"/>
+<span class="font-headline-sm text-headline-sm font-bold text-pedra">RAEVO</span>
+</div>
+<p class="font-body-md text-body-md text-pedra/60 text-sm mt-2 text-center md:text-left">
+                    © 2024 Raevo Consultoria. Visão para evoluir. Sistemas para crescer.
+                </p>
+</div>
+<div class="flex gap-6">
+<a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" href="#">Termos de Uso</a>
+<a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" href="#">Privacidade</a>
+<a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" data-open-lead-form="" href="#formulario-raevo">Contato</a>
+</div>
+</div>
+</footer>
+<script>
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const icon = mobileBtn.querySelector('.material-symbols-outlined');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            if(mobileMenu.classList.contains('hidden')){
+                icon.textContent = 'menu';
+            } else {
+                icon.textContent = 'close';
+            }
+        });
+
+        // Close mobile menu on click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                icon.textContent = 'menu';
+            });
+        });
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function setupRaevoMotion() {
+            if (prefersReducedMotion) return;
+
+            document.body.classList.add('raevo-motion-ready');
+
+            const hero = document.querySelector('body > section:first-of-type');
+            if (hero) {
+                hero.classList.add('hero-choreo');
+                hero.querySelectorAll('.inline-flex, h1, p, .flex, .mt-9, .mt-7').forEach((element, index) => {
+                    element.classList.add('hero-motion');
+                    element.style.setProperty('--hero-delay', `${Math.min(index * 110, 760)}ms`);
+                });
+                hero.querySelectorAll('.mt-9 > div, .mt-7').forEach((element) => {
+                    element.classList.add('hero-float');
+                });
+            }
+
+            document.querySelectorAll('body > section, footer').forEach((section, index) => {
+                if (section === hero) return;
+                section.dataset.animate = 'section';
+                section.style.setProperty('--reveal-delay', `${Math.min(index * 35, 180)}ms`);
+            });
+
+            document.querySelectorAll('section .grid, section .space-y-4, section .space-y-6, section .space-y-8, #faq-container, table tbody').forEach((group) => {
+                const children = Array.from(group.children).filter((child) => child.tagName !== 'SCRIPT');
+                children.forEach((child, index) => {
+                    child.dataset.animateItem = 'true';
+                    child.style.setProperty('--item-delay', `${Math.min(index * 85, 520)}ms`);
+                });
+            });
+
+            document.querySelectorAll('a.inline-flex, button.inline-flex, section button').forEach((element) => {
+                element.classList.add('motion-button');
+            });
+
+            document.querySelectorAll('section .rounded-xl, section .rounded-lg, #simulator, #faq-container > div').forEach((element) => {
+                const isTinyControl = element.matches('.w-10, .w-11, .h-10, .h-11') || element.closest('#raevo-lead-form');
+                if (!isTinyControl) {
+                    element.classList.add(element.matches('#simulator, #faq-container > div') ? 'motion-soft-card' : 'motion-card');
+                }
+            });
+
+            document.querySelectorAll('#faq-container > div').forEach((element) => element.classList.add('faq-motion'));
+            document.querySelectorAll('table tbody tr').forEach((row) => row.classList.add('comparison-row'));
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -12% 0px', threshold: 0.16 });
+
+            document.querySelectorAll('[data-animate]').forEach((element) => revealObserver.observe(element));
+
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    const offset = window.scrollY;
+                    document.documentElement.style.setProperty('--grid-x', `${offset * -0.015}px`);
+                    document.documentElement.style.setProperty('--grid-y', `${offset * 0.025}px`);
+                    if (hero && offset < hero.offsetHeight) {
+                        hero.style.setProperty('--hero-parallax', `${Math.min(offset * 0.10, 70)}px`);
+                    }
+                    ticking = false;
+                });
+            }, { passive: true });
+        }
+
+        setupRaevoMotion();
+
+        const raevoLeadFormSteps = [
+            {
+                id: 'fullName',
+                question: 'Nome completo',
+                placeholder: 'Insira seu nome',
+                type: 'text',
+                inputMode: 'text',
+                kind: 'Resposta curta'
+            },
+            {
+                id: 'email',
+                question: 'E-mail',
+                placeholder: 'Insira seu melhor e-mail',
+                type: 'email',
+                inputMode: 'email',
+                kind: 'Contato'
+            },
+            {
+                id: 'whatsapp',
+                question: 'WhatsApp',
+                placeholder: 'Insira seu WhatsApp',
+                type: 'tel',
+                inputMode: 'tel',
+                kind: 'Contato'
+            },
+            {
+                id: 'clinicName',
+                question: 'Nome da clínica ou negócio',
+                placeholder: 'Nome da clínica, consultório ou negócio',
+                type: 'text',
+                inputMode: 'text',
+                kind: 'Operação'
+            },
+            {
+                id: 'role',
+                question: 'Quem está preenchendo este formulário?',
+                type: 'select',
+                kind: 'Perfil',
+                options: [
+                    'Médico(a) / Dono(a)',
+                    'Médico(a) / Sócio(a)',
+                    'Gestor(a) da clínica',
+                    'Coordenador(a) comercial',
+                    'Secretária / Rececionista',
+                    'Responsável pelo marketing',
+                    'Agência / parceiro da clínica',
+                    'Profissional autônomo da saúde',
+                    'Outro decisor',
+                    'Outro'
+                ]
+            },
+            {
+                id: 'specialty',
+                question: 'Qual a especialidade ou tipo de negócio?',
+                type: 'select',
+                kind: 'Segmento',
+                options: [
+                    'Medicina estética',
+                    'Dermatologia',
+                    'Cirurgia plástica',
+                    'Odontologia',
+                    'Implantodontia',
+                    'Ortodontia',
+                    'Harmonização facial',
+                    'HOF',
+                    'Clínica médica',
+                    'Clínica geral',
+                    'Emagrecimento',
+                    'Nutrição',
+                    'Nutrologia',
+                    'Fisioterapia',
+                    'Psicologia',
+                    'Psiquiatria',
+                    'Ginecologia',
+                    'Cardiologia',
+                    'Ortopedia',
+                    'Urologia',
+                    'Oftalmologia',
+                    'Medicina do esporte',
+                    'Estética avançada',
+                    'Biomedicina estética',
+                    'Clínica multidisciplinar',
+                    'Clínica popular',
+                    'Laboratório',
+                    'Hospital',
+                    'Outro negócio',
+                    'Outra especialidade'
+                ]
+            },
+            {
+                id: 'monthlyRevenue',
+                question: 'Qual a média de faturamento mensal?',
+                type: 'revenue',
+                kind: 'Maturidade comercial',
+                regions: {
+                    europe: {
+                        label: 'Portugal / Europa',
+                        options: [
+                            'Até €5.000/mês',
+                            'Entre €5.000 e €10.000/mês',
+                            'Entre €10.000 e €20.000/mês',
+                            'Entre €20.000 e €50.000/mês',
+                            'Acima de €50.000/mês',
+                            'Prefiro informar na reunião'
+                        ]
+                    },
+                    brazil: {
+                        label: 'Brasil',
+                        options: [
+                            'Abaixo de R$50 mil/mês',
+                            'R$50 mil a R$100 mil/mês',
+                            'R$100 mil a R$200 mil/mês',
+                            'R$200 mil a R$500 mil/mês',
+                            'Acima de R$500 mil/mês',
+                            'Prefiro informar na reunião'
+                        ]
+                    }
+                }
+            },
+            {
+                id: 'leadHandling',
+                question: 'Quem atende os leads e pacientes hoje?',
+                type: 'select',
+                kind: 'Atendimento',
+                options: [
+                    'O próprio médico/dono responde',
+                    'Secretária/rececionista responde junto com outras funções',
+                    'Uma pessoa dedicada ao atendimento',
+                    'Duas ou mais pessoas dedicadas ao atendimento',
+                    'Tenho equipa comercial interna',
+                    'Agência ou parceiro externo ajuda no atendimento',
+                    'Ninguém acompanha isso de forma organizada',
+                    'Ainda não temos processo definido'
+                ]
+            }
+        ];
+
+        const leadFormState = {
+            currentStep: 0,
+            values: {},
+            revenueRegion: 'europe',
+            completed: false,
+            isSubmitting: false
+        };
+
+        const raevoLeadFormWebhookUrl = 'https://hook.growautomacao.com.br/webhook/raevo-site-kommo';
+        const raevoLeadFormBookingUrl = window.location.protocol === 'file:' ? './agendamento.html' : '/agendamento/';
+
+        const leadForm = document.getElementById('raevo-lead-form');
+        const leadFormInner = document.getElementById('raevo-lead-form-inner');
+        const leadFormProgress = document.getElementById('lead-form-progress');
+        const leadFormKind = document.getElementById('lead-form-kind');
+        const leadFormQuestion = document.getElementById('lead-form-question');
+        const leadFormHelper = document.getElementById('lead-form-helper');
+        const leadFormField = document.getElementById('lead-form-field');
+        const leadFormError = document.getElementById('lead-form-error');
+        const leadFormBack = document.getElementById('lead-form-back');
+        const leadFormNext = document.getElementById('lead-form-next');
+        const leadFormSubmit = document.getElementById('lead-form-submit');
+
+        function openLeadForm() {
+            leadForm.classList.remove('hidden');
+            leadForm.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('overflow-hidden');
+            renderLeadFormStep();
+        }
+
+        function closeLeadForm() {
+            leadForm.classList.add('hidden');
+            leadForm.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
+            if (window.location.hash === '#formulario-raevo') {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+        }
+
+        function updateLeadFormValue(step, value) {
+            leadFormState.values[step.id] = value;
+            hideLeadFormError();
+        }
+
+        function hideLeadFormError() {
+            leadFormError.classList.add('hidden');
+            leadFormError.textContent = '';
+        }
+
+        function showLeadFormError(message) {
+            leadFormError.textContent = message;
+            leadFormError.classList.remove('hidden');
+        }
+
+        function animateLeadFormStep() {
+            if (prefersReducedMotion) return;
+            [leadFormProgress, leadFormKind, leadFormQuestion, leadFormHelper, leadFormField, leadFormError].forEach((element, index) => {
+                element.classList.remove('lead-form-step-motion');
+                element.style.animationDelay = `${index * 34}ms`;
+                void element.offsetWidth;
+                element.classList.add('lead-form-step-motion');
+            });
+        }
+
+        function renderLeadTextInput(step) {
+            const value = leadFormState.values[step.id] || '';
+            leadFormField.innerHTML = `
+                <label class="sr-only" for="lead-${step.id}">${step.question}</label>
+                <input class="lead-form-input w-full bg-transparent border-0 border-b border-pedra/25 px-0 py-5 text-[26px] md:text-[36px] leading-tight text-white placeholder:text-pedra/30 focus:border-caian focus:ring-0" id="lead-${step.id}" inputmode="${step.inputMode}" name="${step.id}" placeholder="${step.placeholder}" type="${step.type}" value="${value.replace(/"/g, '&quot;')}"/>
+            `;
+            const input = document.getElementById(`lead-${step.id}`);
+            input.addEventListener('input', () => updateLeadFormValue(step, input.value.trim()));
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    goToNextLeadFormStep();
+                }
+            });
+            setTimeout(() => input.focus(), 40);
+        }
+
+        function renderLeadOptions(step, options) {
+            const selectedValue = leadFormState.values[step.id] || '';
+            leadFormField.innerHTML = `
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    ${options.map((option) => `
+                        <button aria-pressed="${selectedValue === option}" class="lead-form-option min-h-[58px] text-left px-4 py-4 border border-pedra/15 bg-white/5 text-pedra/80 font-body-md text-body-md rounded-DEFAULT hover:border-champagne hover:bg-white/10 hover:text-white transition-all duration-300" data-option="${option.replace(/"/g, '&quot;')}" type="button">
+                            ${option}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+            leadFormField.querySelectorAll('[data-option]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    updateLeadFormValue(step, button.dataset.option);
+                    leadFormField.querySelectorAll('[data-option]').forEach((optionButton) => {
+                        optionButton.setAttribute('aria-pressed', String(optionButton === button));
+                    });
+                });
+            });
+        }
+
+        function renderRevenueStep(step) {
+            const selectedRegion = step.regions[leadFormState.revenueRegion];
+            leadFormHelper.textContent = 'Escolha a região para ver as faixas certas de faturamento.';
+            leadFormField.innerHTML = `
+                <div class="flex flex-wrap gap-2 mb-6" aria-label="Região do faturamento">
+                    ${Object.entries(step.regions).map(([regionId, region]) => `
+                        <button aria-pressed="${leadFormState.revenueRegion === regionId}" class="lead-form-region px-4 py-3 border border-pedra/15 bg-white/5 text-pedra/70 font-label-md text-label-md rounded-DEFAULT hover:border-champagne hover:text-white transition-colors" data-region="${regionId}" type="button">
+                            ${region.label}
+                        </button>
+                    `).join('')}
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="lead-revenue-options">
+                    ${selectedRegion.options.map((option) => `
+                        <button aria-pressed="${leadFormState.values[step.id] === option}" class="lead-form-option min-h-[58px] text-left px-4 py-4 border border-pedra/15 bg-white/5 text-pedra/80 font-body-md text-body-md rounded-DEFAULT hover:border-champagne hover:bg-white/10 hover:text-white transition-all duration-300" data-option="${option.replace(/"/g, '&quot;')}" type="button">
+                            ${option}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+            leadFormField.querySelectorAll('[data-region]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    leadFormState.revenueRegion = button.dataset.region;
+                    leadFormState.values[step.id] = '';
+                    renderLeadFormStep();
+                });
+            });
+            leadFormField.querySelectorAll('[data-option]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    updateLeadFormValue(step, button.dataset.option);
+                    leadFormState.values.revenueRegion = selectedRegion.label;
+                    leadFormField.querySelectorAll('[data-option]').forEach((optionButton) => {
+                        optionButton.setAttribute('aria-pressed', String(optionButton === button));
+                    });
+                });
+            });
+        }
+
+        function renderLeadFormComplete() {
+            leadFormProgress.textContent = 'Pronto';
+            leadFormKind.textContent = 'Agendamento';
+            leadFormQuestion.textContent = 'Abrindo a página de agendamento.';
+            leadFormHelper.textContent = 'Suas respostas foram recebidas. Agora escolha o melhor horário para a sessão estratégica.';
+            leadFormField.innerHTML = `
+                <div class="p-6 border border-champagne/30 bg-champagne/10 rounded-lg">
+                    <p class="font-body-lg text-body-lg text-pedra/80">Redirecionando para o agendamento Raevo.</p>
+                    <p class="font-body-md text-body-md text-pedra/55 text-sm mt-2">Se a página não abrir automaticamente, use o botão para continuar.</p>
+                    <a class="mt-5 inline-flex items-center justify-center px-5 py-3 bg-pedra text-carvao font-label-md text-label-md rounded-DEFAULT hover:bg-white transition-all duration-300" href="${raevoLeadFormBookingUrl}">Ir para agendamento</a>
+                </div>
+            `;
+            leadFormBack.classList.add('hidden');
+            leadFormNext.classList.add('hidden');
+            leadFormSubmit.classList.add('hidden');
+            animateLeadFormStep();
+        }
+
+        function renderLeadFormStep() {
+            hideLeadFormError();
+            if (leadFormState.completed) {
+                renderLeadFormComplete();
+                return;
+            }
+
+            const step = raevoLeadFormSteps[leadFormState.currentStep];
+            const progressNumber = String(leadFormState.currentStep + 1).padStart(2, '0');
+            const totalNumber = String(raevoLeadFormSteps.length).padStart(2, '0');
+            leadFormProgress.textContent = `${progressNumber} / ${totalNumber}`;
+            leadFormKind.textContent = step.kind;
+            leadFormQuestion.textContent = step.question;
+            leadFormHelper.textContent = '';
+            leadFormBack.classList.toggle('hidden', leadFormState.currentStep === 0);
+            leadFormNext.classList.toggle('hidden', leadFormState.currentStep === raevoLeadFormSteps.length - 1);
+            leadFormSubmit.classList.toggle('hidden', leadFormState.currentStep !== raevoLeadFormSteps.length - 1);
+            leadFormSubmit.disabled = leadFormState.isSubmitting;
+            leadFormSubmit.classList.toggle('opacity-60', leadFormState.isSubmitting);
+            leadFormSubmit.querySelector('span').textContent = leadFormState.isSubmitting ? 'hourglass_top' : 'check';
+            leadFormSubmit.childNodes[0].textContent = leadFormState.isSubmitting ? 'Enviando dados' : 'Enviar dados';
+
+            if (step.type === 'select') {
+                renderLeadOptions(step, step.options);
+            } else if (step.type === 'revenue') {
+                renderRevenueStep(step);
+            } else {
+                renderLeadTextInput(step);
+            }
+            animateLeadFormStep();
+        }
+
+        function validateLeadFormStep() {
+            const step = raevoLeadFormSteps[leadFormState.currentStep];
+            const value = leadFormState.values[step.id];
+            if (!value) {
+                showLeadFormError('Preencha esta etapa para continuar.');
+                return false;
+            }
+            if (step.type === 'email' && !value.includes('@')) {
+                showLeadFormError('Insira um e-mail válido para avançar.');
+                return false;
+            }
+            return true;
+        }
+
+        function goToNextLeadFormStep() {
+            if (!validateLeadFormStep()) return;
+            leadFormState.currentStep = Math.min(raevoLeadFormSteps.length - 1, leadFormState.currentStep + 1);
+            renderLeadFormStep();
+        }
+
+        async function submitLeadFormToKommo() {
+            const payload = {
+                values: {
+                    ...leadFormState.values,
+                    revenueRegion: leadFormState.values.revenueRegion || raevoLeadFormSteps
+                        .find((step) => step.id === 'monthlyRevenue')
+                        .regions[leadFormState.revenueRegion].label,
+                    pageUrl: window.location.href,
+                },
+                source: 'raevo-site-conversational-form',
+                submittedAt: new Date().toISOString(),
+            };
+
+            const response = await fetch(raevoLeadFormWebhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain;charset=UTF-8',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Webhook returned ${response.status}`);
+            }
+
+            const result = await response.json();
+            if (!result.ok) {
+                throw new Error(result.error || 'Webhook response was not ok');
+            }
+
+            return result;
+        }
+
+        document.querySelectorAll('[data-open-lead-form]').forEach((trigger) => {
+            trigger.addEventListener('click', (event) => {
+                event.preventDefault();
+                openLeadForm();
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    icon.textContent = 'menu';
+                }
+            });
+        });
+
+        document.querySelectorAll('[data-close-lead-form]').forEach((trigger) => {
+            trigger.addEventListener('click', closeLeadForm);
+        });
+
+        leadFormBack.addEventListener('click', () => {
+            leadFormState.currentStep = Math.max(0, leadFormState.currentStep - 1);
+            renderLeadFormStep();
+        });
+
+        leadFormNext.addEventListener('click', goToNextLeadFormStep);
+
+        leadFormInner.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            if (!validateLeadFormStep()) return;
+            leadFormState.isSubmitting = true;
+            renderLeadFormStep();
+            try {
+                await submitLeadFormToKommo();
+                leadFormState.completed = true;
+                renderLeadFormStep();
+                window.location.assign(raevoLeadFormBookingUrl);
+            } catch (error) {
+                leadFormState.isSubmitting = false;
+                renderLeadFormStep();
+                showLeadFormError('Não foi possível enviar agora. Tente novamente em instantes.');
+                console.error('Raevo lead form submission failed', error);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !leadForm.classList.contains('hidden')) {
+                closeLeadForm();
+            }
+        });
+    </script>
+</body></html>
