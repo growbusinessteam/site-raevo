@@ -3,7 +3,7 @@
 <html class="scroll-smooth" lang="pt-BR"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>RAEVO | Consultoria Especializada para Clínicas Premium</title>
+<title>RAEVO | Consultoria para Clínicas Especializadas</title>
 <link href="../favicon.ico?v=20260702" rel="icon" sizes="any"/>
 <link href="../favicon-32x32.png?v=20260702" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../apple-touch-icon.png?v=20260702" rel="apple-touch-icon"/>
@@ -147,6 +147,27 @@
         }
         .lead-form-input {
             caret-color: #00B8C6;
+        }
+        .lead-phone-country {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(233, 228, 218, 0.18);
+            color: #ffffff;
+        }
+        .lead-phone-country option {
+            color: #1F1F1F;
+        }
+        .sim-locked {
+            opacity: 0.38;
+            filter: grayscale(0.75);
+            background-color: rgba(220, 207, 190, 0.28) !important;
+            border-style: dashed !important;
+            cursor: not-allowed !important;
+        }
+        .sim-locked * {
+            cursor: not-allowed !important;
+        }
+        .sim-locked input {
+            pointer-events: none;
         }
         :root {
             --raevo-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -472,13 +493,13 @@
 <div class="w-full max-w-7xl mx-auto flex flex-col items-start z-10 relative">
 <div class="inline-flex items-center gap-2 px-3 py-1 border border-white/20 bg-white/10 backdrop-blur-md rounded-full mb-6">
 <span class="w-2 h-2 rounded-full bg-caian animate-pulse"></span>
-<span class="font-label-md text-label-md text-pedra uppercase tracking-wider text-xs">Para médicos e clínicas high-ticket</span>
+<span class="font-label-md text-label-md text-pedra uppercase tracking-wider text-xs">Para médicos, dentistas e donos de clínicas</span>
 </div>
 <h1 class="font-headline-xl-mobile text-[42px] leading-[1.08] md:font-headline-xl md:text-[42px] lg:text-[56px] text-white mb-6 max-w-3xl">
-                    Mais Pacientes, Menos Preocupações
+                    Mais Utentes,<br/>Menos Preocupações
                 </h1>
 <p class="font-body-lg text-body-lg text-pedra/85 mb-8 max-w-xl">
-                    Ajudamos clínicas a atraírem pacientes qualificados e estruturarem o atendimento com marketing, CRM e IA, para vender valor com mais controle e previsibilidade.
+                    Ajudamos clínicas a atraírem utentes qualificados e estruturarem o atendimento com marketing, CRM e IA, para vender valor com mais controle e previsibilidade.
                 </p>
 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
 <a class="inline-flex items-center justify-center px-8 py-4 bg-pedra text-carvao font-label-md text-label-md rounded-DEFAULT hover:bg-white transition-all duration-300 w-full sm:w-auto" href="#crescimento">
@@ -502,7 +523,7 @@
 <div class="mt-7 p-4 bg-white/10 border border-white/15 rounded-lg flex items-start gap-4 max-w-md backdrop-blur-md">
 <span class="material-symbols-outlined text-champagne shrink-0" style="font-variation-settings: 'FILL' 1;">diamond</span>
 <p class="font-body-md text-body-md text-pedra/85 italic text-sm">
-                        "Tratamento premium não pode ser vendido como orçamento comum."
+                        "Tratamento especializado não pode ser vendido como orçamento comum."
                     </p>
 </div>
 </div>
@@ -513,10 +534,10 @@
 <div class="text-center max-w-5xl mx-auto mb-16">
 <p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-4">O que ajudamos a resolver</p>
 <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-6">
-                        Clínicas premium não podem começar com atendimento comum.
+                        Clínicas especializadas não podem começar com atendimento comum.
                     </h2>
 <p class="font-body-lg text-body-lg text-surface-tint max-w-3xl mx-auto">
-                        Clínicas modernas exigem uma boa experiência desde a chegada do lead no WhatsApp até o pós-atendimento.
+                        Clínicas modernas exigem uma boa experiência desde a chegada do utente no WhatsApp até o pós-atendimento.
                     </p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -539,7 +560,7 @@
 <div class="w-12 h-12 bg-surface-container mb-6 flex items-center justify-center rounded-DEFAULT text-carvao group-hover:text-champagne transition-colors">
 <span class="material-symbols-outlined">block</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm mb-3">Lead sem perfil</h3>
+<h3 class="font-headline-sm text-headline-sm mb-3">Utente sem perfil</h3>
 <p class="font-body-md text-body-md text-surface-tint">Ocupa tempo e não avança.</p>
 </div>
 <div class="bg-white p-8 border border-taupe/20 rounded-lg hover:border-champagne/50 transition-colors group lg:col-span-1 md:col-span-2">
@@ -547,7 +568,7 @@
 <span class="material-symbols-outlined">schedule</span>
 </div>
 <h3 class="font-headline-sm text-headline-sm mb-3">Follow-up perdido</h3>
-<p class="font-body-md text-body-md text-surface-tint">O paciente esfria e some.</p>
+<p class="font-body-md text-body-md text-surface-tint">O utente esfria e some.</p>
 </div>
 <div class="bg-carvao p-8 border border-carvao rounded-lg lg:col-span-2 md:col-span-2 flex flex-col justify-center relative overflow-hidden">
 <div class="absolute right-0 bottom-0 opacity-10">
@@ -567,12 +588,12 @@
                         O cenário contra você
                     </h2>
 <p class="font-body-lg text-body-lg text-surface-tint">
-                        Identificamos os gargalos silenciosos que sabotam o crescimento sustentável de clínicas de alto padrão.
+                        Identificamos os gargalos silenciosos que sabotam o crescimento sustentável de clínicas especializadas.
                     </p>
 </div>
 <div class="mt-6 md:mt-0 px-6 py-4 bg-areia/30 border-l-2 border-caian max-w-sm">
 <p class="font-label-md text-label-md text-carvao">
-                        "O inimigo não é o preço. É o paciente não enxergar valor antes de comparar."
+                        "O inimigo não é o preço. É o utente não enxergar valor antes de agendar."
                     </p>
 </div>
 </div>
@@ -586,7 +607,7 @@
 <div class="relative z-10">
 <span class="text-champagne font-headline-sm text-headline-sm mb-2 block">01.</span>
 <h3 class="font-headline-md text-headline-md text-white mb-2">A Busca Pelo Preço</h3>
-<p class="font-body-md text-body-md text-pedra/80 max-w-md">Pacientes treinados pelo mercado a buscar o tratamento como uma mercadoria (commodity), ignorando a expertise técnica e a segurança.</p>
+<p class="font-body-md text-body-md text-pedra/80 max-w-md">Utentes treinados pelo mercado a buscar o tratamento como uma mercadoria (commodity), ignorando a expertise técnica e a segurança.</p>
 </div>
 </div>
 <!-- Item 2 -->
@@ -602,7 +623,7 @@
 <span class="text-taupe/50 font-headline-sm text-headline-sm mb-auto">03.</span>
 <div>
 <h3 class="font-headline-sm text-headline-sm text-pedra mb-2">Atendimento Passivo</h3>
-<p class="font-body-md text-body-md text-pedra/70 text-sm">Secretárias treinadas para dar informações, não para conduzir negociações ou contornar objeções de alto ticket.</p>
+<p class="font-body-md text-body-md text-pedra/70 text-sm">Rececionistas treinadas para dar informações, não para conduzir negociações ou contornar objeções de alto ticket.</p>
 </div>
 </div>
 <!-- Item 4 -->
@@ -610,7 +631,7 @@
 <span class="text-taupe font-headline-sm text-headline-sm mb-auto">04.</span>
 <div>
 <h3 class="font-headline-sm text-headline-sm text-carvao mb-2">Métricas de Vaidade</h3>
-<p class="font-body-md text-body-md text-surface-tint text-sm">Focar em curtidas e seguidores em vez de CAC (Custo de Aquisição) e LTV (Lifetime Value) do paciente.</p>
+<p class="font-body-md text-body-md text-surface-tint text-sm">Focar em curtidas e seguidores em vez de CAC (Custo de Aquisição) e LTV (Lifetime Value) do utente.</p>
 </div>
 </div>
 <!-- Item 5 -->
@@ -620,7 +641,7 @@
 </div>
 <div>
 <h3 class="font-headline-sm text-headline-sm text-carvao mb-2">Falta de Acompanhamento (Follow-up)</h3>
-<p class="font-body-md text-body-md text-surface-tint max-w-lg">Deixar dinheiro na mesa por não ter um sistema que nutre leads frios e reativa pacientes antigos de forma sistemática.</p>
+<p class="font-body-md text-body-md text-surface-tint max-w-lg">Deixar dinheiro na mesa por não ter um sistema que nutre utentes frios e reativa utentes antigos de forma sistemática.</p>
 </div>
 </div>
 </div>
@@ -633,14 +654,14 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <div>
 <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg mb-8 leading-tight">
-                            Mais leads não resolvem uma clínica que ainda vende valor como preço.
+                            Mais utentes não resolvem uma clínica que ainda vende valor como preço.
                         </h2>
 <div class="space-y-6 border-l border-taupe/30 pl-6">
 <p class="font-body-lg text-body-lg text-pedra/80">
-                                Injetar mais tráfego em um funil vazado apenas acelera a frustração. O problema da maioria das clínicas premium não é atrair pessoas, é atrair as pessoas <em class="text-white font-semibold">certas</em> e saber convertê-las.
+                                Injetar mais tráfego em um funil vazado apenas acelera a frustração. O problema da maioria das clínicas não é atrair pessoas, é atrair as pessoas <em class="text-white font-semibold">certas</em> e saber convertê-las.
                             </p>
 <p class="font-body-lg text-body-lg text-pedra/80">
-                                A transição exige sair do caos de contatos desorganizados para a clareza de um processo comercial arquitetado para alta conversão.
+                                A transição exige sair do caos de contactos desorganizados para a clareza de um processo comercial arquitetado para alta conversão.
                             </p>
 </div>
 </div>
@@ -666,7 +687,7 @@
 <div class="w-[1px] h-4 bg-taupe/50"></div>
 <div class="w-2/3 p-2 border border-caian/50 bg-caian/10 rounded text-center text-xs text-caian">Filtro CRM</div>
 <div class="w-[1px] h-4 bg-taupe/50"></div>
-<div class="w-full p-2 border border-champagne/50 bg-champagne/10 rounded text-center text-xs text-champagne">Conversão Premium</div>
+<div class="w-full p-2 border border-champagne/50 bg-champagne/10 rounded text-center text-xs text-champagne">Conversão de Valor</div>
 </div>
 </div>
 </div>
@@ -680,7 +701,7 @@
                     O Sistema Raevo
                 </h2>
 <p class="font-body-lg text-body-lg text-carvao font-semibold">
-                    Marketing, CRM e IA conectados para atrair pacientes certos, atender melhor e vender valor antes do preço.
+                    Marketing, CRM e IA conectados para atrair utentes certos, atender melhor e vender valor antes do preço.
                 </p>
 </div>
 <!-- Integrated System Visual Flow -->
@@ -693,7 +714,7 @@
 <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-5 border-2 border-white shadow-sm ring-1 ring-taupe/20">
 <span class="material-symbols-outlined text-caian">campaign</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm text-carvao text-xl mb-4">1. Atrair pacientes com mais perfil</h3>
+<h3 class="font-headline-sm text-headline-sm text-carvao text-xl mb-4">1. Atrair utentes com mais perfil</h3>
 <p class="font-body-md text-body-md text-surface-tint">Campanhas e posicionamento pensados para atrair pessoas que valorizam o seu trabalho, não apenas curiosos perguntando preço.</p>
 </div>
 <!-- System Step 2 -->
@@ -702,7 +723,7 @@
 <span class="material-symbols-outlined text-caian">support_agent</span>
 </div>
 <h3 class="font-headline-sm text-headline-sm text-carvao text-xl mb-4">2. Converter com atendimento, CRM e IA</h3>
-<p class="font-body-md text-body-md text-surface-tint">Scripts, funis, automações e IA para qualificar leads, apoiar a secretária, organizar follow-ups e conduzir melhor cada oportunidade.</p>
+<p class="font-body-md text-body-md text-surface-tint">Scripts, funis, automações e IA para qualificar utentes, apoiar a rececionista, organizar follow-ups e conduzir melhor cada oportunidade.</p>
 </div>
 <!-- System Step 3 -->
 <div class="bg-white p-8 border border-taupe/20 rounded-lg shadow-sm flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
@@ -710,7 +731,7 @@
 <span class="material-symbols-outlined text-caian">analytics</span>
 </div>
 <h3 class="font-headline-sm text-headline-sm text-carvao text-xl mb-4">3. Crescer com dados e previsibilidade</h3>
-<p class="font-body-md text-body-md text-surface-tint">Dashboards e análise comercial para entender o que gera consultas, onde os leads travam e onde investir com mais segurança.</p>
+<p class="font-body-md text-body-md text-surface-tint">Dashboards e análise comercial para entender o que gera consultas, onde os utentes travam e onde investir com mais segurança.</p>
 </div>
 </div>
 </div>
@@ -739,7 +760,7 @@
 <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-surface-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">3</div>
 <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
 <h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Setup do Sistema</h4>
-<p class="font-body-md text-body-md text-surface-tint text-sm">Configuração técnica do CRM, automações e treinamento da equipe local.</p>
+<p class="font-body-md text-body-md text-surface-tint text-sm">Configuração técnica do CRM, automações e treino da equipa local.</p>
 </div>
 </div>
 <!-- Step 4 -->
@@ -772,7 +793,7 @@
 <div class="bg-white border border-taupe/20 rounded-xl p-8 flex flex-col hover:border-champagne/50 transition-colors">
 <div class="inline-flex px-3 py-1 bg-surface-container-highest rounded text-carvao text-xs font-bold uppercase tracking-wider mb-6 self-start">Projeto Pontual</div>
 <h3 class="font-headline-md text-headline-md text-carvao mb-2">Implementação Comercial</h3>
-<p class="font-body-md text-body-md text-surface-tint mb-6">Diagnóstico, estruturação do processo de vendas e setup do CRM. Entregamos a máquina pronta para sua equipe operar.</p>
+<p class="font-body-md text-body-md text-surface-tint mb-6">Diagnóstico, estruturação do processo de vendas e setup do CRM. Entregamos a máquina pronta para a sua equipa operar.</p>
 <div class="text-3xl font-headline-md text-carvao mb-8">A partir de €1.997</div>
 <ul class="space-y-4 mb-8 flex-grow">
 <li class="flex items-start gap-3">
@@ -789,7 +810,7 @@
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-caian shrink-0 text-xl">check_circle</span>
-<span class="font-body-md text-body-md text-carvao text-sm">Treinamento da equipe de atendimento (1 sessão)</span>
+<span class="font-body-md text-body-md text-carvao text-sm">Treino da equipa de atendimento (1 sessão)</span>
 </li>
 </ul>
 <a class="w-full inline-flex items-center justify-center px-6 py-4 border-2 border-carvao text-carvao font-label-md text-label-md rounded-DEFAULT hover:bg-carvao hover:text-pedra transition-all duration-300" data-open-lead-form="" href="#formulario-raevo">
@@ -839,7 +860,7 @@
 <div>
 <p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Implementação obrigatória</p>
 <h4 class="font-headline-sm text-headline-sm text-carvao text-lg">Quantos profissionais atuam no atendimento da clínica?</h4>
-<p class="font-body-md text-body-md text-surface-tint text-xs mt-2 max-w-xl">O primeiro profissional está incluído na implementação base. A partir do segundo, cada profissional adicional exige configuração, treinamento e adaptação do processo comercial.</p>
+<p class="font-body-md text-body-md text-surface-tint text-xs mt-2 max-w-xl">O primeiro profissional está incluído na implementação base. A partir do segundo, cada profissional adicional exige configuração, treino e adaptação do processo comercial.</p>
 </div>
 <div class="flex items-center gap-2 shrink-0">
 <button aria-label="Diminuir profissionais" class="w-10 h-10 inline-flex items-center justify-center bg-white border border-taupe/30 rounded-DEFAULT text-carvao hover:border-carvao transition-colors" id="sim-professionals-minus" type="button">
@@ -869,7 +890,7 @@
 <div class="flex items-center gap-3 mb-1">
 <h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Mídia Paga + Copy</h5>
 </div>
-<p class="font-body-md text-body-md text-surface-tint text-xs">Gestão de campanhas e copy para atrair pacientes com mais perfil.</p>
+<p class="font-body-md text-body-md text-surface-tint text-xs">Gestão de campanhas e copy para atrair utentes com mais perfil.</p>
 </div>
 </label>
 <label class="sim-module-card flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="aiSecretary">
@@ -878,12 +899,12 @@
 </div>
 <div class="flex-grow">
 <div class="flex items-center gap-3 mb-1">
-<h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Secretária por IA</h5>
+<h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Rececionista por IA</h5>
 </div>
 <p class="font-body-md text-body-md text-surface-tint text-xs">IA para apoiar atendimento, qualificação, respostas, organização e follow-up comercial.</p>
 </div>
 </label>
-<label class="sim-module-card flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="creatives">
+<label class="sim-module-card sim-locked flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="creatives" aria-disabled="true">
 <div class="mt-1">
 <input class="sim-module w-5 h-5 rounded border-taupe text-champagne focus:ring-champagne" data-module="creatives" type="checkbox"/>
 </div>
@@ -892,7 +913,6 @@
 <h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Criativos</h5>
 </div>
 <p class="font-body-md text-body-md text-surface-tint text-xs">Edição de vídeos, design e peças para campanhas.</p>
-<p class="sim-dependency-message font-body-md text-body-md text-champagne text-xs mt-2">Disponível apenas com Mídia Paga + Copy.</p>
 </div>
 </label>
 <label class="sim-module-card flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="commercialFollowup">
@@ -904,21 +924,21 @@
 <h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Acompanhamento Comercial</h5>
 </div>
 <p class="font-body-md text-body-md text-surface-tint text-xs">Gestão da equipa comercial da clínica, acompanhamento do uso do CRM e análise dos gargalos de conversão.</p>
-<p class="sim-dependency-message font-body-md text-body-md text-champagne text-xs mt-2">Disponível apenas com Mídia Paga + Copy.</p>
 </div>
 </label>
-<div class="md:col-span-2 p-4 rounded-lg border border-taupe/30 bg-surface-bright transition-opacity" id="sim-media-investment-card">
+<div class="sim-locked md:col-span-2 p-4 rounded-lg border border-taupe/30 bg-surface-bright transition-opacity" id="sim-media-investment-card" aria-disabled="true">
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 <div>
 <h5 class="font-label-md text-label-md text-carvao">Quanto pretende investir em mídia?</h5>
 <p class="font-body-md text-body-md text-surface-tint text-xs mt-1">Investimento mínimo recomendado: €200/mês.</p>
 <p class="font-body-md text-body-md text-surface-tint text-xs mt-1">À medida que o investimento aumenta, o trabalho de gestão, análise e otimização também aumenta.</p>
+<p class="font-body-md text-body-md text-surface-tint text-xs mt-1">A taxa de gestão é de 10% sobre o investimento e só entra no total quando Mídia Paga + Copy estiver selecionado.</p>
 </div>
 <div class="shrink-0">
 <label class="sr-only" for="sim-media-investment">Investimento mensal em mídia</label>
 <div class="flex items-center bg-white border border-taupe/30 rounded-DEFAULT px-3 h-11">
 <span class="font-label-md text-label-md text-surface-tint mr-2">€</span>
-<input class="w-24 border-0 p-0 text-right font-label-md text-label-md text-carvao focus:ring-0" id="sim-media-investment" min="200" step="50" type="number" value="200"/>
+<input class="w-28 border-0 p-0 text-right font-label-md text-label-md text-carvao focus:ring-0" id="sim-media-investment" min="200" step="50" type="number" value="200"/>
 </div>
 </div>
 </div>
@@ -965,7 +985,7 @@
 <div class="space-y-2 text-sm" id="sim-monthly-items"></div>
 <div class="space-y-2 text-sm mt-2 hidden" id="sim-media-fee-row">
 <div class="flex justify-between gap-4">
-<span class="text-pedra/70">Gestão sobre mídia (10%)</span>
+<span class="text-pedra/70">Taxa de gestão de mídia (10% sobre investimento)</span>
 <span id="sim-media-fee">€20/mês</span>
 </div>
 </div>
@@ -1008,7 +1028,7 @@
                                 price: 500
                             },
                             aiSecretary: {
-                                name: 'Secretária por IA',
+                                name: 'Rececionista por IA',
                                 price: 500
                             },
                             creatives: {
@@ -1018,8 +1038,7 @@
                             },
                             commercialFollowup: {
                                 name: 'Acompanhamento Comercial',
-                                price: 400,
-                                requires: 'paidMedia'
+                                price: 400
                             }
                         }
                     };
@@ -1041,12 +1060,9 @@
                         card.classList.toggle('border-champagne', isSelected);
                         card.classList.toggle('bg-champagne/5', isSelected);
                         card.classList.toggle('border-taupe/30', !isSelected);
-                        card.classList.toggle('opacity-50', isDisabled);
-                        card.classList.toggle('cursor-not-allowed', isDisabled);
+                        card.classList.toggle('sim-locked', isDisabled);
                         card.classList.toggle('cursor-pointer', !isDisabled);
-                        card.querySelectorAll('.sim-dependency-message').forEach((message) => {
-                            message.classList.toggle('hidden', !isDisabled);
-                        });
+                        card.setAttribute('aria-disabled', isDisabled ? 'true' : 'false');
                     }
 
                     function renderSummaryRow(name, value) {
@@ -1058,19 +1074,19 @@
                         const professionals = Math.max(1, parseInt(professionalsInput.value || '1', 10));
                         professionalsInput.value = professionals;
                         const mediaInvestmentInput = document.getElementById('sim-media-investment');
-                        const mediaInvestment = Math.max(
-                            raevoPlanConfig.mediaInvestment.minimum,
-                            parseInt(mediaInvestmentInput.value || `${raevoPlanConfig.mediaInvestment.minimum}`, 10)
-                        );
-                        mediaInvestmentInput.value = mediaInvestment;
+                        const mediaInvestmentValue = parseInt(mediaInvestmentInput.value, 10);
+                        const mediaInvestment = Number.isFinite(mediaInvestmentValue)
+                            ? Math.max(raevoPlanConfig.mediaInvestment.minimum, mediaInvestmentValue)
+                            : raevoPlanConfig.mediaInvestment.minimum;
 
                         const paidMediaInput = document.querySelector('[data-module="paidMedia"]');
                         const hasPaidMedia = paidMediaInput.checked;
-                        const dependentModuleIds = ['creatives', 'commercialFollowup'];
                         const mediaInvestmentCard = document.getElementById('sim-media-investment-card');
                         mediaInvestmentInput.disabled = !hasPaidMedia;
-                        mediaInvestmentCard.classList.toggle('opacity-50', !hasPaidMedia);
+                        mediaInvestmentCard.classList.toggle('sim-locked', !hasPaidMedia);
+                        mediaInvestmentCard.setAttribute('aria-disabled', hasPaidMedia ? 'false' : 'true');
 
+                        const dependentModuleIds = ['creatives'];
                         dependentModuleIds.forEach((moduleId) => {
                             const input = document.querySelector(`[data-module="${moduleId}"]`);
                             if (!hasPaidMedia) {
@@ -1131,6 +1147,13 @@
 
                     document.getElementById('sim-professionals').addEventListener('input', updatePlanSimulation);
                     document.getElementById('sim-media-investment').addEventListener('input', updatePlanSimulation);
+                    document.getElementById('sim-media-investment').addEventListener('blur', (event) => {
+                        const mediaInvestmentValue = parseInt(event.target.value, 10);
+                        event.target.value = Number.isFinite(mediaInvestmentValue)
+                            ? Math.max(raevoPlanConfig.mediaInvestment.minimum, mediaInvestmentValue)
+                            : raevoPlanConfig.mediaInvestment.minimum;
+                        updatePlanSimulation();
+                    });
                     document.getElementById('sim-professionals-minus').addEventListener('click', () => {
                         const input = document.getElementById('sim-professionals');
                         input.value = Math.max(1, parseInt(input.value || '1', 10) - 1);
@@ -1163,8 +1186,8 @@
 <tbody class="font-body-md text-body-md text-sm">
 <tr>
 <td class="p-4 border-b border-taupe/10 font-semibold text-carvao">Foco principal</td>
-<td class="p-4 border-b border-taupe/10 text-surface-tint">Gerar volume de leads</td>
-<td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Atrair pacientes com perfil e conduzir até a venda</td>
+<td class="p-4 border-b border-taupe/10 text-surface-tint">Gerar volume de utentes</td>
+<td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Atrair utentes com perfil e conduzir até a venda</td>
 </tr>
 <tr>
 <td class="p-4 border-b border-taupe/10 font-semibold text-carvao">Estratégia</td>
@@ -1173,17 +1196,17 @@
 </tr>
 <tr>
 <td class="p-4 border-b border-taupe/10 font-semibold text-carvao">Atendimento</td>
-<td class="p-4 border-b border-taupe/10 text-surface-tint">O lead chega e a clínica se vira</td>
+<td class="p-4 border-b border-taupe/10 text-surface-tint">O utente chega e a clínica se vira</td>
 <td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Scripts, follow-up, CRM e IA para conduzir melhor</td>
 </tr>
 <tr>
 <td class="p-4 border-b border-taupe/10 font-semibold text-carvao">Empresas que atende</td>
 <td class="p-4 border-b border-taupe/10 text-surface-tint">Qualquer tipo de empresa</td>
-<td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Clínicas premium e operações de saúde high-ticket</td>
+<td class="p-4 border-b border-taupe/10 text-carvao bg-areia/20 font-semibold text-center border-l border-r border-taupe/20">Clínicas especializadas e operações de saúde</td>
 </tr>
 <tr>
 <td class="p-4 font-semibold text-carvao">Resultado Alvo</td>
-<td class="p-4 text-surface-tint">Volume de contatos</td>
+<td class="p-4 text-surface-tint">Volume de contactos</td>
 <td class="p-4 text-carvao bg-areia/20 font-semibold text-center rounded-b-lg border-l border-r border-b border-taupe/20">Agenda qualificada, vendas e previsibilidade</td>
 </tr>
 </tbody>
@@ -1200,15 +1223,15 @@
 <li class="flex items-start gap-4">
 <span class="material-symbols-outlined text-caian shrink-0 mt-1">check</span>
 <div>
-<h4 class="font-label-md text-label-md text-white mb-1">Clínicas de Alto Padrão</h4>
-<p class="font-body-md text-body-md text-pedra/70 text-sm">Cirurgia plástica, harmonização e especialidades médicas focadas em tratamentos de alto valor.</p>
+<h4 class="font-label-md text-label-md text-white mb-1">Clínicas Especializadas</h4>
+<p class="font-body-md text-body-md text-pedra/70 text-sm">Cirurgia plástica, harmonização, odontologia e especialidades médicas focadas em tratamentos especializados.</p>
 </div>
 </li>
 <li class="flex items-start gap-4">
 <span class="material-symbols-outlined text-caian shrink-0 mt-1">check</span>
 <div>
-<h4 class="font-label-md text-label-md text-white mb-1">Doutores Excelentes</h4>
-<p class="font-body-md text-body-md text-pedra/70 text-sm">Profissionais que confiam cegamente na qualidade do seu serviço, mas sentem que a percepção de valor do mercado não acompanha.</p>
+<h4 class="font-label-md text-label-md text-white mb-1">Médicos e dentistas excelentes</h4>
+<p class="font-body-md text-body-md text-pedra/70 text-sm">Profissionais com serviço de qualidade, mas que sentem que a percepção de valor do mercado não acompanha.</p>
 </div>
 </li>
 <li class="flex items-start gap-4">
@@ -1262,17 +1285,17 @@
 <span class="material-symbols-outlined text-champagne transition-transform duration-300">expand_more</span>
 </button>
 <div class="px-6 pb-4 hidden font-body-md text-body-md text-surface-tint text-sm border-t border-taupe/10 pt-4">
-                        Agências focam em gerar cliques, curtidas e, na melhor das hipóteses, contatos no WhatsApp. A Raevo atua como uma assessoria de engenharia comercial: nós não só geramos o tráfego qualificado, mas implementamos o CRM, criamos os scripts de vendas, treinamos sua equipe e auditamos o atendimento para garantir que o lead vire paciente pagante.
+                        Agências focam em gerar cliques, curtidas e, na melhor das hipóteses, contactos no WhatsApp. A Raevo atua como uma assessoria de engenharia comercial: nós não só geramos o tráfego qualificado, mas implementamos o CRM, criamos os scripts de vendas, treinamos a sua equipa e auditamos o atendimento para garantir que o utente avance para um tratamento pago.
                     </div>
 </div>
 <!-- FAQ Item 3 -->
 <div class="border border-taupe/20 rounded-lg bg-white overflow-hidden">
 <button class="w-full text-left px-6 py-4 font-label-md text-label-md text-carvao flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-<span>Minha secretária não sabe vender, a Raevo ajuda com isso?</span>
+<span>A minha rececionista não sabe vender, a Raevo ajuda com isso?</span>
 <span class="material-symbols-outlined text-champagne transition-transform duration-300">expand_more</span>
 </button>
 <div class="px-6 pb-4 hidden font-body-md text-body-md text-surface-tint text-sm border-t border-taupe/10 pt-4">
-                        Sim, este é um dos nossos pilares centrais. Secretárias são treinadas para dar informações. Nós treinamos sua equipe para utilizar roteiros persuasivos (scripts) e contornar objeções de preço, guiando o paciente para o agendamento de forma elegante e resolutiva.
+                        Sim, este é um dos nossos pilares centrais. Rececionistas são treinadas para dar informações. Nós treinamos a sua equipa para utilizar roteiros persuasivos (scripts) e contornar objeções de preço, guiando o utente para o agendamento de forma elegante e resolutiva.
                     </div>
 </div>
 <!-- FAQ Item 4 -->
@@ -1282,7 +1305,7 @@
 <span class="material-symbols-outlined text-champagne transition-transform duration-300">expand_more</span>
 </button>
 <div class="px-6 pb-4 hidden font-body-md text-body-md text-surface-tint text-sm border-t border-taupe/10 pt-4">
-                        Atendemos, desde que a clínica nasça com a proposta de ser um negócio premium e o gestor tenha caixa para investir na construção da máquina (implementação comercial + verba de tráfego inicial). Não somos a solução ideal para clínicas que estão buscando "salvação rápida" para evitar falência.
+                        Atendemos, desde que a clínica nasça com a proposta de ser uma clínica especializada e o gestor tenha caixa para investir na construção da máquina (implementação comercial + verba de tráfego inicial). Não somos a solução ideal para clínicas que estão buscando "salvação rápida" para evitar falência.
                     </div>
 </div>
 <!-- FAQ Item 5 -->
@@ -1292,7 +1315,7 @@
 <span class="material-symbols-outlined text-champagne transition-transform duration-300">expand_more</span>
 </button>
 <div class="px-6 pb-4 hidden font-body-md text-body-md text-surface-tint text-sm border-t border-taupe/10 pt-4">
-                        A <strong class="text-carvao">Implementação</strong> é um projeto com início, meio e fim (aprox. 30 dias) onde construímos a infraestrutura (CRM, Funil, Scripts) e entregamos a "máquina" pronta para sua equipe operar. <br/><br/>A <strong class="text-carvao">Assessoria Contínua</strong> inclui toda a infraestrutura e, após a entrega, a Raevo atua mensalmente operando o tráfego pago, auditando as vendas da sua equipe e otimizando os resultados continuamente.
+                        A <strong class="text-carvao">Implementação</strong> é um projeto com início, meio e fim (aprox. 30 dias) onde construímos a infraestrutura (CRM, Funil, Scripts) e entregamos a "máquina" pronta para a sua equipa operar. <br/><br/>A <strong class="text-carvao">Assessoria Contínua</strong> inclui toda a infraestrutura e, após a entrega, a Raevo atua mensalmente operando o tráfego pago, auditando as vendas da sua equipa e otimizando os resultados continuamente.
                     </div>
 </div>
 </div>
@@ -1319,13 +1342,13 @@
 </section>
 <!-- 14. Final CTA -->
 <section class="py-[160px] px-margin-safe bg-carvao relative overflow-hidden" id="contato">
-<div class="bg-cover bg-center" data-alt="A highly abstract, dark architectural composition. Focus on precise geometry, deep shadows, and subtle textures of stone (pedra) and metal. The scene should evoke a feeling of high-end corporate stability and modern luxury. Minimalist and clean, with a profound sense of depth. Lit with soft, directional light highlighting edges in champagne or cool tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBs9IllhG8qsr17hygdhl75_x4YB0RXDrHZzJ8wnYYZ_aWhrIVPCARqc3iziwVPa9uFh7qcWV55jxyN3mtlBaVAt5UlO_Z1gzOt8ndeaDDfOfvg8Y6jzF51Urectu8IxNGPrKbVXBMsq0SwTW98aI1E4HIkY2DeLC7--CT_g7lPz6cKYPQM-Iku0qUyEJVJ-EsJbvCzyLT6G1isDPTD6Aj5E8lt_CFDZiNFykhzJ1_S29HOpgiC6x4263II2xf9BvPLyE_uqL0epfi')"></div>
+<div class="bg-cover bg-center" data-alt="A highly abstract, dark architectural composition. Focus on precise geometry, deep shadows, and subtle textures of stone (pedra) and metal. The scene should evoke a feeling of corporate stability and modern healthcare strategy. Minimalist and clean, with a profound sense of depth. Lit with soft, directional light highlighting edges in champagne or cool tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBs9IllhG8qsr17hygdhl75_x4YB0RXDrHZzJ8wnYYZ_aWhrIVPCARqc3iziwVPa9uFh7qcWV55jxyN3mtlBaVAt5UlO_Z1gzOt8ndeaDDfOfvg8Y6jzF51Urectu8IxNGPrKbVXBMsq0SwTW98aI1E4HIkY2DeLC7--CT_g7lPz6cKYPQM-Iku0qUyEJVJ-EsJbvCzyLT6G1isDPTD6Aj5E8lt_CFDZiNFykhzJ1_S29HOpgiC6x4263II2xf9BvPLyE_uqL0epfi')"></div>
 <div class="max-w-4xl mx-auto text-center relative z-10">
 <h2 class="font-headline-xl-mobile text-headline-xl-mobile md:font-headline-xl md:text-headline-xl text-pedra mb-8">
-                    Pare de vender tratamento premium como orçamento comum.
+                    Pare de vender tratamento especializado como orçamento comum.
                 </h2>
 <p class="font-body-lg text-body-lg text-pedra/70 mb-12 max-w-2xl mx-auto">
-                    Agende uma sessão estratégica gratuita. Avaliaremos sua operação atual e mostraremos a arquitetura exata que usamos para escalar clínicas de alto padrão.
+                    Agende uma sessão estratégica gratuita. Avaliaremos sua operação atual e mostraremos a arquitetura exata que usamos para escalar clínicas especializadas.
                 </p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
 <a class="inline-flex items-center justify-center px-10 py-5 bg-champagne text-white font-label-md text-label-md rounded-DEFAULT hover:bg-champagne/90 hover:scale-105 transition-all duration-300 shadow-lg" data-open-lead-form="" href="#formulario-raevo">
@@ -1339,11 +1362,7 @@
 <!-- Conversational Lead Form -->
 <div aria-hidden="true" class="lead-form-overlay fixed inset-0 z-[100] hidden overflow-y-auto text-pedra" id="raevo-lead-form">
 <div class="lead-form-grid min-h-screen px-margin-safe py-6 md:py-8 flex flex-col">
-<div class="w-full max-w-6xl mx-auto flex items-center justify-between gap-4">
-<button class="inline-flex items-center gap-3 text-pedra/70 hover:text-white transition-colors" data-close-lead-form="" type="button">
-<img alt="Raevo" class="h-8 w-auto object-contain" src="../assets/brand/raevo-logo-official-transparent.png"/>
-<span class="hidden sm:inline font-label-md text-label-md">Voltar para a landing</span>
-</button>
+<div class="w-full max-w-6xl mx-auto flex items-center justify-end gap-4">
 <button aria-label="Fechar formulário" class="w-11 h-11 inline-flex items-center justify-center rounded-DEFAULT border border-pedra/20 bg-white/5 text-pedra hover:bg-white/10 hover:text-white transition-colors" data-close-lead-form="" type="button">
 <span class="material-symbols-outlined">close</span>
 </button>
@@ -1364,8 +1383,7 @@ Preencha em poucos passos. Usamos estas informações para entender a operação
 </aside>
 <section>
 <div class="mb-8">
-<div class="flex items-center justify-between gap-4 mb-5">
-<p class="font-label-md text-label-md text-champagne uppercase" id="lead-form-progress">01 / 08</p>
+<div class="flex items-center justify-end gap-4 mb-5">
 <p class="font-body-md text-body-md text-pedra/50 text-sm" id="lead-form-kind">Resposta curta</p>
 </div>
 <h2 class="font-headline-lg-mobile text-[34px] leading-tight md:font-headline-lg md:text-[46px] text-white" id="lead-form-question">Nome completo</h2>
@@ -1385,9 +1403,6 @@ Continuar
 <button class="hidden inline-flex items-center justify-center gap-2 px-7 py-4 bg-champagne text-white font-label-md text-label-md rounded-DEFAULT hover:bg-champagne/90 transition-all duration-300" id="lead-form-submit" type="submit">
 Enviar dados
 <span class="material-symbols-outlined text-xl">check</span>
-</button>
-<button class="sm:ml-auto inline-flex items-center justify-center px-5 py-4 text-pedra/60 hover:text-white font-label-md text-label-md transition-colors" data-close-lead-form="" type="button">
-Voltar para a landing
 </button>
 </div>
 </section>
@@ -1410,7 +1425,7 @@ Voltar para a landing
 <div class="flex gap-6">
 <a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" href="#">Termos de Uso</a>
 <a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" href="#">Privacidade</a>
-<a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" data-open-lead-form="" href="#formulario-raevo">Contato</a>
+<a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" data-open-lead-form="" href="#formulario-raevo">Contacto</a>
 </div>
 </div>
 </footer>
@@ -1569,15 +1584,15 @@ Voltar para a landing
                 placeholder: 'Insira seu melhor e-mail',
                 type: 'email',
                 inputMode: 'email',
-                kind: 'Contato'
+                kind: 'Contacto'
             },
             {
                 id: 'whatsapp',
                 question: 'WhatsApp',
-                placeholder: 'Insira seu WhatsApp',
+                placeholder: '963 763 408',
                 type: 'tel',
                 inputMode: 'tel',
-                kind: 'Contato'
+                kind: 'Contacto'
             },
             {
                 id: 'clinicName',
@@ -1593,11 +1608,13 @@ Voltar para a landing
                 type: 'select',
                 kind: 'Perfil',
                 options: [
-                    'Médico(a) / Dono(a)',
-                    'Médico(a) / Sócio(a)',
+                    'Médico(a)',
+                    'Dentista',
+                    'Dono(a)',
+                    'Sócio(a)',
                     'Gestor(a) da clínica',
                     'Coordenador(a) comercial',
-                    'Secretária / Rececionista',
+                    'Rececionista',
                     'Responsável pelo marketing',
                     'Agência / parceiro da clínica',
                     'Profissional autônomo da saúde',
@@ -1656,8 +1673,7 @@ Voltar para a landing
                             'Entre €5.000 e €10.000/mês',
                             'Entre €10.000 e €20.000/mês',
                             'Entre €20.000 e €50.000/mês',
-                            'Acima de €50.000/mês',
-                            'Prefiro informar na reunião'
+                            'Acima de €50.000/mês'
                         ]
                     },
                     brazil: {
@@ -1667,24 +1683,23 @@ Voltar para a landing
                             'R$50 mil a R$100 mil/mês',
                             'R$100 mil a R$200 mil/mês',
                             'R$200 mil a R$500 mil/mês',
-                            'Acima de R$500 mil/mês',
-                            'Prefiro informar na reunião'
+                            'Acima de R$500 mil/mês'
                         ]
                     }
                 }
             },
             {
                 id: 'leadHandling',
-                question: 'Quem atende os leads e pacientes hoje?',
+                question: 'Quem receciona o utente/lead no WhatsApp hoje?',
                 type: 'select',
-                kind: 'Atendimento',
+                kind: 'Receção no WhatsApp',
                 options: [
-                    'O próprio médico/dono responde',
-                    'Secretária/rececionista responde junto com outras funções',
-                    'Uma pessoa dedicada ao atendimento',
-                    'Duas ou mais pessoas dedicadas ao atendimento',
+                    'O próprio médico, dentista ou dono receciona',
+                    'Rececionista receciona junto com outras funções',
+                    'Uma pessoa dedicada a rececionar no WhatsApp',
+                    'Duas ou mais pessoas dedicadas a rececionar no WhatsApp',
                     'Tenho equipa comercial interna',
-                    'Agência ou parceiro externo ajuda no atendimento',
+                    'Agência ou parceiro externo ajuda na receção',
                     'Ninguém acompanha isso de forma organizada',
                     'Ainda não temos processo definido'
                 ]
@@ -1698,13 +1713,20 @@ Voltar para a landing
             completed: false,
             isSubmitting: false
         };
+        const leadPhoneCountries = [
+            { code: '+351', flag: '🇵🇹', label: 'Portugal', placeholder: '963 763 408', groups: [3, 3, 3] },
+            { code: '+55', flag: '🇧🇷', label: 'Brasil', placeholder: '62 99124 5326', groups: [2, 5, 4] },
+            { code: '+34', flag: '🇪🇸', label: 'Espanha', placeholder: '612 345 678', groups: [3, 3, 3] },
+            { code: '+33', flag: '🇫🇷', label: 'França', placeholder: '6 12 34 56 78', groups: [1, 2, 2, 2, 2] },
+            { code: '+44', flag: '🇬🇧', label: 'Reino Unido', placeholder: '7123 456 789', groups: [4, 3, 3] },
+            { code: '+1', flag: '🇺🇸', label: 'Estados Unidos', placeholder: '202 555 0199', groups: [3, 3, 4] }
+        ];
 
         const raevoLeadFormWebhookUrl = 'https://hook.growautomacao.com.br/webhook/raevo-site-kommo';
         const raevoLeadFormBookingUrl = window.location.protocol === 'file:' ? './agendamento.html' : '/agendamento/';
 
         const leadForm = document.getElementById('raevo-lead-form');
         const leadFormInner = document.getElementById('raevo-lead-form-inner');
-        const leadFormProgress = document.getElementById('lead-form-progress');
         const leadFormKind = document.getElementById('lead-form-kind');
         const leadFormQuestion = document.getElementById('lead-form-question');
         const leadFormHelper = document.getElementById('lead-form-helper');
@@ -1747,7 +1769,7 @@ Voltar para a landing
 
         function animateLeadFormStep() {
             if (prefersReducedMotion) return;
-            [leadFormProgress, leadFormKind, leadFormQuestion, leadFormHelper, leadFormField, leadFormError].forEach((element, index) => {
+            [leadFormKind, leadFormQuestion, leadFormHelper, leadFormField, leadFormError].forEach((element, index) => {
                 element.classList.remove('lead-form-step-motion');
                 element.style.animationDelay = `${index * 34}ms`;
                 void element.offsetWidth;
@@ -1755,11 +1777,93 @@ Voltar para a landing
             });
         }
 
+        function escapeHtmlAttribute(value) {
+            return String(value || '').replace(/"/g, '&quot;');
+        }
+
+        function splitPhoneValue(value) {
+            const trimmedValue = String(value || '').trim();
+            const matchedCountry = leadPhoneCountries.find((country) => trimmedValue.startsWith(country.code));
+            if (!matchedCountry) {
+                return { countryCode: '+351', localNumber: trimmedValue.replace(/\D/g, '') };
+            }
+            return {
+                countryCode: matchedCountry.code,
+                localNumber: trimmedValue.slice(matchedCountry.code.length).replace(/\D/g, '')
+            };
+        }
+
+        function getLeadPhoneCountry(countryCode) {
+            return leadPhoneCountries.find((country) => country.code === countryCode) || leadPhoneCountries[0];
+        }
+
+        function formatPhoneLocalNumber(countryCode, value) {
+            const country = getLeadPhoneCountry(countryCode);
+            const digits = String(value || '').replace(/\D/g, '');
+            const parts = [];
+            let cursor = 0;
+
+            country.groups.forEach((groupSize) => {
+                if (cursor >= digits.length) return;
+                parts.push(digits.slice(cursor, cursor + groupSize));
+                cursor += groupSize;
+            });
+
+            if (cursor < digits.length) {
+                parts.push(digits.slice(cursor));
+            }
+
+            return parts.join(' ');
+        }
+
+        function updateLeadPhoneValue(step, countrySelect, phoneInput) {
+            const localNumber = formatPhoneLocalNumber(countrySelect.value, phoneInput.value);
+            phoneInput.value = localNumber;
+            phoneInput.placeholder = getLeadPhoneCountry(countrySelect.value).placeholder;
+            updateLeadFormValue(step, `${countrySelect.value} ${localNumber}`.trim());
+        }
+
+        function renderLeadPhoneInput(step) {
+            const { countryCode, localNumber } = splitPhoneValue(leadFormState.values[step.id]);
+            const formattedLocalNumber = formatPhoneLocalNumber(countryCode, localNumber);
+            leadFormState.values[step.id] = `${countryCode} ${formattedLocalNumber}`.trim();
+            leadFormField.innerHTML = `
+                <div class="flex flex-col sm:flex-row gap-3 border-b border-pedra/25 focus-within:border-caian transition-colors">
+                    <label class="sr-only" for="lead-${step.id}-country">Código do país</label>
+                    <select class="lead-phone-country h-16 sm:h-auto px-4 rounded-DEFAULT font-label-md text-label-md focus:border-caian focus:ring-0" id="lead-${step.id}-country" name="${step.id}Country">
+                        ${leadPhoneCountries.map((country) => `
+                            <option value="${country.code}" ${country.code === countryCode ? 'selected' : ''}>${country.flag} ${country.code}</option>
+                        `).join('')}
+                    </select>
+                    <label class="sr-only" for="lead-${step.id}">${step.question}</label>
+                    <input class="lead-form-input flex-1 bg-transparent border-0 px-0 py-5 text-[26px] md:text-[36px] leading-tight text-white placeholder:text-pedra/30 focus:ring-0" id="lead-${step.id}" inputmode="tel" name="${step.id}" placeholder="${getLeadPhoneCountry(countryCode).placeholder}" type="tel" value="${escapeHtmlAttribute(formattedLocalNumber)}"/>
+                </div>
+            `;
+            const countrySelect = document.getElementById(`lead-${step.id}-country`);
+            const input = document.getElementById(`lead-${step.id}`);
+            countrySelect.addEventListener('change', () => {
+                input.value = formatPhoneLocalNumber(countrySelect.value, input.value);
+                updateLeadPhoneValue(step, countrySelect, input);
+            });
+            input.addEventListener('input', () => updateLeadPhoneValue(step, countrySelect, input));
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    goToNextLeadFormStep();
+                }
+            });
+            setTimeout(() => input.focus(), 40);
+        }
+
         function renderLeadTextInput(step) {
+            if (step.id === 'whatsapp') {
+                renderLeadPhoneInput(step);
+                return;
+            }
             const value = leadFormState.values[step.id] || '';
             leadFormField.innerHTML = `
                 <label class="sr-only" for="lead-${step.id}">${step.question}</label>
-                <input class="lead-form-input w-full bg-transparent border-0 border-b border-pedra/25 px-0 py-5 text-[26px] md:text-[36px] leading-tight text-white placeholder:text-pedra/30 focus:border-caian focus:ring-0" id="lead-${step.id}" inputmode="${step.inputMode}" name="${step.id}" placeholder="${step.placeholder}" type="${step.type}" value="${value.replace(/"/g, '&quot;')}"/>
+                <input class="lead-form-input w-full bg-transparent border-0 border-b border-pedra/25 px-0 py-5 text-[26px] md:text-[36px] leading-tight text-white placeholder:text-pedra/30 focus:border-caian focus:ring-0" id="lead-${step.id}" inputmode="${step.inputMode}" name="${step.id}" placeholder="${step.placeholder}" type="${step.type}" value="${escapeHtmlAttribute(value)}"/>
             `;
             const input = document.getElementById(`lead-${step.id}`);
             input.addEventListener('input', () => updateLeadFormValue(step, input.value.trim()));
@@ -1831,7 +1935,6 @@ Voltar para a landing
         }
 
         function renderLeadFormComplete() {
-            leadFormProgress.textContent = 'Pronto';
             leadFormKind.textContent = 'Agendamento';
             leadFormQuestion.textContent = 'Abrindo a página de agendamento.';
             leadFormHelper.textContent = 'Suas respostas foram recebidas. Agora escolha o melhor horário para a sessão estratégica.';
@@ -1856,9 +1959,6 @@ Voltar para a landing
             }
 
             const step = raevoLeadFormSteps[leadFormState.currentStep];
-            const progressNumber = String(leadFormState.currentStep + 1).padStart(2, '0');
-            const totalNumber = String(raevoLeadFormSteps.length).padStart(2, '0');
-            leadFormProgress.textContent = `${progressNumber} / ${totalNumber}`;
             leadFormKind.textContent = step.kind;
             leadFormQuestion.textContent = step.question;
             leadFormHelper.textContent = '';
@@ -1891,6 +1991,21 @@ Voltar para a landing
                 showLeadFormError('Insira um e-mail válido para avançar.');
                 return false;
             }
+            if (step.id === 'whatsapp') {
+                const { countryCode, localNumber } = splitPhoneValue(value);
+                if (countryCode === '+351' && !/^9\d{8}$/.test(localNumber)) {
+                    showLeadFormError('Insira um número de telemóvel português válido.');
+                    return false;
+                }
+                if (countryCode === '+55' && !/^\d{2}9\d{8}$/.test(localNumber)) {
+                    showLeadFormError('Insira um número de telemóvel brasileiro válido com DDD.');
+                    return false;
+                }
+                if (countryCode !== '+351' && localNumber.length < 7) {
+                    showLeadFormError('Insira um número de telemóvel válido.');
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -1900,15 +2015,40 @@ Voltar para a landing
             renderLeadFormStep();
         }
 
+        function getUrlParam(name) {
+            return new URLSearchParams(window.location.search).get(name) || '';
+        }
+
+        function buildKommoContactPayload(values) {
+            return {
+                name: values.fullName || '',
+                company: values.clinicName || '',
+                commercialPhone: values.whatsapp || '',
+                commercialEmail: values.email || '',
+                faturacao: values.monthlyRevenue || '',
+                posicao: values.role || '',
+                secretaria: values.leadHandling || '',
+                origem: getUrlParam('utm_source') || 'Site Raevo',
+                subOrigem: 'Formulário conversacional',
+                utm: window.location.search || '',
+                canal: getUrlParam('utm_medium') || 'Site',
+                campanha: getUrlParam('utm_campaign') || '',
+                criativo: getUrlParam('utm_content') || '',
+                pagina: window.location.href,
+            };
+        }
+
         async function submitLeadFormToKommo() {
+            const values = {
+                ...leadFormState.values,
+                revenueRegion: leadFormState.values.revenueRegion || raevoLeadFormSteps
+                    .find((step) => step.id === 'monthlyRevenue')
+                    .regions[leadFormState.revenueRegion].label,
+                pageUrl: window.location.href,
+            };
             const payload = {
-                values: {
-                    ...leadFormState.values,
-                    revenueRegion: leadFormState.values.revenueRegion || raevoLeadFormSteps
-                        .find((step) => step.id === 'monthlyRevenue')
-                        .regions[leadFormState.revenueRegion].label,
-                    pageUrl: window.location.href,
-                },
+                values,
+                contact: buildKommoContactPayload(values),
                 source: 'raevo-site-conversational-form',
                 submittedAt: new Date().toISOString(),
             };
