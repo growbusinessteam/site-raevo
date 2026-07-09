@@ -429,6 +429,56 @@
                 transform: translateY(0) scale(1);
             }
         }
+        .raevo-client-marquee {
+            mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+        }
+        .raevo-client-marquee-track {
+            animation: raevoClientMarquee 34s linear infinite;
+            will-change: transform;
+        }
+        .raevo-client-logo-card {
+            width: clamp(168px, 18vw, 260px);
+            height: 104px;
+        }
+        .raevo-client-logo-card img {
+            max-width: 78%;
+            max-height: 66px;
+            object-fit: contain;
+        }
+        .raevo-shift-pulse {
+            animation: raevoShiftPulse 2.8s ease-in-out infinite;
+        }
+        .raevo-shift-flow {
+            animation: raevoShiftFlow 5.5s linear infinite;
+            background-size: 220% 100%;
+        }
+        @keyframes raevoClientMarquee {
+            from {
+                transform: translateX(-50%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        @keyframes raevoShiftPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 184, 198, 0.18);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 0 18px rgba(0, 184, 198, 0);
+            }
+        }
+        @keyframes raevoShiftFlow {
+            from {
+                background-position: 0% 50%;
+            }
+            to {
+                background-position: 220% 50%;
+            }
+        }
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -459,7 +509,7 @@
 <nav class="hidden md:flex items-center space-x-8">
 <a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#problema">Problema</a>
 <a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#implementacao">Implementação</a>
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#crescimento">Crescimento</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#impacto-conversao">Crescimento</a>
 <a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#precos">Preços</a>
 </nav>
 <a class="hidden md:inline-flex items-center justify-center px-6 py-3 bg-carvao text-pedra font-label-md text-label-md rounded-DEFAULT hover:bg-carvao/90 transition-all duration-300" data-open-lead-form="" href="#formulario-raevo">
@@ -474,7 +524,7 @@
 <div class="md:hidden hidden absolute top-full left-0 w-full bg-pedra border-b border-taupe/20 py-4 px-margin-safe flex-col gap-4 shadow-lg" id="mobile-menu">
 <a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#problema">Problema</a>
 <a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#implementacao">Implementação</a>
-<a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#crescimento">Crescimento</a>
+<a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#impacto-conversao">Crescimento</a>
 <a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#precos">Preços</a>
 <a class="w-full inline-flex items-center justify-center px-6 py-3 bg-carvao text-pedra font-label-md text-label-md rounded-DEFAULT mt-2" data-open-lead-form="" href="#formulario-raevo">
                 Falar com especialista
@@ -493,38 +543,102 @@
 <div class="w-full max-w-7xl mx-auto flex flex-col items-start z-10 relative">
 <div class="inline-flex items-center gap-2 px-3 py-1 border border-white/20 bg-white/10 backdrop-blur-md rounded-full mb-6">
 <span class="w-2 h-2 rounded-full bg-caian animate-pulse"></span>
-<span class="font-label-md text-label-md text-pedra uppercase tracking-wider text-xs">Para médicos, dentistas e donos de clínicas</span>
+<span class="font-label-md text-label-md text-pedra uppercase tracking-wider text-xs">Para clínicas especializadas que vendem tratamentos de alto valor</span>
 </div>
 <h1 class="font-headline-xl-mobile text-[42px] leading-[1.08] md:font-headline-xl md:text-[42px] lg:text-[56px] text-white mb-6 max-w-3xl">
-                    Mais Utentes,<br/>Menos Preocupações
+                    Seu tratamento é premium.<br/>Seu comercial também precisa ser.
                 </h1>
 <p class="font-body-lg text-body-lg text-pedra/85 mb-8 max-w-xl">
-                    Ajudamos clínicas a atraírem utentes qualificados e estruturarem o atendimento com marketing, CRM e IA, para vender valor com mais controle e previsibilidade.
+                    A Raevo estrutura o comercial da sua clínica para conduzir o utente desde o primeiro contacto até à decisão, com atendimento, CRM, follow-up, IA e dados trabalhando juntos para construir valor antes do preço.
+                </p>
+<p class="font-body-md text-body-md text-pedra/75 mb-8 max-w-xl">
+                    Quando o utente não percebe valor, ele compara preço. Quando o comercial está estruturado, a conversa muda.
                 </p>
 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
 <a class="inline-flex items-center justify-center px-8 py-4 bg-pedra text-carvao font-label-md text-label-md rounded-DEFAULT hover:bg-white transition-all duration-300 w-full sm:w-auto" href="#crescimento">
                         Simular meu plano
                     </a>
+<a class="inline-flex items-center justify-center px-8 py-4 border border-pedra/30 text-pedra font-label-md text-label-md rounded-DEFAULT hover:bg-white/10 hover:border-pedra/60 transition-all duration-300 w-full sm:w-auto" href="#implementacao">
+                        Ver implementação comercial
+                    </a>
 </div>
 <p class="font-label-md text-label-md text-pedra/70 mt-5 max-w-xl">
-                    Valorizamos a clareza: você pode simular seu plano sem precisar de uma reunião apenas para descobrir o preço.
+                    Preços visíveis. Plano claro. Sem reunião apenas para descobrir o valor.
                 </p>
 <div class="mt-9 flex flex-wrap gap-3">
 <div class="min-h-[68px] px-4 py-2 bg-white/10 border border-white/15 rounded-lg backdrop-blur-md text-center flex flex-col items-center justify-center">
-<div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider text-[11px]">Estratégia central</div>
-<div class="font-headline-sm text-headline-sm text-white text-lg">Valor antes do preço</div>
+<div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider text-[11px]">Valor antes do preço</div>
+<div class="font-headline-sm text-headline-sm text-white text-lg">Do primeiro contacto à decisão</div>
 </div>
 <div class="min-h-[68px] px-4 py-2 bg-white/10 border border-white/15 rounded-lg backdrop-blur-md text-center flex flex-col items-center justify-center">
-<div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider text-[11px]">Sistema conectado</div>
-<div class="font-label-md text-label-md text-pedra">Marketing, Atendimento, IA &amp; CRM</div>
+<div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider text-[11px]">Comercial estruturado</div>
+<div class="font-label-md text-label-md text-pedra">Atendimento, CRM e follow-up conectados</div>
 </div>
 </div>
 <!-- Mini-card -->
 <div class="mt-7 p-4 bg-white/10 border border-white/15 rounded-lg flex items-start gap-4 max-w-md backdrop-blur-md">
 <span class="material-symbols-outlined text-champagne shrink-0" style="font-variation-settings: 'FILL' 1;">diamond</span>
 <p class="font-body-md text-body-md text-pedra/85 italic text-sm">
-                        "Tratamento especializado não pode ser vendido como orçamento comum."
+                        "Tratamento de alto valor precisa de uma conversa comercial à altura."
                     </p>
+</div>
+</div>
+</section>
+<!-- Client Logos -->
+<section class="py-12 md:py-14 px-margin-safe bg-pedra border-y border-taupe/10 overflow-hidden" id="clientes">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-label-md text-label-md text-champagne uppercase tracking-wider text-center mb-8">
+                    Clientes que já confiaram em nós
+                </h2>
+<div class="raevo-client-marquee -mx-margin-safe overflow-hidden" aria-label="Clientes que já confiaram na Raevo">
+<div class="raevo-client-marquee-track flex w-max gap-5 md:gap-6">
+<div class="flex gap-5 md:gap-6 pr-5 md:pr-6" aria-hidden="true">
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="FACOP Dental School Portugal" loading="lazy" src="../assets/client-logos/facop-dental-school.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="Carla Barata" loading="lazy" src="../assets/client-logos/carla-barata.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-carvao border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="Humberto Neto" loading="lazy" src="../assets/client-logos/humberto-neto.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="Espaço Otorrino" loading="lazy" src="../assets/client-logos/espaco-otorrino.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="Laboratório Citocenter" loading="lazy" src="../assets/client-logos/citocenter.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="ITC Instituto de Treinamento em Cadáveres" loading="lazy" src="../assets/client-logos/itc.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="ConMed" loading="lazy" src="../assets/client-logos/conmed.png"/>
+</div>
+</div>
+<div class="flex gap-5 md:gap-6 pr-5 md:pr-6" aria-hidden="true">
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="" loading="lazy" src="../assets/client-logos/facop-dental-school.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="" loading="lazy" src="../assets/client-logos/carla-barata.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-carvao border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="" loading="lazy" src="../assets/client-logos/humberto-neto.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="" loading="lazy" src="../assets/client-logos/espaco-otorrino.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="" loading="lazy" src="../assets/client-logos/citocenter.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="" loading="lazy" src="../assets/client-logos/itc.png"/>
+</div>
+<div class="raevo-client-logo-card shrink-0 bg-white border border-taupe/20 rounded-lg shadow-sm flex items-center justify-center">
+<img alt="" loading="lazy" src="../assets/client-logos/conmed.png"/>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -534,10 +648,10 @@
 <div class="text-center max-w-5xl mx-auto mb-16">
 <p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-4">O que ajudamos a resolver</p>
 <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-6">
-                        Clínicas especializadas não podem começar com atendimento comum.
+                        A sua clínica está a conduzir o utente ou apenas a responder mensagens?
                     </h2>
 <p class="font-body-lg text-body-lg text-surface-tint max-w-3xl mx-auto">
-                        Clínicas modernas exigem uma boa experiência desde a chegada do utente no WhatsApp até o pós-atendimento.
+                        Uma clínica especializada não perde valor só na consulta. Perde valor no primeiro contacto, quando o atendimento responde sem qualificar, sem conduzir e sem criar contexto para a decisão.
                     </p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -553,144 +667,156 @@
 <div class="w-12 h-12 bg-surface-container mb-6 flex items-center justify-center rounded-DEFAULT text-carvao group-hover:text-champagne transition-colors">
 <span class="material-symbols-outlined">balance</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm mb-3">Preço antes de valor</h3>
+<h3 class="font-headline-sm text-headline-sm mb-3">Preço cedo demais</h3>
 <p class="font-body-md text-body-md text-surface-tint">A conversa vira orçamento.</p>
 </div>
 <div class="bg-white p-8 border border-taupe/20 rounded-lg hover:border-champagne/50 transition-colors group">
 <div class="w-12 h-12 bg-surface-container mb-6 flex items-center justify-center rounded-DEFAULT text-carvao group-hover:text-champagne transition-colors">
-<span class="material-symbols-outlined">block</span>
+<span class="material-symbols-outlined">support_agent</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm mb-3">Utente sem perfil</h3>
-<p class="font-body-md text-body-md text-surface-tint">Ocupa tempo e não avança.</p>
+<h3 class="font-headline-sm text-headline-sm mb-3">Atendimento passivo</h3>
+<p class="font-body-md text-body-md text-surface-tint">A equipa responde, mas não conduz.</p>
 </div>
 <div class="bg-white p-8 border border-taupe/20 rounded-lg hover:border-champagne/50 transition-colors group lg:col-span-1 md:col-span-2">
 <div class="w-12 h-12 bg-surface-container mb-6 flex items-center justify-center rounded-DEFAULT text-carvao group-hover:text-champagne transition-colors">
 <span class="material-symbols-outlined">schedule</span>
 </div>
 <h3 class="font-headline-sm text-headline-sm mb-3">Follow-up perdido</h3>
-<p class="font-body-md text-body-md text-surface-tint">O utente esfria e some.</p>
+<p class="font-body-md text-body-md text-surface-tint">O utente esfria e desaparece.</p>
 </div>
 <div class="bg-carvao p-8 border border-carvao rounded-lg lg:col-span-2 md:col-span-2 flex flex-col justify-center relative overflow-hidden">
 <div class="absolute right-0 bottom-0 opacity-10">
 <span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">crisis_alert</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm text-pedra mb-3 relative z-10">Sem processo comercial</h3>
+<h3 class="font-headline-sm text-headline-sm text-pedra mb-3 relative z-10">Comercial sem controlo</h3>
 <p class="font-body-md text-body-md text-pedra/70 relative z-10 max-w-md">Ninguém sabe onde a venda travou.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- 3. The 5 Enemies (Bento Grid) -->
-<section class="py-section-padding px-margin-safe max-w-7xl mx-auto">
-<div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-taupe/20 pb-8">
-<div class="max-w-2xl">
-<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-4">
-                        O cenário contra você
+<!-- 3. Price Perception -->
+<section class="py-section-padding px-margin-safe bg-carvao text-pedra relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 100px 100px;"></div>
+<div class="absolute right-[-12%] top-20 w-[420px] h-[420px] rounded-full bg-caian/10 blur-3xl"></div>
+<div class="absolute left-[-10%] bottom-10 w-[320px] h-[320px] rounded-full bg-champagne/10 blur-3xl"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="max-w-4xl mb-12">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-4">Valor antes da comparação</p>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-pedra mb-5">
+                        O problema não é o utente perguntar preço.
                     </h2>
-<p class="font-body-lg text-body-lg text-surface-tint">
-                        Identificamos os gargalos silenciosos que sabotam o crescimento sustentável de clínicas especializadas.
+<p class="font-body-lg text-body-lg text-pedra/75 max-w-3xl">
+                        O problema é ele chegar a essa pergunta antes de perceber valor.
                     </p>
 </div>
-<div class="mt-6 md:mt-0 px-6 py-4 bg-areia/30 border-l-2 border-caian max-w-sm">
-<p class="font-label-md text-label-md text-carvao">
-                        "O inimigo não é o preço. É o utente não enxergar valor antes de agendar."
+<div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-6 lg:gap-8 items-stretch">
+<div class="bg-white/7 border border-white/10 rounded-xl p-6 md:p-8 shadow-sm">
+<p class="font-body-lg text-body-lg text-pedra mb-8">
+                        O utente pergunta preço porque ainda não entendeu a diferença entre uma clínica especializada e uma opção comum.
                     </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="rounded-lg border border-white/10 bg-white/6 p-4">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Técnica</p>
+<p class="font-body-md text-body-md text-pedra/75">Ele ainda não percebeu a técnica.</p>
+</div>
+<div class="rounded-lg border border-white/10 bg-white/6 p-4">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Segurança</p>
+<p class="font-body-md text-body-md text-pedra/75">Ele ainda não percebeu a segurança.</p>
+</div>
+<div class="rounded-lg border border-white/10 bg-white/6 p-4">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Acompanhamento</p>
+<p class="font-body-md text-body-md text-pedra/75">Ele ainda não percebeu o acompanhamento.</p>
+</div>
+<div class="rounded-lg border border-white/10 bg-white/6 p-4">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Experiência</p>
+<p class="font-body-md text-body-md text-pedra/75">Ele ainda não percebeu a experiência.</p>
+</div>
+<div class="sm:col-span-2 rounded-lg border border-caian/25 bg-caian/10 p-4">
+<p class="font-label-md text-label-md text-caian uppercase tracking-wider mb-2">Risco percebido</p>
+<p class="font-body-md text-body-md text-pedra">Ele ainda não percebeu o risco de escolher apenas pelo mais barato.</p>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-<!-- Item 1: Large -->
-<div class="md:col-span-2 md:row-span-2 bg-surface-container-high rounded-xl p-8 relative overflow-hidden flex flex-col justify-end group border border-taupe/10">
-<div class="absolute inset-0 z-0">
-<div class="bg-cover bg-center w-full h-full opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract visualization of financial comparison or pricing battles. minimalist graphic design style with clean lines. Colors are muted greys, taupe, and deep charcoal. The visual conveys the concept of 'price shopping' in a sophisticated, conceptual manner, avoiding literal medical imagery." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcHevvyGX81jop4qqtIdzyrznMEGAa2xyVlOfX_1iy6xMYtfR8EiuAU_afruxi1CJq6d76kU7eKz4GDxbhSR0oWiEyyDiRNE5DpAvMCt0Y0FKe1YIk3xH3sI4KnlYakxYTuPuZ2cujC4lINPyKVTvmZV-khwX4IdV5YaXTXMaV3byJfI6qBIVMRohGecjFcggCpROGKhlle4UGGbZc52haXFcfrlk9IuvQdC4gK1w9fpVvW_GGfpuncTLOzD4Ei-NWMDrX_qyRahyM')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-carvao via-carvao/60 to-transparent"></div>
 </div>
-<div class="relative z-10">
-<span class="text-champagne font-headline-sm text-headline-sm mb-2 block">01.</span>
-<h3 class="font-headline-md text-headline-md text-white mb-2">A Busca Pelo Preço</h3>
-<p class="font-body-md text-body-md text-pedra/80 max-w-md">Utentes treinados pelo mercado a buscar o tratamento como uma mercadoria (commodity), ignorando a expertise técnica e a segurança.</p>
+<div class="bg-white/7 text-pedra rounded-xl border border-white/10 p-6 md:p-8 shadow-lg relative overflow-hidden">
+<div class="absolute right-0 top-0 w-40 h-40 bg-caian/10 blur-3xl"></div>
+<p class="font-body-md text-body-md text-pedra/75 mb-8 relative z-10">
+                        E quando a clínica não tem uma comunicação comercial estruturada, o atendimento acaba reforçando essa comparação.
+                    </p>
+<div class="relative z-10 space-y-3">
+<div class="flex items-center gap-4 rounded-lg bg-white/6 border border-white/10 p-4">
+<span class="w-8 h-8 rounded-full bg-caian/15 text-caian font-label-md text-label-md flex items-center justify-center shrink-0">1</span>
+<p class="font-body-md text-body-md text-pedra">O utente pergunta preço.</p>
 </div>
+<div class="flex items-center gap-4 rounded-lg bg-white/6 border border-white/10 p-4">
+<span class="w-8 h-8 rounded-full bg-caian/15 text-caian font-label-md text-label-md flex items-center justify-center shrink-0">2</span>
+<p class="font-body-md text-body-md text-pedra">A receção responde preço.</p>
 </div>
-<!-- Item 2 -->
-<div class="bg-white border border-taupe/20 rounded-xl p-6 flex flex-col">
-<span class="text-taupe font-headline-sm text-headline-sm mb-auto">02.</span>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-carvao mb-2">A Agência Genérica</h3>
-<p class="font-body-md text-body-md text-surface-tint text-sm">Estratégias de marketing de varejo aplicadas à saúde, gerando volume sem qualificação ou filtro de entrada.</p>
+<div class="flex items-center gap-4 rounded-lg bg-white/6 border border-white/10 p-4">
+<span class="w-8 h-8 rounded-full bg-caian/15 text-caian font-label-md text-label-md flex items-center justify-center shrink-0">3</span>
+<p class="font-body-md text-body-md text-pedra">A conversa vira orçamento.</p>
 </div>
-</div>
-<!-- Item 3 -->
-<div class="bg-carvao border border-carvao rounded-xl p-6 flex flex-col">
-<span class="text-taupe/50 font-headline-sm text-headline-sm mb-auto">03.</span>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-pedra mb-2">Atendimento Passivo</h3>
-<p class="font-body-md text-body-md text-pedra/70 text-sm">Rececionistas treinadas para dar informações, não para conduzir negociações ou contornar objeções de alto ticket.</p>
+<div class="flex items-center gap-4 rounded-lg bg-caian/10 border border-caian/25 p-4">
+<span class="w-8 h-8 rounded-full bg-caian text-carvao font-label-md text-label-md flex items-center justify-center shrink-0">4</span>
+<p class="font-body-md text-body-md text-pedra">E o valor desaparece antes da decisão.</p>
 </div>
 </div>
-<!-- Item 4 -->
-<div class="bg-white border border-taupe/20 rounded-xl p-6 flex flex-col">
-<span class="text-taupe font-headline-sm text-headline-sm mb-auto">04.</span>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-carvao mb-2">Métricas de Vaidade</h3>
-<p class="font-body-md text-body-md text-surface-tint text-sm">Focar em curtidas e seguidores em vez de CAC (Custo de Aquisição) e LTV (Lifetime Value) do utente.</p>
 </div>
 </div>
-<!-- Item 5 -->
-<div class="md:col-span-2 bg-areia/20 border border-taupe/20 rounded-xl p-6 flex flex-row items-center gap-6">
-<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shrink-0 border border-taupe/10">
-<span class="text-champagne font-headline-sm text-headline-sm">05.</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-carvao mb-2">Falta de Acompanhamento (Follow-up)</h3>
-<p class="font-body-md text-body-md text-surface-tint max-w-lg">Deixar dinheiro na mesa por não ter um sistema que nutre utentes frios e reativa utentes antigos de forma sistemática.</p>
-</div>
+<div class="mt-8 rounded-xl border border-caian/20 bg-white/8 p-6 md:p-8 text-center shadow-sm">
+<p class="font-headline-md text-headline-md text-pedra">
+                        O problema não é ser caro. É parecer comparável.
+                    </p>
 </div>
 </div>
 </section>
 <!-- 4. Narrative Shift -->
-<section class="py-section-padding bg-carvao text-pedra relative overflow-hidden">
-<!-- Architectural Background Lines -->
-<div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 100px 100px;"></div>
+<section class="py-section-padding px-margin-safe bg-surface-container-low relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-caian/40 to-transparent"></div>
+<div class="absolute right-[-12%] top-16 w-[360px] h-[360px] rounded-full bg-caian/10 blur-3xl"></div>
+<div class="absolute left-[-10%] bottom-10 w-[300px] h-[300px] rounded-full bg-champagne/10 blur-3xl"></div>
 <div class="max-w-7xl mx-auto px-margin-safe relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<div>
-<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg mb-8 leading-tight">
-                            Mais utentes não resolvem uma clínica que ainda vende valor como preço.
+<div class="max-w-4xl mb-14">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-4">Antes de acelerar</p>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-6 leading-tight">
+                            Mais contactos não corrigem um comercial que perde valor no caminho.
                         </h2>
-<div class="space-y-6 border-l border-taupe/30 pl-6">
-<p class="font-body-lg text-body-lg text-pedra/80">
-                                Injetar mais tráfego em um funil vazado apenas acelera a frustração. O problema da maioria das clínicas não é atrair pessoas, é atrair as pessoas <em class="text-white font-semibold">certas</em> e saber convertê-las.
+<p class="font-body-lg text-body-lg text-surface-tint max-w-3xl">
+                            Antes de aumentar o volume, a clínica precisa garantir que cada oportunidade está a ser conduzida com clareza.
+                        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+<div class="rounded-xl border border-taupe/20 bg-white p-6 md:p-8 shadow-sm">
+<p class="font-body-lg text-body-lg text-carvao mb-7">
+                                Mais contactos podem aumentar o problema se a equipa continua sem processo.
                             </p>
-<p class="font-body-lg text-body-lg text-pedra/80">
-                                A transição exige sair do caos de contactos desorganizados para a clareza de um processo comercial arquitetado para alta conversão.
+<div class="grid grid-cols-1 gap-3">
+<div class="flex items-center gap-3 rounded-lg border border-taupe/20 bg-surface-container p-4"><span class="material-symbols-outlined text-champagne">add</span><p class="font-body-md text-body-md text-surface-tint">Mais mensagens.</p></div>
+<div class="flex items-center gap-3 rounded-lg border border-taupe/20 bg-surface-container p-4"><span class="material-symbols-outlined text-champagne">help</span><p class="font-body-md text-body-md text-surface-tint">Mais dúvidas.</p></div>
+<div class="flex items-center gap-3 rounded-lg border border-taupe/20 bg-surface-container p-4"><span class="material-symbols-outlined text-champagne">sell</span><p class="font-body-md text-body-md text-surface-tint">Mais pedidos de preço.</p></div>
+<div class="flex items-center gap-3 rounded-lg border border-taupe/20 bg-surface-container p-4"><span class="material-symbols-outlined text-champagne">schedule</span><p class="font-body-md text-body-md text-surface-tint">Mais follow-ups esquecidos.</p></div>
+<div class="flex items-center gap-3 rounded-lg border border-taupe/20 bg-surface-container p-4"><span class="material-symbols-outlined text-champagne">hourglass_empty</span><p class="font-body-md text-body-md text-surface-tint">Mais tempo gasto com utentes sem perfil.</p></div>
+<div class="flex items-center gap-3 rounded-lg border border-taupe/20 bg-surface-container p-4"><span class="material-symbols-outlined text-champagne">analytics</span><p class="font-body-md text-body-md text-surface-tint">Mais dificuldade para saber onde a venda travou.</p></div>
+</div>
+</div>
+<div class="rounded-xl border border-caian/25 bg-white p-6 md:p-8 shadow-lg">
+<p class="font-body-lg text-body-lg text-carvao mb-7">
+                                Crescimento comercial não é apenas atrair mais pessoas. É ter um sistema para:
                             </p>
-</div>
-</div>
-<div class="relative h-[400px] w-full rounded-xl overflow-hidden flex border border-taupe/20">
-<!-- Before/After Concept Visual -->
-<div class="w-1/2 h-full bg-surface-container flex flex-col items-center justify-center p-8 relative">
-<div class="absolute top-4 left-4 font-label-md text-label-md text-surface-tint uppercase bg-white/80 px-2 py-1 rounded">Caos (Hoje)</div>
-<span class="material-symbols-outlined text-[80px] text-surface-tint mb-4">blur_on</span>
-<div class="w-full space-y-3">
-<div class="h-2 w-full bg-taupe/30 rounded"></div>
-<div class="h-2 w-3/4 bg-taupe/30 rounded"></div>
-<div class="h-2 w-5/6 bg-taupe/30 rounded"></div>
-<div class="h-2 w-1/2 bg-taupe/30 rounded"></div>
-<div class="h-2 w-full bg-taupe/30 rounded"></div>
-</div>
-</div>
-<div class="w-[2px] h-full bg-champagne z-10"></div>
-<div class="w-1/2 h-full bg-carvao flex flex-col items-center justify-center p-8 relative">
-<div class="absolute top-4 right-4 font-label-md text-label-md text-pedra uppercase bg-white/10 px-2 py-1 rounded">Clareza (Raevo)</div>
-<span class="material-symbols-outlined text-[80px] text-caian mb-4" style="font-variation-settings: 'FILL' 1;">account_tree</span>
-<div class="w-full flex flex-col items-center gap-2">
-<div class="w-1/2 p-2 border border-taupe/30 rounded text-center text-xs text-pedra/70">Atração Qualificada</div>
-<div class="w-[1px] h-4 bg-taupe/50"></div>
-<div class="w-2/3 p-2 border border-caian/50 bg-caian/10 rounded text-center text-xs text-caian">Filtro CRM</div>
-<div class="w-[1px] h-4 bg-taupe/50"></div>
-<div class="w-full p-2 border border-champagne/50 bg-champagne/10 rounded text-center text-xs text-champagne">Conversão de Valor</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="rounded-lg border border-caian/20 bg-caian/5 p-4"><p class="font-body-md text-body-md text-carvao">Filtrar quem tem perfil.</p></div>
+<div class="rounded-lg border border-caian/20 bg-caian/5 p-4"><p class="font-body-md text-body-md text-carvao">Construir valor antes do preço.</p></div>
+<div class="rounded-lg border border-caian/20 bg-caian/5 p-4"><p class="font-body-md text-body-md text-carvao">Organizar cada oportunidade no CRM.</p></div>
+<div class="rounded-lg border border-caian/20 bg-caian/5 p-4"><p class="font-body-md text-body-md text-carvao">Orientar a equipa de atendimento.</p></div>
+<div class="rounded-lg border border-caian/20 bg-caian/5 p-4"><p class="font-body-md text-body-md text-carvao">Acompanhar follow-ups.</p></div>
+<div class="rounded-lg border border-caian/20 bg-caian/5 p-4"><p class="font-body-md text-body-md text-carvao">Medir onde a venda avança.</p></div>
+<div class="sm:col-span-2 rounded-lg border border-champagne/25 bg-champagne/10 p-4"><p class="font-body-md text-body-md text-carvao">Decidir onde investir com segurança.</p></div>
 </div>
 </div>
 </div>
+<div class="mt-8 rounded-xl border border-caian/20 bg-white p-6 md:p-8 text-center shadow-sm">
+<p class="font-headline-md text-headline-md text-carvao">
+                            O comercial precisa estar pronto antes da clínica acelerar.
+                        </p>
 </div>
 </div>
 </section>
@@ -736,42 +862,65 @@
 </div>
 </div>
 <!-- Implementation Steps -->
-<div class="mt-24 max-w-4xl mx-auto bg-white border border-taupe/20 rounded-xl p-8 md:p-12 shadow-sm">
-<h3 class="font-headline-md text-headline-md text-carvao mb-8 text-center border-b border-taupe/20 pb-6">Como implementamos</h3>
-<div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-taupe/30 before:to-transparent">
-<!-- Step 1 -->
-<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-surface-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">1</div>
-<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
-<h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Diagnóstico</h4>
-<p class="font-body-md text-body-md text-surface-tint text-sm">Mergulho profundo na operação atual, precificação e gargalos comerciais.</p>
+<div class="mt-24 max-w-6xl mx-auto bg-white border border-taupe/20 rounded-xl p-8 md:p-12 shadow-sm">
+<div class="text-center max-w-3xl mx-auto mb-10 border-b border-taupe/20 pb-8">
+<h3 class="font-headline-md text-headline-md text-carvao mb-4">Como estruturamos o comercial da sua clínica</h3>
+<p class="font-body-md text-body-md text-surface-tint">A implementação cria a base. O crescimento contínuo acompanha, ajusta e melhora a operação mês a mês.</p>
 </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+<!-- Step 1 -->
+<div class="p-5 md:p-6 rounded-lg border border-taupe/15 bg-surface-bright">
+<div class="flex items-center gap-3 mb-4">
+<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-carvao text-white font-label-md text-label-md">1</span>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider">Etapa 1</p>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-carvao text-xl mb-3">Diagnóstico comercial</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm md:text-base">Entendemos a oferta, especialidade, ticket médio, equipa, atendimento, CRM atual, origem dos contactos e principais gargalos.</p>
 </div>
 <!-- Step 2 -->
-<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-surface-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">2</div>
-<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
-<h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Mapa Estratégico</h4>
-<p class="font-body-md text-body-md text-surface-tint text-sm">Desenho arquitetônico do novo funil de vendas e scripts de atendimento.</p>
+<div class="p-5 md:p-6 rounded-lg border border-taupe/15 bg-surface-bright">
+<div class="flex items-center gap-3 mb-4">
+<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-carvao text-white font-label-md text-label-md">2</span>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider">Etapa 2</p>
 </div>
+<h4 class="font-headline-sm text-headline-sm text-carvao text-xl mb-3">Mapa da operação comercial</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm md:text-base">Desenhamos a jornada do utente, etapas do funil, critérios de qualificação, scripts, follow-up, motivos de perda e indicadores.</p>
 </div>
 <!-- Step 3 -->
-<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-<div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-surface-container shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">3</div>
-<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
-<h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Setup do Sistema</h4>
-<p class="font-body-md text-body-md text-surface-tint text-sm">Configuração técnica do CRM, automações e treino da equipa local.</p>
+<div class="p-5 md:p-6 rounded-lg border border-taupe/15 bg-surface-bright">
+<div class="flex items-center gap-3 mb-4">
+<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-carvao text-white font-label-md text-label-md">3</span>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider">Etapa 3</p>
 </div>
+<h4 class="font-headline-sm text-headline-sm text-carvao text-xl mb-3">Setup do CRM</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm md:text-base">Configuramos funis, etapas, campos, tags, tarefas, automações essenciais, dashboard inicial e organização das oportunidades.</p>
 </div>
 <!-- Step 4 -->
-<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-<div class="flex items-center justify-center w-10 h-10 rounded-full border border-taupe bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 text-carvao font-bold">
-<span class="material-symbols-outlined text-caian text-lg">check</span>
+<div class="p-5 md:p-6 rounded-lg border border-taupe/15 bg-surface-bright">
+<div class="flex items-center gap-3 mb-4">
+<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-carvao text-white font-label-md text-label-md">4</span>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider">Etapa 4</p>
 </div>
-<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-taupe/10 bg-surface-bright">
-<h4 class="font-headline-sm text-headline-sm text-carvao text-base mb-1">Acompanhamento</h4>
-<p class="font-body-md text-body-md text-surface-tint text-sm">Monitoramento de KPIs, ajustes de campanha e auditoria de vendas contínua.</p>
+<h4 class="font-headline-sm text-headline-sm text-carvao text-xl mb-3">Scripts e condução comercial</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm md:text-base">Criamos roteiros para primeiro contacto, qualificação, objeções, preço, follow-up, confirmação, reagendamento e reativação.</p>
 </div>
+<!-- Step 5 -->
+<div class="p-5 md:p-6 rounded-lg border border-taupe/15 bg-surface-bright">
+<div class="flex items-center gap-3 mb-4">
+<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-carvao text-white font-label-md text-label-md">5</span>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider">Etapa 5</p>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-carvao text-xl mb-3">Treino da equipa</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm md:text-base">Treinamos a equipa para usar o CRM, seguir o processo e conduzir melhor as conversas comerciais.</p>
+</div>
+<!-- Step 6 -->
+<div class="p-5 md:p-6 rounded-lg border border-caian/25 bg-gradient-to-br from-white via-surface-bright to-caian/5">
+<div class="flex items-center gap-3 mb-4">
+<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-caian text-carvao font-label-md text-label-md">6</span>
+<p class="font-label-md text-label-md text-caian uppercase tracking-wider">Etapa 6</p>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-carvao text-xl mb-3">Crescimento contínuo</h4>
+<p class="font-body-md text-body-md text-surface-tint text-sm md:text-base">Para clínicas que seguem connosco, acompanhamos o comercial, dados, IA, reativação, criativos e mídia paga conforme os módulos contratados.</p>
 </div>
 </div>
 </div>
@@ -821,7 +970,148 @@
 </div>
 </div>
 </section>
+<!-- 5.2 Conversion Impact -->
+<section class="py-section-padding px-margin-safe bg-surface-container border-y border-taupe/10" id="impacto-conversao">
+<div class="max-w-7xl mx-auto">
+<div class="max-w-4xl mx-auto text-center mb-14">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-4">Casos reais</p>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-carvao mb-6">
+                    Como o método Raevo impactou clientes de ticket alto
+                </h2>
+<p class="font-body-lg text-body-lg text-surface-tint">
+                    Veja como estrutura comercial, atendimento, follow-up e CRM podem aumentar a conversão sem depender apenas de mais leads.
+                </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+<article class="bg-white border border-taupe/20 rounded-xl p-6 md:p-8 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 border-b border-taupe/20 pb-6 mb-6">
+<div>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Caso real</p>
+<h3 class="font-headline-md text-headline-md text-carvao">Clínica premium</h3>
+</div>
+<div class="sm:text-right">
+<p class="font-body-md text-body-md text-surface-tint text-sm">Ticket médio</p>
+<p class="font-headline-sm text-headline-sm text-carvao">€5.000</p>
+</div>
+</div>
+<div class="rounded-lg border border-taupe/20 bg-white overflow-hidden mb-5">
+<div class="grid grid-cols-[1.05fr_0.95fr_0.95fr] bg-surface-container-low border-b border-taupe/20">
+<div class="px-4 py-3"></div>
+<div class="px-4 py-3 font-label-md text-label-md text-surface-tint uppercase tracking-wider text-right">Antes</div>
+<div class="px-4 py-3 font-label-md text-label-md text-caian uppercase tracking-wider text-right bg-caian/5 border-l border-caian/20">Depois</div>
+</div>
+<div class="divide-y divide-taupe/15">
+<div class="grid grid-cols-[1.05fr_0.95fr_0.95fr] items-center">
+<div class="px-4 py-4 font-body-md text-body-md text-surface-tint">Oportunidades</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-surface-container-low/70">100</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-caian/5 border-l border-caian/20">100</div>
+</div>
+<div class="grid grid-cols-[1.05fr_0.95fr_0.95fr] items-center">
+<div class="px-4 py-4 font-body-md text-body-md text-surface-tint">Vendas</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-surface-container-low/70">10</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-caian/5 border-l border-caian/20">12</div>
+</div>
+<div class="grid grid-cols-[1.05fr_0.95fr_0.95fr] items-center">
+<div class="px-4 py-4 font-body-md text-body-md text-surface-tint">Receita</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-surface-container-low/70">€50.000</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-caian/5 border-l border-caian/20">€60.000</div>
+</div>
+</div>
+</div>
+<div class="rounded-lg border border-taupe/20 bg-white p-5 mb-5">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">O que fizemos</p>
+<p class="font-body-md text-body-md text-surface-tint">Estruturamos CRM, scripts de atendimento, qualificação e follow-up para melhorar a condução das oportunidades.</p>
+</div>
+<div class="rounded-xl bg-carvao text-pedra p-5 md:p-6 mb-4">
+<p class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider mb-4">Resultado observado</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="rounded-lg bg-white/6 border border-white/10 p-4">
+<p class="font-body-md text-body-md text-pedra/60 text-sm mb-2">Conversão</p>
+<p class="font-headline-md text-[36px] leading-none text-caian">+20%</p>
+</div>
+<div class="rounded-lg bg-white/6 border border-white/10 p-4">
+<p class="font-body-md text-body-md text-pedra/60 text-sm mb-2">Receita adicional</p>
+<p class="font-headline-md text-[36px] leading-none text-caian">+€10.000</p>
+<p class="font-body-md text-body-md text-pedra/60 text-xs mt-2">com o mesmo volume</p>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-surface-tint text-xs">Simulação ilustrativa. Não representa promessa de resultado.</p>
+</article>
+<article class="bg-white border border-taupe/20 rounded-xl p-6 md:p-8 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 border-b border-taupe/20 pb-6 mb-6">
+<div>
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">Caso real</p>
+<h3 class="font-headline-md text-headline-md text-carvao">Formação premium</h3>
+</div>
+<div class="sm:text-right">
+<p class="font-body-md text-body-md text-surface-tint text-sm">Ticket médio</p>
+<p class="font-headline-sm text-headline-sm text-carvao">€11.000</p>
+</div>
+</div>
+<div class="rounded-lg border border-taupe/20 bg-white overflow-hidden mb-5">
+<div class="grid grid-cols-[1.05fr_0.95fr_0.95fr] bg-surface-container-low border-b border-taupe/20">
+<div class="px-4 py-3"></div>
+<div class="px-4 py-3 font-label-md text-label-md text-surface-tint uppercase tracking-wider text-right">Antes</div>
+<div class="px-4 py-3 font-label-md text-label-md text-caian uppercase tracking-wider text-right bg-caian/5 border-l border-caian/20">Depois</div>
+</div>
+<div class="divide-y divide-taupe/15">
+<div class="grid grid-cols-[1.05fr_0.95fr_0.95fr] items-center">
+<div class="px-4 py-4 font-body-md text-body-md text-surface-tint">Oportunidades</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-surface-container-low/70">100</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-caian/5 border-l border-caian/20">100</div>
+</div>
+<div class="grid grid-cols-[1.05fr_0.95fr_0.95fr] items-center">
+<div class="px-4 py-4 font-body-md text-body-md text-surface-tint">Vendas</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-surface-container-low/70">7</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-caian/5 border-l border-caian/20">11</div>
+</div>
+<div class="grid grid-cols-[1.05fr_0.95fr_0.95fr] items-center">
+<div class="px-4 py-4 font-body-md text-body-md text-surface-tint">Receita</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-surface-container-low/70">€77.000</div>
+<div class="px-4 py-4 font-label-md text-label-md text-carvao text-right bg-caian/5 border-l border-caian/20">€121.000</div>
+</div>
+</div>
+</div>
+<div class="rounded-lg border border-taupe/20 bg-white p-5 mb-5">
+<p class="font-label-md text-label-md text-champagne uppercase tracking-wider mb-2">O que fizemos</p>
+<p class="font-body-md text-body-md text-surface-tint">Ajustamos processo comercial, acompanhamento dos leads e condução da equipa até a decisão.</p>
+</div>
+<div class="rounded-xl bg-carvao text-pedra p-5 md:p-6 mb-4">
+<p class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider mb-4">Resultado observado</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="rounded-lg bg-white/6 border border-white/10 p-4">
+<p class="font-body-md text-body-md text-pedra/60 text-sm mb-2">Conversão</p>
+<p class="font-headline-md text-[36px] leading-none text-caian">+57%</p>
+</div>
+<div class="rounded-lg bg-white/6 border border-white/10 p-4">
+<p class="font-body-md text-body-md text-pedra/60 text-sm mb-2">Receita adicional</p>
+<p class="font-headline-md text-[36px] leading-none text-caian">+€44.000</p>
+<p class="font-body-md text-body-md text-pedra/60 text-xs mt-2">com o mesmo volume</p>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-surface-tint text-xs">Simulação ilustrativa. O resultado depende de oferta, atendimento, follow-up, CRM e perfil dos leads.</p>
+</article>
+</div>
+<div class="mt-10 md:mt-12 max-w-4xl mx-auto text-center">
+<p class="font-body-md text-body-md text-surface-tint">
+                    O crescimento não vem apenas de colocar mais dinheiro em anúncios. Vem de melhorar o caminho entre interesse, atendimento e decisão.
+                </p>
+<p class="font-body-md text-body-md text-surface-tint text-xs mt-3">
+                    Simulações ilustrativas. Não representam promessa de resultado. O objetivo é mostrar como conversão, atendimento, follow-up e processo comercial podem impactar negócios de ticket alto.
+                </p>
+<a class="mt-8 inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-carvao text-pedra font-label-md text-label-md rounded-DEFAULT hover:bg-carvao/90 transition-all duration-300" data-open-lead-form="" href="#formulario-raevo">
+                    Quero entender onde minha clínica pode melhorar conversão
+                </a>
+<p class="font-body-md text-body-md text-surface-tint mt-6">
+                    Agora que você viu o impacto de melhorar conversão, veja os caminhos para construir uma operação comercial mais previsível.
+                </p>
+</div>
+</div>
+</section>
 <!-- 6. Two Paths & 8. Simulator -->
+<div aria-hidden="true" class="scroll-mt-24" id="precos"></div>
 <section class="py-section-padding px-margin-safe bg-surface-container-low border-y border-taupe/10" id="crescimento">
 <div class="max-w-7xl mx-auto">
 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -839,7 +1129,10 @@
 <div class="inline-flex px-3 py-1 bg-surface-container-highest rounded text-carvao text-xs font-bold uppercase tracking-wider mb-6 self-start">Projeto Pontual</div>
 <h3 class="font-headline-md text-headline-md text-carvao mb-2">Implementação Comercial</h3>
 <p class="font-body-md text-body-md text-surface-tint mb-6">Diagnóstico, estruturação do processo de vendas e setup do CRM. Entregamos a máquina pronta para a sua equipa operar.</p>
-<div class="text-3xl font-headline-md text-carvao mb-8">A partir de €1.997</div>
+<div class="mb-8">
+<div class="text-3xl font-headline-md text-carvao">A partir de €1.997</div>
+<p class="font-label-md text-label-md text-surface-tint uppercase tracking-wider mt-2">Valor único</p>
+</div>
 <ul class="space-y-4 mb-8 flex-grow">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-caian shrink-0 text-xl">check_circle</span>
@@ -868,23 +1161,19 @@
 <div class="inline-flex px-3 py-1 bg-white/10 rounded text-pedra text-xs font-bold uppercase tracking-wider mb-6 self-start border border-white/10">Assessoria Contínua</div>
 <h3 class="font-headline-md text-headline-md text-pedra mb-2">Crescimento Previsível</h3>
 <p class="font-body-md text-body-md text-pedra/70 mb-6">Gestão ativa do seu comercial e tráfego pago. Nós construímos, operamos e otimizamos a máquina mês a mês.</p>
-<div class="text-3xl font-headline-md text-pedra mb-8">A partir de €400 <span class="text-sm font-body-md text-pedra/50 font-normal">/mês</span></div>
+<div class="text-3xl font-headline-md text-pedra mb-8">A partir de €500 <span class="text-sm font-body-md text-pedra/50 font-normal">/mês</span></div>
 <ul class="space-y-4 mb-8 flex-grow">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-champagne shrink-0 text-xl">check_circle</span>
-<span class="font-body-md text-body-md text-pedra text-sm">Tudo da Implementação Comercial incluso</span>
-</li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-champagne shrink-0 text-xl">check_circle</span>
 <span class="font-body-md text-body-md text-pedra text-sm">Gestão de Tráfego Pago (Ads) contínua</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-champagne shrink-0 text-xl">check_circle</span>
-<span class="font-body-md text-body-md text-pedra text-sm">Auditoria semanal de atendimento/vendas</span>
+<span class="font-body-md text-body-md text-pedra text-sm">Auditoria contínua de atendimento/vendas</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-champagne shrink-0 text-xl">check_circle</span>
-<span class="font-body-md text-body-md text-pedra text-sm">Dashboard de BI e relatórios quinzenais</span>
+<span class="font-body-md text-body-md text-pedra text-sm">Dashboard de BI e relatórios</span>
 </li>
 </ul>
 <button class="w-full inline-flex items-center justify-center px-6 py-4 bg-champagne text-white font-label-md text-label-md rounded-DEFAULT hover:bg-champagne/90 transition-all duration-300" onclick="document.getElementById('simulator').scrollIntoView({behavior: 'smooth'})">
@@ -947,17 +1236,6 @@
 <h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Rececionista por IA</h5>
 </div>
 <p class="font-body-md text-body-md text-surface-tint text-xs">IA para apoiar atendimento, qualificação, respostas, organização e follow-up comercial.</p>
-</div>
-</label>
-<label class="sim-module-card sim-locked flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="creatives" aria-disabled="true">
-<div class="mt-1">
-<input class="sim-module w-5 h-5 rounded border-taupe text-champagne focus:ring-champagne" data-module="creatives" type="checkbox"/>
-</div>
-<div class="flex-grow">
-<div class="flex items-center gap-3 mb-1">
-<h5 class="font-label-md text-label-md text-carvao group-hover:text-champagne transition-colors">Criativos</h5>
-</div>
-<p class="font-body-md text-body-md text-surface-tint text-xs">Edição de vídeos, design e peças para campanhas.</p>
 </div>
 </label>
 <label class="sim-module-card flex items-start gap-4 p-4 rounded-lg border border-taupe/30 hover:border-carvao/50 transition-colors cursor-pointer group" data-module-card="commercialFollowup">
@@ -1076,11 +1354,6 @@
                                 name: 'Rececionista por IA',
                                 price: 500
                             },
-                            creatives: {
-                                name: 'Criativos',
-                                price: 400,
-                                requires: 'paidMedia'
-                            },
                             commercialFollowup: {
                                 name: 'Acompanhamento Comercial',
                                 price: 400
@@ -1131,7 +1404,7 @@
                         mediaInvestmentCard.classList.toggle('sim-locked', !hasPaidMedia);
                         mediaInvestmentCard.setAttribute('aria-disabled', hasPaidMedia ? 'false' : 'true');
 
-                        const dependentModuleIds = ['creatives'];
+                        const dependentModuleIds = [];
                         dependentModuleIds.forEach((moduleId) => {
                             const input = document.querySelector(`[data-module="${moduleId}"]`);
                             if (!hasPaidMedia) {
