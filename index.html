@@ -130,10 +130,16 @@
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .lead-form-overlay {
             background:
-                linear-gradient(135deg, rgba(31, 31, 31, 0.98), rgba(50, 48, 42, 0.94)),
-                radial-gradient(circle at 80% 20%, rgba(0, 184, 198, 0.16), transparent 30%);
+                radial-gradient(circle at 80% 20%, rgba(0, 184, 198, 0.12), transparent 30%),
+                linear-gradient(135deg, #1F1F1F 0%, #27251f 100%);
+            background-color: #1F1F1F;
+            isolation: isolate;
+            overscroll-behavior: contain;
         }
         .lead-form-grid {
+            position: relative;
+            z-index: 1;
+            background-color: #1F1F1F;
             background-image:
                 linear-gradient(to right, rgba(233, 228, 218, 0.08) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(233, 228, 218, 0.08) 1px, transparent 1px);
@@ -506,7 +512,8 @@
 <img alt="Raevo" class="h-9 md:h-10 w-auto object-contain" height="166" src="../assets/brand/raevo-logo-official-transparent.png" width="755"/>
 </div>
 <!-- Desktop Nav -->
-<nav class="hidden md:flex items-center space-x-8">
+<nav class="hidden md:flex items-center gap-5 lg:gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="/">Home</a>
 <a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#problema">Problema</a>
 <a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#implementacao">Implementação</a>
 <a class="font-label-md text-label-md text-on-surface-variant dark:text-pedra/70 hover:text-champagne transition-colors duration-300" href="#impacto-conversao">Crescimento</a>
@@ -522,6 +529,7 @@
 </div>
 <!-- Mobile Menu -->
 <div class="md:hidden hidden absolute top-full left-0 w-full bg-pedra border-b border-taupe/20 py-4 px-margin-safe flex-col gap-4 shadow-lg" id="mobile-menu">
+<a class="font-label-md text-label-md text-on-surface-variant block py-2" href="/">Home</a>
 <a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#problema">Problema</a>
 <a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#implementacao">Implementação</a>
 <a class="font-label-md text-label-md text-on-surface-variant block py-2" href="#impacto-conversao">Crescimento</a>
@@ -1131,7 +1139,7 @@
 <p class="font-body-md text-body-md text-surface-tint mb-6">Diagnóstico, estruturação do processo de vendas e setup do CRM. Entregamos a máquina pronta para a sua equipa operar.</p>
 <div class="mb-8">
 <div class="text-3xl font-headline-md text-carvao">A partir de €1.997</div>
-<p class="font-label-md text-label-md text-surface-tint uppercase tracking-wider mt-2">Valor único</p>
+<p class="font-label-md text-label-md text-surface-tint uppercase tracking-wider mt-2">Pagamento único</p>
 </div>
 <ul class="space-y-4 mb-8 flex-grow">
 <li class="flex items-start gap-3">
@@ -1300,7 +1308,7 @@
 <div class="mt-4 p-4 rounded-lg bg-white/10 border border-white/10">
 <div class="font-label-md text-label-md text-pedra/60 uppercase tracking-wider">Valor da Implementação</div>
 <div class="text-3xl font-headline-sm text-champagne mt-1" id="sim-implementation-total">€2.497</div>
-<div class="font-body-md text-body-md text-pedra/60 text-xs mt-1">Total implementação</div>
+<div class="font-body-md text-body-md text-pedra/60 text-xs mt-1">Pagamento único</div>
 </div>
 </div>
 <div>
@@ -1742,7 +1750,7 @@ Enviar dados
 </div>
 <div class="flex gap-6">
 <a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" href="#">Termos de Uso</a>
-<a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" href="#">Privacidade</a>
+<a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" href="/privacidade">Privacidade</a>
 <a class="font-label-md text-label-md text-pedra/60 hover:text-caian transition-colors duration-300" data-open-lead-form="" href="#formulario-raevo">Contacto</a>
 </div>
 </div>
@@ -2042,6 +2050,7 @@ Enviar dados
 
         const raevoLeadFormWebhookUrl = 'https://hook.growautomacao.com.br/webhook/raevo-site-kommo';
         const raevoLeadFormBookingUrl = window.location.protocol === 'file:' ? './agendamento.html' : '/agendamento/';
+        const raevoLeadFormPendingStorageKey = 'raevoLeadFormPendingPayloads';
 
         const leadForm = document.getElementById('raevo-lead-form');
         const leadFormInner = document.getElementById('raevo-lead-form-inner');
@@ -2337,6 +2346,34 @@ Enviar dados
             return new URLSearchParams(window.location.search).get(name) || '';
         }
 
+        function getPendingLeadPayloads() {
+            try {
+                return JSON.parse(localStorage.getItem(raevoLeadFormPendingStorageKey) || '[]');
+            } catch (error) {
+                console.warn('Raevo lead form pending storage could not be read', error);
+                return [];
+            }
+        }
+
+        function savePendingLeadPayload(payload) {
+            try {
+                const pending = getPendingLeadPayloads().filter((item) => item.id !== payload.id);
+                pending.push(payload);
+                localStorage.setItem(raevoLeadFormPendingStorageKey, JSON.stringify(pending.slice(-8)));
+            } catch (error) {
+                console.warn('Raevo lead form pending storage could not be written', error);
+            }
+        }
+
+        function removePendingLeadPayload(payloadId) {
+            try {
+                const pending = getPendingLeadPayloads().filter((item) => item.id !== payloadId);
+                localStorage.setItem(raevoLeadFormPendingStorageKey, JSON.stringify(pending));
+            } catch (error) {
+                console.warn('Raevo lead form pending storage could not be updated', error);
+            }
+        }
+
         function buildKommoContactPayload(values) {
             return {
                 name: values.fullName || '',
@@ -2356,6 +2393,69 @@ Enviar dados
             };
         }
 
+        async function sendLeadPayload(payload) {
+            const body = JSON.stringify(payload);
+            const response = await fetch(raevoLeadFormWebhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain;charset=UTF-8',
+                },
+                body,
+                keepalive: body.length < 60000,
+            });
+
+            if (!response.ok) {
+                throw new Error(`Webhook returned ${response.status}`);
+            }
+
+            const responseText = await response.text();
+            if (!responseText.trim()) {
+                return { ok: true };
+            }
+
+            try {
+                const result = JSON.parse(responseText);
+                if (result && result.ok === false) {
+                    throw new Error(result.error || 'Webhook response was not ok');
+                }
+                return result || { ok: true };
+            } catch (error) {
+                if (error instanceof SyntaxError) {
+                    return { ok: true, raw: responseText };
+                }
+                throw error;
+            }
+        }
+
+        function sendLeadPayloadFallback(payload) {
+            const body = JSON.stringify(payload);
+            const blob = new Blob([body], { type: 'text/plain;charset=UTF-8' });
+            if (navigator.sendBeacon && navigator.sendBeacon(raevoLeadFormWebhookUrl, blob)) {
+                return true;
+            }
+
+            fetch(raevoLeadFormWebhookUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'text/plain;charset=UTF-8',
+                },
+                body,
+                keepalive: body.length < 60000,
+            }).catch((error) => {
+                console.warn('Raevo lead form no-cors fallback failed', error);
+            });
+            return true;
+        }
+
+        function retryPendingLeadPayloads() {
+            getPendingLeadPayloads().forEach((payload) => {
+                sendLeadPayload(payload)
+                    .then(() => removePendingLeadPayload(payload.id))
+                    .catch(() => sendLeadPayloadFallback(payload));
+            });
+        }
+
         async function submitLeadFormToKommo() {
             const values = {
                 ...leadFormState.values,
@@ -2365,30 +2465,24 @@ Enviar dados
                 pageUrl: window.location.href,
             };
             const payload = {
+                id: `raevo-${Date.now()}-${Math.random().toString(36).slice(2)}`,
                 values,
                 contact: buildKommoContactPayload(values),
                 source: 'raevo-site-conversational-form',
                 submittedAt: new Date().toISOString(),
             };
 
-            const response = await fetch(raevoLeadFormWebhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain;charset=UTF-8',
-                },
-                body: JSON.stringify(payload),
-            });
+            savePendingLeadPayload(payload);
 
-            if (!response.ok) {
-                throw new Error(`Webhook returned ${response.status}`);
+            try {
+                const result = await sendLeadPayload(payload);
+                removePendingLeadPayload(payload.id);
+                return result;
+            } catch (error) {
+                console.warn('Raevo lead form primary submission failed; continuing to booking with fallback delivery.', error);
+                sendLeadPayloadFallback(payload);
+                return { ok: true, fallback: true };
             }
-
-            const result = await response.json();
-            if (!result.ok) {
-                throw new Error(result.error || 'Webhook response was not ok');
-            }
-
-            return result;
         }
 
         document.querySelectorAll('[data-open-lead-form]').forEach((trigger) => {
@@ -2421,16 +2515,16 @@ Enviar dados
             renderLeadFormStep();
             try {
                 await submitLeadFormToKommo();
-                leadFormState.completed = true;
-                renderLeadFormStep();
-                window.location.assign(raevoLeadFormBookingUrl);
             } catch (error) {
-                leadFormState.isSubmitting = false;
-                renderLeadFormStep();
-                showLeadFormError('Não foi possível enviar agora. Tente novamente em instantes.');
-                console.error('Raevo lead form submission failed', error);
+                console.warn('Raevo lead form submission failed after fallback; continuing to booking.', error);
             }
+            leadFormState.completed = true;
+            leadFormState.isSubmitting = false;
+            renderLeadFormStep();
+            window.location.assign(raevoLeadFormBookingUrl);
         });
+
+        window.addEventListener('load', retryPendingLeadPayloads);
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && !leadForm.classList.contains('hidden')) {
