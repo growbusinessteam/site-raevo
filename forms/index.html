@@ -526,7 +526,7 @@ fbq('track', 'PageView');
 <span class="material-symbols-outlined">close</span>
 </a>
 </div>
-<form class="w-full max-w-6xl mx-auto flex-1 flex flex-col justify-center py-10 md:py-14" id="raevo-lead-form-inner" novalidate="">
+<form class="w-full max-w-6xl mx-auto flex-1 flex flex-col justify-start py-10 md:py-14 pb-24 md:pb-28" id="raevo-lead-form-inner" novalidate="">
 <div class="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
 <aside class="hidden lg:block pt-4">
 <p class="font-label-md text-label-md text-champagne uppercase mb-5">Sessão estratégica Raevo</p>
@@ -735,36 +735,36 @@ Enviar dados
                 type: 'select',
                 kind: 'Segmento',
                 options: [
-                    'Medicina estética',
-                    'Dermatologia',
-                    'Cirurgia plástica',
-                    'Odontologia',
-                    'Implantodontia',
-                    'Ortodontia',
-                    'Harmonização facial',
-                    'HOF',
-                    'Clínica médica',
-                    'Clínica geral',
-                    'Emagrecimento',
-                    'Nutrição',
-                    'Nutrologia',
-                    'Fisioterapia',
-                    'Psicologia',
-                    'Psiquiatria',
-                    'Ginecologia',
-                    'Cardiologia',
-                    'Ortopedia',
-                    'Urologia',
-                    'Oftalmologia',
-                    'Medicina do esporte',
-                    'Estética avançada',
                     'Biomedicina estética',
+                    'Cardiologia',
+                    'Cirurgia plástica',
+                    'Clínica geral',
+                    'Clínica médica',
                     'Clínica multidisciplinar',
                     'Clínica popular',
-                    'Laboratório',
+                    'Dermatologia',
+                    'Emagrecimento',
+                    'Estética avançada',
+                    'Fisioterapia',
+                    'Ginecologia',
+                    'Harmonização facial',
+                    'HOF',
                     'Hospital',
+                    'Implantodontia',
+                    'Laboratório',
+                    'Medicina do esporte',
+                    'Medicina estética',
+                    'Nutrição',
+                    'Nutrologia',
+                    'Odontologia',
+                    'Oftalmologia',
+                    'Ortopedia',
+                    'Ortodontia',
+                    'Outra especialidade',
                     'Outro negócio',
-                    'Outra especialidade'
+                    'Psicologia',
+                    'Psiquiatria',
+                    'Urologia'
                 ]
             },
             {
@@ -832,6 +832,9 @@ Enviar dados
         const raevoLeadFormWebhookUrl = 'https://hook.growautomacao.com.br/webhook/raevo-site-kommo';
         const raevoLeadFormBookingUrl = window.location.protocol === 'file:' ? './obrigado.html' : '/obrigado/';
         const raevoLeadFormPendingStorageKey = 'raevoLeadFormPendingPayloads';
+        const normalizedLeadFormPath = window.location.pathname.replace(/\/+$/, '');
+        const isDedicatedLeadFormPage = normalizedLeadFormPath === '/forms' || normalizedLeadFormPath.endsWith('/forms.html') || normalizedLeadFormPath.endsWith('/forms/index.html');
+        const leadFormLongSelectIds = new Set(['specialty']);
 
         const leadForm = document.getElementById('raevo-lead-form');
         const leadFormInner = document.getElementById('raevo-lead-form-inner');
@@ -847,7 +850,9 @@ Enviar dados
         function openLeadForm() {
             leadForm.classList.remove('hidden');
             leadForm.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('overflow-hidden');
+            if (!isDedicatedLeadFormPage) {
+                document.body.classList.add('overflow-hidden');
+            }
             renderLeadFormStep();
         }
 
@@ -882,6 +887,16 @@ Enviar dados
 
         function escapeHtmlAttribute(value) {
             return String(value || '').replace(/"/g, '&quot;');
+        }
+
+        function sortLeadOptions(options) {
+            return [...options].sort((firstOption, secondOption) => (
+                firstOption.localeCompare(secondOption, 'pt-BR', { sensitivity: 'base' })
+            ));
+        }
+
+        function shouldRenderLeadSelect(step, options) {
+            return leadFormLongSelectIds.has(step.id) || options.length > 14;
         }
 
         function splitPhoneValue(value) {
@@ -981,6 +996,25 @@ Enviar dados
 
         function renderLeadOptions(step, options) {
             const selectedValue = leadFormState.values[step.id] || '';
+            if (shouldRenderLeadSelect(step, options)) {
+                const sortedOptions = sortLeadOptions(options);
+                leadFormField.innerHTML = `
+                    <div class="relative">
+                        <label class="sr-only" for="lead-${step.id}">${step.question}</label>
+                        <select class="lead-form-select appearance-none w-full min-h-[64px] px-4 pr-12 py-4 border border-pedra/20 bg-white/5 text-pedra font-body-md text-body-md rounded-DEFAULT focus:border-champagne focus:ring-0" id="lead-${step.id}" name="${step.id}">
+                            <option value="">Selecione uma opção</option>
+                            ${sortedOptions.map((option) => `
+                                <option style="background:#1F1F1F;color:#E9E4DA;" value="${escapeHtmlAttribute(option)}" ${selectedValue === option ? 'selected' : ''}>${option}</option>
+                            `).join('')}
+                        </select>
+                        <span class="material-symbols-outlined pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-pedra/60">expand_more</span>
+                    </div>
+                `;
+                const select = document.getElementById(`lead-${step.id}`);
+                select.addEventListener('change', () => updateLeadFormValue(step, select.value));
+                setTimeout(() => select.focus(), 40);
+                return;
+            }
             leadFormField.innerHTML = `
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     ${options.map((option) => `
