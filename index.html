@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>RAEVO | Consultoria para Clínicas Especializadas</title>
+<script src="/stitch/utm-persistence.js"></script>
 <script id="meta-pixel">
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -1725,7 +1726,7 @@ Preencha em poucos passos. Usamos estas informações para entender a operação
 <div class="flex items-center justify-end gap-4 mb-5">
 <p class="font-body-md text-body-md text-pedra/50 text-sm" id="lead-form-kind">Resposta curta</p>
 </div>
-<h2 class="font-headline-lg-mobile text-[34px] leading-tight md:font-headline-lg md:text-[46px] text-white" id="lead-form-question">Nome completo</h2>
+<h2 class="font-headline-lg-mobile text-[34px] leading-tight md:font-headline-lg md:text-[46px] text-white" id="lead-form-question">Nome</h2>
 <p class="font-body-lg text-body-lg text-pedra/65 mt-4 max-w-2xl" id="lead-form-helper"></p>
 </div>
 <div id="lead-form-field"></div>
@@ -1911,7 +1912,7 @@ Enviar dados
         const raevoLeadFormSteps = [
             {
                 id: 'fullName',
-                question: 'Nome completo',
+                question: 'Nome',
                 placeholder: 'Insira seu nome',
                 type: 'text',
                 inputMode: 'text',
@@ -1919,27 +1920,19 @@ Enviar dados
             },
             {
                 id: 'email',
-                question: 'E-mail',
+                question: 'Email',
                 placeholder: 'Insira seu melhor e-mail',
                 type: 'email',
                 inputMode: 'email',
                 kind: 'Contacto'
             },
             {
-                id: 'whatsapp',
-                question: 'WhatsApp',
-                placeholder: '963 763 408',
-                type: 'tel',
-                inputMode: 'tel',
-                kind: 'Contacto'
-            },
-            {
-                id: 'clinicName',
-                question: 'Nome da clínica ou negócio',
-                placeholder: 'Nome da clínica, consultório ou negócio',
+                id: 'instagram',
+                question: 'Instagram Profissional ou da Empresa',
+                placeholder: '@seuinstagram',
                 type: 'text',
                 inputMode: 'text',
-                kind: 'Operação'
+                kind: 'Contacto'
             },
             {
                 id: 'role',
@@ -1959,44 +1952,6 @@ Enviar dados
                     'Profissional autônomo da saúde',
                     'Outro decisor',
                     'Outro'
-                ]
-            },
-            {
-                id: 'specialty',
-                question: 'Qual a especialidade ou tipo de negócio?',
-                type: 'select',
-                kind: 'Segmento',
-                options: [
-                    'Biomedicina estética',
-                    'Cardiologia',
-                    'Cirurgia plástica',
-                    'Clínica geral',
-                    'Clínica médica',
-                    'Clínica multidisciplinar',
-                    'Clínica popular',
-                    'Dermatologia',
-                    'Emagrecimento',
-                    'Estética avançada',
-                    'Fisioterapia',
-                    'Ginecologia',
-                    'Harmonização facial',
-                    'HOF',
-                    'Hospital',
-                    'Implantodontia',
-                    'Laboratório',
-                    'Medicina do esporte',
-                    'Medicina estética',
-                    'Nutrição',
-                    'Nutrologia',
-                    'Odontologia',
-                    'Oftalmologia',
-                    'Ortopedia',
-                    'Ortodontia',
-                    'Outra especialidade',
-                    'Outro negócio',
-                    'Psicologia',
-                    'Psiquiatria',
-                    'Urologia'
                 ]
             },
             {
@@ -2062,11 +2017,11 @@ Enviar dados
         ];
 
         const raevoLeadFormWebhookUrl = 'https://hook.growautomacao.com.br/webhook/raevo-site-kommo';
-        const raevoLeadFormBookingUrl = window.location.protocol === 'file:' ? './obrigado.html' : '/obrigado/';
+        const raevoLeadFormBookingUrl = window.RaevoTracking.append(window.location.protocol === 'file:' ? './obrigado.html' : '/obrigado/');
         const raevoLeadFormPendingStorageKey = 'raevoLeadFormPendingPayloads';
         const normalizedLeadFormPath = window.location.pathname.replace(/\/+$/, '');
         const isDedicatedLeadFormPage = normalizedLeadFormPath === '/forms' || normalizedLeadFormPath.endsWith('/forms.html') || normalizedLeadFormPath.endsWith('/forms/index.html');
-        const leadFormLongSelectIds = new Set(['specialty']);
+        const leadFormLongSelectIds = new Set(['role', 'leadHandling']);
 
         const leadForm = document.getElementById('raevo-lead-form');
         const leadFormInner = document.getElementById('raevo-lead-form-inner');
@@ -2390,7 +2345,7 @@ Enviar dados
         }
 
         function getUrlParam(name) {
-            return new URLSearchParams(window.location.search).get(name) || '';
+            return window.RaevoTracking.get(name);
         }
 
         function getPendingLeadPayloads() {
@@ -2424,19 +2379,20 @@ Enviar dados
         function buildKommoContactPayload(values) {
             return {
                 name: values.fullName || '',
-                company: values.clinicName || '',
-                commercialPhone: values.whatsapp || '',
+                company: '',
+                commercialPhone: '',
                 commercialEmail: values.email || '',
+                instagram: values.instagram || '',
                 faturacao: values.monthlyRevenue || '',
                 posicao: values.role || '',
                 secretaria: values.leadHandling || '',
                 origem: getUrlParam('utm_source') || 'Site Raevo',
                 subOrigem: 'Formulário conversacional',
-                utm: window.location.search || '',
+                utm: window.RaevoTracking.queryString(),
                 canal: getUrlParam('utm_medium') || 'Site',
                 campanha: getUrlParam('utm_campaign') || '',
                 criativo: getUrlParam('utm_content') || '',
-                pagina: window.location.href,
+                pagina: window.RaevoTracking.append(window.location.href),
             };
         }
 
@@ -2509,7 +2465,7 @@ Enviar dados
                 revenueRegion: leadFormState.values.revenueRegion || raevoLeadFormSteps
                     .find((step) => step.id === 'monthlyRevenue')
                     .regions[leadFormState.revenueRegion].label,
-                pageUrl: window.location.href,
+                pageUrl: window.RaevoTracking.append(window.location.href),
             };
             const payload = {
                 id: `raevo-${Date.now()}-${Math.random().toString(36).slice(2)}`,
