@@ -523,7 +523,7 @@ fbq('track', 'PageView');
 <div aria-hidden="false" class="lead-form-overlay min-h-screen overflow-y-auto text-pedra" id="raevo-lead-form">
 <div class="lead-form-grid min-h-screen px-margin-safe py-6 md:py-8 flex flex-col">
 <div class="w-full max-w-6xl mx-auto flex items-center justify-end gap-4">
-<a aria-label="Voltar para a página inicial" class="w-11 h-11 inline-flex items-center justify-center rounded-DEFAULT border border-pedra/20 bg-white/5 text-pedra hover:bg-white/10 hover:text-white transition-colors" href="/">
+<a aria-label="Voltar para a página inicial" class="w-11 h-11 inline-flex items-center justify-center rounded-DEFAULT border border-pedra/20 bg-white/5 text-pedra hover:bg-white/10 hover:text-white transition-colors" href="/pt-med/">
 <span class="material-symbols-outlined">close</span>
 </a>
 </div>
@@ -785,10 +785,10 @@ Enviar dados
         ];
 
         const raevoLeadFormWebhookUrl = 'https://hook.growautomacao.com.br/webhook/raevo-site-kommo';
-        const raevoLeadFormBookingUrl = window.RaevoTracking.append(window.location.protocol === 'file:' ? './obrigado.html' : '/obrigado/');
+        const raevoLeadFormBookingUrl = window.RaevoTracking.append(window.location.protocol === 'file:' ? './obrigado.html' : '/pt-med/obrigado/');
         const raevoLeadFormPendingStorageKey = 'raevoLeadFormPendingPayloads';
         const normalizedLeadFormPath = window.location.pathname.replace(/\/+$/, '');
-        const isDedicatedLeadFormPage = normalizedLeadFormPath === '/forms' || normalizedLeadFormPath.endsWith('/forms.html') || normalizedLeadFormPath.endsWith('/forms/index.html');
+        const isDedicatedLeadFormPage = normalizedLeadFormPath.endsWith('/forms') || normalizedLeadFormPath.endsWith('/forms.html') || normalizedLeadFormPath.endsWith('/forms/index.html');
         const leadFormLongSelectIds = new Set(['role', 'leadHandling']);
 
         const leadForm = document.getElementById('raevo-lead-form');
