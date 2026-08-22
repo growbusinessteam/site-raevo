@@ -14,7 +14,7 @@ import MaturityHeader from "./MaturityHeader.astro";
 </main>
 <script>
   import { buildSubmissionPayload, createIdempotencyKey } from "../../lib/maturity-form.mjs";
-  import { COMPLETION_PATH, clearBrowserState, getFirstIncompletePath, loadBrowserState } from "../../lib/maturity-state.mjs";
+  import { COMPLETION_PATH, clearBrowserState, getFirstIncompletePath, loadBrowserState, withMaturityRelease } from "../../lib/maturity-state.mjs";
 
   const state = loadBrowserState();
   const title = document.querySelector("[data-completion-title]");
@@ -54,10 +54,10 @@ import MaturityHeader from "./MaturityHeader.astro";
     }
   };
 
-  if (!state) window.location.replace("/teste-maturidade-comercial/dados-iniciais/");
+  if (!state) window.location.replace(withMaturityRelease("/teste-maturidade-comercial/dados-iniciais/"));
   else {
     const incomplete = getFirstIncompletePath(state);
-    if (incomplete !== COMPLETION_PATH) window.location.replace(incomplete);
+    if (incomplete !== COMPLETION_PATH) window.location.replace(withMaturityRelease(incomplete));
     else submitAssessment();
   }
   retry?.addEventListener("click", submitAssessment);

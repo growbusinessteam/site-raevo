@@ -1,5 +1,6 @@
 export const STORAGE_KEY = "raevo:maturity:v2";
 export const STATE_VERSION = 2;
+export const MATURITY_RELEASE = "20260822-auto2";
 
 const BASE = "/teste-maturidade-comercial";
 export const LEAD_PATH = `${BASE}/dados-iniciais/`;
@@ -14,6 +15,12 @@ const contextPaths = CONTEXT_STEPS.map(([, slug]) => `${BASE}/contexto/${slug}/`
 const questionPaths = Array.from({ length: 18 }, (_, index) => `${BASE}/pergunta/${String(index + 1).padStart(2, "0")}/`);
 export const COMPLETION_PATH = `${BASE}/processando/`;
 export const FUNNEL_PATHS = [...contextPaths, ...questionPaths, COMPLETION_PATH];
+
+export function withMaturityRelease(path) {
+  const url = new URL(String(path ?? ""), "https://raevo.io");
+  url.searchParams.set("release", MATURITY_RELEASE);
+  return `${url.pathname}${url.search}${url.hash}`;
+}
 
 export function captureAttribution({ href = "", referrer = "" } = {}) {
   let url;

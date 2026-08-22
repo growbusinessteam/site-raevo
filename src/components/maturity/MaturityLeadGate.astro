@@ -1,8 +1,10 @@
 ---
 import { contextSteps } from "../../data/maturity";
+import { withMaturityRelease } from "../../lib/maturity-state.mjs";
 import MaturityHeader from "./MaturityHeader.astro";
 
 const sectorStep = contextSteps.find((step) => step.key === "sector");
+const homeHref = withMaturityRelease("/teste-maturidade-comercial/");
 ---
 <MaturityHeader compact cta={false} />
 <main id="conteudo" class="maturity-identification-page maturity-lead-page">
@@ -22,13 +24,13 @@ const sectorStep = contextSteps.find((step) => step.key === "sector");
       <div class="maturity-field"><label for="maturity-lead-sector">Setor da empresa</label><select id="maturity-lead-sector" name="sector"><option value="">Escolha uma opção</option>{sectorStep?.options.map((option) => <option value={option.value}>{option.label}</option>)}</select><p data-error="sector" aria-live="polite"></p></div>
       <p class="maturity-lead-privacy">Ao continuar, confirma que leu a nossa <a href="/privacidade/" target="_blank">Política de Privacidade</a>. Utilizaremos estes dados para guardar e entregar o diagnóstico solicitado.</p>
       <p class="maturity-submit-error" data-submit-error aria-live="assertive"></p>
-      <div class="maturity-identification-actions maturity-lead-actions"><a class="maturity-back" href="/teste-maturidade-comercial/"><span aria-hidden="true">←</span> Voltar</a><button class="maturity-button maturity-button--gold" type="submit" data-submit>Liberar o teste <span aria-hidden="true">→</span></button></div>
+      <div class="maturity-identification-actions maturity-lead-actions"><a class="maturity-back" href={homeHref}><span aria-hidden="true">←</span> Voltar</a><button class="maturity-button maturity-button--gold" type="submit" data-submit>Liberar o teste <span aria-hidden="true">→</span></button></div>
     </form>
   </div>
 </main>
 <script>
   import { buildLeadPayload, createLeadIdempotencyKey, normalizePhone, splitInternationalPhone, validateLeadCapture } from "../../lib/maturity-form.mjs";
-  import { ensureBrowserState, saveBrowserState, setLeadCapture } from "../../lib/maturity-state.mjs";
+  import { ensureBrowserState, saveBrowserState, setLeadCapture, withMaturityRelease } from "../../lib/maturity-state.mjs";
 
   const form = document.querySelector("[data-lead-form]");
   let state = ensureBrowserState();
@@ -60,7 +62,7 @@ const sectorStep = contextSteps.find((step) => step.key === "sector");
       if (error) { showError(error); return; }
       const normalizedWhatsapp = normalizePhone(`${values.countryCode ?? ""}${values.whatsapp ?? ""}`);
       const unchanged = state.lead && state.lead.name === String(values.name).trim() && state.lead.whatsapp === normalizedWhatsapp && state.lead.sector === String(values.sector).trim();
-      if (unchanged) { window.location.assign("/teste-maturidade-comercial/antes-de-comecar/"); return; }
+      if (unchanged) { window.location.assign(withMaturityRelease("/teste-maturidade-comercial/antes-de-comecar/")); return; }
       if (submit instanceof HTMLButtonElement) { submit.disabled = true; submit.setAttribute("aria-busy", "true"); submit.childNodes[0].textContent = "A guardar os dados "; }
       try {
         const payload = buildLeadPayload(values, state, { idempotencyKey });
@@ -69,7 +71,7 @@ const sectorStep = contextSteps.find((step) => step.key === "sector");
         if (!response.ok || !data.lead_id) throw new Error(data.message || "Não foi possível guardar os dados agora.");
         state = setLeadCapture(state, { leadId: data.lead_id, name: payload.person.name, whatsapp: payload.person.whatsapp, sector: payload.company.sector });
         saveBrowserState(state);
-        window.location.assign("/teste-maturidade-comercial/antes-de-comecar/");
+        window.location.assign(withMaturityRelease("/teste-maturidade-comercial/antes-de-comecar/"));
       } catch (error) {
         if (submitError) submitError.textContent = error instanceof Error ? error.message : "Não foi possível guardar os dados agora. Tente novamente.";
         if (submit instanceof HTMLButtonElement) { submit.disabled = false; submit.setAttribute("aria-busy", "false"); submit.childNodes[0].textContent = "Liberar o teste "; }

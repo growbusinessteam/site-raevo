@@ -1,6 +1,9 @@
 ---
 import MaturityLayout from "../../../components/maturity/MaturityLayout.astro";
 import MaturityHeader from "../../../components/maturity/MaturityHeader.astro";
+import { withMaturityRelease } from "../../../lib/maturity-state.mjs";
+const startHref = withMaturityRelease("/teste-maturidade-comercial/contexto/oportunidades/");
+const dataHref = withMaturityRelease("/teste-maturidade-comercial/dados-iniciais/");
 ---
 <MaturityLayout title="Antes de começar | Teste de Maturidade Comercial Raevo" stepKey="introduction" bodyClass="maturity-dark-page">
   <MaturityHeader compact cta={false} />
@@ -12,12 +15,12 @@ import MaturityHeader from "../../../components/maturity/MaturityHeader.astro";
       <p>O teste contém 18 perguntas divididas em seis áreas do sistema comercial.</p>
       <p>Escolha a alternativa que melhor representa a realidade atual da sua empresa. Não existem respostas certas ou erradas.</p>
       <ul><li><span>≈ 5 min</span>Duração aproximada</li><li><span>Imediato</span>Resultado personalizado</li><li><span>Visual</span>Relatório completo na página</li></ul>
-      <div class="maturity-intro-actions"><a class="maturity-button maturity-button--gold" href="/teste-maturidade-comercial/contexto/oportunidades/">Começar <span aria-hidden="true">→</span></a><a class="maturity-back" href="/teste-maturidade-comercial/dados-iniciais/">← Alterar dados</a></div>
+      <div class="maturity-intro-actions"><a class="maturity-button maturity-button--gold" href={startHref}>Começar <span aria-hidden="true">→</span></a><a class="maturity-back" href={dataHref}>← Alterar dados</a></div>
     </div>
   </main>
   <script>
-    import { LEAD_PATH, getFirstIncompletePath, loadBrowserState } from "../../../lib/maturity-state.mjs";
+    import { LEAD_PATH, getFirstIncompletePath, loadBrowserState, withMaturityRelease } from "../../../lib/maturity-state.mjs";
     const state = loadBrowserState();
-    if (!state || getFirstIncompletePath(state) === LEAD_PATH) window.location.replace(LEAD_PATH);
+    if (!state || getFirstIncompletePath(state) === LEAD_PATH) window.location.replace(withMaturityRelease(LEAD_PATH));
   </script>
 </MaturityLayout>

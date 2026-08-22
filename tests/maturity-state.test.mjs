@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {
   STORAGE_KEY,
+  MATURITY_RELEASE,
   captureAttribution,
   createAssessmentState,
   getFirstIncompletePath,
@@ -10,9 +11,19 @@ import {
   setContextAnswer,
   setLeadCapture,
   setMaturityAnswer,
+  withMaturityRelease,
 } from "../src/lib/maturity-state.mjs";
 
 assert.equal(STORAGE_KEY, "raevo:maturity:v2");
+assert.match(MATURITY_RELEASE, /^2026[0-9a-z-]+$/i);
+assert.equal(
+  withMaturityRelease("/teste-maturidade-comercial/contexto/oportunidades/"),
+  `/teste-maturidade-comercial/contexto/oportunidades/?release=${MATURITY_RELEASE}`,
+);
+assert.equal(
+  withMaturityRelease("/teste-maturidade-comercial/pergunta/01/?source=back#question"),
+  `/teste-maturidade-comercial/pergunta/01/?source=back&release=${MATURITY_RELEASE}#question`,
+);
 
 const attribution = captureAttribution({
   href: "https://raevo.io/teste-maturidade-comercial/?utm_source=meta&utm_campaign=diagnostico&fbclid=abc",

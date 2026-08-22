@@ -15,6 +15,7 @@ const required = [
   "src/components/maturity/MaturityLeadGate.astro",
   "src/components/maturity/MaturityCompletion.astro",
   "src/components/maturity/MaturityStep.astro",
+  "public/teste-maturidade-comercial/.htaccess",
   "public/assets/brand/raevo-logo-official-transparent.png",
   "public/assets/brand/raevo-symbol-cyan.png",
 ];
@@ -26,6 +27,7 @@ const content = read("src/data/maturity.ts");
 const scoring = read("src/lib/maturity-scoring.mjs");
 assert.match(landing, /Qual é o nível de maturidade comercial da sua empresa\?/);
 assert.match(landing, /\/teste-maturidade-comercial\/dados-iniciais\//);
+assert.match(landing, /withMaturityRelease/);
 assert.match(header, /\/teste-maturidade-comercial\/dados-iniciais\//);
 assert.match(landing, /Mais do que uma pontuação/);
 assert.match(landing, /Seis áreas do seu sistema comercial/);
@@ -45,9 +47,11 @@ assert.match(leadGate, /name="whatsapp"/);
 assert.match(leadGate, /name="sector"/);
 assert.match(leadGate, /\/api\/maturidade\/leads/);
 assert.match(leadGate, /\/privacidade\//);
+assert.match(leadGate, /withMaturityRelease/);
 
 const introduction = read("src/pages/teste-maturidade-comercial/antes-de-comecar/index.astro");
 assert.doesNotMatch(introduction, /PDF|download/i);
+assert.match(introduction, /withMaturityRelease/);
 
 assert.equal(existsSync(new URL("../src/components/maturity/MaturityIdentification.astro", import.meta.url)), false);
 assert.equal(existsSync(new URL("../src/pages/teste-maturidade-comercial/identificacao/index.astro", import.meta.url)), false);
@@ -72,6 +76,7 @@ assert.match(step, /AUTO_ADVANCE_DELAY_MS/);
 assert.match(step, /window\.setTimeout/);
 assert.match(step, /form\.classList\.add\("is-advancing"\)/);
 assert.match(step, /radio\.addEventListener\("click"/);
+assert.match(step, /withMaturityRelease/);
 assert.match(step, /querySelector\("\.maturity-step-page\[data-maturity-step\]"\)/);
 assert.doesNotMatch(step, />\s*[0-4]\s*</);
 
@@ -85,5 +90,10 @@ assert.match(resultPage, /\/teste-maturidade-comercial\/dados-iniciais\//);
 
 const footer = read("src/components/maturity/MaturityFooter.astro");
 assert.match(footer, /href="\/termos\/"/);
+
+const cacheRules = read("public/teste-maturidade-comercial/.htaccess");
+assert.match(cacheRules, /Cache-Control/);
+assert.match(cacheRules, /no-store/);
+assert.match(cacheRules, /must-revalidate/);
 
 console.log("Maturity routes and conversion structure are present.");

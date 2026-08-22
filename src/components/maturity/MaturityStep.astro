@@ -1,5 +1,6 @@
 ---
 import type { MaturityQuestion, MaturityStep as Step } from "../../data/maturity";
+import { withMaturityRelease } from "../../lib/maturity-state.mjs";
 import MaturityHeader from "./MaturityHeader.astro";
 
 interface Props {
@@ -14,9 +15,11 @@ const { step, kind, index, total, previousPath, nextPath } = Astro.props;
 const isQuestion = kind === "question";
 const progress = Math.round(((index + 1) / total) * 100);
 const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto ${index + 1} de ${total}`;
+const versionedPreviousPath = withMaturityRelease(previousPath);
+const versionedNextPath = withMaturityRelease(nextPath);
 ---
 <MaturityHeader compact cta={false} />
-<main id="conteudo" class="maturity-step-page" data-step-key={step.key} data-step-kind={kind} data-step-number={isQuestion ? index + 1 : ""} data-next-path={nextPath} data-maturity-step>
+<main id="conteudo" class="maturity-step-page" data-step-key={step.key} data-step-kind={kind} data-step-number={isQuestion ? index + 1 : ""} data-next-path={versionedNextPath} data-maturity-step>
   <div class="maturity-step-page__grid" aria-hidden="true"></div>
   <div class="maturity-step-shell">
     <div class="maturity-step-meta">
@@ -42,14 +45,14 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
       </fieldset>
       <p class="maturity-step-error" data-step-error aria-live="polite"></p>
       <div class="maturity-step-actions">
-        <a class="maturity-back" data-back href={previousPath}><span aria-hidden="true">←</span> Voltar</a>
+        <a class="maturity-back" data-back href={versionedPreviousPath}><span aria-hidden="true">←</span> Voltar</a>
         <button class="maturity-button maturity-button--gold" data-continue type="submit" disabled>Continuar <span aria-hidden="true">→</span></button>
       </div>
     </form>
   </div>
 </main>
 <script>
-  import { FUNNEL_PATHS, LEAD_PATH, ensureBrowserState, getFirstIncompletePath, saveBrowserState, setContextAnswer, setMaturityAnswer } from "../../lib/maturity-state.mjs";
+  import { FUNNEL_PATHS, LEAD_PATH, ensureBrowserState, getFirstIncompletePath, saveBrowserState, setContextAnswer, setMaturityAnswer, withMaturityRelease } from "../../lib/maturity-state.mjs";
   const page = document.querySelector(".maturity-step-page[data-maturity-step]");
   const form = page?.querySelector("form");
   if (page instanceof HTMLElement && form instanceof HTMLFormElement) {
@@ -60,7 +63,7 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
     const expectedPath = getFirstIncompletePath(state);
     const currentIndex = FUNNEL_PATHS.indexOf(currentPath);
     const expectedIndex = FUNNEL_PATHS.indexOf(expectedPath);
-    if (expectedPath === LEAD_PATH || (currentIndex > expectedIndex && expectedIndex >= 0)) window.location.replace(expectedPath);
+    if (expectedPath === LEAD_PATH || (currentIndex > expectedIndex && expectedIndex >= 0)) window.location.replace(withMaturityRelease(expectedPath));
 
     const kind = page.dataset.stepKind;
     const key = page.dataset.stepKey ?? "";
@@ -70,7 +73,7 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
     const continueButton = form.querySelector("[data-continue]");
     const error = form.querySelector("[data-step-error]");
     const nextPath = () => page.dataset.nextPath ?? getFirstIncompletePath(state);
-    const navigate = () => window.location.assign(nextPath());
+    const navigate = () => window.location.assign(withMaturityRelease(nextPath()));
     const advance = () => {
       if (isAdvancing) return;
       isAdvancing = true;
