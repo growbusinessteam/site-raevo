@@ -628,3 +628,48 @@ Guardar a resposta no `sessionStorage`, bloquear novas seleções durante a tran
 - [ ] **Step 3: Validar e publicar o delta**
 
 Executar os testes, o build, percorrer o funil no navegador e publicar somente os novos artefatos da isca em `hostinger-dist`.
+
+## Task 13: Resultado direto, visual e sem PDF
+
+**Goal:** Eliminar o formulário final e abrir automaticamente um relatório visual colorido, com CTA para a Raevo e sem download de PDF.
+
+**Files:**
+- Create: `src/components/maturity/MaturityCompletion.astro`
+- Create: `src/pages/teste-maturidade-comercial/processando/index.astro`
+- Delete: `src/components/maturity/MaturityIdentification.astro`
+- Delete: `src/pages/teste-maturidade-comercial/identificacao/index.astro`
+- Modify: `src/lib/maturity-state.mjs`
+- Modify: `src/lib/maturity-form.mjs`
+- Modify: `src/lib/maturity-result.mjs`
+- Modify: `src/components/maturity/MaturityResult.astro`
+- Modify: `src/styles/maturity.css`
+- Modify: `public/api/maturidade/index.php`
+- Modify: `tests/maturity-state.test.mjs`
+- Modify: `tests/maturity-form.test.mjs`
+- Modify: `tests/maturity-result.test.mjs`
+- Modify: `tests/maturity-routes.test.mjs`
+- Modify: `tests/maturity-api-contract.test.mjs`
+
+- [ ] **Step 1: Escrever testes RED do novo fechamento**
+
+Exigir `/processando/` como próximo passo depois da pergunta 18, payload sem campos complementares, ausência do formulário final e submissão automática para `/api/maturidade/submissions`.
+
+- [ ] **Step 2: Implementar a submissão automática**
+
+Criar uma página transitória que reutiliza o estado existente, usa idempotência por lead, envia a avaliação e abre `result_url`. Em caso de erro, manter uma ação de nova tentativa.
+
+- [ ] **Step 3: Simplificar e reforçar o backend**
+
+Usar nome, WhatsApp, setor e aviso de privacidade do registo inicial como fonte de verdade. Validar os quatro contextos e as 18 respostas sem exigir empresa, cargo, e-mail, site, prazo ou novo consentimento.
+
+- [ ] **Step 4: Aplicar a escala visual de risco**
+
+Mapear `initial → vermelho`, `reactive → laranja`, `structured → amarelo`, `predictable → azul` e `intelligent → verde`. Aplicar a cor no arco, percentagem, escala, recomendações e barras, mantendo rótulos textuais acessíveis.
+
+- [ ] **Step 5: Remover o PDF e reforçar o CTA**
+
+Retirar o botão e o carregamento de `maturity-pdf.mjs`. Usar a chamada “Falar com a Raevo sobre este resultado” como ação final.
+
+- [ ] **Step 6: Validar e publicar o delta**
+
+Executar `pnpm test`, `pnpm build`, PHP parser e o percurso real no desktop/mobile. Publicar apenas os artefatos alterados do teste na branch `hostinger-dist` e validar as URLs públicas.

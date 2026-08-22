@@ -10,7 +10,7 @@ O produto deve parecer uma ferramenta própria da Raevo, com profundidade metodo
 
 ## Decisões aprovadas
 
-- A entrega inclui a landing page, captura inicial do lead, introdução, quatro perguntas adicionais de contexto, 18 perguntas de maturidade, identificação complementar, cálculo, resultado, prioridades, integração com CRM e relatório PDF.
+- A entrega inclui a landing page, captura inicial do lead, introdução, quatro perguntas adicionais de contexto, 18 perguntas de maturidade, processamento automático, cálculo, resultado visual, prioridades e integração com CRM.
 - Antes de libertar o teste, a experiência recolhe e grava nome, WhatsApp e setor da empresa. O setor deixa de ser perguntado novamente.
 - Cada avanço do funil terá uma URL real e distinta. A instalação de eventos ou de um Pixel específico ficará para uma fase posterior.
 - A área será uma extensão visual e funcional dos sites oficiais já publicados pela Raevo.
@@ -51,7 +51,7 @@ Todas as rotas deverão funcionar com barra final no alojamento de produção.
 | `/teste-maturidade-comercial/contexto/equipa/` | Dimensão da equipa comercial |
 | `/teste-maturidade-comercial/contexto/objetivo/` | Objetivo comercial principal |
 | `/teste-maturidade-comercial/pergunta/01/` até `/pergunta/18/` | Perguntas de maturidade |
-| `/teste-maturidade-comercial/identificacao/` | Identificação e consentimentos |
+| `/teste-maturidade-comercial/processando/` | Submissão automática e preparação do relatório |
 | `/teste-maturidade-comercial/resultado/[token]/` | Resultado recuperável por token |
 
 Cada ecrã será uma página real. A navegação usará links ou redirecionamento para a rota seguinte apenas depois de existir uma resposta válida. A separação de URLs permitirá medir o funil por page view quando o Pixel específico for instalado, sem alterar a arquitetura.
@@ -105,7 +105,7 @@ As UTMs, `gclid`, `fbclid`, referrer e landing page serão capturados na entrada
 
 Se alguém tentar abrir uma pergunta sem ter concluído as etapas anteriores, a aplicação encaminhará para a primeira etapa incompleta. Se o esquema guardado tiver uma versão incompatível, o teste será reiniciado com uma mensagem clara.
 
-## Identificação e consentimento
+## Captura e conclusão automática
 
 Antes da introdução, a página de captura inicial recolherá:
 
@@ -114,17 +114,7 @@ Antes da introdução, a página de captura inicial recolherá:
 - setor da empresa;
 - aviso e ligação visível para a Política de Privacidade.
 
-Depois da pergunta 18, a página de identificação apresentará “A sua análise está pronta”, reutilizará os dados iniciais e recolherá apenas:
-
-- empresa;
-- cargo ou função;
-- e-mail profissional;
-- site ou Instagram, opcional;
-- prazo para melhorar o processo comercial;
-- aceitação obrigatória da Política de Privacidade;
-- consentimento de marketing separado e não pré-selecionado.
-
-Os campos terão validação específica e mensagens associadas. Um envio inválido não apagará respostas. O botão final impedirá submissões duplicadas, mostrará processamento e voltará ao estado utilizável caso exista erro.
+Depois da pergunta 18, não haverá outro formulário. A rota de processamento reutilizará o `lead_id`, nome, WhatsApp, setor, contextos e respostas já guardados, enviará a avaliação automaticamente e abrirá a URL tokenizada do resultado. Enquanto processa, exibirá apenas uma mensagem curta de preparação do relatório. Em caso de falha, preservará o estado e oferecerá uma nova tentativa sem pedir dados adicionais.
 
 ## Cálculo
 
@@ -157,7 +147,7 @@ Contratos públicos:
 
 - `POST /api/maturidade/leads` grava a captura inicial e devolve `lead_id`;
 - `POST /api/maturidade/submissions` cria uma submissão válida;
-- `GET /api/maturidade/resultado/{token}` devolve apenas os dados necessários para renderizar o resultado e o PDF;
+- `GET /api/maturidade/resultado/{token}` devolve apenas os dados necessários para renderizar o resultado visual;
 - todas as outras combinações de método e rota devolvem uma resposta JSON controlada.
 
 Responsabilidades do endpoint:
@@ -165,7 +155,7 @@ Responsabilidades do endpoint:
 1. Aceitar apenas `POST` com JSON e tamanho limitado.
 2. Validar e guardar nome, WhatsApp, setor, atribuição e aviso de privacidade antes de libertar o teste.
 3. Devolver um `lead_id` não enumerável e associá-lo à submissão final.
-4. Validar os campos complementares, o consentimento, o número e o intervalo das respostas.
+4. Reutilizar o aviso de privacidade registado na captura inicial e validar o número e o intervalo das respostas.
 5. Recalcular todo o resultado no servidor; nunca confiar na percentagem enviada pelo browser.
 6. Criar um identificador de avaliação e token criptograficamente aleatórios.
 7. Guardar os registos de forma atómica numa pasta privada fora da árvore pública.
@@ -191,25 +181,10 @@ A rota de resultado recuperará os dados pelo token e apresentará:
 - seis barras horizontais com percentagem por pilar;
 - identificação acessível do pilar mais forte e da principal oportunidade;
 - três prioridades: duas derivadas dos pilares mais baixos e uma derivada do nível geral;
-- CTA “Analisar o meu resultado com a Raevo”;
-- CTA “Baixar relatório completo em PDF”.
+- aplicação de uma cor de estado por nível: vermelho, laranja, amarelo, azul ou verde;
+- CTA principal “Falar com a Raevo sobre este resultado”.
 
-O resultado deixará claro que é uma avaliação baseada nas respostas fornecidas, e não um benchmark de mercado.
-
-## Relatório PDF
-
-O PDF será gerado a partir de dados estruturados e de um template próprio, sem screenshots. O nome seguirá `relatorio-maturidade-comercial-{empresa}.pdf`, com o nome da empresa sanitizado.
-
-O documento terá seis páginas A4:
-
-1. Capa com logótipo, empresa, responsável, data e assinatura Raevo.
-2. Percentagem, nível, explicação e escala.
-3. Seis pilares, pilar mais forte e principal oportunidade.
-4. Insight Raevo, risco principal e próximo salto.
-5. Três prioridades.
-6. Próximo passo e contactos Raevo.
-
-As fontes serão incorporadas para suportar caracteres portugueses. A geração ocorrerá no navegador a partir dos dados autorizados do resultado, mantendo o backend simples. Se falhar, a página continuará utilizável e permitirá uma nova tentativa.
+O resultado deixará claro que é uma avaliação baseada nas respostas fornecidas, e não um benchmark de mercado. Download e envio de PDF ficam fora desta fase. Um futuro envio por e-mail deverá usar um fornecedor transacional por SMTP ou API, sem depender de geração no navegador.
 
 ## Conteúdo personalizado
 
@@ -221,11 +196,10 @@ Cada prioridade terá título, explicação curta e resultado esperado, sem entr
 
 - Estado temporário ausente: encaminhar para a landing ou primeira etapa incompleta.
 - Resposta inválida: manter o ecrã atual e explicar o que falta.
-- Submissão recusada: preservar todo o formulário e permitir nova tentativa.
+- Submissão recusada: preservar o estado do diagnóstico e permitir nova tentativa automática.
 - Token inexistente ou expirado: mostrar uma página Raevo clara com ação para refazer o teste.
 - Resultado temporariamente indisponível: permitir nova tentativa sem expor detalhes técnicos.
 - Falha do webhook: registar no servidor sem bloquear um resultado já guardado.
-- Falha do PDF: manter o resultado e reativar o botão de download.
 
 ## Segurança e privacidade
 
@@ -268,7 +242,6 @@ Os componentes exporão nomes estáveis de etapa em atributos `data-*`, sem envi
 - geração das três prioridades;
 - validação e normalização do formulário;
 - serialização do payload e atribuição;
-- sanitização do nome do PDF;
 - existência e encadeamento de todas as rotas;
 - ausência de webhook e segredos no frontend.
 
@@ -280,7 +253,6 @@ Os componentes exporão nomes estáveis de etapa em atributos `data-*`, sem envi
 - validação e recuperação de erros;
 - resultado a 0%, 50% e 100%;
 - gráfico, escala e barras em larguras representativas;
-- PDF A4 com seis páginas e caracteres portugueses;
 - token inválido;
 - build de produção e ausência de regressões nas páginas existentes.
 
@@ -293,12 +265,13 @@ Os componentes exporão nomes estáveis de etapa em atributos `data-*`, sem envi
 5. O backend recalcula e guarda um resultado recuperável por token.
 6. O webhook permanece apenas no servidor.
 7. O resultado inclui gráfico, pilares, Insight Raevo e três prioridades.
-8. O PDF tem seis páginas A4 e é descarregado com nome sanitizado.
-9. A identidade é reconhecivelmente a mesma dos sites oficiais Raevo.
-10. Nenhum Pixel específico é adicionado nesta entrega.
-11. O fluxo funciona por teclado e em mobile sem overflow.
-12. Testes automatizados e build de produção terminam sem erro.
-13. Nome, WhatsApp e setor não são solicitados novamente depois da captura inicial.
+8. O relatório visual usa vermelho, laranja, amarelo, azul ou verde de acordo com o nível, sem depender apenas da cor.
+9. O CTA final convida a falar com a Raevo e não oferece download de PDF.
+10. A identidade é reconhecivelmente a mesma dos sites oficiais Raevo.
+11. Nenhum Pixel específico é adicionado nesta entrega.
+12. O fluxo funciona por teclado e em mobile sem overflow.
+13. Testes automatizados e build de produção terminam sem erro.
+14. Nenhum dado complementar é solicitado depois da captura inicial.
 
 ## Fora de escopo
 
