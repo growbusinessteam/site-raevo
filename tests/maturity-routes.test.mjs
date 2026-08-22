@@ -12,6 +12,8 @@ const required = [
   "src/pages/termos.astro",
   "src/components/maturity/MaturityLanding.astro",
   "src/components/maturity/MaturityStep.astro",
+  "public/assets/brand/raevo-logo-official-transparent.png",
+  "public/assets/brand/raevo-symbol-cyan.png",
 ];
 for (const file of required) assert.equal(existsSync(new URL(`../${file}`, import.meta.url)), true, `${file} must exist`);
 
