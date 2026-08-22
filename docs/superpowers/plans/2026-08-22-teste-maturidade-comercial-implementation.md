@@ -610,3 +610,21 @@ Expected: zero falhas, rota inicial gerada, quatro contextos e 18 perguntas.
 git add docs/superpowers src/components/maturity src/pages/teste-maturidade-comercial src/lib/maturity-state.mjs src/lib/maturity-form.mjs public/api/maturidade/index.php src/styles/maturity.css tests/maturity-*.test.mjs
 git commit -m "feat: capture maturity leads before assessment"
 ```
+
+## Task 12: Avanço automático ao selecionar respostas
+
+**Files:**
+- Modify: `src/components/maturity/MaturityStep.astro`
+- Modify: `tests/maturity-routes.test.mjs`
+
+- [ ] **Step 1: Escrever teste RED**
+
+Exigir que cada opção dispare uma rotina de avanço automático com pequeno atraso e proteção contra navegação duplicada, mantendo o submit como alternativa.
+
+- [ ] **Step 2: Implementar em GREEN**
+
+Guardar a resposta no `sessionStorage`, bloquear novas seleções durante a transição e navegar para `data-next-path`. A restauração de respostas e a navegação por setas não devem avançar sozinhas.
+
+- [ ] **Step 3: Validar e publicar o delta**
+
+Executar os testes, o build, percorrer o funil no navegador e publicar somente os novos artefatos da isca em `hostinger-dist`.

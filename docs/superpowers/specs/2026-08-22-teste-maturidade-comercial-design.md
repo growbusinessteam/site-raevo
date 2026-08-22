@@ -92,9 +92,10 @@ Cada ecrã de maturidade exibirá:
 - enunciado;
 - cinco alternativas grandes, sem mostrar a pontuação interna;
 - ação para voltar;
-- ação para continuar, ativa apenas depois de selecionar uma alternativa.
+- avanço automático depois de selecionar uma alternativa;
+- ação para continuar como alternativa acessível, ativa apenas depois de selecionar uma resposta.
 
-O utilizador poderá navegar por teclado. A resposta selecionada terá texto, contorno e marcador visível, sem depender apenas da cor. No mobile, a ação de continuar permanecerá acessível sem cobrir o conteúdo.
+No clique ou ativação direta de uma alternativa, a resposta será guardada primeiro e a próxima URL será aberta após uma transição curta, evitando cliques duplicados. A restauração de uma resposta ao voltar para a página não deverá disparar navegação automática. O utilizador poderá navegar entre alternativas pelas setas do teclado sem ser retirado imediatamente da página; Enter, Espaço ou o botão “Continuar” concluirão a etapa. A resposta selecionada terá texto, contorno e marcador visível, sem depender apenas da cor. No mobile, a ação de continuar permanecerá acessível sem cobrir o conteúdo.
 
 ## Persistência temporária e navegação
 
