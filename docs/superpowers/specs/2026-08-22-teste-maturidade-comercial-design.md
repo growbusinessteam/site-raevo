@@ -10,7 +10,8 @@ O produto deve parecer uma ferramenta própria da Raevo, com profundidade metodo
 
 ## Decisões aprovadas
 
-- A entrega inclui a landing page, introdução, cinco perguntas de contexto, 18 perguntas de maturidade, identificação, cálculo, resultado, prioridades, integração com CRM e relatório PDF.
+- A entrega inclui a landing page, captura inicial do lead, introdução, quatro perguntas adicionais de contexto, 18 perguntas de maturidade, identificação complementar, cálculo, resultado, prioridades, integração com CRM e relatório PDF.
+- Antes de libertar o teste, a experiência recolhe e grava nome, WhatsApp e setor da empresa. O setor deixa de ser perguntado novamente.
 - Cada avanço do funil terá uma URL real e distinta. A instalação de eventos ou de um Pixel específico ficará para uma fase posterior.
 - A área será uma extensão visual e funcional dos sites oficiais já publicados pela Raevo.
 - O gráfico de resultado apresentado no mockup foi aprovado como parte da experiência.
@@ -43,8 +44,8 @@ Todas as rotas deverão funcionar com barra final no alojamento de produção.
 | Rota | Função |
 | --- | --- |
 | `/teste-maturidade-comercial/` | Landing page |
+| `/teste-maturidade-comercial/dados-iniciais/` | Captura obrigatória de nome, WhatsApp e setor |
 | `/teste-maturidade-comercial/antes-de-comecar/` | Introdução e condições do teste |
-| `/teste-maturidade-comercial/contexto/setor/` | Setor da empresa |
 | `/teste-maturidade-comercial/contexto/oportunidades/` | Oportunidades mensais |
 | `/teste-maturidade-comercial/contexto/valor-medio/` | Valor médio de venda |
 | `/teste-maturidade-comercial/contexto/equipa/` | Dimensão da equipa comercial |
@@ -72,9 +73,9 @@ A landing terá as seguintes secções:
 
 ## Fluxo do questionário
 
-O teste começa com um ecrã curto que explica a duração, o número de perguntas, o resultado imediato e a utilização das respostas.
+O CTA da landing abre primeiro um ecrã curto de captura com três dados: nome, WhatsApp e setor da empresa. O botão só liberta o teste depois de a API confirmar que o lead foi guardado. Em seguida, a introdução explica a duração, o número de perguntas, o resultado imediato e a utilização das respostas.
 
-As cinco perguntas de contexto não afetam a pontuação. As 18 perguntas seguintes serão organizadas nos pilares:
+As quatro perguntas adicionais de contexto não afetam a pontuação. As 18 perguntas seguintes serão organizadas nos pilares:
 
 1. Geração de oportunidades.
 2. Atendimento e qualificação.
@@ -97,21 +98,26 @@ O utilizador poderá navegar por teclado. A resposta selecionada terá texto, co
 
 ## Persistência temporária e navegação
 
-Contexto, respostas e atribuição serão guardados temporariamente em `sessionStorage`, com uma versão explícita do esquema. Isso permite avançar, voltar e atualizar uma página sem perder o progresso, mas evita persistência indefinida entre sessões do navegador.
+O identificador do lead, o nome, o WhatsApp normalizado, o setor, os restantes contextos, as respostas e a atribuição serão guardados temporariamente em `sessionStorage`, com uma versão explícita do esquema. Isso permite avançar, voltar e atualizar uma página sem perder o progresso, mas evita persistência indefinida entre sessões do navegador.
 
-As UTMs, `gclid`, `fbclid`, referrer e landing page serão capturados na entrada e preservados durante o funil. Dados pessoais só serão guardados depois da submissão válida. Após a conclusão e a abertura bem-sucedida do resultado, o estado temporário com dados pessoais será eliminado do navegador.
+As UTMs, `gclid`, `fbclid`, referrer e landing page serão capturados na entrada e preservados durante o funil. Os três dados iniciais serão guardados no backend assim que a captura inicial for validada. Após a conclusão e a abertura bem-sucedida do resultado, o estado temporário com dados pessoais será eliminado do navegador.
 
 Se alguém tentar abrir uma pergunta sem ter concluído as etapas anteriores, a aplicação encaminhará para a primeira etapa incompleta. Se o esquema guardado tiver uma versão incompatível, o teste será reiniciado com uma mensagem clara.
 
 ## Identificação e consentimento
 
-Depois da pergunta 18, a página de identificação apresentará “A sua análise está pronta” e recolherá:
+Antes da introdução, a página de captura inicial recolherá:
 
 - nome;
+- WhatsApp com indicativo do país;
+- setor da empresa;
+- aviso e ligação visível para a Política de Privacidade.
+
+Depois da pergunta 18, a página de identificação apresentará “A sua análise está pronta”, reutilizará os dados iniciais e recolherá apenas:
+
 - empresa;
 - cargo ou função;
 - e-mail profissional;
-- WhatsApp com indicativo do país;
 - site ou Instagram, opcional;
 - prazo para melhorar o processo comercial;
 - aceitação obrigatória da Política de Privacidade;
@@ -148,6 +154,7 @@ O frontend enviará a submissão para um endpoint no mesmo domínio. O endpoint 
 
 Contratos públicos:
 
+- `POST /api/maturidade/leads` grava a captura inicial e devolve `lead_id`;
 - `POST /api/maturidade/submissions` cria uma submissão válida;
 - `GET /api/maturidade/resultado/{token}` devolve apenas os dados necessários para renderizar o resultado e o PDF;
 - todas as outras combinações de método e rota devolvem uma resposta JSON controlada.
@@ -155,12 +162,14 @@ Contratos públicos:
 Responsabilidades do endpoint:
 
 1. Aceitar apenas `POST` com JSON e tamanho limitado.
-2. Validar campos, consentimento, número e intervalo das respostas.
-3. Recalcular todo o resultado no servidor; nunca confiar na percentagem enviada pelo browser.
-4. Criar um identificador e token criptograficamente aleatórios.
-5. Guardar a submissão de forma atómica numa pasta privada fora da árvore pública.
-6. Encaminhar o payload aprovado ao webhook definido por `MATURITY_ASSESSMENT_WEBHOOK_URL`.
-7. Responder com o token e a URL do resultado.
+2. Validar e guardar nome, WhatsApp, setor, atribuição e aviso de privacidade antes de libertar o teste.
+3. Devolver um `lead_id` não enumerável e associá-lo à submissão final.
+4. Validar os campos complementares, o consentimento, o número e o intervalo das respostas.
+5. Recalcular todo o resultado no servidor; nunca confiar na percentagem enviada pelo browser.
+6. Criar um identificador de avaliação e token criptograficamente aleatórios.
+7. Guardar os registos de forma atómica numa pasta privada fora da árvore pública.
+8. Encaminhar os eventos de lead inicial e diagnóstico concluído ao webhook definido por `MATURITY_ASSESSMENT_WEBHOOK_URL`.
+9. Responder com o token e a URL do resultado.
 
 O webhook não será exposto no frontend. Falhas no CRM serão registadas no servidor. A criação local do resultado será a fonte de sucesso para o visitante, evitando que uma indisponibilidade temporária do CRM destrua o diagnóstico; o registo da falha permitirá reprocessamento operacional.
 
@@ -277,7 +286,7 @@ Os componentes exporão nomes estáveis de etapa em atributos `data-*`, sem envi
 ## Critérios de aceite
 
 1. Todas as rotas descritas são construídas e navegáveis.
-2. As 23 respostas do diagnóstico são preservadas durante o funil.
+2. O lead inicial é gravado antes da introdução, e as 22 respostas restantes do diagnóstico são preservadas durante o funil.
 3. Não é possível avançar sem uma resposta válida.
 4. O cálculo e as classificações cumprem os limites definidos.
 5. O backend recalcula e guarda um resultado recuperável por token.
@@ -288,6 +297,7 @@ Os componentes exporão nomes estáveis de etapa em atributos `data-*`, sem envi
 10. Nenhum Pixel específico é adicionado nesta entrega.
 11. O fluxo funciona por teclado e em mobile sem overflow.
 12. Testes automatizados e build de produção terminam sem erro.
+13. Nome, WhatsApp e setor não são solicitados novamente depois da captura inicial.
 
 ## Fora de escopo
 

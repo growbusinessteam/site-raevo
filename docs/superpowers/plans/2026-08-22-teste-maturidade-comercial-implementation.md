@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Construir a área completa `raevo.io/teste-maturidade-comercial/`, com landing, 23 etapas em rotas próprias, identificação, cálculo, backend PHP, resultado por token e PDF personalizado.
+**Goal:** Construir a área completa `raevo.io/teste-maturidade-comercial/`, com landing, captura antecipada do lead, 22 etapas de diagnóstico em rotas próprias, identificação complementar, cálculo, backend PHP, resultado por token e PDF personalizado.
 
-**Architecture:** Astro gera todas as páginas públicas e partilha componentes visuais com a identidade oficial Raevo. Módulos JavaScript puros concentram conteúdo, cálculo, estado, validação e personalização; um endpoint PHP same-origin valida e recalcula a submissão, guarda o resultado fora da árvore pública e encaminha o payload ao webhook configurado. A rota de resultado é um shell estático servido para tokens arbitrários por uma regra Apache e recupera os dados pela API.
+**Architecture:** Astro gera todas as páginas públicas e partilha componentes visuais com a identidade oficial Raevo. Um gate inicial grava nome, WhatsApp e setor antes de libertar o diagnóstico; módulos JavaScript puros concentram conteúdo, cálculo, estado, validação e personalização. Um endpoint PHP same-origin guarda o lead, associa a submissão final, recalcula o resultado fora da árvore pública e encaminha os dois eventos ao webhook configurado. A rota de resultado é um shell estático servido para tokens arbitrários por uma regra Apache e recupera os dados pela API.
 
 **Tech Stack:** Astro 5, TypeScript, JavaScript ESM, Node test runner, PHP 8 no alojamento, Apache `.htaccess`, `pdf-lib`, `@pdf-lib/fontkit`, CSS responsivo.
 
@@ -14,7 +14,7 @@
 
 ### Dados e lógica
 
-- `src/data/maturity.ts`: conteúdo da landing, cinco contextos, 18 perguntas, pilares, níveis, insights e prioridades.
+- `src/data/maturity.ts`: conteúdo da landing, setor usado no gate inicial, quatro contextos posteriores, 18 perguntas, pilares, níveis, insights e prioridades.
 - `src/lib/maturity-scoring.mjs`: validação das respostas, cálculo geral, cálculo por pilar, classificação e ordenação determinística.
 - `src/lib/maturity-state.mjs`: esquema versionado de `sessionStorage`, captura de atribuição e cálculo da primeira etapa incompleta.
 - `src/lib/maturity-form.mjs`: normalização, validação e construção do payload de submissão.
@@ -495,7 +495,7 @@ Expected: exit code 0, todas as rotas no `dist/`, PHP e `.htaccess` copiados.
 
 Run: `npm run dev -- --host 127.0.0.1`
 
-Validar landing, introdução, cinco contextos, perguntas 01/18, voltar, atualizar e identificação. Para o resultado, abrir `/teste-maturidade-comercial/resultado/preview/?preview=result-50` no servidor de desenvolvimento e confirmar que o build de produção não contém a string `result-50`.
+Validar landing, introdução, cinco contextos, perguntas 01/18, voltar, atualizar e identificação. Para o resultado, abrir `/teste-maturidade-comercial/resultado/?preview=result-50` no servidor de desenvolvimento e confirmar que o build de produção não contém a string `result-50`.
 
 - [ ] **Step 4: Inspecionar desktop e mobile**
 
@@ -516,3 +516,97 @@ Expected: exit code 0 para ambos.
 Run: `git diff --check && git status --short`
 
 Confirmar que alterações preexistentes do utilizador permanecem intactas e que nenhum segredo, resultado privado ou ficheiro temporário foi incluído.
+
+## Task 11: Captura do lead antes do teste
+
+Esta tarefa substitui, no fluxo final, as referências anteriores a cinco rotas de contexto e à recolha de nome/WhatsApp apenas depois da pergunta 18.
+
+**Files:**
+- Create: `src/components/maturity/MaturityLeadGate.astro`
+- Create: `src/pages/teste-maturidade-comercial/dados-iniciais/index.astro`
+- Modify: `src/components/maturity/MaturityLanding.astro`
+- Modify: `src/components/maturity/MaturityIdentification.astro`
+- Modify: `src/pages/teste-maturidade-comercial/antes-de-comecar/index.astro`
+- Modify: `src/pages/teste-maturidade-comercial/contexto/[slug].astro`
+- Modify: `src/lib/maturity-state.mjs`
+- Modify: `src/lib/maturity-form.mjs`
+- Modify: `public/api/maturidade/index.php`
+- Modify: `src/styles/maturity.css`
+- Modify: `tests/maturity-state.test.mjs`
+- Modify: `tests/maturity-form.test.mjs`
+- Modify: `tests/maturity-routes.test.mjs`
+- Modify: `tests/maturity-api-contract.test.mjs`
+
+- [ ] **Step 1: Escrever testes RED do estado e do payload inicial**
+
+Exigir que um estado novo encaminhe para `/dados-iniciais/`, que `setLeadCapture` guarde `lead_id`, nome, WhatsApp normalizado e setor, e que a primeira etapa posterior seja `/contexto/oportunidades/`:
+
+```js
+assert.equal(getFirstIncompletePath(createAssessmentState()), "/teste-maturidade-comercial/dados-iniciais/");
+const captured = setLeadCapture(createAssessmentState(), { leadId: "lead-id", name: "Ana", whatsapp: "+351963763408", sector: "Consultoria" });
+assert.equal(captured.lead.id, "lead-id");
+assert.equal(getFirstIncompletePath(captured), "/teste-maturidade-comercial/contexto/oportunidades/");
+```
+
+Run: `node tests/maturity-state.test.mjs`
+
+Expected: FAIL porque `setLeadCapture` e a nova progressão ainda não existem.
+
+- [ ] **Step 2: Escrever testes RED da validação inicial e da identificação final**
+
+Cobrir `validateLeadCapture`, `buildLeadPayload` e o novo payload final associado a `lead_id`. Confirmar que o formulário final já não exige nome nem WhatsApp:
+
+```js
+assert.deepEqual(validateLeadCapture({ name: "", whatsapp: "", sector: "" }).field, "name");
+assert.equal(buildLeadPayload(validLead, state).company.sector, "Consultoria");
+assert.equal(buildSubmissionPayload(finalValues, capturedState).lead_id, "lead-id");
+```
+
+Run: `node tests/maturity-form.test.mjs`
+
+Expected: FAIL por funções ausentes e contrato antigo.
+
+- [ ] **Step 3: Escrever testes RED das rotas e da API**
+
+Exigir a rota `/dados-iniciais/`, CTA da landing para ela, ausência de `contexto/setor` na geração estática, três campos visíveis e contrato `POST /api/maturidade/leads` com evento `maturity_lead_captured`.
+
+Run: `node tests/maturity-routes.test.mjs && node tests/maturity-api-contract.test.mjs`
+
+Expected: FAIL porque a rota e o endpoint ainda não existem.
+
+- [ ] **Step 4: Implementar estado e formulários em GREEN**
+
+Subir a versão do estado para 2, adicionar `lead`, `setLeadCapture`, `validateLeadCapture` e `buildLeadPayload`. O payload final deverá usar os dados iniciais preservados e conter `lead_id`.
+
+Run: `node tests/maturity-state.test.mjs && node tests/maturity-form.test.mjs`
+
+Expected: PASS.
+
+- [ ] **Step 5: Implementar a rota e a interface de captura inicial**
+
+Criar uma página Raevo focada com Nome, indicativo/WhatsApp, Setor e aviso de privacidade. Enviar JSON para `/api/maturidade/leads`, guardar a resposta com `setLeadCapture` e navegar para `/antes-de-comecar/` somente após `201`.
+
+- [ ] **Step 6: Remover a repetição e reencadear o funil**
+
+Atualizar a landing para abrir `/dados-iniciais/`, iniciar o contexto em `/contexto/oportunidades/`, gerar quatro contextos e remover Nome/WhatsApp do formulário final. Manter empresa, função, e-mail, site, prazo e consentimentos no final.
+
+- [ ] **Step 7: Implementar o endpoint inicial e a associação no backend**
+
+Validar nome, telefone e setor, criar UUID, guardar `lead-{uuid}.json` atomicamente, emitir webhook com `event: maturity_lead_captured` e devolver `{ lead_id }`. Na submissão final, carregar o lead privado pelo UUID, reutilizar os dados validados e incluir `lead_id` no evento `maturity_assessment_completed`.
+
+Run: `node tests/maturity-api-contract.test.mjs`
+
+Expected: PASS.
+
+- [ ] **Step 8: Validar a jornada completa e o build**
+
+Run: `npm test && npm run build`
+
+Expected: zero falhas, rota inicial gerada, quatro contextos e 18 perguntas.
+
+- [ ] **Step 9: Commit focado**
+
+```bash
+git add docs/superpowers src/components/maturity src/pages/teste-maturidade-comercial src/lib/maturity-state.mjs src/lib/maturity-form.mjs public/api/maturidade/index.php src/styles/maturity.css tests/maturity-*.test.mjs
+git commit -m "feat: capture maturity leads before assessment"
+```
