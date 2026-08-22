@@ -50,7 +50,7 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
 </main>
 <script>
   import { FUNNEL_PATHS, ensureBrowserState, getFirstIncompletePath, saveBrowserState, setContextAnswer, setMaturityAnswer } from "../../lib/maturity-state.mjs";
-  const page = document.querySelector("[data-maturity-step]");
+  const page = document.querySelector(".maturity-step-page[data-maturity-step]");
   const form = page?.querySelector("form");
   if (page instanceof HTMLElement && form instanceof HTMLFormElement) {
     let state = ensureBrowserState();

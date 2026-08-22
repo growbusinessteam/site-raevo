@@ -15,6 +15,7 @@ for (const required of [
 assert.match(api, /bin2hex\(random_bytes\(32\)\)/);
 assert.match(api, /flock\([^;]+LOCK_EX/);
 assert.match(api, /MATURITY_PRIVATE_STORAGE_PATH/);
+assert.match(api, /function_exists\('mb_substr'\)/);
 assert.doesNotMatch(api, /hook\.growautomacao\.com|https:\/\/[^'\"]+webhook/i);
 
 const apiRewrite = readFileSync(new URL("../public/api/maturidade/.htaccess", import.meta.url), "utf8");

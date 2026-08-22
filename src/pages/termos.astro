@@ -1,0 +1,51 @@
+---
+import MaturityFooter from "../components/maturity/MaturityFooter.astro";
+import MaturityHeader from "../components/maturity/MaturityHeader.astro";
+import MaturityLayout from "../components/maturity/MaturityLayout.astro";
+
+const sections = [
+  ["1. Identificação", ["Este site e os conteúdos disponibilizados sob a marca Raevo são operados pela GROW BUSINESS LTDA - ME, CNPJ 55.118.026/0001-20, com sede na Avenida Juracy Magalhães, 3405, Sala 04, Boa Vista, Vitória da Conquista, BA, CEP 45026-090, Brasil."]],
+  ["2. Aceitação dos termos", ["Ao aceder ou utilizar este site, o utilizador declara que leu e aceita estes Termos de Utilização e a Política de Privacidade. Caso não concorde, deverá interromper a utilização do site."]],
+  ["3. Finalidade do site", ["O site apresenta informações institucionais, conteúdos, diagnósticos, formulários e canais de contacto relacionados com serviços de estratégia, sistemas, operação comercial, CRM, automação e inteligência artificial.", "Os conteúdos possuem natureza informativa e não constituem garantia de resultado comercial, financeiro ou operacional."]],
+  ["4. Utilização permitida", ["O utilizador compromete-se a utilizar o site de forma lícita, sem tentar comprometer a segurança, interferir no funcionamento, introduzir código malicioso, recolher dados de terceiros ou utilizar os conteúdos para fins fraudulentos."]],
+  ["5. Testes e diagnósticos", ["Os resultados apresentados por testes e diagnósticos da Raevo são estimativas produzidas a partir das respostas fornecidas pelo próprio utilizador.", "O resultado não substitui uma análise individual da empresa e não representa certificação, auditoria, parecer jurídico, contabilístico ou financeiro."]],
+  ["6. Dados fornecidos", ["O utilizador é responsável pela exatidão e legitimidade das informações enviadas nos formulários. Não devem ser enviados dados clínicos, informações de saúde, dados de pacientes ou outros dados pessoais sensíveis.", "O tratamento de dados pessoais segue a Política de Privacidade da Raevo."]],
+  ["7. Propriedade intelectual", ["Textos, marcas, elementos visuais, metodologias, materiais, relatórios e demais conteúdos do site pertencem à Raevo ou são utilizados mediante autorização.", "A reprodução, adaptação, distribuição ou exploração comercial depende de autorização prévia e escrita, salvo quando a legislação aplicável permitir expressamente."]],
+  ["8. Serviços e propostas", ["Pedidos de contacto, diagnósticos e reuniões não criam obrigação de contratação. O âmbito, os prazos, os valores e as responsabilidades de cada serviço serão definidos em proposta ou contrato próprio."]],
+  ["9. Ligações e serviços de terceiros", ["O site pode conter ligações ou integrações com plataformas de terceiros. A Raevo não controla os respetivos conteúdos, disponibilidade, termos ou práticas de privacidade."]],
+  ["10. Disponibilidade e responsabilidade", ["Procuramos manter o site atualizado e disponível, mas não garantimos funcionamento ininterrupto ou ausência absoluta de erros.", "Na medida permitida pela legislação aplicável, a Raevo não será responsável por decisões tomadas exclusivamente com base em conteúdos gerais ou resultados automatizados do site."]],
+  ["11. Alterações", ["Estes Termos podem ser atualizados para refletir mudanças no site, nos serviços ou na legislação. A versão vigente será sempre a publicada nesta página, acompanhada da data de atualização."]],
+  ["12. Contacto", ["Dúvidas sobre estes Termos podem ser enviadas para team@growbusiness.agency. Contacto Brasil: +55 62 98272-7476. Contacto Portugal: +351 963 763 408."]],
+];
+---
+<MaturityLayout title="Termos de Utilização | Raevo" description="Termos aplicáveis à utilização do site, conteúdos e diagnósticos da Raevo." stepKey="terms">
+  <MaturityHeader cta={false} />
+  <main id="conteudo" class="maturity-legal">
+    <article class="maturity-container maturity-legal__article">
+      <p class="maturity-eyebrow">Informação legal</p>
+      <h1>Termos de Utilização</h1>
+      <p class="maturity-legal__updated">Última atualização: 22 de agosto de 2026</p>
+      <p class="maturity-legal__lead">Estes Termos regulam o acesso e a utilização do site Raevo, incluindo os seus conteúdos, formulários, testes e diagnósticos digitais.</p>
+      {sections.map(([title, paragraphs]) => (
+        <section>
+          <h2>{title}</h2>
+          {(paragraphs as string[]).map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+      ))}
+    </article>
+  </main>
+  <MaturityFooter />
+</MaturityLayout>
+
+<style>
+  .maturity-legal { padding: 112px 0; background: var(--m-paper); }
+  .maturity-legal__article { max-width: 920px; }
+  .maturity-legal h1 { max-width: 820px; margin: 0; font: 600 clamp(46px, 7vw, 82px)/1.04 var(--m-display); letter-spacing: -.055em; }
+  .maturity-legal__updated { margin: 20px 0 0; color: #766e64; font-size: 13px; font-weight: 600; }
+  .maturity-legal__lead { max-width: 760px; margin: 38px 0 60px; color: #5e574f; font-size: 20px; line-height: 1.7; }
+  .maturity-legal section { padding: 34px 0; border-top: 1px solid var(--m-taupe); }
+  .maturity-legal section h2 { margin: 0 0 16px; font: 600 clamp(24px, 3vw, 34px)/1.25 var(--m-display); letter-spacing: -.025em; }
+  .maturity-legal section p { margin: 0; color: #625b53; font-size: 16px; line-height: 1.75; }
+  .maturity-legal section p + p { margin-top: 14px; }
+  @media (max-width: 680px) { .maturity-legal { padding: 74px 0; } .maturity-legal__lead { font-size: 17px; } }
+</style>

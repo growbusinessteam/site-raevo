@@ -9,6 +9,7 @@ const required = [
   "src/pages/teste-maturidade-comercial/pergunta/[number].astro",
   "src/pages/teste-maturidade-comercial/identificacao/index.astro",
   "src/pages/teste-maturidade-comercial/resultado/index.astro",
+  "src/pages/termos.astro",
   "src/components/maturity/MaturityLanding.astro",
   "src/components/maturity/MaturityStep.astro",
 ];
@@ -39,11 +40,15 @@ assert.match(step, /data-step-key/);
 assert.match(step, /data-continue/);
 assert.match(step, /data-back/);
 assert.match(step, /aria-live/);
+assert.match(step, /querySelector\("\.maturity-step-page\[data-maturity-step\]"\)/);
 assert.doesNotMatch(step, />\s*[0-4]\s*</);
 
 const resultPage = read("src/components/maturity/MaturityResult.astro");
 assert.match(resultPage, /data-pdf-download/);
 assert.match(resultPage, /downloadMaturityPdf/);
 assert.match(resultPage, /maturity:result-ready/);
+
+const footer = read("src/components/maturity/MaturityFooter.astro");
+assert.match(footer, /href="\/termos\/"/);
 
 console.log("Maturity routes and conversion structure are present.");

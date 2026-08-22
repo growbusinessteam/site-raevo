@@ -17,7 +17,9 @@ function jsonResponse(int $status, array $payload): never {
 
 function cleanText(mixed $value, int $max = 240): string {
     $text = trim((string)($value ?? ''));
-    return mb_substr($text, 0, $max, 'UTF-8');
+    return function_exists('mb_substr')
+        ? mb_substr($text, 0, $max, 'UTF-8')
+        : substr($text, 0, $max);
 }
 
 function storageDirectory(): string {
