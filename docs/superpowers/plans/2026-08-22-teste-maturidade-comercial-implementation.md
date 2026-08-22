@@ -614,15 +614,15 @@ git commit -m "feat: capture maturity leads before assessment"
 - Modify: `src/components/maturity/MaturityStep.astro`
 - Modify: `tests/maturity-routes.test.mjs`
 
-- [ ] **Step 1: Escrever teste RED**
+- [x] **Step 1: Escrever teste RED**
 
 Exigir que cada opção dispare uma rotina de avanço automático com pequeno atraso e proteção contra navegação duplicada, mantendo o submit como alternativa.
 
-- [ ] **Step 2: Implementar em GREEN**
+- [x] **Step 2: Implementar em GREEN**
 
 Guardar a resposta no `sessionStorage`, bloquear novas seleções durante a transição e navegar para `data-next-path`. A restauração de respostas e a navegação por setas não devem avançar sozinhas.
 
-- [ ] **Step 3: Validar e publicar o delta**
+- [x] **Step 3: Validar e publicar o delta**
 
 Executar os testes, o build, percorrer o funil no navegador e publicar somente os novos artefatos da isca em `hostinger-dist`.
 
@@ -670,6 +670,6 @@ Mapear `initial → vermelho`, `reactive → laranja`, `structured → amarelo`,
 
 Retirar o botão e o carregamento de `maturity-pdf.mjs`. Usar a chamada “Falar com a Raevo sobre este resultado” como ação final.
 
-- [ ] **Step 6: Validar e publicar o delta**
+- [x] **Step 6: Validar e publicar o delta**
 
 Executar `pnpm test`, `pnpm build`, PHP parser e o percurso real no desktop/mobile. Publicar apenas os artefatos alterados do teste na branch `hostinger-dist` e validar as URLs públicas.
