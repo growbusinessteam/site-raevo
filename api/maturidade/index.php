@@ -206,6 +206,8 @@ function attachLeadToSubmission(array $payload, string $storage): array {
     $payload['person']['name'] = $leadSubmission['person']['name'];
     $payload['person']['whatsapp'] = $leadSubmission['person']['whatsapp'];
     $payload['company']['sector'] = $leadSubmission['company']['sector'];
+    $payload['attribution'] = $leadSubmission['attribution'] ?? [];
+    $payload['consent'] = $leadSubmission['consent'] ?? [];
     return [$payload, $leadPath, $leadRecord];
 }
 
@@ -214,35 +216,30 @@ function validateSubmission(array $payload): array {
     $company = is_array($payload['company'] ?? null) ? $payload['company'] : [];
     $consent = is_array($payload['consent'] ?? null) ? $payload['consent'] : [];
     $name = cleanText($person['name'] ?? '', 120);
-    $email = strtolower(cleanText($person['email'] ?? '', 180));
     $whatsapp = preg_replace('/\D+/', '', cleanText($person['whatsapp'] ?? '', 40));
-    $companyName = cleanText($company['name'] ?? '', 180);
-    $role = cleanText($person['role'] ?? '', 80);
     $sector = cleanText($company['sector'] ?? '', 120);
-    $timeline = cleanText($company['improvement_timeline'] ?? '', 80);
-    if ($name === '' || $companyName === '') throw new InvalidArgumentException('required_fields');
-    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) throw new InvalidArgumentException('email_invalid');
+    if ($name === '') throw new InvalidArgumentException('name_required');
     if (strlen($whatsapp) < 9) throw new InvalidArgumentException('phone_invalid');
-    if ($role === '') throw new InvalidArgumentException('role_required');
     if ($sector === '') throw new InvalidArgumentException('sector_required');
-    if ($timeline === '') throw new InvalidArgumentException('timeline_required');
-    if (($consent['privacy_accepted'] ?? false) !== true) throw new InvalidArgumentException('privacy_required');
-    $answers = is_array($payload['answers'] ?? null) ? $payload['answers'] : [];
-    $result = calculateResult($answers);
-    $payload['person'] = ['name' => $name, 'email' => $email, 'whatsapp' => '+' . $whatsapp, 'role' => $role];
-    $payload['company'] = [
-        'name' => $companyName,
-        'sector' => $sector,
-        'website' => cleanText($company['website'] ?? '', 240),
+    if (($consent['privacy_notice_shown'] ?? false) !== true) throw new InvalidArgumentException('privacy_notice_required');
+    $context = [
         'monthly_opportunities' => cleanText($company['monthly_opportunities'] ?? '', 80),
         'average_sale_value' => cleanText($company['average_sale_value'] ?? '', 80),
         'commercial_team_size' => cleanText($company['commercial_team_size'] ?? '', 80),
         'main_goal' => cleanText($company['main_goal'] ?? '', 160),
-        'improvement_timeline' => $timeline,
     ];
+    if (in_array('', $context, true)) throw new InvalidArgumentException('context_required');
+    $answers = is_array($payload['answers'] ?? null) ? $payload['answers'] : [];
+    $result = calculateResult($answers);
+    $payload['person'] = ['name' => $name, 'whatsapp' => '+' . $whatsapp];
+    $payload['company'] = ['sector' => $sector] + $context;
     $payload['answers'] = $answers;
     $payload['attribution'] = is_array($payload['attribution'] ?? null) ? array_map(fn($value) => cleanText($value, 500), $payload['attribution']) : [];
-    $payload['consent'] = ['privacy_accepted' => true, 'marketing_accepted' => ($consent['marketing_accepted'] ?? false) === true, 'accepted_at' => cleanText($consent['accepted_at'] ?? gmdate(DATE_ATOM), 40)];
+    $payload['consent'] = [
+        'privacy_notice_shown' => true,
+        'policy_url' => cleanText($consent['policy_url'] ?? '/privacidade/', 240),
+        'acknowledged_at' => cleanText($consent['acknowledged_at'] ?? gmdate(DATE_ATOM), 40),
+    ];
     return [$payload, $result];
 }
 
@@ -305,7 +302,7 @@ function publicResult(array $record): array {
         'submitted_at' => $record['submitted_at'],
         'expires_at' => $record['expires_at'],
         'person' => ['name' => $record['submission']['person']['name']],
-        'company' => ['name' => $record['submission']['company']['name']],
+        'company' => ['sector' => $record['submission']['company']['sector']],
         'result' => $record['result'],
         'insight' => $record['insight'],
         'priorities' => $record['priorities'],
