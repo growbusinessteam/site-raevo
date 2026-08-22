@@ -1,0 +1,3 @@
+Options -MultiViews
+RewriteEngine On
+RewriteRule ^[0-9a-fA-F]{64}/?$ index.html [L]
