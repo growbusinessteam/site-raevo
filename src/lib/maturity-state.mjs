@@ -1,9 +1,9 @@
-export const STORAGE_KEY = "raevo:maturity:v1";
-export const STATE_VERSION = 1;
+export const STORAGE_KEY = "raevo:maturity:v2";
+export const STATE_VERSION = 2;
 
 const BASE = "/teste-maturidade-comercial";
+export const LEAD_PATH = `${BASE}/dados-iniciais/`;
 export const CONTEXT_STEPS = [
-  ["sector", "setor"],
   ["monthly_opportunities", "oportunidades"],
   ["average_sale_value", "valor-medio"],
   ["commercial_team_size", "equipa"],
@@ -28,6 +28,7 @@ export function createAssessmentState(location = {}) {
     version: STATE_VERSION,
     startedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
+    lead: null,
     context: {},
     answers: {},
     attribution: captureAttribution(location),
@@ -42,10 +43,22 @@ export function readState(value) {
   }
   if (!parsed || typeof parsed !== "object" || parsed.version !== STATE_VERSION) return null;
   if (!parsed.context || typeof parsed.context !== "object" || !parsed.answers || typeof parsed.answers !== "object") return null;
+  if (parsed.lead !== null && (typeof parsed.lead !== "object" || !String(parsed.lead.id ?? "").trim())) return null;
   return parsed;
 }
 
 const touch = (state, changes) => ({ ...state, ...changes, updatedAt: new Date().toISOString() });
+
+export function setLeadCapture(state, { leadId, name, whatsapp, sector }) {
+  const lead = {
+    id: String(leadId ?? "").trim(),
+    name: String(name ?? "").trim(),
+    whatsapp: String(whatsapp ?? "").trim(),
+    sector: String(sector ?? "").trim(),
+  };
+  if (!lead.id || !lead.name || !lead.whatsapp || !lead.sector) throw new TypeError("Os dados iniciais do lead são obrigatórios.");
+  return touch(state, { lead, context: { ...state.context, sector: lead.sector } });
+}
 
 export function setContextAnswer(state, key, value) {
   if (!CONTEXT_STEPS.some(([candidate]) => candidate === key)) throw new RangeError("Etapa de contexto desconhecida.");
@@ -60,6 +73,7 @@ export function setMaturityAnswer(state, number, score) {
 }
 
 export function getFirstIncompletePath(state) {
+  if (!String(state?.lead?.id ?? "").trim()) return LEAD_PATH;
   for (let index = 0; index < CONTEXT_STEPS.length; index += 1) {
     const [key] = CONTEXT_STEPS[index];
     if (!String(state?.context?.[key] ?? "").trim()) return contextPaths[index];

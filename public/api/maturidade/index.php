@@ -22,6 +22,16 @@ function cleanText(mixed $value, int $max = 240): string {
         : substr($text, 0, $max);
 }
 
+function readJsonBody(): array {
+    $length = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
+    if ($length <= 0 || $length > MAX_BODY_BYTES) jsonResponse(413, ['code' => 'body_size', 'message' => 'O pedido excede o tamanho permitido.']);
+    $raw = file_get_contents('php://input');
+    try { $payload = json_decode((string)$raw, true, 64, JSON_THROW_ON_ERROR); }
+    catch (JsonException) { jsonResponse(400, ['code' => 'invalid_json', 'message' => 'O pedido não contém dados válidos.']); }
+    if (!is_array($payload)) jsonResponse(400, ['code' => 'invalid_payload', 'message' => 'O pedido não contém dados válidos.']);
+    return $payload;
+}
+
 function storageDirectory(): string {
     $configured = getenv('MATURITY_PRIVATE_STORAGE_PATH');
     $documentRoot = rtrim((string)($_SERVER['DOCUMENT_ROOT'] ?? dirname(__DIR__, 3)), '/');
@@ -158,6 +168,47 @@ function buildPriorities(array $result): array {
     ];
 }
 
+function validateLeadCapture(array $payload): array {
+    $person = is_array($payload['person'] ?? null) ? $payload['person'] : [];
+    $company = is_array($payload['company'] ?? null) ? $payload['company'] : [];
+    $consent = is_array($payload['consent'] ?? null) ? $payload['consent'] : [];
+    $name = cleanText($person['name'] ?? '', 120);
+    $whatsapp = preg_replace('/\D+/', '', cleanText($person['whatsapp'] ?? '', 40));
+    $sector = cleanText($company['sector'] ?? '', 120);
+    if ($name === '') throw new InvalidArgumentException('name_required');
+    if (strlen($whatsapp) < 9) throw new InvalidArgumentException('phone_invalid');
+    if ($sector === '') throw new InvalidArgumentException('sector_required');
+    if (($consent['privacy_notice_shown'] ?? false) !== true) throw new InvalidArgumentException('privacy_notice_required');
+    return [
+        'source' => 'teste_maturidade_comercial',
+        'person' => ['name' => $name, 'whatsapp' => '+' . $whatsapp],
+        'company' => ['sector' => $sector],
+        'attribution' => is_array($payload['attribution'] ?? null) ? array_map(fn($value) => cleanText($value, 500), $payload['attribution']) : [],
+        'consent' => [
+            'privacy_notice_shown' => true,
+            'policy_url' => '/privacidade/',
+            'acknowledged_at' => cleanText($consent['acknowledged_at'] ?? gmdate(DATE_ATOM), 40),
+        ],
+    ];
+}
+
+function attachLeadToSubmission(array $payload, string $storage): array {
+    $leadId = strtolower(cleanText($payload['lead_id'] ?? '', 36));
+    if (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $leadId) !== 1) throw new InvalidArgumentException('lead_invalid');
+    $leadPath = $storage . '/lead-' . $leadId . '.json';
+    if (!is_file($leadPath)) throw new InvalidArgumentException('lead_not_found');
+    $leadRecord = json_decode((string)file_get_contents($leadPath), true);
+    $leadSubmission = is_array($leadRecord['submission'] ?? null) ? $leadRecord['submission'] : null;
+    if (!is_array($leadRecord) || !is_array($leadSubmission)) throw new InvalidArgumentException('lead_unavailable');
+    $payload['lead_id'] = $leadId;
+    $payload['person'] = is_array($payload['person'] ?? null) ? $payload['person'] : [];
+    $payload['company'] = is_array($payload['company'] ?? null) ? $payload['company'] : [];
+    $payload['person']['name'] = $leadSubmission['person']['name'];
+    $payload['person']['whatsapp'] = $leadSubmission['person']['whatsapp'];
+    $payload['company']['sector'] = $leadSubmission['company']['sector'];
+    return [$payload, $leadPath, $leadRecord];
+}
+
 function validateSubmission(array $payload): array {
     $person = is_array($payload['person'] ?? null) ? $payload['person'] : [];
     $company = is_array($payload['company'] ?? null) ? $payload['company'] : [];
@@ -166,22 +217,28 @@ function validateSubmission(array $payload): array {
     $email = strtolower(cleanText($person['email'] ?? '', 180));
     $whatsapp = preg_replace('/\D+/', '', cleanText($person['whatsapp'] ?? '', 40));
     $companyName = cleanText($company['name'] ?? '', 180);
+    $role = cleanText($person['role'] ?? '', 80);
+    $sector = cleanText($company['sector'] ?? '', 120);
+    $timeline = cleanText($company['improvement_timeline'] ?? '', 80);
     if ($name === '' || $companyName === '') throw new InvalidArgumentException('required_fields');
     if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) throw new InvalidArgumentException('email_invalid');
     if (strlen($whatsapp) < 9) throw new InvalidArgumentException('phone_invalid');
+    if ($role === '') throw new InvalidArgumentException('role_required');
+    if ($sector === '') throw new InvalidArgumentException('sector_required');
+    if ($timeline === '') throw new InvalidArgumentException('timeline_required');
     if (($consent['privacy_accepted'] ?? false) !== true) throw new InvalidArgumentException('privacy_required');
     $answers = is_array($payload['answers'] ?? null) ? $payload['answers'] : [];
     $result = calculateResult($answers);
-    $payload['person'] = ['name' => $name, 'email' => $email, 'whatsapp' => '+' . $whatsapp, 'role' => cleanText($person['role'] ?? '', 80)];
+    $payload['person'] = ['name' => $name, 'email' => $email, 'whatsapp' => '+' . $whatsapp, 'role' => $role];
     $payload['company'] = [
         'name' => $companyName,
-        'sector' => cleanText($company['sector'] ?? '', 120),
+        'sector' => $sector,
         'website' => cleanText($company['website'] ?? '', 240),
         'monthly_opportunities' => cleanText($company['monthly_opportunities'] ?? '', 80),
         'average_sale_value' => cleanText($company['average_sale_value'] ?? '', 80),
         'commercial_team_size' => cleanText($company['commercial_team_size'] ?? '', 80),
         'main_goal' => cleanText($company['main_goal'] ?? '', 160),
-        'improvement_timeline' => cleanText($company['improvement_timeline'] ?? '', 80),
+        'improvement_timeline' => $timeline,
     ];
     $payload['answers'] = $answers;
     $payload['attribution'] = is_array($payload['attribution'] ?? null) ? array_map(fn($value) => cleanText($value, 500), $payload['attribution']) : [];
@@ -200,7 +257,7 @@ function checkRateLimit(string $storage): void {
     atomicWrite($path, $data);
 }
 
-function sendWebhook(array $payload, string $storage, string $assessmentId): string {
+function sendWebhook(array $payload, string $storage, string $entityId): string {
     $url = getenv('MATURITY_ASSESSMENT_WEBHOOK_URL');
     if ($url === false || trim($url) === '') return 'not_configured';
     if (!function_exists('curl_init')) return 'curl_unavailable';
@@ -211,9 +268,35 @@ function sendWebhook(array $payload, string $storage, string $assessmentId): str
     $error = curl_errno($handle);
     curl_close($handle);
     if ($error === 0 && $status >= 200 && $status < 300) return 'sent';
-    $record = ['at' => gmdate(DATE_ATOM), 'assessment_id' => $assessmentId, 'status' => $status, 'curl_error' => $error];
+    $record = ['at' => gmdate(DATE_ATOM), 'entity_id' => $entityId, 'status' => $status, 'curl_error' => $error];
     file_put_contents($storage . '/webhook-failures.log', json_encode($record) . PHP_EOL, FILE_APPEND | LOCK_EX);
     return 'failed';
+}
+
+function handleLeadCapture(): never {
+    $payload = readJsonBody();
+    $storage = storageDirectory();
+    checkRateLimit($storage);
+    $idempotency = cleanText($_SERVER['HTTP_X_IDEMPOTENCY_KEY'] ?? $payload['idempotency_key'] ?? '', 160);
+    $idempotencyHash = $idempotency !== '' ? hash('sha256', $idempotency) : '';
+    $mappingPath = $idempotencyHash !== '' ? $storage . '/lead-idempotency-' . $idempotencyHash . '.json' : '';
+    if ($mappingPath !== '' && is_file($mappingPath)) {
+        $mapping = json_decode((string)file_get_contents($mappingPath), true);
+        if (is_array($mapping) && isset($mapping['lead_id'])) jsonResponse(200, ['lead_id' => $mapping['lead_id']]);
+    }
+    try { $submission = validateLeadCapture($payload); }
+    catch (InvalidArgumentException $error) { jsonResponse(422, ['code' => $error->getMessage(), 'message' => 'Revise o nome, o WhatsApp e o setor da empresa.']); }
+    $leadId = uuidV4();
+    $capturedAt = gmdate(DATE_ATOM);
+    $leadPath = $storage . '/lead-' . $leadId . '.json';
+    $record = ['lead_id' => $leadId, 'captured_at' => $capturedAt, 'submission' => $submission, 'webhook' => 'pending'];
+    try { atomicWrite($leadPath, $record); }
+    catch (Throwable) { jsonResponse(503, ['code' => 'storage_failed', 'message' => 'Não foi possível guardar os dados agora. Tente novamente.']); }
+    if ($mappingPath !== '') atomicWrite($mappingPath, ['lead_id' => $leadId, 'created_at' => $capturedAt]);
+    $webhookPayload = array_merge($submission, ['event' => 'maturity_lead_captured', 'lead_id' => $leadId, 'captured_at' => $capturedAt]);
+    $record['webhook'] = sendWebhook($webhookPayload, $storage, $leadId);
+    atomicWrite($leadPath, $record);
+    jsonResponse(201, ['lead_id' => $leadId]);
 }
 
 function publicResult(array $record): array {
@@ -232,12 +315,7 @@ function publicResult(array $record): array {
 }
 
 function handleSubmission(): never {
-    $length = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
-    if ($length <= 0 || $length > MAX_BODY_BYTES) jsonResponse(413, ['code' => 'body_size', 'message' => 'O pedido excede o tamanho permitido.']);
-    $raw = file_get_contents('php://input');
-    try { $payload = json_decode((string)$raw, true, 64, JSON_THROW_ON_ERROR); }
-    catch (JsonException) { jsonResponse(400, ['code' => 'invalid_json', 'message' => 'O pedido não contém dados válidos.']); }
-    if (!is_array($payload)) jsonResponse(400, ['code' => 'invalid_payload', 'message' => 'O pedido não contém dados válidos.']);
+    $payload = readJsonBody();
     $storage = storageDirectory();
     checkRateLimit($storage);
     $idempotency = cleanText($_SERVER['HTTP_X_IDEMPOTENCY_KEY'] ?? $payload['idempotency_key'] ?? '', 160);
@@ -247,7 +325,10 @@ function handleSubmission(): never {
         $mapping = json_decode((string)file_get_contents($mappingPath), true);
         if (is_array($mapping) && isset($mapping['token'])) jsonResponse(200, ['token' => $mapping['token'], 'result_url' => '/teste-maturidade-comercial/resultado/' . $mapping['token'] . '/']);
     }
-    try { [$submission, $result] = validateSubmission($payload); }
+    try {
+        [$payload, $leadPath, $leadRecord] = attachLeadToSubmission($payload, $storage);
+        [$submission, $result] = validateSubmission($payload);
+    }
     catch (InvalidArgumentException $error) { jsonResponse(422, ['code' => $error->getMessage(), 'message' => 'Revise os dados e confirme que todas as perguntas foram respondidas.']); }
     $token = bin2hex(random_bytes(32));
     $assessmentId = uuidV4();
@@ -268,9 +349,13 @@ function handleSubmission(): never {
     try { atomicWrite($storage . '/result-' . $token . '.json', $record); }
     catch (Throwable) { jsonResponse(503, ['code' => 'storage_failed', 'message' => 'Não foi possível guardar o resultado agora. Tente novamente.']); }
     if ($mappingPath !== '') atomicWrite($mappingPath, ['token' => $token, 'created_at' => $submittedAt]);
-    $webhookPayload = $submission + ['assessment_id' => $assessmentId, 'submitted_at' => $submittedAt, 'source' => 'teste_maturidade_comercial', 'result' => $result];
+    $webhookPayload = array_merge($submission, ['event' => 'maturity_assessment_completed', 'assessment_id' => $assessmentId, 'submitted_at' => $submittedAt, 'source' => 'teste_maturidade_comercial', 'result' => $result]);
     $record['webhook'] = sendWebhook($webhookPayload, $storage, $assessmentId);
     atomicWrite($storage . '/result-' . $token . '.json', $record);
+    $leadRecord['completed_at'] = $submittedAt;
+    $leadRecord['assessment_id'] = $assessmentId;
+    $leadRecord['result_token'] = $token;
+    atomicWrite($leadPath, $leadRecord);
     jsonResponse(201, ['token' => $token, 'result_url' => '/teste-maturidade-comercial/resultado/' . $token . '/']);
 }
 
@@ -286,6 +371,7 @@ function handleResult(string $token): never {
 
 $method = strtoupper((string)($_SERVER['REQUEST_METHOD'] ?? 'GET'));
 $path = (string)(parse_url((string)($_SERVER['REQUEST_URI'] ?? ''), PHP_URL_PATH) ?? '');
+if ($method === 'POST' && preg_match('#/api/maturidade/leads/?$#', $path)) handleLeadCapture();
 if ($method === 'POST' && preg_match('#/api/maturidade/submissions/?$#', $path)) handleSubmission();
 if ($method === 'GET' && preg_match('#/api/maturidade/resultado/([0-9a-f]{64})/?$#i', $path, $matches)) handleResult(strtolower($matches[1]));
 header('Allow: GET, POST');

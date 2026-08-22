@@ -9,16 +9,14 @@ import { improvementTimelines, maturityRoles } from "../../data/maturity";
     <div class="maturity-identification-intro">
       <p class="maturity-eyebrow">A sua análise está pronta</p>
       <h1>Falta apenas identificar o resultado.</h1>
-      <p>Preencha os dados abaixo para gerar o diagnóstico personalizado e o relatório em PDF.</p>
-      <div class="maturity-identification-note"><span>01</span><p>Os dados permitem associar as respostas à empresa e construir uma análise com contexto.</p></div>
+      <p>Complete os dados profissionais para gerar o diagnóstico personalizado e o relatório em PDF.</p>
+      <div class="maturity-identification-note"><span>01</span><p>O seu nome, WhatsApp e setor já foram guardados no início do teste.</p></div>
       <div class="maturity-identification-note"><span>02</span><p>O resultado é baseado apenas nas respostas fornecidas e não representa um benchmark de mercado.</p></div>
     </div>
     <form class="maturity-identification-form" data-identification-form novalidate>
-      <div class="maturity-field"><label for="maturity-name">Nome</label><input id="maturity-name" name="name" type="text" autocomplete="name" placeholder="Como se chama?" /><p data-error="name" aria-live="polite"></p></div>
       <div class="maturity-field"><label for="maturity-company">Empresa</label><input id="maturity-company" name="company" type="text" autocomplete="organization" placeholder="Nome da empresa" /><p data-error="company" aria-live="polite"></p></div>
       <div class="maturity-field"><label for="maturity-role">Cargo ou função</label><select id="maturity-role" name="role"><option value="">Escolha uma opção</option>{maturityRoles.map((role) => <option value={role}>{role}</option>)}</select><p data-error="role" aria-live="polite"></p></div>
       <div class="maturity-field"><label for="maturity-email">E-mail profissional</label><input id="maturity-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="nome@empresa.pt" /><p data-error="email" aria-live="polite"></p></div>
-      <div class="maturity-field"><label for="maturity-whatsapp">WhatsApp</label><div class="maturity-phone-field"><select name="countryCode" aria-label="Indicativo do país"><option value="+351">+351</option><option value="+55">+55</option><option value="+34">+34</option><option value="+44">+44</option><option value="+1">+1</option></select><input id="maturity-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="963 763 408" /></div><p data-error="whatsapp" aria-live="polite"></p></div>
       <div class="maturity-field"><label for="maturity-website">Site ou Instagram <span>Opcional</span></label><input id="maturity-website" name="website" type="text" autocomplete="url" placeholder="empresa.pt ou @empresa" /><p data-error="website" aria-live="polite"></p></div>
       <div class="maturity-field"><label for="maturity-timeline">Quando pretende melhorar o processo comercial?</label><select id="maturity-timeline" name="timeline"><option value="">Escolha uma opção</option>{improvementTimelines.map((timeline) => <option value={timeline}>{timeline}</option>)}</select><p data-error="timeline" aria-live="polite"></p></div>
       <div class="maturity-consents">
@@ -35,7 +33,7 @@ import { improvementTimelines, maturityRoles } from "../../data/maturity";
   import { clearBrowserState, getFirstIncompletePath, loadBrowserState } from "../../lib/maturity-state.mjs";
   const form = document.querySelector("[data-identification-form]");
   const state = loadBrowserState();
-  if (!state) window.location.replace("/teste-maturidade-comercial/antes-de-comecar/");
+  if (!state) window.location.replace("/teste-maturidade-comercial/dados-iniciais/");
   else {
     const incomplete = getFirstIncompletePath(state);
     if (incomplete !== "/teste-maturidade-comercial/identificacao/") window.location.replace(incomplete);
@@ -46,7 +44,7 @@ import { improvementTimelines, maturityRoles } from "../../data/maturity";
     const idempotencyKey = createIdempotencyKey();
     const getValues = () => {
       const data = new FormData(form);
-      return { name: data.get("name"), company: data.get("company"), role: data.get("role"), email: data.get("email"), countryCode: data.get("countryCode"), whatsapp: data.get("whatsapp"), website: data.get("website"), timeline: data.get("timeline"), privacyAccepted: data.get("privacyAccepted") === "on", marketingAccepted: data.get("marketingAccepted") === "on" };
+      return { company: data.get("company"), role: data.get("role"), email: data.get("email"), website: data.get("website"), timeline: data.get("timeline"), privacyAccepted: data.get("privacyAccepted") === "on", marketingAccepted: data.get("marketingAccepted") === "on" };
     };
     const clearErrors = () => form.querySelectorAll("[data-error],[data-submit-error]").forEach((element) => { element.textContent = ""; });
     const showError = (error) => { const target = form.querySelector(`[data-error="${error.field}"]`); if (target) target.textContent = error.message; form.elements.namedItem(error.field)?.focus(); };

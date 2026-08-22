@@ -8,10 +8,11 @@ import {
   getPreviousPath,
   readState,
   setContextAnswer,
+  setLeadCapture,
   setMaturityAnswer,
 } from "../src/lib/maturity-state.mjs";
 
-assert.equal(STORAGE_KEY, "raevo:maturity:v1");
+assert.equal(STORAGE_KEY, "raevo:maturity:v2");
 
 const attribution = captureAttribution({
   href: "https://raevo.io/teste-maturidade-comercial/?utm_source=meta&utm_campaign=diagnostico&fbclid=abc",
@@ -24,13 +25,22 @@ assert.equal(attribution.landing_page, "https://raevo.io/teste-maturidade-comerc
 assert.equal(attribution.referrer, "https://instagram.com/");
 
 const fresh = createAssessmentState({ href: "https://raevo.io/teste-maturidade-comercial/", referrer: "" });
-assert.equal(fresh.version, 1);
+assert.equal(fresh.version, 2);
+assert.equal(fresh.lead, null);
 assert.deepEqual(fresh.context, {});
 assert.deepEqual(fresh.answers, {});
-assert.equal(getFirstIncompletePath(fresh), "/teste-maturidade-comercial/contexto/setor/");
+assert.equal(getFirstIncompletePath(fresh), "/teste-maturidade-comercial/dados-iniciais/");
 
-const withSector = setContextAnswer(fresh, "sector", "Consultoria");
+const withSector = setLeadCapture(fresh, {
+  leadId: "9f3d70fb-8cb5-45cb-8b1c-76e4904078b8",
+  name: "Ana Silva",
+  whatsapp: "+351963763408",
+  sector: "Consultoria",
+});
 assert.deepEqual(fresh.context, {});
+assert.equal(withSector.lead.id, "9f3d70fb-8cb5-45cb-8b1c-76e4904078b8");
+assert.equal(withSector.lead.name, "Ana Silva");
+assert.equal(withSector.lead.whatsapp, "+351963763408");
 assert.equal(withSector.context.sector, "Consultoria");
 assert.equal(getFirstIncompletePath(withSector), "/teste-maturidade-comercial/contexto/oportunidades/");
 
@@ -51,6 +61,7 @@ assert.throws(() => setMaturityAnswer(firstAnswer, 2, 8), /entre 0 e 4/);
 
 assert.equal(getNextPath("/teste-maturidade-comercial/contexto/objetivo/"), "/teste-maturidade-comercial/pergunta/01/");
 assert.equal(getPreviousPath("/teste-maturidade-comercial/pergunta/01/"), "/teste-maturidade-comercial/contexto/objetivo/");
+assert.equal(getPreviousPath("/teste-maturidade-comercial/contexto/oportunidades/"), "/teste-maturidade-comercial/antes-de-comecar/");
 assert.equal(getNextPath("/teste-maturidade-comercial/pergunta/18/"), "/teste-maturidade-comercial/identificacao/");
 assert.equal(readState({ version: 99 }), null);
 assert.equal(readState("invalid"), null);

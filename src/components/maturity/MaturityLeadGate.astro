@@ -1,0 +1,79 @@
+---
+import { contextSteps } from "../../data/maturity";
+import MaturityHeader from "./MaturityHeader.astro";
+
+const sectorStep = contextSteps.find((step) => step.key === "sector");
+---
+<MaturityHeader compact cta={false} />
+<main id="conteudo" class="maturity-identification-page maturity-lead-page">
+  <div class="maturity-step-page__grid" aria-hidden="true"></div>
+  <div class="maturity-identification-shell maturity-lead-shell">
+    <div class="maturity-identification-intro">
+      <p class="maturity-eyebrow">Primeiro passo</p>
+      <h1>Identifique-se para liberar o teste.</h1>
+      <p>Preencha três dados rápidos. Assim conseguimos guardar o seu progresso e associar o diagnóstico à realidade da sua empresa.</p>
+      <div class="maturity-identification-note"><span>01</span><p>Depois desta etapa, o teste é liberado imediatamente.</p></div>
+      <div class="maturity-identification-note"><span>02</span><p>O setor ajuda a interpretar as respostas sem alterar a sua pontuação.</p></div>
+    </div>
+    <form class="maturity-identification-form maturity-lead-form" data-lead-form novalidate>
+      <div class="maturity-lead-form__heading"><span>Dados iniciais</span><strong>01 · 03</strong></div>
+      <div class="maturity-field"><label for="maturity-lead-name">Nome</label><input id="maturity-lead-name" name="name" type="text" autocomplete="name" placeholder="Como se chama?" /><p data-error="name" aria-live="polite"></p></div>
+      <div class="maturity-field"><label for="maturity-lead-whatsapp">WhatsApp</label><div class="maturity-phone-field"><select name="countryCode" aria-label="Indicativo do país"><option value="+351">+351</option><option value="+55">+55</option><option value="+34">+34</option><option value="+44">+44</option><option value="+1">+1</option></select><input id="maturity-lead-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="963 763 408" /></div><p data-error="whatsapp" aria-live="polite"></p></div>
+      <div class="maturity-field"><label for="maturity-lead-sector">Setor da empresa</label><select id="maturity-lead-sector" name="sector"><option value="">Escolha uma opção</option>{sectorStep?.options.map((option) => <option value={option.value}>{option.label}</option>)}</select><p data-error="sector" aria-live="polite"></p></div>
+      <p class="maturity-lead-privacy">Ao continuar, confirma que leu a nossa <a href="/privacidade/" target="_blank">Política de Privacidade</a>. Utilizaremos estes dados para guardar e entregar o diagnóstico solicitado.</p>
+      <p class="maturity-submit-error" data-submit-error aria-live="assertive"></p>
+      <div class="maturity-identification-actions maturity-lead-actions"><a class="maturity-back" href="/teste-maturidade-comercial/"><span aria-hidden="true">←</span> Voltar</a><button class="maturity-button maturity-button--gold" type="submit" data-submit>Liberar o teste <span aria-hidden="true">→</span></button></div>
+    </form>
+  </div>
+</main>
+<script>
+  import { buildLeadPayload, createLeadIdempotencyKey, normalizePhone, splitInternationalPhone, validateLeadCapture } from "../../lib/maturity-form.mjs";
+  import { ensureBrowserState, saveBrowserState, setLeadCapture } from "../../lib/maturity-state.mjs";
+
+  const form = document.querySelector("[data-lead-form]");
+  let state = ensureBrowserState();
+  if (form instanceof HTMLFormElement) {
+    const submit = form.querySelector("[data-submit]");
+    const submitError = form.querySelector("[data-submit-error]");
+    const idempotencyKey = createLeadIdempotencyKey();
+    if (state.lead) {
+      const name = form.elements.namedItem("name");
+      const countryCode = form.elements.namedItem("countryCode");
+      const whatsapp = form.elements.namedItem("whatsapp");
+      const sector = form.elements.namedItem("sector");
+      if (name instanceof HTMLInputElement) name.value = state.lead.name;
+      const phoneParts = splitInternationalPhone(state.lead.whatsapp, ["+351", "+55", "+34", "+44", "+1"]);
+      if (countryCode instanceof HTMLSelectElement) countryCode.value = phoneParts.countryCode;
+      if (whatsapp instanceof HTMLInputElement) whatsapp.value = phoneParts.nationalNumber;
+      if (sector instanceof HTMLSelectElement) sector.value = state.lead.sector;
+    }
+    const getValues = () => {
+      const data = new FormData(form);
+      return { name: data.get("name"), countryCode: data.get("countryCode"), whatsapp: data.get("whatsapp"), sector: data.get("sector") };
+    };
+    const clearErrors = () => form.querySelectorAll("[data-error],[data-submit-error]").forEach((element) => { element.textContent = ""; });
+    const showError = (error) => { const target = form.querySelector(`[data-error="${error.field}"]`); if (target) target.textContent = error.message; form.elements.namedItem(error.field)?.focus(); };
+    form.addEventListener("input", (event) => { const field = event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement ? event.target.name : ""; const target = form.querySelector(`[data-error="${field}"]`); if (target) target.textContent = ""; });
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); clearErrors();
+      const values = getValues(); const error = validateLeadCapture(values);
+      if (error) { showError(error); return; }
+      const normalizedWhatsapp = normalizePhone(`${values.countryCode ?? ""}${values.whatsapp ?? ""}`);
+      const unchanged = state.lead && state.lead.name === String(values.name).trim() && state.lead.whatsapp === normalizedWhatsapp && state.lead.sector === String(values.sector).trim();
+      if (unchanged) { window.location.assign("/teste-maturidade-comercial/antes-de-comecar/"); return; }
+      if (submit instanceof HTMLButtonElement) { submit.disabled = true; submit.setAttribute("aria-busy", "true"); submit.childNodes[0].textContent = "A guardar os dados "; }
+      try {
+        const payload = buildLeadPayload(values, state, { idempotencyKey });
+        const response = await fetch("/api/maturidade/leads", { method: "POST", headers: { "Content-Type": "application/json", "X-Idempotency-Key": idempotencyKey }, body: JSON.stringify(payload) });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok || !data.lead_id) throw new Error(data.message || "Não foi possível guardar os dados agora.");
+        state = setLeadCapture(state, { leadId: data.lead_id, name: payload.person.name, whatsapp: payload.person.whatsapp, sector: payload.company.sector });
+        saveBrowserState(state);
+        window.location.assign("/teste-maturidade-comercial/antes-de-comecar/");
+      } catch (error) {
+        if (submitError) submitError.textContent = error instanceof Error ? error.message : "Não foi possível guardar os dados agora. Tente novamente.";
+        if (submit instanceof HTMLButtonElement) { submit.disabled = false; submit.setAttribute("aria-busy", "false"); submit.childNodes[0].textContent = "Liberar o teste "; }
+      }
+    });
+  }
+</script>

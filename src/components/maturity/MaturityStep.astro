@@ -12,7 +12,7 @@ interface Props {
 }
 const { step, kind, index, total, previousPath, nextPath } = Astro.props;
 const isQuestion = kind === "question";
-const progress = isQuestion ? Math.round(((index + 1) / total) * 100) : Math.round(((index + 1) / 5) * 100);
+const progress = Math.round(((index + 1) / total) * 100);
 const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto ${index + 1} de ${total}`;
 ---
 <MaturityHeader compact cta={false} />
@@ -24,7 +24,7 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
       <span>{stepLabel}</span>
     </div>
     <div class="maturity-step-progress" aria-label={`${progress}% concluído`}><i style={`width:${progress}%`}></i></div>
-    <div class="maturity-step-progress__label"><span>{progress}% concluído</span><span>{isQuestion ? "18 perguntas" : "5 perguntas de contexto"}</span></div>
+    <div class="maturity-step-progress__label"><span>{progress}% concluído</span><span>{isQuestion ? "18 perguntas" : `${total} perguntas de contexto`}</span></div>
     <form class="maturity-step-form" novalidate>
       <fieldset>
         <legend>{step.question}</legend>
@@ -49,7 +49,7 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
   </div>
 </main>
 <script>
-  import { FUNNEL_PATHS, ensureBrowserState, getFirstIncompletePath, saveBrowserState, setContextAnswer, setMaturityAnswer } from "../../lib/maturity-state.mjs";
+  import { FUNNEL_PATHS, LEAD_PATH, ensureBrowserState, getFirstIncompletePath, saveBrowserState, setContextAnswer, setMaturityAnswer } from "../../lib/maturity-state.mjs";
   const page = document.querySelector(".maturity-step-page[data-maturity-step]");
   const form = page?.querySelector("form");
   if (page instanceof HTMLElement && form instanceof HTMLFormElement) {
@@ -58,7 +58,7 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
     const expectedPath = getFirstIncompletePath(state);
     const currentIndex = FUNNEL_PATHS.indexOf(currentPath);
     const expectedIndex = FUNNEL_PATHS.indexOf(expectedPath);
-    if (currentIndex > expectedIndex && expectedIndex >= 0) window.location.replace(expectedPath);
+    if (expectedPath === LEAD_PATH || (currentIndex > expectedIndex && expectedIndex >= 0)) window.location.replace(expectedPath);
 
     const kind = page.dataset.stepKind;
     const key = page.dataset.stepKey ?? "";

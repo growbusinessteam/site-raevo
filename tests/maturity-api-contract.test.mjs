@@ -16,11 +16,21 @@ assert.match(api, /bin2hex\(random_bytes\(32\)\)/);
 assert.match(api, /flock\([^;]+LOCK_EX/);
 assert.match(api, /MATURITY_PRIVATE_STORAGE_PATH/);
 assert.match(api, /function_exists\('mb_substr'\)/);
+assert.match(api, /\/api\/maturidade\/leads/);
+assert.match(api, /handleLeadCapture/);
+assert.match(api, /maturity_lead_captured/);
+assert.match(api, /maturity_assessment_completed/);
+assert.match(api, /lead_id/);
+assert.match(api, /lead-/);
+assert.match(api, /array_merge\(\$submission/);
+assert.match(api, /role_required/);
+assert.match(api, /timeline_required/);
 assert.doesNotMatch(api, /hook\.growautomacao\.com|https:\/\/[^'\"]+webhook/i);
 
 const apiRewrite = readFileSync(new URL("../public/api/maturidade/.htaccess", import.meta.url), "utf8");
 assert.match(apiRewrite, /RewriteRule/);
 assert.match(apiRewrite, /index\.php/);
+assert.match(apiRewrite, /leads/);
 
 const resultRewrite = readFileSync(new URL("../public/teste-maturidade-comercial/resultado/.htaccess", import.meta.url), "utf8");
 assert.match(resultRewrite, /\[0-9a-fA-F\]/);
