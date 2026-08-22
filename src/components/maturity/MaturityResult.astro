@@ -33,6 +33,7 @@ import MaturityFooter from "./MaturityFooter.astro";
   const loading = document.querySelector("[data-result-loading]");
   const errorSection = document.querySelector("[data-result-error]");
   const content = document.querySelector("[data-result-content]");
+  let currentResult = null;
   const setText = (selector, value) => { const element = document.querySelector(selector); if (element) element.textContent = String(value ?? ""); };
   const showError = (message) => { if (loading instanceof HTMLElement) loading.hidden = true; if (content instanceof HTMLElement) content.hidden = true; if (errorSection instanceof HTMLElement) errorSection.hidden = false; setText("[data-result-error-message]", message); };
   const normalizeResult = (data) => {
@@ -51,6 +52,7 @@ import MaturityFooter from "./MaturityFooter.astro";
     const bars = document.querySelector("[data-result-bars]"); if (bars) { bars.textContent = ""; result.pillars.forEach((pillar, index) => { const row = document.createElement("div"); row.className = "maturity-result-bar"; row.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><strong></strong><b></b><i><em></em></i>`; row.querySelector("strong").textContent = pillar.label; row.querySelector("b").textContent = `${pillar.percentage}%`; row.querySelector("em").style.width = `${pillar.percentage}%`; if (pillar.key === result.weakest_pillar.key) row.classList.add("is-opportunity"); bars.append(row); }); }
     const priorities = document.querySelector("[data-priorities]"); if (priorities) { priorities.textContent = ""; data.priorities.forEach((priority) => { const item = document.createElement("li"); const number = document.createElement("span"); number.textContent = String(priority.number).padStart(2, "0"); const body = document.createElement("div"); const label = document.createElement("small"); label.textContent = priority.pillar || `Nível ${result.level.label}`; const title = document.createElement("h3"); title.textContent = priority.title; const copy = document.createElement("p"); copy.textContent = priority.body; const outcome = document.createElement("p"); outcome.className = "maturity-priority-outcome"; outcome.textContent = `Resultado esperado · ${priority.outcome}`; body.append(label, title, copy, outcome); item.append(number, body); priorities.append(item); }); }
     const cta = document.querySelector("[data-commercial-cta]"); if (cta instanceof HTMLAnchorElement) { const target = new URL(data.cta_url || "/agendamento/", window.location.origin); if (/wa\.me|whatsapp/i.test(target.hostname + target.pathname)) target.searchParams.set("text", getCommercialMessage(data)); cta.href = target.href; }
+    currentResult = data;
     document.dispatchEvent(new CustomEvent("maturity:result-ready", { detail: data }));
     if (loading instanceof HTMLElement) loading.hidden = true; if (errorSection instanceof HTMLElement) errorSection.hidden = true; if (content instanceof HTMLElement) content.hidden = false;
   };
@@ -65,4 +67,14 @@ import MaturityFooter from "./MaturityFooter.astro";
     finally { window.clearTimeout(timeout); }
   };
   load();
+  const pdfButton = document.querySelector("[data-pdf-download]");
+  const pdfError = document.querySelector("[data-pdf-error]");
+  pdfButton?.addEventListener("click", async () => {
+    if (!(pdfButton instanceof HTMLButtonElement) || !currentResult) return;
+    if (pdfError) pdfError.textContent = "";
+    pdfButton.disabled = true; pdfButton.setAttribute("aria-busy", "true"); pdfButton.childNodes[0].textContent = "A preparar o relatório ";
+    try { const { downloadMaturityPdf } = await import("../../lib/maturity-pdf.mjs"); await downloadMaturityPdf(currentResult); }
+    catch { if (pdfError) pdfError.textContent = "Não foi possível gerar o PDF agora. Tente novamente."; }
+    finally { pdfButton.disabled = false; pdfButton.setAttribute("aria-busy", "false"); pdfButton.childNodes[0].textContent = "Baixar relatório completo em PDF "; }
+  });
 </script>

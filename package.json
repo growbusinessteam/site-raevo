@@ -8,13 +8,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "node tests/site-structure.test.mjs"
+    "test": "node tests/site-structure.test.mjs && node tests/official-site.test.mjs && node tests/official-form.test.mjs && node tests/maturity-scoring.test.mjs && node tests/maturity-state.test.mjs && node tests/maturity-form.test.mjs && node tests/maturity-result.test.mjs && node tests/maturity-routes.test.mjs && node tests/maturity-api-contract.test.mjs && node tests/maturity-pdf.test.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.6",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.16.4"
+    "@pdf-lib/fontkit": "^1.1.1",
+    "astro": "^5.16.4",
+    "pdf-lib": "^1.17.1"
   },
   "devDependencies": {
     "typescript": "^5.9.3"

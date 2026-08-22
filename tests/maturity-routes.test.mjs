@@ -41,4 +41,9 @@ assert.match(step, /data-back/);
 assert.match(step, /aria-live/);
 assert.doesNotMatch(step, />\s*[0-4]\s*</);
 
+const resultPage = read("src/components/maturity/MaturityResult.astro");
+assert.match(resultPage, /data-pdf-download/);
+assert.match(resultPage, /downloadMaturityPdf/);
+assert.match(resultPage, /maturity:result-ready/);
+
 console.log("Maturity routes and conversion structure are present.");
