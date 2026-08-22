@@ -1,0 +1,22 @@
+---
+import MaturityLayout from "../../../components/maturity/MaturityLayout.astro";
+import MaturityHeader from "../../../components/maturity/MaturityHeader.astro";
+---
+<MaturityLayout title="Antes de começar | Teste de Maturidade Comercial Raevo" stepKey="introduction" bodyClass="maturity-dark-page">
+  <MaturityHeader compact cta={false} />
+  <main id="conteudo" class="maturity-intro-page">
+    <div class="maturity-step-page__grid" aria-hidden="true"></div>
+    <div class="maturity-intro-card" data-reveal>
+      <p class="maturity-eyebrow">Antes de começar</p>
+      <h1>Uma leitura honesta da realidade atual.</h1>
+      <p>O teste contém 18 perguntas divididas em seis áreas do sistema comercial.</p>
+      <p>Escolha a alternativa que melhor representa a realidade atual da sua empresa. Não existem respostas certas ou erradas.</p>
+      <ul><li><span>≈ 5 min</span>Duração aproximada</li><li><span>Imediato</span>Resultado personalizado</li><li><span>PDF</span>Relatório completo</li></ul>
+      <div class="maturity-intro-actions"><a class="maturity-button maturity-button--gold" href="/teste-maturidade-comercial/contexto/setor/">Começar <span aria-hidden="true">→</span></a><a class="maturity-back" href="/teste-maturidade-comercial/">← Voltar</a></div>
+    </div>
+  </main>
+  <script>
+    import { createAssessmentState, loadBrowserState, saveBrowserState } from "../../../lib/maturity-state.mjs";
+    if (!loadBrowserState()) saveBrowserState(createAssessmentState({ href: window.location.href, referrer: document.referrer }));
+  </script>
+</MaturityLayout>

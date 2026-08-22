@@ -1,0 +1,16 @@
+---
+import MaturityLayout from "../../../components/maturity/MaturityLayout.astro";
+import MaturityStep from "../../../components/maturity/MaturityStep.astro";
+import { contextSteps } from "../../../data/maturity";
+import { getNextPath, getPreviousPath } from "../../../lib/maturity-state.mjs";
+
+export function getStaticPaths() {
+  const contextSlugs = ["setor", "oportunidades", "valor-medio", "equipa", "objetivo"];
+  return contextSteps.filter((step) => contextSlugs.includes(step.slug)).map((step, index) => ({ params: { slug: step.slug }, props: { step, index } }));
+}
+const { step, index } = Astro.props;
+const path = `/teste-maturidade-comercial/contexto/${step.slug}/`;
+---
+<MaturityLayout title={`${step.question} | Raevo`} noindex stepKey={`context-${step.key}`} bodyClass="maturity-dark-page">
+  <MaturityStep {step} kind="context" {index} total={5} previousPath={getPreviousPath(path)} nextPath={getNextPath(path)} />
+</MaturityLayout>

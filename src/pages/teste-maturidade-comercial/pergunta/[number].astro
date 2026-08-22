@@ -1,0 +1,15 @@
+---
+import MaturityLayout from "../../../components/maturity/MaturityLayout.astro";
+import MaturityStep from "../../../components/maturity/MaturityStep.astro";
+import { maturityQuestions } from "../../../data/maturity";
+import { getNextPath, getPreviousPath } from "../../../lib/maturity-state.mjs";
+
+export function getStaticPaths() {
+  return maturityQuestions.map((step, index) => ({ params: { number: step.slug }, props: { step, index } }));
+}
+const { step, index } = Astro.props;
+const path = `/teste-maturidade-comercial/pergunta/${step.slug}/`;
+---
+<MaturityLayout title={`Pergunta ${step.number} | Teste de Maturidade Comercial Raevo`} noindex stepKey={`question-${step.number}`} bodyClass="maturity-dark-page">
+  <MaturityStep {step} kind="question" {index} total={18} previousPath={getPreviousPath(path)} nextPath={getNextPath(path)} />
+</MaturityLayout>

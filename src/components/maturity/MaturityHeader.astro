@@ -1,0 +1,13 @@
+---
+interface Props { compact?: boolean; cta?: boolean }
+const { compact = false, cta = true } = Astro.props;
+---
+<header class:list={["maturity-header", { "is-compact": compact }]}>
+  <div class="maturity-container maturity-header__inner">
+    <a class="maturity-brand" href="/teste-maturidade-comercial/" aria-label="Raevo — Teste de Maturidade Comercial">
+      <img src="/assets/brand/raevo-logo-official-transparent.png" width="520" height="148" alt="Raevo" />
+    </a>
+    <span class="maturity-header__label">Teste de Maturidade Comercial</span>
+    {cta && <a class="maturity-button maturity-button--dark maturity-header__cta" href="/teste-maturidade-comercial/antes-de-comecar/">Começar o teste <span aria-hidden="true">→</span></a>}
+  </div>
+</header>
