@@ -12,7 +12,8 @@ export const CONTEXT_STEPS = [
 
 const contextPaths = CONTEXT_STEPS.map(([, slug]) => `${BASE}/contexto/${slug}/`);
 const questionPaths = Array.from({ length: 18 }, (_, index) => `${BASE}/pergunta/${String(index + 1).padStart(2, "0")}/`);
-export const FUNNEL_PATHS = [...contextPaths, ...questionPaths, `${BASE}/identificacao/`];
+export const COMPLETION_PATH = `${BASE}/processando/`;
+export const FUNNEL_PATHS = [...contextPaths, ...questionPaths, COMPLETION_PATH];
 
 export function captureAttribution({ href = "", referrer = "" } = {}) {
   let url;
@@ -81,7 +82,7 @@ export function getFirstIncompletePath(state) {
   for (let number = 1; number <= 18; number += 1) {
     if (!Number.isInteger(state?.answers?.[String(number)])) return questionPaths[number - 1];
   }
-  return `${BASE}/identificacao/`;
+  return COMPLETION_PATH;
 }
 
 function normalizePath(path) {

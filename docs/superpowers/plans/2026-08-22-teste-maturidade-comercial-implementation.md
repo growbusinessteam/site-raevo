@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Construir a área completa `raevo.io/teste-maturidade-comercial/`, com landing, captura antecipada do lead, 22 etapas de diagnóstico em rotas próprias, identificação complementar, cálculo, backend PHP, resultado por token e PDF personalizado.
+**Goal:** Manter a área completa `raevo.io/teste-maturidade-comercial/`, com landing, captura antecipada do lead, 22 etapas de diagnóstico em rotas próprias, cálculo, backend PHP e relatório visual por token com CTA para a Raevo.
 
-**Architecture:** Astro gera todas as páginas públicas e partilha componentes visuais com a identidade oficial Raevo. Um gate inicial grava nome, WhatsApp e setor antes de libertar o diagnóstico; módulos JavaScript puros concentram conteúdo, cálculo, estado, validação e personalização. Um endpoint PHP same-origin guarda o lead, associa a submissão final, recalcula o resultado fora da árvore pública e encaminha os dois eventos ao webhook configurado. A rota de resultado é um shell estático servido para tokens arbitrários por uma regra Apache e recupera os dados pela API.
+**Architecture:** Astro gera todas as páginas públicas e partilha componentes visuais com a identidade oficial Raevo. Um gate inicial grava nome, WhatsApp e setor antes de libertar o diagnóstico; módulos JavaScript puros concentram conteúdo, cálculo, estado, validação e personalização. Depois da pergunta 18, uma rota transitória submete automaticamente a avaliação. Um endpoint PHP same-origin associa o lead, recalcula o resultado fora da árvore pública e encaminha os eventos ao webhook configurado. A rota de resultado é um shell estático servido para tokens arbitrários por uma regra Apache e recupera o relatório visual pela API.
 
-**Tech Stack:** Astro 5, TypeScript, JavaScript ESM, Node test runner, PHP 8 no alojamento, Apache `.htaccess`, `pdf-lib`, `@pdf-lib/fontkit`, CSS responsivo.
+**Tech Stack:** Astro 5, TypeScript, JavaScript ESM, Node test runner, PHP 8 no alojamento, Apache `.htaccess` e CSS responsivo.
 
 ---
 
@@ -19,7 +19,6 @@
 - `src/lib/maturity-state.mjs`: esquema versionado de `sessionStorage`, captura de atribuição e cálculo da primeira etapa incompleta.
 - `src/lib/maturity-form.mjs`: normalização, validação e construção do payload de submissão.
 - `src/lib/maturity-result.mjs`: composição do Insight Raevo, prioridades e modelo público do resultado.
-- `src/lib/maturity-pdf.mjs`: geração do PDF A4 em seis páginas.
 
 ### Interface
 
@@ -28,8 +27,8 @@
 - `src/components/maturity/MaturityFooter.astro`: rodapé coerente com o site oficial.
 - `src/components/maturity/MaturityLanding.astro`: landing editorial completa.
 - `src/components/maturity/MaturityStep.astro`: ecrã reutilizável de contexto e pergunta.
-- `src/components/maturity/MaturityIdentification.astro`: formulário final e submissão.
-- `src/components/maturity/MaturityResult.astro`: estado de carregamento, resultado, erro e download.
+- `src/components/maturity/MaturityCompletion.astro`: submissão automática e nova tentativa em caso de falha.
+- `src/components/maturity/MaturityResult.astro`: estado de carregamento, relatório visual, erro e CTA.
 - `src/styles/maturity.css`: tokens herdados e estilos específicos da ferramenta.
 
 ### Rotas
@@ -38,7 +37,7 @@
 - `src/pages/teste-maturidade-comercial/antes-de-comecar/index.astro`
 - `src/pages/teste-maturidade-comercial/contexto/[slug].astro`
 - `src/pages/teste-maturidade-comercial/pergunta/[number].astro`
-- `src/pages/teste-maturidade-comercial/identificacao/index.astro`
+- `src/pages/teste-maturidade-comercial/processando/index.astro`
 - `src/pages/teste-maturidade-comercial/resultado/index.astro`
 
 ### Backend e deploy
@@ -46,9 +45,6 @@
 - `public/api/maturidade/index.php`: router, submissão, consulta de resultado, armazenamento privado e webhook.
 - `public/api/maturidade/.htaccess`: encaminhamento das rotas amigáveis da API.
 - `public/teste-maturidade-comercial/resultado/.htaccess`: fallback de qualquer token para o shell do resultado.
-- `public/assets/fonts/Sora-SemiBold.ttf`: fonte incorporada no PDF.
-- `public/assets/fonts/Inter-Regular.ttf`: fonte incorporada no PDF.
-- `public/assets/fonts/OFL.txt`: licença das fontes.
 
 ### Testes
 
@@ -58,7 +54,8 @@
 - `tests/maturity-result.test.mjs`
 - `tests/maturity-routes.test.mjs`
 - `tests/maturity-api-contract.test.mjs`
-- `tests/maturity-pdf.test.mjs`
+
+> **Atualização vigente:** as Tasks 12 e 13 substituem o fechamento descrito historicamente nas Tasks 5, 8 e 10. Não existe formulário complementar, geração, download ou envio de PDF nesta fase.
 
 ## Task 1: Banco de perguntas e motor de cálculo
 
@@ -638,6 +635,9 @@ Executar os testes, o build, percorrer o funil no navegador e publicar somente o
 - Create: `src/pages/teste-maturidade-comercial/processando/index.astro`
 - Delete: `src/components/maturity/MaturityIdentification.astro`
 - Delete: `src/pages/teste-maturidade-comercial/identificacao/index.astro`
+- Delete: `src/lib/maturity-pdf.mjs`
+- Delete: `tests/maturity-pdf.test.mjs`
+- Delete: dependências e fontes usadas exclusivamente pelo PDF
 - Modify: `src/lib/maturity-state.mjs`
 - Modify: `src/lib/maturity-form.mjs`
 - Modify: `src/lib/maturity-result.mjs`
@@ -650,23 +650,23 @@ Executar os testes, o build, percorrer o funil no navegador e publicar somente o
 - Modify: `tests/maturity-routes.test.mjs`
 - Modify: `tests/maturity-api-contract.test.mjs`
 
-- [ ] **Step 1: Escrever testes RED do novo fechamento**
+- [x] **Step 1: Escrever testes RED do novo fechamento**
 
 Exigir `/processando/` como próximo passo depois da pergunta 18, payload sem campos complementares, ausência do formulário final e submissão automática para `/api/maturidade/submissions`.
 
-- [ ] **Step 2: Implementar a submissão automática**
+- [x] **Step 2: Implementar a submissão automática**
 
 Criar uma página transitória que reutiliza o estado existente, usa idempotência por lead, envia a avaliação e abre `result_url`. Em caso de erro, manter uma ação de nova tentativa.
 
-- [ ] **Step 3: Simplificar e reforçar o backend**
+- [x] **Step 3: Simplificar e reforçar o backend**
 
 Usar nome, WhatsApp, setor e aviso de privacidade do registo inicial como fonte de verdade. Validar os quatro contextos e as 18 respostas sem exigir empresa, cargo, e-mail, site, prazo ou novo consentimento.
 
-- [ ] **Step 4: Aplicar a escala visual de risco**
+- [x] **Step 4: Aplicar a escala visual de risco**
 
 Mapear `initial → vermelho`, `reactive → laranja`, `structured → amarelo`, `predictable → azul` e `intelligent → verde`. Aplicar a cor no arco, percentagem, escala, recomendações e barras, mantendo rótulos textuais acessíveis.
 
-- [ ] **Step 5: Remover o PDF e reforçar o CTA**
+- [x] **Step 5: Remover o PDF e reforçar o CTA**
 
 Retirar o botão e o carregamento de `maturity-pdf.mjs`. Usar a chamada “Falar com a Raevo sobre este resultado” como ação final.
 

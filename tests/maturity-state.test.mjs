@@ -62,7 +62,10 @@ assert.throws(() => setMaturityAnswer(firstAnswer, 2, 8), /entre 0 e 4/);
 assert.equal(getNextPath("/teste-maturidade-comercial/contexto/objetivo/"), "/teste-maturidade-comercial/pergunta/01/");
 assert.equal(getPreviousPath("/teste-maturidade-comercial/pergunta/01/"), "/teste-maturidade-comercial/contexto/objetivo/");
 assert.equal(getPreviousPath("/teste-maturidade-comercial/contexto/oportunidades/"), "/teste-maturidade-comercial/antes-de-comecar/");
-assert.equal(getNextPath("/teste-maturidade-comercial/pergunta/18/"), "/teste-maturidade-comercial/identificacao/");
+let completedAssessment = completedContext;
+for (let number = 1; number <= 18; number += 1) completedAssessment = setMaturityAnswer(completedAssessment, number, 2);
+assert.equal(getFirstIncompletePath(completedAssessment), "/teste-maturidade-comercial/processando/");
+assert.equal(getNextPath("/teste-maturidade-comercial/pergunta/18/"), "/teste-maturidade-comercial/processando/");
 assert.equal(readState({ version: 99 }), null);
 assert.equal(readState("invalid"), null);
 

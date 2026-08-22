@@ -5,8 +5,17 @@ import {
   buildPublicResult,
   composeInsight,
   getCommercialMessage,
+  RESULT_LEVEL_COLORS,
   sanitizeCompanySlug,
 } from "../src/lib/maturity-result.mjs";
+
+assert.deepEqual(RESULT_LEVEL_COLORS, {
+  initial: "#E4574F",
+  reactive: "#F08B43",
+  structured: "#D6B21F",
+  predictable: "#3F83D8",
+  intelligent: "#38A66B",
+});
 
 const result = calculateMaturity([
   4, 4, 4,
@@ -35,11 +44,13 @@ const publicResult = buildPublicResult({
   submitted_at: "2026-08-22T00:00:00Z",
   expires_at: "2027-02-18T00:00:00Z",
   person: { name: "Ana Silva", email: "private@example.com" },
-  company: { name: "Clínica São João" },
+  company: { sector: "Saúde e bem-estar" },
   result,
   cta_url: "/agendamento/",
 });
 assert.equal(publicResult.person.name, "Ana Silva");
+assert.equal(publicResult.company.sector, "Saúde e bem-estar");
+assert.equal("name" in publicResult.company, false);
 assert.equal("email" in publicResult.person, false);
 assert.equal(publicResult.priorities.length, 3);
 assert.equal(sanitizeCompanySlug("Clínica São João & Filhos"), "clinica-sao-joao-e-filhos");

@@ -35,6 +35,14 @@ const PILLAR_RECOMMENDATIONS = {
   automation_intelligence: { title: "Automatizar processos já validados", body: "Organizar os processos antes de automatizar e integrar progressivamente as tarefas que já possuem uma lógica validada.", outcome: "Mais eficiência sem automatizar desorganização." },
 };
 
+export const RESULT_LEVEL_COLORS = {
+  initial: "#E4574F",
+  reactive: "#F08B43",
+  structured: "#D6B21F",
+  predictable: "#3F83D8",
+  intelligent: "#38A66B",
+};
+
 export function composeInsight(result) {
   const level = LEVEL_INSIGHTS[result.level.key];
   const recommendation = PILLAR_RECOMMENDATIONS[result.weakestPillar.key];
@@ -64,7 +72,7 @@ export function buildPublicResult(record) {
     submitted_at: record.submitted_at,
     expires_at: record.expires_at,
     person: { name: String(record.person?.name ?? "") },
-    company: { name: String(record.company?.name ?? "") },
+    company: { sector: String(record.company?.sector ?? "") },
     result,
     insight: composeInsight(result),
     priorities: buildPriorities(result),

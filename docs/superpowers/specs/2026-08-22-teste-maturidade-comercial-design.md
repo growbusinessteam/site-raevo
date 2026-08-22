@@ -62,7 +62,7 @@ O cabeçalho será simples: logótipo, identificação “Teste de Maturidade Co
 
 A landing terá as seguintes secções:
 
-1. Hero com “Teste gratuito · Cerca de 5 minutos”, título principal, explicação, CTA e microcopy de resultado imediato, PDF e ausência de compromisso.
+1. Hero com “Teste gratuito · Cerca de 5 minutos”, título principal, explicação, CTA e microcopy de resultado visual imediato e ausência de compromisso.
 2. Escala visual Inicial → Reativo → Estruturado → Previsível → Inteligente, sem resultados fictícios.
 3. “Mais do que uma pontuação”, com nível atual, bloqueios e próximo passo.
 4. Os seis pilares do diagnóstico, com ícones lineares discretos.

@@ -53,7 +53,9 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
   const page = document.querySelector(".maturity-step-page[data-maturity-step]");
   const form = page?.querySelector("form");
   if (page instanceof HTMLElement && form instanceof HTMLFormElement) {
+    const AUTO_ADVANCE_DELAY_MS = 180;
     let state = ensureBrowserState();
+    let isAdvancing = false;
     const currentPath = window.location.pathname.endsWith("/") ? window.location.pathname : `${window.location.pathname}/`;
     const expectedPath = getFirstIncompletePath(state);
     const currentIndex = FUNNEL_PATHS.indexOf(currentPath);
@@ -67,6 +69,16 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
     const radios = Array.from(form.querySelectorAll('input[name="answer"]'));
     const continueButton = form.querySelector("[data-continue]");
     const error = form.querySelector("[data-step-error]");
+    const nextPath = () => page.dataset.nextPath ?? getFirstIncompletePath(state);
+    const navigate = () => window.location.assign(nextPath());
+    const advance = () => {
+      if (isAdvancing) return;
+      isAdvancing = true;
+      form.classList.add("is-advancing");
+      radios.forEach((radio) => { radio.disabled = true; });
+      if (continueButton instanceof HTMLButtonElement) continueButton.disabled = true;
+      window.setTimeout(navigate, AUTO_ADVANCE_DELAY_MS);
+    };
     const select = (radio) => {
       if (!(radio instanceof HTMLInputElement)) return;
       radio.checked = true;
@@ -77,7 +89,7 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
     };
     radios.forEach((radio) => {
       if (String(kind === "question" ? radio.dataset.score : radio.value) === String(savedValue)) select(radio);
-      radio.addEventListener("change", () => select(radio));
+      radio.addEventListener("click", () => { select(radio); advance(); });
     });
     form.addEventListener("keydown", (event) => {
       if (!["ArrowDown", "ArrowRight", "ArrowUp", "ArrowLeft"].includes(event.key)) return;
@@ -91,7 +103,7 @@ const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto $
       event.preventDefault();
       const selected = radios.find((radio) => radio.checked);
       if (!selected) { if (error) error.textContent = "Escolha a alternativa que melhor representa a realidade atual."; radios[0]?.focus(); return; }
-      window.location.assign(page.dataset.nextPath ?? getFirstIncompletePath(state));
+      navigate();
     });
   }
 </script>

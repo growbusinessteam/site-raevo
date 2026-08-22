@@ -10,7 +10,7 @@ import MaturityFooter from "./MaturityFooter.astro";
     <section class="maturity-result-hero">
       <div class="maturity-result-hero__grid" aria-hidden="true"></div>
       <div class="maturity-container maturity-result-hero__layout">
-        <div class="maturity-result-hero__copy"><p class="maturity-eyebrow">Resultado do Teste de Maturidade Comercial</p><h1>A sua empresa possui <strong data-result-percentage>—%</strong> de maturidade comercial.</h1><p>Este resultado foi calculado a partir das respostas fornecidas e representa o nível atual de estruturação do sistema comercial da empresa.</p><div class="maturity-result-company"><span>Empresa</span><strong data-result-company>—</strong></div></div>
+        <div class="maturity-result-hero__copy"><p class="maturity-eyebrow">Resultado do Teste de Maturidade Comercial</p><h1>A sua empresa possui <strong data-result-percentage>—%</strong> de maturidade comercial.</h1><p>Este resultado foi calculado a partir das respostas fornecidas e representa o nível atual de estruturação do sistema comercial da empresa.</p><div class="maturity-result-company"><span>Setor da empresa</span><strong data-result-sector>—</strong></div></div>
         <div class="maturity-score-visual" role="img" data-score-visual aria-label="Percentagem e nível de maturidade"><svg viewBox="0 0 140 140" aria-hidden="true"><circle class="maturity-score-track" cx="70" cy="70" r="57"></circle><circle class="maturity-score-progress" data-score-circle cx="70" cy="70" r="57"></circle></svg><div><strong data-score-number>—%</strong><span data-score-level>—</span></div></div>
       </div>
       <div class="maturity-container maturity-result-scale" data-result-scale aria-label="Escala completa de maturidade"><div data-level="initial"><span>01</span><strong>Inicial</strong></div><div data-level="reactive"><span>02</span><strong>Reativo</strong></div><div data-level="structured"><span>03</span><strong>Estruturado</strong></div><div data-level="predictable"><span>04</span><strong>Previsível</strong></div><div data-level="intelligent"><span>05</span><strong>Inteligente</strong></div></div>
@@ -22,7 +22,7 @@ import MaturityFooter from "./MaturityFooter.astro";
 
     <section class="maturity-section maturity-priorities"><div class="maturity-container"><div class="maturity-section__intro maturity-section__intro--light"><p class="maturity-eyebrow">Prioridades recomendadas</p><h2>O que precisa de acontecer primeiro.</h2><p>Três movimentos para preparar a empresa para o próximo nível de maturidade.</p></div><ol data-priorities></ol></div></section>
 
-    <section class="maturity-result-next"><div class="maturity-container maturity-result-next__layout"><div><p class="maturity-eyebrow">Próximo passo</p><h2>Transforme o diagnóstico numa evolução concreta.</h2><p>Um especialista da Raevo pode ajudar a interpretar o resultado e identificar o que precisa de ser implementado para a empresa avançar.</p></div><div class="maturity-result-actions"><a class="maturity-button maturity-button--gold" data-commercial-cta href="/agendamento/">Analisar o meu resultado com a Raevo <span aria-hidden="true">→</span></a><button class="maturity-button maturity-button--outline" data-pdf-download type="button">Baixar relatório completo em PDF <span aria-hidden="true">↓</span></button><p data-pdf-error aria-live="polite"></p></div></div></section>
+    <section class="maturity-result-next"><div class="maturity-container maturity-result-next__layout"><div><p class="maturity-eyebrow">Próximo passo</p><h2>Transforme o diagnóstico numa evolução concreta.</h2><p>Um especialista da Raevo pode ajudar a interpretar o resultado e identificar o que precisa de ser implementado para a empresa avançar.</p></div><div class="maturity-result-actions"><a class="maturity-button maturity-button--gold" data-commercial-cta href="/agendamento/">Falar com a Raevo sobre este resultado <span aria-hidden="true">→</span></a></div></div></section>
     <p class="maturity-result-methodology maturity-container" data-methodology></p>
   </div>
 </main>
@@ -33,7 +33,6 @@ import MaturityFooter from "./MaturityFooter.astro";
   const loading = document.querySelector("[data-result-loading]");
   const errorSection = document.querySelector("[data-result-error]");
   const content = document.querySelector("[data-result-content]");
-  let currentResult = null;
   const setText = (selector, value) => { const element = document.querySelector(selector); if (element) element.textContent = String(value ?? ""); };
   const showError = (message) => { if (loading instanceof HTMLElement) loading.hidden = true; if (content instanceof HTMLElement) content.hidden = true; if (errorSection instanceof HTMLElement) errorSection.hidden = false; setText("[data-result-error-message]", message); };
   const normalizeResult = (data) => {
@@ -43,7 +42,8 @@ import MaturityFooter from "./MaturityFooter.astro";
   };
   const render = (rawData) => {
     const data = normalizeResult(rawData); const result = data.result;
-    setText("[data-result-percentage]", `${result.percentage}%`); setText("[data-score-number]", `${result.percentage}%`); setText("[data-score-level]", result.level.label); setText("[data-result-company]", data.company.name);
+    if (content instanceof HTMLElement) content.dataset.resultLevel = result.level.key;
+    setText("[data-result-percentage]", `${result.percentage}%`); setText("[data-score-number]", `${result.percentage}%`); setText("[data-score-level]", result.level.label); setText("[data-result-sector]", data.company.sector);
     const visual = document.querySelector("[data-score-visual]"); visual?.setAttribute("aria-label", `${result.percentage}% de maturidade comercial, nível ${result.level.label}`);
     const circumference = 2 * Math.PI * 57; const circle = document.querySelector("[data-score-circle]"); if (circle instanceof SVGCircleElement) { circle.style.strokeDasharray = String(circumference); circle.style.strokeDashoffset = String(circumference * (1 - result.percentage / 100)); }
     document.querySelectorAll("[data-level]").forEach((level) => { level.classList.toggle("is-current", level.getAttribute("data-level") === result.level.key); });
@@ -52,13 +52,12 @@ import MaturityFooter from "./MaturityFooter.astro";
     const bars = document.querySelector("[data-result-bars]"); if (bars) { bars.textContent = ""; result.pillars.forEach((pillar, index) => { const row = document.createElement("div"); row.className = "maturity-result-bar"; row.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><strong></strong><b></b><i><em></em></i>`; row.querySelector("strong").textContent = pillar.label; row.querySelector("b").textContent = `${pillar.percentage}%`; row.querySelector("em").style.width = `${pillar.percentage}%`; if (pillar.key === result.weakest_pillar.key) row.classList.add("is-opportunity"); bars.append(row); }); }
     const priorities = document.querySelector("[data-priorities]"); if (priorities) { priorities.textContent = ""; data.priorities.forEach((priority) => { const item = document.createElement("li"); const number = document.createElement("span"); number.textContent = String(priority.number).padStart(2, "0"); const body = document.createElement("div"); const label = document.createElement("small"); label.textContent = priority.pillar || `Nível ${result.level.label}`; const title = document.createElement("h3"); title.textContent = priority.title; const copy = document.createElement("p"); copy.textContent = priority.body; const outcome = document.createElement("p"); outcome.className = "maturity-priority-outcome"; outcome.textContent = `Resultado esperado · ${priority.outcome}`; body.append(label, title, copy, outcome); item.append(number, body); priorities.append(item); }); }
     const cta = document.querySelector("[data-commercial-cta]"); if (cta instanceof HTMLAnchorElement) { const target = new URL(data.cta_url || "/agendamento/", window.location.origin); if (/wa\.me|whatsapp/i.test(target.hostname + target.pathname)) target.searchParams.set("text", getCommercialMessage(data)); cta.href = target.href; }
-    currentResult = data;
     document.dispatchEvent(new CustomEvent("maturity:result-ready", { detail: data }));
     if (loading instanceof HTMLElement) loading.hidden = true; if (errorSection instanceof HTMLElement) errorSection.hidden = true; if (content instanceof HTMLElement) content.hidden = false;
   };
   const load = async () => {
     const preview = import.meta.env.DEV && new URLSearchParams(window.location.search).get("preview") === "result-50";
-    if (preview) { const result = calculateMaturity(Array(18).fill(2)); render(buildPublicResult({ assessment_id: "preview", submitted_at: new Date().toISOString(), expires_at: new Date(Date.now() + 86400000).toISOString(), person: { name: "Ana Silva" }, company: { name: "Empresa Exemplo" }, result, cta_url: "/agendamento/" })); return; }
+    if (preview) { const result = calculateMaturity(Array(18).fill(2)); render(buildPublicResult({ assessment_id: "preview", submitted_at: new Date().toISOString(), expires_at: new Date(Date.now() + 86400000).toISOString(), person: { name: "Ana Silva" }, company: { sector: "Consultoria" }, result, cta_url: "/agendamento/" })); return; }
     const match = window.location.pathname.match(/\/resultado\/([0-9a-f]{64})\/?$/i);
     if (!match) { showError("O endereço deste resultado não é válido. Realize um novo teste para gerar uma análise."); return; }
     const controller = new AbortController(); const timeout = window.setTimeout(() => controller.abort(), 12000);
@@ -67,14 +66,4 @@ import MaturityFooter from "./MaturityFooter.astro";
     finally { window.clearTimeout(timeout); }
   };
   load();
-  const pdfButton = document.querySelector("[data-pdf-download]");
-  const pdfError = document.querySelector("[data-pdf-error]");
-  pdfButton?.addEventListener("click", async () => {
-    if (!(pdfButton instanceof HTMLButtonElement) || !currentResult) return;
-    if (pdfError) pdfError.textContent = "";
-    pdfButton.disabled = true; pdfButton.setAttribute("aria-busy", "true"); pdfButton.childNodes[0].textContent = "A preparar o relatório ";
-    try { const { downloadMaturityPdf } = await import("../../lib/maturity-pdf.mjs"); await downloadMaturityPdf(currentResult); }
-    catch { if (pdfError) pdfError.textContent = "Não foi possível gerar o PDF agora. Tente novamente."; }
-    finally { pdfButton.disabled = false; pdfButton.setAttribute("aria-busy", "false"); pdfButton.childNodes[0].textContent = "Baixar relatório completo em PDF "; }
-  });
 </script>

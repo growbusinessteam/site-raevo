@@ -1,0 +1,64 @@
+---
+import MaturityHeader from "./MaturityHeader.astro";
+---
+<MaturityHeader compact cta={false} />
+<main id="conteudo" class="maturity-completion-page">
+  <div class="maturity-step-page__grid" aria-hidden="true"></div>
+  <section class="maturity-completion-card" aria-live="polite">
+    <span class="maturity-result-loader" data-completion-loader aria-hidden="true"></span>
+    <p class="maturity-eyebrow">Análise concluída</p>
+    <h1 data-completion-title>A preparar o seu relatório visual.</h1>
+    <p data-completion-message>Estamos a calcular a maturidade da empresa e a organizar as prioridades recomendadas.</p>
+    <button class="maturity-button maturity-button--gold" data-completion-retry type="button" hidden>Tentar novamente <span aria-hidden="true">→</span></button>
+  </section>
+</main>
+<script>
+  import { buildSubmissionPayload, createIdempotencyKey } from "../../lib/maturity-form.mjs";
+  import { COMPLETION_PATH, clearBrowserState, getFirstIncompletePath, loadBrowserState } from "../../lib/maturity-state.mjs";
+
+  const state = loadBrowserState();
+  const title = document.querySelector("[data-completion-title]");
+  const message = document.querySelector("[data-completion-message]");
+  const loader = document.querySelector("[data-completion-loader]");
+  const retry = document.querySelector("[data-completion-retry]");
+  let isSubmitting = false;
+
+  const showFailure = (copy) => {
+    if (title) title.textContent = "Não foi possível abrir o resultado agora.";
+    if (message) message.textContent = copy;
+    if (loader instanceof HTMLElement) loader.hidden = true;
+    if (retry instanceof HTMLButtonElement) retry.hidden = false;
+  };
+
+  const submitAssessment = async () => {
+    if (!state || isSubmitting) return;
+    isSubmitting = true;
+    if (retry instanceof HTMLButtonElement) retry.hidden = true;
+    if (loader instanceof HTMLElement) loader.hidden = false;
+    if (title) title.textContent = "A preparar o seu relatório visual.";
+    if (message) message.textContent = "Estamos a calcular a maturidade da empresa e a organizar as prioridades recomendadas.";
+    const idempotencyKey = createIdempotencyKey(() => state.lead.id);
+    try {
+      const response = await fetch("/api/maturidade/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Idempotency-Key": idempotencyKey },
+        body: JSON.stringify(buildSubmissionPayload(state, { idempotencyKey })),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.result_url) throw new Error(data.message || "Não foi possível gerar o resultado agora.");
+      clearBrowserState();
+      window.location.assign(data.result_url);
+    } catch (error) {
+      isSubmitting = false;
+      showFailure(error instanceof Error ? error.message : "Tente novamente dentro de alguns instantes.");
+    }
+  };
+
+  if (!state) window.location.replace("/teste-maturidade-comercial/dados-iniciais/");
+  else {
+    const incomplete = getFirstIncompletePath(state);
+    if (incomplete !== COMPLETION_PATH) window.location.replace(incomplete);
+    else submitAssessment();
+  }
+  retry?.addEventListener("click", submitAssessment);
+</script>

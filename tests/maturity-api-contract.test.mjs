@@ -23,8 +23,11 @@ assert.match(api, /maturity_assessment_completed/);
 assert.match(api, /lead_id/);
 assert.match(api, /lead-/);
 assert.match(api, /array_merge\(\$submission/);
-assert.match(api, /role_required/);
-assert.match(api, /timeline_required/);
+assert.match(api, /privacy_notice_required/);
+assert.match(api, /context_required/);
+assert.doesNotMatch(api, /role_required/);
+assert.doesNotMatch(api, /timeline_required/);
+assert.doesNotMatch(api, /privacy_required/);
 assert.doesNotMatch(api, /hook\.growautomacao\.com|https:\/\/[^'\"]+webhook/i);
 
 const apiRewrite = readFileSync(new URL("../public/api/maturidade/.htaccess", import.meta.url), "utf8");

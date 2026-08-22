@@ -84,10 +84,19 @@ export function buildLeadPayload(values, state, { idempotencyKey = createLeadIde
   };
 }
 
-export function buildSubmissionPayload(values, state, { idempotencyKey = createIdempotencyKey(), now = () => new Date().toISOString() } = {}) {
-  const error = validateIdentification(values);
-  if (error) throw new TypeError(error.message);
+export function buildSubmissionPayload(state, { idempotencyKey = createIdempotencyKey(), now = () => new Date().toISOString() } = {}) {
   if (!String(state?.lead?.id ?? "").trim()) throw new TypeError("O lead inicial precisa de ser registado antes de gerar o resultado.");
+  const name = String(state?.lead?.name ?? "").trim();
+  const whatsapp = normalizePhone(state?.lead?.whatsapp);
+  const sector = String(state?.lead?.sector ?? state?.context?.sector ?? "").trim();
+  if (!name || whatsapp.replace(/\D/g, "").length < 9 || !sector) throw new TypeError("Os dados iniciais do lead estão incompletos.");
+  const context = {
+    monthly_opportunities: String(state?.context?.monthly_opportunities ?? "").trim(),
+    average_sale_value: String(state?.context?.average_sale_value ?? "").trim(),
+    commercial_team_size: String(state?.context?.commercial_team_size ?? "").trim(),
+    main_goal: String(state?.context?.main_goal ?? "").trim(),
+  };
+  if (Object.values(context).some((value) => !value)) throw new TypeError("As quatro perguntas de contexto devem estar respondidas.");
   const answers = Array.from({ length: 18 }, (_, index) => ({ question: index + 1, score: state?.answers?.[String(index + 1)] }));
   if (answers.some(({ score }) => !Number.isInteger(score) || score < 0 || score > 4)) throw new TypeError("As 18 perguntas de maturidade devem estar respondidas.");
   const submittedAt = now();
@@ -97,27 +106,19 @@ export function buildSubmissionPayload(values, state, { idempotencyKey = createI
     submitted_at: submittedAt,
     source: "teste_maturidade_comercial",
     person: {
-      name: String(state.lead.name).trim(),
-      email: normalizeEmail(values.email),
-      whatsapp: normalizePhone(state.lead.whatsapp),
-      role: String(values.role).trim(),
+      name,
+      whatsapp,
     },
     company: {
-      name: String(values.company).trim(),
-      sector: String(state.lead.sector ?? state.context.sector ?? ""),
-      website: String(values.website ?? "").trim(),
-      monthly_opportunities: String(state.context.monthly_opportunities ?? ""),
-      average_sale_value: String(state.context.average_sale_value ?? ""),
-      commercial_team_size: String(state.context.commercial_team_size ?? ""),
-      main_goal: String(state.context.main_goal ?? ""),
-      improvement_timeline: String(values.timeline).trim(),
+      sector,
+      ...context,
     },
     answers,
     attribution: { ...(state.attribution ?? {}) },
     consent: {
-      privacy_accepted: true,
-      marketing_accepted: values.marketingAccepted === true,
-      accepted_at: submittedAt,
+      privacy_notice_shown: true,
+      policy_url: "/privacidade/",
+      acknowledged_at: submittedAt,
     },
   };
 }

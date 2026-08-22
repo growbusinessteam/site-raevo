@@ -7,7 +7,6 @@ import {
   normalizeEmail,
   normalizePhone,
   splitInternationalPhone,
-  validateIdentification,
   validateLeadCapture,
   validateProfile,
 } from "../src/lib/maturity-form.mjs";
@@ -35,24 +34,6 @@ for (const [field, value] of [["name", ""], ["whatsapp", "123"], ["sector", ""]]
   assert.equal(error.field, field);
 }
 
-const valid = {
-  company: "Empresa Exemplo",
-  role: "Sócio ou proprietário",
-  email: "ana@empresa.pt",
-  website: "empresa.pt",
-  timeline: "Nos próximos 30 dias",
-  privacyAccepted: true,
-  marketingAccepted: false,
-};
-assert.equal(validateIdentification(valid), null);
-for (const [field, value] of [
-  ["company", ""], ["role", ""], ["email", "ana@"],
-  ["timeline", ""], ["privacyAccepted", false],
-]) {
-  const error = validateIdentification({ ...valid, [field]: value });
-  assert.equal(error.field, field);
-}
-
 const state = {
   lead: {
     id: "9f3d70fb-8cb5-45cb-8b1c-76e4904078b8",
@@ -77,19 +58,24 @@ assert.equal(leadPayload.person.whatsapp, "+351963763408");
 assert.equal(leadPayload.company.sector, "Consultoria");
 assert.equal(leadPayload.consent.privacy_notice_shown, true);
 
-const payload = buildSubmissionPayload(valid, state, { idempotencyKey: "assessment-fixed" });
+const payload = buildSubmissionPayload(state, { idempotencyKey: "assessment-fixed", now: () => "2026-08-22T00:30:00.000Z" });
 assert.equal(payload.idempotency_key, "assessment-fixed");
 assert.equal(payload.lead_id, "9f3d70fb-8cb5-45cb-8b1c-76e4904078b8");
 assert.equal(payload.person.name, "Ana Silva");
-assert.equal(payload.person.email, "ana@empresa.pt");
 assert.equal(payload.person.whatsapp, "+351963763408");
 assert.equal(payload.company.sector, "Consultoria");
+assert.equal(payload.company.monthly_opportunities, "Entre 11 e 30");
 assert.equal(payload.answers.length, 18);
 assert.deepEqual(payload.answers[0], { question: 1, score: 2 });
-assert.equal(payload.consent.privacy_accepted, true);
-assert.equal(payload.consent.marketing_accepted, false);
+assert.equal(payload.consent.privacy_notice_shown, true);
+assert.equal(payload.consent.policy_url, "/privacidade/");
+assert.equal("email" in payload.person, false);
+assert.equal("role" in payload.person, false);
+assert.equal("name" in payload.company, false);
+assert.equal("website" in payload.company, false);
+assert.equal("improvement_timeline" in payload.company, false);
 assert.equal("percentage" in payload, false);
 assert.match(createIdempotencyKey(() => "uuid-value"), /^assessment-uuid-value$/);
 assert.equal(createLeadIdempotencyKey(() => "uuid-value"), "lead-uuid-value");
 
-console.log("Maturity identification and payload validation are correct.");
+console.log("Maturity lead and automatic submission payload validation are correct.");
