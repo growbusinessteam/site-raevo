@@ -11,11 +11,22 @@ const dataHref = withMaturityRelease("/teste-maturidade-comercial/dados-iniciais
     <div class="maturity-step-page__grid" aria-hidden="true"></div>
     <div class="maturity-intro-card" data-reveal>
       <p class="maturity-eyebrow">Antes de começar</p>
-      <h1>Uma leitura honesta da realidade atual.</h1>
-      <p>O teste contém 18 perguntas divididas em seis áreas do sistema comercial.</p>
-      <p>Escolha a alternativa que melhor representa a realidade atual da sua empresa. Não existem respostas certas ou erradas.</p>
-      <ul><li><span>≈ 5 min</span>Duração aproximada</li><li><span>Imediato</span>Resultado personalizado</li><li><span>Visual</span>Relatório completo na página</li></ul>
-      <div class="maturity-intro-actions"><a class="maturity-button maturity-button--gold" href={startHref}>Começar <span aria-hidden="true">→</span></a><a class="maturity-back" href={dataHref}>← Alterar dados</a></div>
+      <h1>O seu diagnóstico começa agora.</h1>
+      <p>Vai responder a 12 perguntas sobre seis pilares do seu sistema comercial. Escolha sempre a alternativa que melhor representa a realidade atual.</p>
+      <p>Não existem respostas certas ou erradas. O objetivo é mostrar com clareza onde a empresa está e qual deve ser o próximo passo.</p>
+      <ul class="maturity-intro-stats" aria-label="Resumo do teste">
+        <li><span>12 perguntas</span>Diagnóstico objetivo</li>
+        <li><span>≈ 5 min</span>Duração aproximada</li>
+        <li><span>Resultado imediato</span>Nível de maturidade</li>
+        <li><span>Relatório visual</span>Leitura dos seis pilares</li>
+      </ul>
+      <div class="maturity-intro-delivery">
+        <p>No final, recebe</p>
+        <div><span>01</span><strong>O seu nível geral</strong></div>
+        <div><span>02</span><strong>O desempenho nos seis pilares</strong></div>
+        <div><span>03</span><strong>As prioridades recomendadas pela Raevo</strong></div>
+      </div>
+      <div class="maturity-intro-actions"><a class="maturity-button maturity-button--gold" href={startHref}>Iniciar o teste <span aria-hidden="true">→</span></a><a class="maturity-back" href={dataHref}>← Alterar dados</a></div>
     </div>
   </main>
   <script>

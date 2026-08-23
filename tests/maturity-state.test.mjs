@@ -4,6 +4,7 @@ import {
   MATURITY_RELEASE,
   captureAttribution,
   createAssessmentState,
+  getAssessmentProgress,
   getFirstIncompletePath,
   getNextPath,
   getPreviousPath,
@@ -14,7 +15,8 @@ import {
   withMaturityRelease,
 } from "../src/lib/maturity-state.mjs";
 
-assert.equal(STORAGE_KEY, "raevo:maturity:v2");
+assert.equal(STORAGE_KEY, "raevo:maturity:v3");
+assert.equal(MATURITY_RELEASE, "20260823-short1");
 assert.match(MATURITY_RELEASE, /^2026[0-9a-z-]+$/i);
 assert.equal(
   withMaturityRelease("/teste-maturidade-comercial/contexto/oportunidades/"),
@@ -36,11 +38,12 @@ assert.equal(attribution.landing_page, "https://raevo.io/teste-maturidade-comerc
 assert.equal(attribution.referrer, "https://instagram.com/");
 
 const fresh = createAssessmentState({ href: "https://raevo.io/teste-maturidade-comercial/", referrer: "" });
-assert.equal(fresh.version, 2);
+assert.equal(fresh.version, 3);
 assert.equal(fresh.lead, null);
 assert.deepEqual(fresh.context, {});
 assert.deepEqual(fresh.answers, {});
 assert.equal(getFirstIncompletePath(fresh), "/teste-maturidade-comercial/dados-iniciais/");
+assert.deepEqual(getAssessmentProgress(fresh), { completed: 0, total: 14, percentage: 0 });
 
 const withSector = setLeadCapture(fresh, {
   leadId: "9f3d70fb-8cb5-45cb-8b1c-76e4904078b8",
@@ -58,25 +61,26 @@ assert.equal(getFirstIncompletePath(withSector), "/teste-maturidade-comercial/co
 let completedContext = withSector;
 for (const [key, value] of [
   ["monthly_opportunities", "Entre 11 e 30"],
-  ["average_sale_value", "Entre 1.001 € e 3.000 €"],
-  ["commercial_team_size", "2 a 3 pessoas"],
   ["main_goal", "Aumentar a conversão"],
 ]) completedContext = setContextAnswer(completedContext, key, value);
+assert.deepEqual(getAssessmentProgress(completedContext), { completed: 2, total: 14, percentage: 14 });
 assert.equal(getFirstIncompletePath(completedContext), "/teste-maturidade-comercial/pergunta/01/");
 
 const firstAnswer = setMaturityAnswer(completedContext, 1, 3);
 assert.equal(firstAnswer.answers["1"], 3);
 assert.equal(getFirstIncompletePath(firstAnswer), "/teste-maturidade-comercial/pergunta/02/");
-assert.throws(() => setMaturityAnswer(firstAnswer, 19, 2), /entre 1 e 18/);
+assert.deepEqual(getAssessmentProgress(firstAnswer), { completed: 3, total: 14, percentage: 21 });
+assert.throws(() => setMaturityAnswer(firstAnswer, 13, 2), /entre 1 e 12/);
 assert.throws(() => setMaturityAnswer(firstAnswer, 2, 8), /entre 0 e 4/);
 
 assert.equal(getNextPath("/teste-maturidade-comercial/contexto/objetivo/"), "/teste-maturidade-comercial/pergunta/01/");
 assert.equal(getPreviousPath("/teste-maturidade-comercial/pergunta/01/"), "/teste-maturidade-comercial/contexto/objetivo/");
 assert.equal(getPreviousPath("/teste-maturidade-comercial/contexto/oportunidades/"), "/teste-maturidade-comercial/antes-de-comecar/");
 let completedAssessment = completedContext;
-for (let number = 1; number <= 18; number += 1) completedAssessment = setMaturityAnswer(completedAssessment, number, 2);
+for (let number = 1; number <= 12; number += 1) completedAssessment = setMaturityAnswer(completedAssessment, number, 2);
 assert.equal(getFirstIncompletePath(completedAssessment), "/teste-maturidade-comercial/processando/");
-assert.equal(getNextPath("/teste-maturidade-comercial/pergunta/18/"), "/teste-maturidade-comercial/processando/");
+assert.deepEqual(getAssessmentProgress(completedAssessment), { completed: 14, total: 14, percentage: 100 });
+assert.equal(getNextPath("/teste-maturidade-comercial/pergunta/12/"), "/teste-maturidade-comercial/processando/");
 assert.equal(readState({ version: 99 }), null);
 assert.equal(readState("invalid"), null);
 

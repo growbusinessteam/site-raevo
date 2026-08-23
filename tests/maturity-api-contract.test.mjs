@@ -9,8 +9,12 @@ for (const required of [
   "REQUEST_METHOD", "POST", "GET", "CONTENT_LENGTH", "1048576", "json_decode",
   "random_bytes(32)", "rename(", "LOCK_EX", "MATURITY_ASSESSMENT_WEBHOOK_URL",
   "MATURITY_ASSESSMENT_CTA_URL", "MATURITY_RESULT_RETENTION_DAYS", "Cache-Control: no-store",
-  "X-Robots-Tag: noindex, nofollow", "18", "72", "20", "21", "40", "41", "60", "61", "80", "81",
+  "X-Robots-Tag: noindex, nofollow", "12", "48", "20", "21", "40", "41", "60", "61", "80", "81",
 ]) assert.match(api, new RegExp(required.replace(/[()]/g, "\\$&")), `API must contain ${required}`);
+
+assert.match(api, /count\(\$answers\) !== 12/);
+assert.match(api, /'max_points' => 8/);
+assert.doesNotMatch(api, /average_sale_value|commercial_team_size/);
 
 assert.match(api, /bin2hex\(random_bytes\(32\)\)/);
 assert.match(api, /flock\([^;]+LOCK_EX/);

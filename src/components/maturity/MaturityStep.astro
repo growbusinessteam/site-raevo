@@ -8,13 +8,13 @@ interface Props {
   kind: "context" | "question";
   index: number;
   total: number;
+  position: number;
   previousPath: string;
   nextPath: string;
 }
-const { step, kind, index, total, previousPath, nextPath } = Astro.props;
+const { step, kind, index, position, previousPath, nextPath } = Astro.props;
 const isQuestion = kind === "question";
-const progress = Math.round(((index + 1) / total) * 100);
-const stepLabel = isQuestion ? `Pergunta ${index + 1} de ${total}` : `Contexto ${index + 1} de ${total}`;
+const stepLabel = `Resposta ${position} de 14`;
 const versionedPreviousPath = withMaturityRelease(previousPath);
 const versionedNextPath = withMaturityRelease(nextPath);
 ---
@@ -23,11 +23,11 @@ const versionedNextPath = withMaturityRelease(nextPath);
   <div class="maturity-step-page__grid" aria-hidden="true"></div>
   <div class="maturity-step-shell">
     <div class="maturity-step-meta">
-      <span>{isQuestion ? (step as MaturityQuestion).pillarLabel : "Contexto da empresa"}</span>
+      <span>{isQuestion ? (step as MaturityQuestion).pillarLabel : "Progresso total"}</span>
       <span>{stepLabel}</span>
     </div>
-    <div class="maturity-step-progress" aria-label={`${progress}% concluído`}><i style={`width:${progress}%`}></i></div>
-    <div class="maturity-step-progress__label"><span>{progress}% concluído</span><span>{isQuestion ? "18 perguntas" : `${total} perguntas de contexto`}</span></div>
+    <div class="maturity-step-progress" role="progressbar" aria-label="Progresso total do teste" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i style="width:0%"></i></div>
+    <div class="maturity-step-progress__label"><span data-progress-label>0% concluído</span><span data-progress-count>0 de 14 respostas</span></div>
     <form class="maturity-step-form" novalidate>
       <fieldset>
         <legend>{step.question}</legend>
@@ -52,7 +52,7 @@ const versionedNextPath = withMaturityRelease(nextPath);
   </div>
 </main>
 <script>
-  import { FUNNEL_PATHS, LEAD_PATH, ensureBrowserState, getFirstIncompletePath, saveBrowserState, setContextAnswer, setMaturityAnswer, withMaturityRelease } from "../../lib/maturity-state.mjs";
+  import { FUNNEL_PATHS, LEAD_PATH, ensureBrowserState, getAssessmentProgress, getFirstIncompletePath, saveBrowserState, setContextAnswer, setMaturityAnswer, withMaturityRelease } from "../../lib/maturity-state.mjs";
   const page = document.querySelector(".maturity-step-page[data-maturity-step]");
   const form = page?.querySelector("form");
   if (page instanceof HTMLElement && form instanceof HTMLFormElement) {
@@ -72,8 +72,19 @@ const versionedNextPath = withMaturityRelease(nextPath);
     const radios = Array.from(form.querySelectorAll('input[name="answer"]'));
     const continueButton = form.querySelector("[data-continue]");
     const error = form.querySelector("[data-step-error]");
+    const progressBar = page.querySelector('[role="progressbar"]');
+    const progressFill = progressBar?.querySelector("i");
+    const progressLabel = page.querySelector("[data-progress-label]");
+    const progressCount = page.querySelector("[data-progress-count]");
     const nextPath = () => page.dataset.nextPath ?? getFirstIncompletePath(state);
     const navigate = () => window.location.assign(withMaturityRelease(nextPath()));
+    const renderProgress = () => {
+      const progress = getAssessmentProgress(state);
+      if (progressBar) progressBar.setAttribute("aria-valuenow", String(progress.percentage));
+      if (progressFill instanceof HTMLElement) progressFill.style.width = `${progress.percentage}%`;
+      if (progressLabel) progressLabel.textContent = `${progress.percentage}% concluído`;
+      if (progressCount) progressCount.textContent = `${progress.completed} de ${progress.total} respostas`;
+    };
     const advance = () => {
       if (isAdvancing) return;
       isAdvancing = true;
@@ -89,7 +100,9 @@ const versionedNextPath = withMaturityRelease(nextPath);
       if (error) error.textContent = "";
       state = kind === "question" ? setMaturityAnswer(state, number, Number(radio.dataset.score)) : setContextAnswer(state, key, radio.value);
       saveBrowserState(state);
+      renderProgress();
     };
+    renderProgress();
     radios.forEach((radio) => {
       if (String(kind === "question" ? radio.dataset.score : radio.value) === String(savedValue)) select(radio);
       radio.addEventListener("click", () => { select(radio); advance(); });

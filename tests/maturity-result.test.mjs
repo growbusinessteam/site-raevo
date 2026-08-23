@@ -18,12 +18,12 @@ assert.deepEqual(RESULT_LEVEL_COLORS, {
 });
 
 const result = calculateMaturity([
-  4, 4, 4,
-  1, 1, 1,
-  3, 3, 3,
-  0, 0, 0,
-  2, 2, 2,
-  2, 2, 2,
+  4, 4,
+  1, 1,
+  3, 3,
+  0, 0,
+  2, 2,
+  2, 2,
 ]);
 const insight = composeInsight(result);
 assert.equal(insight.strongest_pillar, "Geração de oportunidades");

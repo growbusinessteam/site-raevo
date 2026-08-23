@@ -15,6 +15,11 @@ export const LEVELS = [
   { key: "intelligent", label: "Inteligente", min: 81, max: 100, description: "Dados, automação e inteligência ajudam a empresa a decidir e melhorar continuamente." },
 ];
 
+export const TOTAL_QUESTIONS = 12;
+export const QUESTIONS_PER_PILLAR = 2;
+export const PILLAR_MAX_POINTS = 8;
+export const MAX_POINTS = 48;
+
 export function classifyPercentage(percentage) {
   if (!Number.isInteger(percentage) || percentage < 0 || percentage > 100) {
     throw new RangeError("A percentagem deve ser um inteiro entre 0 e 100.");
@@ -33,8 +38,8 @@ export function rankPillars(pillars, direction = "ascending") {
 }
 
 export function validateMaturityAnswers(answers) {
-  if (!Array.isArray(answers) || answers.length !== 18) {
-    throw new TypeError("O cálculo exige exatamente 18 respostas.");
+  if (!Array.isArray(answers) || answers.length !== TOTAL_QUESTIONS) {
+    throw new TypeError("O cálculo exige exatamente 12 respostas.");
   }
   answers.forEach((answer) => {
     if (!Number.isInteger(answer) || answer < 0 || answer > 4) {
@@ -47,17 +52,17 @@ export function validateMaturityAnswers(answers) {
 export function calculateMaturity(answers) {
   validateMaturityAnswers(answers);
   const pillars = PILLARS.map((pillar, index) => {
-    const values = answers.slice(index * 3, index * 3 + 3);
+    const values = answers.slice(index * QUESTIONS_PER_PILLAR, index * QUESTIONS_PER_PILLAR + QUESTIONS_PER_PILLAR);
     const points = values.reduce((sum, value) => sum + value, 0);
-    return { ...pillar, points, maxPoints: 12, percentage: Math.round((points / 12) * 100) };
+    return { ...pillar, points, maxPoints: PILLAR_MAX_POINTS, percentage: Math.round((points / PILLAR_MAX_POINTS) * 100) };
   });
   const totalPoints = answers.reduce((sum, value) => sum + value, 0);
-  const percentage = Math.round((totalPoints / 72) * 100);
+  const percentage = Math.round((totalPoints / MAX_POINTS) * 100);
   const rankedAscending = rankPillars(pillars, "ascending");
   const rankedDescending = rankPillars(pillars, "descending");
   return {
     totalPoints,
-    maxPoints: 72,
+    maxPoints: MAX_POINTS,
     percentage,
     level: classifyPercentage(percentage),
     pillars,

@@ -44,11 +44,9 @@ const state = {
   context: {
     sector: "Consultoria",
     monthly_opportunities: "Entre 11 e 30",
-    average_sale_value: "Entre 1.001 € e 3.000 €",
-    commercial_team_size: "2 a 3 pessoas",
     main_goal: "Aumentar a conversão",
   },
-  answers: Object.fromEntries(Array.from({ length: 18 }, (_, index) => [String(index + 1), 2])),
+  answers: Object.fromEntries(Array.from({ length: 12 }, (_, index) => [String(index + 1), 2])),
   attribution: { utm_source: "meta", landing_page: "https://raevo.io/teste-maturidade-comercial/" },
 };
 const leadPayload = buildLeadPayload(validLead, state, { idempotencyKey: "lead-fixed", now: () => "2026-08-22T00:00:00.000Z" });
@@ -65,7 +63,7 @@ assert.equal(payload.person.name, "Ana Silva");
 assert.equal(payload.person.whatsapp, "+351963763408");
 assert.equal(payload.company.sector, "Consultoria");
 assert.equal(payload.company.monthly_opportunities, "Entre 11 e 30");
-assert.equal(payload.answers.length, 18);
+assert.equal(payload.answers.length, 12);
 assert.deepEqual(payload.answers[0], { question: 1, score: 2 });
 assert.equal(payload.consent.privacy_notice_shown, true);
 assert.equal(payload.consent.policy_url, "/privacidade/");

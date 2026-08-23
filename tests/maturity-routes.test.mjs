@@ -37,7 +37,8 @@ for (const level of ["Inicial", "Reativo", "Estruturado", "Previsível", "Inteli
 assert.doesNotMatch(landing, /fbq\(|gtag\(|dataLayer/);
 
 const contextRoute = read("src/pages/teste-maturidade-comercial/contexto/[slug].astro");
-for (const slug of ["oportunidades", "valor-medio", "equipa", "objetivo"]) assert.match(contextRoute, new RegExp(slug.replace("-", "[-]")));
+for (const slug of ["oportunidades", "objetivo"]) assert.match(contextRoute, new RegExp(slug));
+for (const slug of ["valor-medio", "equipa"]) assert.doesNotMatch(contextRoute, new RegExp(slug));
 assert.doesNotMatch(contextRoute, /"setor"/);
 assert.match(contextRoute, /getStaticPaths/);
 
@@ -52,6 +53,7 @@ assert.match(leadGate, /withMaturityRelease/);
 const introduction = read("src/pages/teste-maturidade-comercial/antes-de-comecar/index.astro");
 assert.doesNotMatch(introduction, /PDF|download/i);
 assert.match(introduction, /withMaturityRelease/);
+for (const copy of ["12 perguntas", "≈ 5 min", "Resultado imediato", "Relatório visual", "seis pilares", "Iniciar o teste"]) assert.match(introduction, new RegExp(copy));
 
 assert.equal(existsSync(new URL("../src/components/maturity/MaturityIdentification.astro", import.meta.url)), false);
 assert.equal(existsSync(new URL("../src/pages/teste-maturidade-comercial/identificacao/index.astro", import.meta.url)), false);
@@ -65,6 +67,11 @@ assert.doesNotMatch(completion, /<form|name="/);
 const questionRoute = read("src/pages/teste-maturidade-comercial/pergunta/[number].astro");
 assert.match(questionRoute, /getStaticPaths/);
 assert.match(questionRoute, /maturityQuestions/);
+assert.match(questionRoute, /total=\{12\}/);
+
+const definedQuestions = (content.match(/\bquestion\(/g) ?? []).length;
+assert.equal(definedQuestions, 12);
+assert.doesNotMatch(content, /Como a inteligência artificial é utilizada/);
 
 const step = read("src/components/maturity/MaturityStep.astro");
 assert.match(step, /data-maturity-step/);
@@ -72,6 +79,9 @@ assert.match(step, /data-step-key/);
 assert.match(step, /data-continue/);
 assert.match(step, /data-back/);
 assert.match(step, /aria-live/);
+assert.match(step, /role="progressbar"/);
+assert.match(step, /data-progress-label/);
+assert.match(step, /getAssessmentProgress/);
 assert.match(step, /AUTO_ADVANCE_DELAY_MS/);
 assert.match(step, /window\.setTimeout/);
 assert.match(step, /form\.classList\.add\("is-advancing"\)/);

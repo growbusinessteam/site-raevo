@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 const MAX_BODY_BYTES = 1048576;
-const MAX_POINTS = 72;
+const MAX_POINTS = 48;
 
 function jsonResponse(int $status, array $payload): never {
     http_response_code($status);
@@ -100,7 +100,7 @@ function pillarDefinitions(): array {
 }
 
 function calculateResult(array $answers): array {
-    if (count($answers) !== 18) throw new InvalidArgumentException('answers_count');
+    if (count($answers) !== 12) throw new InvalidArgumentException('answers_count');
     usort($answers, fn(array $left, array $right): int => $left['question'] <=> $right['question']);
     $scores = [];
     foreach ($answers as $index => $answer) {
@@ -111,8 +111,8 @@ function calculateResult(array $answers): array {
     }
     $pillars = [];
     foreach (pillarDefinitions() as $index => $definition) {
-        $points = array_sum(array_slice($scores, $index * 3, 3));
-        $pillars[] = $definition + ['points' => $points, 'max_points' => 12, 'percentage' => (int)round(($points / 12) * 100), 'order' => $index];
+        $points = array_sum(array_slice($scores, $index * 2, 2));
+        $pillars[] = $definition + ['points' => $points, 'max_points' => 8, 'percentage' => (int)round(($points / 8) * 100), 'order' => $index];
     }
     $total = array_sum($scores);
     $percentage = (int)round(($total / MAX_POINTS) * 100);
@@ -224,8 +224,6 @@ function validateSubmission(array $payload): array {
     if (($consent['privacy_notice_shown'] ?? false) !== true) throw new InvalidArgumentException('privacy_notice_required');
     $context = [
         'monthly_opportunities' => cleanText($company['monthly_opportunities'] ?? '', 80),
-        'average_sale_value' => cleanText($company['average_sale_value'] ?? '', 80),
-        'commercial_team_size' => cleanText($company['commercial_team_size'] ?? '', 80),
         'main_goal' => cleanText($company['main_goal'] ?? '', 160),
     ];
     if (in_array('', $context, true)) throw new InvalidArgumentException('context_required');

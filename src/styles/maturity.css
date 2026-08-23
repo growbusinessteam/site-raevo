@@ -131,9 +131,15 @@ button { color: inherit; }
 .maturity-intro-card .maturity-eyebrow { color: var(--m-gold); }
 .maturity-intro-card h1 { max-width: 690px; margin: 0 0 26px; font: 600 clamp(40px, 5vw, 64px)/1.1 var(--m-display); letter-spacing: -.048em; }
 .maturity-intro-card > p:not(.maturity-eyebrow) { max-width: 680px; margin: 0 0 12px; color: rgb(233 228 218 / .69); font-size: 18px; }
-.maturity-intro-card ul { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); margin: 42px 0; padding: 0; border-top: 1px solid rgb(233 228 218 / .2); border-bottom: 1px solid rgb(233 228 218 / .2); }
-.maturity-intro-card li { padding: 20px 18px 20px 0; color: rgb(233 228 218 / .6); font-size: 11px; }
-.maturity-intro-card li span { display: block; margin-bottom: 6px; color: var(--m-cyan); font: 600 17px var(--m-display); }
+.maturity-intro-stats { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); margin: 42px 0 30px; padding: 0; border-top: 1px solid rgb(233 228 218 / .2); border-bottom: 1px solid rgb(233 228 218 / .2); }
+.maturity-intro-stats li { min-height: 92px; padding: 20px 18px 20px 0; color: rgb(233 228 218 / .55); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.maturity-intro-stats li + li { padding-left: 18px; border-left: 1px solid rgb(233 228 218 / .13); }
+.maturity-intro-stats li span { display: block; margin-bottom: 9px; color: var(--m-gold); font: 600 15px/1.25 var(--m-display); letter-spacing: -.02em; text-transform: none; }
+.maturity-intro-delivery { display: grid; grid-template-columns: .7fr repeat(3, 1fr); margin-bottom: 34px; border-bottom: 1px solid rgb(233 228 218 / .2); }
+.maturity-intro-delivery > p { margin: 0; padding: 19px 18px 19px 0; color: rgb(233 228 218 / .38); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+.maturity-intro-delivery div { display: grid; grid-template-columns: 28px 1fr; gap: 9px; align-items: start; padding: 18px; border-left: 1px solid rgb(233 228 218 / .13); }
+.maturity-intro-delivery div span { color: var(--m-cyan); font: 600 10px/1.5 var(--m-display); }
+.maturity-intro-delivery strong { color: rgb(233 228 218 / .82); font-size: 11px; line-height: 1.45; }
 .maturity-intro-actions { display: flex; align-items: center; gap: 28px; }
 .maturity-back { display: inline-flex; align-items: center; gap: 9px; color: rgb(233 228 218 / .62); font-size: 13px; font-weight: 600; }
 .maturity-back:hover { color: var(--m-stone); }
@@ -354,8 +360,12 @@ button { color: inherit; }
   .maturity-intro-page { min-height: calc(100vh - 70px); padding: 48px 18px; }
   .maturity-intro-card h1 { font-size: 38px; }
   .maturity-intro-card > p:not(.maturity-eyebrow) { font-size: 16px; }
-  .maturity-intro-card ul { grid-template-columns: 1fr; }
-  .maturity-intro-card li { border-bottom: 1px solid rgb(233 228 218 / .12); }
+  .maturity-intro-stats { grid-template-columns: 1fr 1fr; }
+  .maturity-intro-stats li { min-height: 82px; border-bottom: 1px solid rgb(233 228 218 / .12); }
+  .maturity-intro-stats li + li { padding-left: 14px; }
+  .maturity-intro-delivery { grid-template-columns: 1fr; }
+  .maturity-intro-delivery > p { padding-bottom: 12px; }
+  .maturity-intro-delivery div { border-left: 0; border-top: 1px solid rgb(233 228 218 / .12); padding-inline: 0; }
   .maturity-intro-actions { align-items: stretch; flex-direction: column; }
   .maturity-intro-actions .maturity-button { width: 100%; }
   .maturity-intro-actions .maturity-back { justify-content: center; }

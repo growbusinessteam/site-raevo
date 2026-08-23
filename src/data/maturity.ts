@@ -23,15 +23,6 @@ export const contextSteps: MaturityStep[] = [
     options: ["Até 10", "Entre 11 e 30", "Entre 31 e 100", "Entre 101 e 300", "Mais de 300", "Não sabemos"].map((label) => option(label, label)),
   },
   {
-    key: "average_sale_value", slug: "valor-medio", question: "Qual é o valor médio aproximado de uma nova venda ou contrato?",
-    helper: "Considere o valor total médio de uma nova venda ou contrato.",
-    options: ["Até 500 €", "Entre 501 € e 1.000 €", "Entre 1.001 € e 3.000 €", "Entre 3.001 € e 10.000 €", "Mais de 10.000 €", "Não sabemos", "Prefiro não informar"].map((label) => option(label, label)),
-  },
-  {
-    key: "commercial_team_size", slug: "equipa", question: "Quantas pessoas participam atualmente do atendimento ou processo comercial?",
-    options: ["Apenas uma pessoa", "2 a 3 pessoas", "4 a 10 pessoas", "Mais de 10 pessoas", "Não existe uma equipa definida"].map((label) => option(label, label)),
-  },
-  {
     key: "main_goal", slug: "objetivo", question: "Qual é o principal objetivo comercial da empresa neste momento?",
     options: ["Gerar mais oportunidades", "Melhorar o atendimento", "Aumentar a conversão", "Organizar o processo comercial", "Implementar ou melhorar o CRM", "Automatizar tarefas e follow-ups", "Acompanhar melhor os resultados", "Ainda não temos clareza"].map((label) => option(label, label)),
   },
@@ -43,59 +34,41 @@ const question = (number: number, pillarKey: string, prompt: string, alternative
 };
 
 export const maturityQuestions: MaturityQuestion[] = [
-  question(1, "opportunities", "A empresa sabe de onde vem cada oportunidade comercial?", [
-    "Não sabemos com segurança", "Sabemos apenas o canal principal", "Registamos a origem de parte das oportunidades", "Registamos a origem da maioria das oportunidades", "Registamos e analisamos origem, campanha e qualidade",
+  question(1, "opportunities", "A geração de novas oportunidades é rastreada e previsível?", [
+    "Não sabemos de onde vêm e não existe previsibilidade", "Conhecemos apenas o canal principal e o volume varia muito", "Registamos parte das origens e temos estimativas ocasionais", "Registamos a maioria das origens, com metas e acompanhamento mensal", "Analisamos origem, campanha, qualidade e previsão por canal",
   ]),
-  question(2, "opportunities", "A geração de novas oportunidades é previsível?", [
-    "Não temos qualquer previsibilidade", "O volume varia muito e não existem metas", "Temos uma estimativa, mas ela raramente é acompanhada", "Existem metas e acompanhamento mensal", "Existem metas, previsão por canal e comparação entre planeado e realizado",
-  ]),
-  question(3, "opportunities", "A empresa possui critérios para avaliar a qualidade das oportunidades?", [
+  question(2, "opportunities", "A empresa possui critérios para avaliar a qualidade das oportunidades?", [
     "Todas são tratadas da mesma forma", "A equipa possui uma perceção informal", "Existem alguns critérios básicos", "Os critérios de qualificação estão definidos", "Os critérios são definidos, registados e revistos com base nas conversões",
   ]),
-  question(4, "service", "Quanto tempo a empresa demora, normalmente, para responder a uma nova oportunidade?", [
+  question(3, "service", "Quanto tempo a empresa demora, normalmente, para responder a uma nova oportunidade?", [
     "Mais de 24 horas ou não sabemos", "No mesmo dia, mas normalmente após várias horas", "Entre 1 e 4 horas", "Entre 15 e 60 minutos", "Em menos de 15 minutos, com responsabilidade e prazo definidos",
   ]),
-  question(5, "service", "Existe um padrão para conduzir o primeiro contacto?", [
-    "Cada pessoa responde como considera melhor", "Existem orientações informais", "Existem mensagens ou scripts básicos", "Existe um padrão definido e utilizado pela equipa", "Existe um padrão acompanhado, treinado e melhorado com frequência",
+  question(4, "service", "Como a empresa qualifica uma oportunidade?", [
+    "Não existe qualificação nem um padrão de atendimento", "A abordagem depende da experiência de quem atende", "Existem algumas perguntas ou mensagens comuns", "Existem critérios, perguntas e uma abordagem definida", "A qualificação é padronizada, treinada e registada no CRM",
   ]),
-  question(6, "service", "Como a empresa qualifica uma oportunidade?", [
-    "Não existe qualificação", "A qualificação depende da experiência de quem atende", "Existem algumas perguntas comuns", "Existem critérios e perguntas definidos", "A qualificação está integrada no processo e registada no CRM",
-  ]),
-  question(7, "process", "As etapas da jornada comercial estão definidas?", [
+  question(5, "process", "As etapas da jornada comercial estão definidas?", [
     "Não existem etapas claras", "A equipa conhece algumas etapas informalmente", "Existe um funil básico", "As etapas e objetivos estão documentados", "Cada etapa possui critérios claros de entrada, avanço e conclusão",
   ]),
-  question(8, "process", "As responsabilidades comerciais estão claramente distribuídas?", [
+  question(6, "process", "As responsabilidades comerciais estão claramente distribuídas?", [
     "Não existe clareza sobre responsabilidades", "As responsabilidades são decididas conforme a situação", "Existem responsáveis, mas ocorrem falhas e sobreposições", "Cada etapa possui um responsável", "Existem responsáveis, prazos, alertas e acompanhamento",
   ]),
-  question(9, "process", "O que acontece depois de uma reunião, diagnóstico, consulta ou apresentação?", [
-    "A empresa aguarda que o potencial cliente responda", "É enviada uma proposta, mas sem próximo passo definido", "Existe algum acompanhamento", "O próximo passo é definido e registado", "Existe uma sequência estruturada até à decisão ou encerramento",
-  ]),
-  question(10, "crm_followup", "Como as oportunidades são organizadas?", [
+  question(7, "crm_followup", "Como as oportunidades são organizadas?", [
     "Em conversas, memória pessoal ou anotações dispersas", "Em folhas de cálculo ou ferramentas não centralizadas", "Existe CRM, mas é utilizado apenas parcialmente", "O CRM centraliza a maioria das oportunidades", "O CRM é a fonte principal da operação e é utilizado por toda a equipa",
   ]),
-  question(11, "crm_followup", "Existe um processo de follow-up?", [
+  question(8, "crm_followup", "Existe um processo de follow-up?", [
     "Não existe", "O follow-up acontece quando alguém se lembra", "Existem algumas mensagens ou tarefas", "Existe uma sequência definida", "A sequência é personalizada, acompanhada e parcialmente automatizada",
   ]),
-  question(12, "crm_followup", "A empresa trabalha a reativação de oportunidades antigas?", [
-    "Nunca", "Apenas em situações pontuais", "Já foram realizadas algumas campanhas", "A reativação acontece periodicamente", "A base é segmentada, acompanhada e reativada de forma estruturada",
-  ]),
-  question(13, "data_management", "A empresa conhece as taxas de conversão do processo comercial?", [
+  question(9, "data_management", "A empresa conhece as taxas de conversão do processo comercial?", [
     "Não conhece", "Conhece apenas a quantidade final de vendas", "Acompanha alguns números manualmente", "Conhece as conversões das principais etapas", "Analisa conversões por etapa, período, canal e responsável",
   ]),
-  question(14, "data_management", "Os motivos de perda das oportunidades são registados?", [
-    "Não", "Apenas quando alguém se lembra", "Existem registos, mas são inconsistentes", "Os motivos de perda são padronizados", "Os motivos são analisados e geram ações de melhoria",
+  question(10, "data_management", "Existe uma rotina de acompanhamento comercial?", [
+    "Não existe", "Os resultados são analisados apenas quando surge um problema", "Existem reuniões, números ou registos ocasionais", "Existe acompanhamento periódico de conversões e motivos de perda", "Existe uma rotina com indicadores, perdas padronizadas, responsáveis, decisões e ações",
   ]),
-  question(15, "data_management", "Existe uma rotina de acompanhamento comercial?", [
-    "Não existe", "Os resultados são analisados apenas quando surge um problema", "Existem reuniões ou relatórios ocasionais", "Existe acompanhamento periódico", "Existe uma rotina com indicadores, responsáveis, decisões e ações",
-  ]),
-  question(16, "automation_intelligence", "Os canais e ferramentas comerciais estão integrados?", [
+  question(11, "automation_intelligence", "Os canais e ferramentas comerciais estão integrados?", [
     "As informações estão dispersas", "A equipa transfere informações manualmente", "Existem algumas integrações", "Os principais canais estão ligados", "A informação circula entre os sistemas com monitorização e controlo",
   ]),
-  question(17, "automation_intelligence", "A empresa utiliza automações no processo comercial?", [
-    "Não utiliza", "Utiliza apenas respostas automáticas simples", "Automatiza algumas tarefas", "Automatiza tarefas, alertas e acompanhamentos", "As automações fazem parte do processo e são continuamente melhoradas",
-  ]),
-  question(18, "automation_intelligence", "Como a inteligência artificial é utilizada no processo comercial?", [
-    "Não é utilizada", "É utilizada individualmente e sem processo definido", "É utilizada para algumas tarefas", "Está integrada em atividades específicas da operação", "Apoia atendimento, análise, acompanhamento ou decisão de forma estruturada",
+  question(12, "automation_intelligence", "A empresa utiliza automações no processo comercial?", [
+    "Não utiliza", "Utiliza apenas respostas automáticas simples", "Automatiza algumas tarefas ou utiliza IA individualmente", "Automatiza tarefas, alertas e acompanhamentos", "Automação e IA apoiam o processo de forma monitorizada e continuamente melhorada",
   ]),
 ];
 

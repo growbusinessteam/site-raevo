@@ -92,13 +92,11 @@ export function buildSubmissionPayload(state, { idempotencyKey = createIdempoten
   if (!name || whatsapp.replace(/\D/g, "").length < 9 || !sector) throw new TypeError("Os dados iniciais do lead estão incompletos.");
   const context = {
     monthly_opportunities: String(state?.context?.monthly_opportunities ?? "").trim(),
-    average_sale_value: String(state?.context?.average_sale_value ?? "").trim(),
-    commercial_team_size: String(state?.context?.commercial_team_size ?? "").trim(),
     main_goal: String(state?.context?.main_goal ?? "").trim(),
   };
-  if (Object.values(context).some((value) => !value)) throw new TypeError("As quatro perguntas de contexto devem estar respondidas.");
-  const answers = Array.from({ length: 18 }, (_, index) => ({ question: index + 1, score: state?.answers?.[String(index + 1)] }));
-  if (answers.some(({ score }) => !Number.isInteger(score) || score < 0 || score > 4)) throw new TypeError("As 18 perguntas de maturidade devem estar respondidas.");
+  if (Object.values(context).some((value) => !value)) throw new TypeError("As duas perguntas de contexto devem estar respondidas.");
+  const answers = Array.from({ length: 12 }, (_, index) => ({ question: index + 1, score: state?.answers?.[String(index + 1)] }));
+  if (answers.some(({ score }) => !Number.isInteger(score) || score < 0 || score > 4)) throw new TypeError("As 12 perguntas de maturidade devem estar respondidas.");
   const submittedAt = now();
   return {
     idempotency_key: idempotencyKey,

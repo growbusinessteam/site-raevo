@@ -1,20 +1,19 @@
-export const STORAGE_KEY = "raevo:maturity:v2";
-export const STATE_VERSION = 2;
-export const MATURITY_RELEASE = "20260822-auto2";
+export const STORAGE_KEY = "raevo:maturity:v3";
+export const STATE_VERSION = 3;
+export const MATURITY_RELEASE = "20260823-short1";
 
 const BASE = "/teste-maturidade-comercial";
 export const LEAD_PATH = `${BASE}/dados-iniciais/`;
 export const CONTEXT_STEPS = [
   ["monthly_opportunities", "oportunidades"],
-  ["average_sale_value", "valor-medio"],
-  ["commercial_team_size", "equipa"],
   ["main_goal", "objetivo"],
 ];
 
 const contextPaths = CONTEXT_STEPS.map(([, slug]) => `${BASE}/contexto/${slug}/`);
-const questionPaths = Array.from({ length: 18 }, (_, index) => `${BASE}/pergunta/${String(index + 1).padStart(2, "0")}/`);
+const questionPaths = Array.from({ length: 12 }, (_, index) => `${BASE}/pergunta/${String(index + 1).padStart(2, "0")}/`);
 export const COMPLETION_PATH = `${BASE}/processando/`;
 export const FUNNEL_PATHS = [...contextPaths, ...questionPaths, COMPLETION_PATH];
+export const ASSESSMENT_TOTAL = 14;
 
 export function withMaturityRelease(path) {
   const url = new URL(String(path ?? ""), "https://raevo.io");
@@ -75,7 +74,7 @@ export function setContextAnswer(state, key, value) {
 }
 
 export function setMaturityAnswer(state, number, score) {
-  if (!Number.isInteger(number) || number < 1 || number > 18) throw new RangeError("O número da pergunta deve estar entre 1 e 18.");
+  if (!Number.isInteger(number) || number < 1 || number > 12) throw new RangeError("O número da pergunta deve estar entre 1 e 12.");
   if (!Number.isInteger(score) || score < 0 || score > 4) throw new RangeError("A pontuação deve estar entre 0 e 4.");
   return touch(state, { answers: { ...state.answers, [String(number)]: score } });
 }
@@ -86,10 +85,18 @@ export function getFirstIncompletePath(state) {
     const [key] = CONTEXT_STEPS[index];
     if (!String(state?.context?.[key] ?? "").trim()) return contextPaths[index];
   }
-  for (let number = 1; number <= 18; number += 1) {
+  for (let number = 1; number <= 12; number += 1) {
     if (!Number.isInteger(state?.answers?.[String(number)])) return questionPaths[number - 1];
   }
   return COMPLETION_PATH;
+}
+
+export function getAssessmentProgress(state) {
+  const completedContexts = CONTEXT_STEPS.filter(([key]) => String(state?.context?.[key] ?? "").trim()).length;
+  const completedAnswers = Array.from({ length: 12 }, (_, index) => state?.answers?.[String(index + 1)])
+    .filter((score) => Number.isInteger(score) && score >= 0 && score <= 4).length;
+  const completed = completedContexts + completedAnswers;
+  return { completed, total: ASSESSMENT_TOTAL, percentage: Math.round((completed / ASSESSMENT_TOTAL) * 100) };
 }
 
 function normalizePath(path) {
