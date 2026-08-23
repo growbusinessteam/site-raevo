@@ -100,6 +100,10 @@ assert.match(resultPage, /\/teste-maturidade-comercial\/dados-iniciais\//);
 
 const footer = read("src/components/maturity/MaturityFooter.astro");
 assert.match(footer, /href="\/termos\/"/);
+assert.match(header, /width="755" height="166"/);
+assert.match(footer, /width="755" height="166"/);
+const maturityStyles = read("src/styles/maturity.css");
+assert.match(maturityStyles, /\.maturity-footer__logo\s*\{[^}]*height:\s*auto/s);
 
 const cacheRules = read("public/teste-maturidade-comercial/.htaccess");
 assert.match(cacheRules, /Cache-Control/);

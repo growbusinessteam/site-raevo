@@ -115,7 +115,7 @@ button { color: inherit; }
 
 .maturity-footer { padding: 64px 0 24px; background: var(--m-stone); }
 .maturity-footer__grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 70px; align-items: start; }
-.maturity-footer__logo { width: 154px; }
+.maturity-footer__logo { width: 154px; height: auto; }
 .maturity-footer__grid p { color: #6c655d; font-size: 13px; }
 .maturity-footer__claim { margin: 0; font: 600 20px/1.45 var(--m-display); color: var(--m-coal)!important; }
 .maturity-footer nav { display: flex; flex-direction: column; gap: 9px; font-size: 13px; }

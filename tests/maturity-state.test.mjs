@@ -16,7 +16,7 @@ import {
 } from "../src/lib/maturity-state.mjs";
 
 assert.equal(STORAGE_KEY, "raevo:maturity:v3");
-assert.equal(MATURITY_RELEASE, "20260823-short1");
+assert.equal(MATURITY_RELEASE, "20260823-logo1");
 assert.match(MATURITY_RELEASE, /^2026[0-9a-z-]+$/i);
 assert.equal(
   withMaturityRelease("/teste-maturidade-comercial/contexto/oportunidades/"),

@@ -1,6 +1,6 @@
 export const STORAGE_KEY = "raevo:maturity:v3";
 export const STATE_VERSION = 3;
-export const MATURITY_RELEASE = "20260823-short1";
+export const MATURITY_RELEASE = "20260823-logo1";
 
 const BASE = "/teste-maturidade-comercial";
 export const LEAD_PATH = `${BASE}/dados-iniciais/`;
