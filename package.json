@@ -8,7 +8,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "node tests/site-structure.test.mjs && node tests/official-site.test.mjs && node tests/official-form.test.mjs && node tests/maturity-scoring.test.mjs && node tests/maturity-state.test.mjs && node tests/maturity-form.test.mjs && node tests/maturity-result.test.mjs && node tests/maturity-routes.test.mjs && node tests/maturity-api-contract.test.mjs"
+    "test": "node tests/site-structure.test.mjs && node tests/official-site.test.mjs && node tests/official-form.test.mjs && node tests/maturity-scoring.test.mjs && node tests/maturity-state.test.mjs && node tests/maturity-form.test.mjs && node tests/maturity-result.test.mjs && node tests/maturity-routes.test.mjs && node tests/maturity-tracking.test.mjs && node tests/maturity-api-contract.test.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.6",
