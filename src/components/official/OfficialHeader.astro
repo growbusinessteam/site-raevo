@@ -1,0 +1,53 @@
+---
+import type { OfficialContent } from "../../data/official";
+const { content } = Astro.props as { content: OfficialContent };
+---
+<header class="official-header" data-header>
+  <div class="official-container header-inner">
+    <a class="brand" href={content.homeHref} aria-label="Raevo home">
+      <img src="/assets/brand/raevo-logo-official-transparent.png" alt="Raevo" width="755" height="166" />
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      {content.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <a class="country-switch" href={content.alternateHref} data-country-switch aria-label={content.switchLabel}>
+        <span aria-hidden="true">{content.flag}</span><span>{content.country}</span><span class="material-symbols-outlined" aria-hidden="true">swap_horiz</span>
+      </a>
+      <a class="button button-dark header-cta" href={content.formHref}>Falar com especialista</a>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="official-mobile-menu" data-menu-toggle>
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="official-mobile-menu" hidden data-mobile-menu>
+    <nav class="official-container" aria-label="Navegação móvel">
+      {content.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a class="country-switch" href={content.alternateHref} data-country-switch>{content.flag} {content.switchLabel}</a>
+      <a class="button button-dark" href={content.formHref}>Falar com especialista</a>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const menu = document.querySelector("[data-mobile-menu]");
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.setAttribute("aria-expanded", String(open));
+    if (menu instanceof HTMLElement) menu.hidden = !open;
+    const icon = toggle.querySelector(".material-symbols-outlined");
+    if (icon) icon.textContent = open ? "close" : "menu";
+  });
+  menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+    toggle?.setAttribute("aria-expanded", "false");
+    if (menu instanceof HTMLElement) menu.hidden = true;
+  }));
+  document.querySelectorAll("[data-country-switch]").forEach((link) => {
+    if (!(link instanceof HTMLAnchorElement) || !window.location.search) return;
+    const next = new URL(link.href, window.location.origin);
+    next.search = window.location.search;
+    link.href = next.toString();
+  });
+  const header = document.querySelector("[data-header]");
+  window.addEventListener("scroll", () => header?.classList.toggle("is-scrolled", window.scrollY > 32), { passive: true });
+</script>

@@ -26,8 +26,9 @@ import { navItems, site } from "../data/site";
     padding: 10px 12px;
     border: 1px solid rgba(184, 171, 152, 0.42);
     border-radius: 8px;
-    background: rgba(233, 228, 218, 0.86);
+    background: rgba(247, 246, 241, 0.88);
     backdrop-filter: blur(18px);
+    box-shadow: 0 16px 42px rgba(23, 24, 22, 0.08);
   }
 
   .brand {
@@ -54,14 +55,33 @@ import { navItems, site } from "../data/site";
   .header-cta {
     font-size: 0.84rem;
     font-weight: 700;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
   }
 
   nav a {
-    color: rgba(31, 31, 31, 0.72);
+    position: relative;
+    color: rgba(23, 24, 22, 0.72);
   }
 
   nav a:hover {
     color: var(--color-carvao);
+  }
+
+  nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    left: 0;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    background: var(--color-cian);
+    content: "";
+    transition: transform 180ms ease;
+  }
+
+  nav a:hover::after {
+    transform: scaleX(1);
   }
 
   .header-cta {
@@ -69,9 +89,16 @@ import { navItems, site } from "../data/site";
     border: 1px solid rgba(199, 169, 122, 0.75);
     border-radius: 6px;
     color: var(--color-carvao);
+    background: rgba(255, 255, 255, 0.32);
   }
 
-  @media (max-width: 760px) {
+  .header-cta:hover {
+    transform: translateY(-1px);
+    border-color: rgba(0, 174, 188, 0.58);
+    background: rgba(0, 174, 188, 0.08);
+  }
+
+  @media (max-width: 920px) {
     .site-header {
       grid-template-columns: 1fr auto;
     }

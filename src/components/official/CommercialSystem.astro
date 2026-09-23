@@ -1,0 +1,14 @@
+---
+import type { OfficialContent } from "../../data/official";
+const { steps } = Astro.props as { steps: OfficialContent["journey"] };
+---
+<ol class="commercial-system" aria-label="Sistema Comercial Raevo">
+  {steps.map((step, index) => (
+    <li class:list={["commercial-step", { "is-core": step.label === "CRM" }]}> 
+      <span class="commercial-index">{String(index + 1).padStart(2, "0")}</span>
+      <span class="commercial-dot" aria-hidden="true"></span>
+      <strong>{step.label}</strong>
+      <span>{step.detail}</span>
+    </li>
+  ))}
+</ol>

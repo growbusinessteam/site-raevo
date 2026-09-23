@@ -1,13 +1,14 @@
 export const site = {
   name: "Raevo",
   description:
-    "Implementação comercial e crescimento previsível para clínicas high-ticket.",
+    "Implementação comercial e crescimento previsível para clínicas especializadas.",
   url: "https://raevo.io",
   ctaLabel: "Simular plano",
   ctaHref: "/#simulador",
 };
 
 export const navItems = [
+  { href: "/", label: "Home" },
   { href: "/#problema", label: "Problema" },
   { href: "/#implementacao", label: "Implementação" },
   { href: "/#crescimento", label: "Crescimento" },

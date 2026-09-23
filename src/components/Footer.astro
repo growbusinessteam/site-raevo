@@ -5,7 +5,7 @@ import { navItems } from "../data/site";
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <img src="/assets/brand/raevo-logo-stone-cyan.png" alt="Raevo" />
+      <img src="/assets/brand/raevo-logo-stone-cyan.png" alt="Raevo" width="156" height="156" loading="lazy" />
       <p>Visao para evoluir. Sistemas para crescer.</p>
     </div>
     <nav aria-label="Rodape">
@@ -50,6 +50,11 @@ import { navItems } from "../data/site";
   a {
     color: rgba(233, 228, 218, 0.76);
     font-weight: 700;
+    transition: color 160ms ease;
+  }
+
+  a:hover {
+    color: var(--color-cian);
   }
 
   @media (max-width: 700px) {

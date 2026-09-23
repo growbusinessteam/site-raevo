@@ -1,0 +1,2562 @@
+[
+  {
+    "tab": "Marketing e Captação",
+    "data": {
+      "controls": [
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nova call",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Particular",
+            "Convênio",
+            "Particular + Convênio"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...ParticularConvênioParticular + Convênio",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "placeholder": "Ex: Botox, Preenchimento, Cirurgia...",
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Marketing e Captação",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Comercial e Conversão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Gestão e Crescimento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Autoridade e Imagem",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Produto e Monetização",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "SPIN",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Convênios / Planos de saúde",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Indicação de pacientes",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Google / SEO / Google Meu Negócio",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Instagram / redes sociais",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tráfego pago",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Parcerias médicas ou profissionais",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Eventos / palestras / comunidade",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não investe",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Investe até R$ 1.000/mês sem clareza de retorno",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Investe entre R$ 1.000 e R$ 5.000/mês com acompanhamento parcial",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Investe acima de R$ 5.000/mês com métricas claras",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "number"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nunca pesquisei",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Aparece mal e/ou sem avaliações fortes",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Aparece razoavelmente, mas com inconsistência",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Aparece bem posicionada com reputação forte",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Quase nunca posta",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "1 a 2 vezes por semana sem estratégia",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "3 a 4 vezes por semana com alguma organização",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Conteúdo frequente com estratégia clara",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não possui",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tem site institucional básico",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tem site razoável, mas pouco otimizado",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tem estrutura forte com foco em conversão",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Ninguém cuida de forma estruturada",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "O próprio médico",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Secretária / equipe interna",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Freelancer",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Agência",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nunca",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Já contratei e foi ruim",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Já contratei e foi mediano",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Já contratei e tive algum resultado",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Anterior",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Próxima",
+          "type": null
+        }
+      ],
+      "sections": [
+        "Diagnóstico Principal",
+        "Contexto Operacional",
+        "Diagnóstico de Maturidade Atual"
+      ],
+      "text": "Diagnóstico Principal • 27% concluído Nova call ETAPA 4 Diagnóstico Principal 70% da call — explore cada pilar em profundidade Contexto Operacional Atende particular ou convênio? Selecione... Particular Convênio Particular + Convênio Quantas secretárias você tem? Quais dias da semana atende? Sua agenda está com fila de espera? Selecione... Sim Não Tem programa de acompanhamento? Selecione... Sim Não Tem protocolo ou infoproduto? Selecione... Sim Não Quais procedimentos você realiza? Diagnóstico de Maturidade Atual Preenchido: 0% Saúde da operação: 0% Crítico Marketing Comercial Gestão Autoridade Produto 0 25 50 75 100 Marketing e Captação 0% Crítico 0% preenchido Comercial e Conversão 0% Crítico 0% preenchido Gestão e Crescimento 0% Crítico 0% preenchido Autoridade e Imagem 0% Crítico 0% preenchido Produto e Monetização 0% Crítico 0% preenchido Este gráfico representa a saúde atual da operação com base nas respostas do diagnóstico. Quanto menor a nota, maior a gravidade do gargalo identificado. O objetivo é evidenciar os pontos que hoje limitam crescimento, previsibilidade e faturamento. Marketing e Captação Comercial e Conversão Gestão e Crescimento Autoridade e Imagem Produto e Monetização SPIN 1.1 Fontes de pacientes Atualmente, quais são as principais fontes de captação de pacientes para sua clínica? Selecione todas que se aplicam Convênios / Planos de saúde Indicação de pacientes Google / SEO / Google Meu Negócio Instagram / redes sociais Tráfego pago Parcerias médicas ou profissionais Eventos / palestras / comunidade Outro cenário Dor percebida Baixa Média Alta Observação do closer 1.2 Investimento em mídia Sua clínica investe em publicidade paga online? Não investe Investe até R$ 1.000/mês sem clareza de retorno Investe entre R$ 1.000 e R$ 5.000/mês com acompanhamento parcial Investe acima de R$ 5.000/mês com métricas claras Outro cenário Dor percebida Baixa Média Alta Observação do closer Valor mensal aproximado Quem gerencia o tráfego? 1.3 Presença no Google Ao pesquisar sua especialidade + cidade, sua clínica aparece bem posicionada e com boas avaliações? Nunca pesquisei Aparece mal e/ou sem avaliações fortes Aparece razoavelmente, mas com inconsistência Aparece bem posicionada com reputação forte Outro cenário Dor percebida Baixa Média Alta Observação do closer Nota média no Google Quantidade de avaliações 1.4 Conteúdo e constância Como está a produção de conteúdo da clínica? Quase nunca posta 1 a 2 vezes por semana sem estratégia 3 a 4 vezes por semana com alguma organização Conteúdo frequente com estratégia clara Outro cenário Dor percebida Baixa Média Alta Observação do closer Quem produz os conteúdos? O médico grava? Existe calendário editorial? 1.5 Estrutura digital para conversão Sua clínica possui site, landing page ou estrutura digital pensada para converter pacientes? Não possui Tem site institucional básico Tem site razoável, mas pouco otimizado Tem estrutura forte com foco em conversão Outro cenário Dor percebida Baixa Média Alta Observação do closer Botão de WhatsApp? Formulário? Pixel / rastreamento? 1.6 Responsável pelo marketing Hoje, quem cuida do marketing da clínica? Ninguém cuida de forma estruturada O próprio médico Secretária / equipe interna Freelancer Agência Outro cenário Dor percebida Baixa Média Alta Observação do closer 1.7 Experiências passadas Você já contratou agência, gestor de tráfego ou alguém de marketing antes? Nunca Já contratei e foi ruim Já contratei e foi mediano Já contratei e tive algum resultado Outro cenário Dor percebida Baixa Média Alta Observação do closer O que frustrou? O que funcionou? Anterior Próxima"
+    }
+  },
+  {
+    "tab": "Comercial e Conversão",
+    "data": {
+      "controls": [
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nova call",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Particular",
+            "Convênio",
+            "Particular + Convênio"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...ParticularConvênioParticular + Convênio",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "placeholder": "Ex: Botox, Preenchimento, Cirurgia...",
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Marketing e Captação",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Comercial e Conversão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Gestão e Crescimento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Autoridade e Imagem",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Produto e Monetização",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "SPIN",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Horas ou às vezes no dia seguinte",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Entre 1 e 2 horas",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Menos de 30 minutos",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Menos de 5 minutos com padrão definido",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não usa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Usa planilha / anotações",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Usa sistema, mas mal aproveitado",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Usa CRM ou software bem estruturado",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não existe",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Existe de forma improvisada",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Existe parcialmente",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Existe com script e acompanhamento",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não sei",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "0 a 2",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "3 a 4",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "5 ou mais",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nada",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tentam responder depois, sem padrão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Retornam algumas vezes",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Existe uma cadência organizada",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nunca",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Só orientação inicial",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Eventualmente",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Recorrente e estruturado",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Demora no atendimento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Falta de follow-up",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Falta de script",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Preço / objeção de valor",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Falta de organização",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não sei",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Anterior",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Próxima",
+          "type": null
+        }
+      ],
+      "sections": [
+        "Diagnóstico Principal",
+        "Contexto Operacional",
+        "Diagnóstico de Maturidade Atual"
+      ],
+      "text": "Diagnóstico Principal • 27% concluído Nova call ETAPA 4 Diagnóstico Principal 70% da call — explore cada pilar em profundidade Contexto Operacional Atende particular ou convênio? Selecione... Particular Convênio Particular + Convênio Quantas secretárias você tem? Quais dias da semana atende? Sua agenda está com fila de espera? Selecione... Sim Não Tem programa de acompanhamento? Selecione... Sim Não Tem protocolo ou infoproduto? Selecione... Sim Não Quais procedimentos você realiza? Diagnóstico de Maturidade Atual Preenchido: 0% Saúde da operação: 0% Crítico Marketing Comercial Gestão Autoridade Produto 0 25 50 75 100 Marketing e Captação 0% Crítico 0% preenchido Comercial e Conversão 0% Crítico 0% preenchido Gestão e Crescimento 0% Crítico 0% preenchido Autoridade e Imagem 0% Crítico 0% preenchido Produto e Monetização 0% Crítico 0% preenchido Este gráfico representa a saúde atual da operação com base nas respostas do diagnóstico. Quanto menor a nota, maior a gravidade do gargalo identificado. O objetivo é evidenciar os pontos que hoje limitam crescimento, previsibilidade e faturamento. Marketing e Captação Comercial e Conversão Gestão e Crescimento Autoridade e Imagem Produto e Monetização SPIN 2.1 Tempo de resposta Qual o tempo médio de resposta para novos pacientes no WhatsApp? Horas ou às vezes no dia seguinte Entre 1 e 2 horas Menos de 30 minutos Menos de 5 minutos com padrão definido Outro cenário Dor percebida Baixa Média Alta Observação do closer 2.2 Sistema de acompanhamento Sua clínica usa CRM ou algum sistema para acompanhar leads e pacientes? Não usa Usa planilha / anotações Usa sistema, mas mal aproveitado Usa CRM ou software bem estruturado Outro cenário Dor percebida Baixa Média Alta Observação do closer 2.3 Qualificação do lead Existe um processo padrão para entender o motivo do contato, urgência e prontidão para agendar? Não existe Existe de forma improvisada Existe parcialmente Existe com script e acompanhamento Outro cenário Dor percebida Baixa Média Alta Observação do closer 2.4 Conversão em agendamento De cada 10 contatos, quantos agendam? Não sei 0 a 2 3 a 4 5 ou mais Outro cenário Dor percebida Baixa Média Alta Observação do closer 2.5 Follow-up de não agendados O que acontece quando o paciente não agenda na primeira conversa? Nada Tentam responder depois, sem padrão Retornam algumas vezes Existe uma cadência organizada Outro cenário Dor percebida Baixa Média Alta Observação do closer 2.6 Secretária e treinamento Sua equipe de atendimento recebe treinamento de vendas, objeções e experiência do paciente? Nunca Só orientação inicial Eventualmente Recorrente e estruturado Outro cenário Dor percebida Baixa Média Alta Observação do closer 2.7 Perdas comerciais Hoje você acredita que perde pacientes mais por qual motivo? Selecione todas que se aplicam Demora no atendimento Falta de follow-up Falta de script Preço / objeção de valor Falta de organização Não sei Outro cenário Dor percebida Baixa Média Alta Observação do closer Anterior Próxima"
+    }
+  },
+  {
+    "tab": "Gestão e Crescimento",
+    "data": {
+      "controls": [
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nova call",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Particular",
+            "Convênio",
+            "Particular + Convênio"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...ParticularConvênioParticular + Convênio",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "placeholder": "Ex: Botox, Preenchimento, Cirurgia...",
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Marketing e Captação",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Comercial e Conversão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Gestão e Crescimento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Autoridade e Imagem",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Produto e Monetização",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "SPIN",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Até R$ 30 mil",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "R$ 30 mil a R$ 60 mil",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "R$ 60 mil a R$ 100 mil",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Acima de R$ 100 mil",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "number"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Consultas",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Procedimentos avulsos",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Protocolos / programas",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Cirurgias",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Convênios",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Retornos",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nenhuma",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não acompanho nada",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Acompanho faturamento só por alto",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Acompanho alguns números",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tenho dashboard e rotina de análise",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Falta de demanda",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Falta de conversão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Time despreparado",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Falta de posicionamento / autoridade",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Falta de gestão e indicadores",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Dependência excessiva do médico",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Médico sozinho",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Médico + 1 secretária",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Pequena equipe",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Clínica mais estruturada",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Anterior",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Próxima",
+          "type": null
+        }
+      ],
+      "sections": [
+        "Diagnóstico Principal",
+        "Contexto Operacional",
+        "Diagnóstico de Maturidade Atual"
+      ],
+      "text": "Diagnóstico Principal • 27% concluído Nova call ETAPA 4 Diagnóstico Principal 70% da call — explore cada pilar em profundidade Contexto Operacional Atende particular ou convênio? Selecione... Particular Convênio Particular + Convênio Quantas secretárias você tem? Quais dias da semana atende? Sua agenda está com fila de espera? Selecione... Sim Não Tem programa de acompanhamento? Selecione... Sim Não Tem protocolo ou infoproduto? Selecione... Sim Não Quais procedimentos você realiza? Diagnóstico de Maturidade Atual Preenchido: 0% Saúde da operação: 0% Crítico Marketing Comercial Gestão Autoridade Produto 0 25 50 75 100 Marketing e Captação 0% Crítico 0% preenchido Comercial e Conversão 0% Crítico 0% preenchido Gestão e Crescimento 0% Crítico 0% preenchido Autoridade e Imagem 0% Crítico 0% preenchido Produto e Monetização 0% Crítico 0% preenchido Este gráfico representa a saúde atual da operação com base nas respostas do diagnóstico. Quanto menor a nota, maior a gravidade do gargalo identificado. O objetivo é evidenciar os pontos que hoje limitam crescimento, previsibilidade e faturamento. Marketing e Captação Comercial e Conversão Gestão e Crescimento Autoridade e Imagem Produto e Monetização SPIN 3.1 Faturamento atual Qual o faturamento médio mensal atual da clínica/consultório? Até R$ 30 mil R$ 30 mil a R$ 60 mil R$ 60 mil a R$ 100 mil Acima de R$ 100 mil Outro cenário Dor percebida Baixa Média Alta Observação do closer Valor estimado (R$) 3.2 Estrutura de monetização Hoje, quais são as principais fontes de receita da clínica? Selecione todas que se aplicam Consultas Procedimentos avulsos Protocolos / programas Cirurgias Convênios Retornos Outro cenário Dor percebida Baixa Média Alta Observação do closer % receita de consultas % receita de procedimentos 3.3 Previsibilidade Você tem previsibilidade de agenda, demanda e faturamento? Nenhuma Baixa Média Alta Outro cenário Dor percebida Baixa Média Alta Observação do closer 3.4 Indicadores Hoje você acompanha indicadores do negócio? Não acompanho nada Acompanho faturamento só por alto Acompanho alguns números Tenho dashboard e rotina de análise Outro cenário Dor percebida Baixa Média Alta Observação do closer 3.5 Gargalo principal de crescimento O que mais trava o crescimento hoje? Selecione todas que se aplicam Falta de demanda Falta de conversão Time despreparado Falta de posicionamento / autoridade Falta de gestão e indicadores Dependência excessiva do médico Outro cenário Dor percebida Baixa Média Alta Observação do closer 3.6 Estrutura da operação Como está sua estrutura hoje? Médico sozinho Médico + 1 secretária Pequena equipe Clínica mais estruturada Outro cenário Dor percebida Baixa Média Alta Observação do closer Anterior Próxima"
+    }
+  },
+  {
+    "tab": "Autoridade e Imagem",
+    "data": {
+      "controls": [
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nova call",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Particular",
+            "Convênio",
+            "Particular + Convênio"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...ParticularConvênioParticular + Convênio",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "placeholder": "Ex: Botox, Preenchimento, Cirurgia...",
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Marketing e Captação",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Comercial e Conversão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Gestão e Crescimento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Autoridade e Imagem",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Produto e Monetização",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "SPIN",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tenho uma ideia vaga",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tenho clareza parcial",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tenho diferenciação forte e bem comunicada",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nunca",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Raramente",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Com alguma frequência",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "De forma estratégica e recorrente",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Parcial",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Boa, mas inconsistente em alguns pontos",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Muito boa e padronizada",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Muito pouco",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Às vezes",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Sim, de forma estruturada",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Básica",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Boa, mas sem padrão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Boa e com alguns diferenciais",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Muito bem desenhada e padronizada",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Anterior",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Próxima",
+          "type": null
+        }
+      ],
+      "sections": [
+        "Diagnóstico Principal",
+        "Contexto Operacional",
+        "Diagnóstico de Maturidade Atual"
+      ],
+      "text": "Diagnóstico Principal • 27% concluído Nova call ETAPA 4 Diagnóstico Principal 70% da call — explore cada pilar em profundidade Contexto Operacional Atende particular ou convênio? Selecione... Particular Convênio Particular + Convênio Quantas secretárias você tem? Quais dias da semana atende? Sua agenda está com fila de espera? Selecione... Sim Não Tem programa de acompanhamento? Selecione... Sim Não Tem protocolo ou infoproduto? Selecione... Sim Não Quais procedimentos você realiza? Diagnóstico de Maturidade Atual Preenchido: 0% Saúde da operação: 0% Crítico Marketing Comercial Gestão Autoridade Produto 0 25 50 75 100 Marketing e Captação 0% Crítico 0% preenchido Comercial e Conversão 0% Crítico 0% preenchido Gestão e Crescimento 0% Crítico 0% preenchido Autoridade e Imagem 0% Crítico 0% preenchido Produto e Monetização 0% Crítico 0% preenchido Este gráfico representa a saúde atual da operação com base nas respostas do diagnóstico. Quanto menor a nota, maior a gravidade do gargalo identificado. O objetivo é evidenciar os pontos que hoje limitam crescimento, previsibilidade e faturamento. Marketing e Captação Comercial e Conversão Gestão e Crescimento Autoridade e Imagem Produto e Monetização SPIN 4.1 Proposta de valor Você tem uma proposta de valor clara e um motivo forte para o paciente escolher sua clínica? Não Tenho uma ideia vaga Tenho clareza parcial Tenho diferenciação forte e bem comunicada Outro cenário Dor percebida Baixa Média Alta Observação do closer 4.2 Autoridade do médico O médico produz conteúdo de autoridade? Nunca Raramente Com alguma frequência De forma estratégica e recorrente Outro cenário Dor percebida Baixa Média Alta Observação do closer 4.3 Identidade visual A clínica possui identidade visual profissional e consistente? Não Parcial Boa, mas inconsistente em alguns pontos Muito boa e padronizada Outro cenário Dor percebida Baixa Média Alta Observação do closer 4.4 Provas sociais Existe processo ativo de coleta e uso de depoimentos e avaliações? Não Muito pouco Às vezes Sim, de forma estruturada Outro cenário Dor percebida Baixa Média Alta Observação do closer 4.5 Experiência do paciente Como você avalia a jornada do paciente do primeiro contato ao pós-consulta? Básica Boa, mas sem padrão Boa e com alguns diferenciais Muito bem desenhada e padronizada Outro cenário Dor percebida Baixa Média Alta Observação do closer Anterior Próxima"
+    }
+  },
+  {
+    "tab": "Produto e Monetização",
+    "data": {
+      "controls": [
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nova call",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Particular",
+            "Convênio",
+            "Particular + Convênio"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...ParticularConvênioParticular + Convênio",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "placeholder": "Ex: Botox, Preenchimento, Cirurgia...",
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Marketing e Captação",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Comercial e Conversão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Gestão e Crescimento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Autoridade e Imagem",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Produto e Monetização",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "SPIN",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Não tenho interesse",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tenho curiosidade, mas nunca pensei a fundo",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Tenho interesse e já pensei em algo",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Sim, quero estruturar isso",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Consulta premium",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Protocolo / programa de acompanhamento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Grupo / mentoria para pacientes",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Curso / treinamento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Comunidade / assinatura",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Infoproduto",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Ainda não sei",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nunca",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Já pensei, mas não executei",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Já executei sem estrutura",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Já vendo algo, mas quero escalar",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Aumentar faturamento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Escalar sem depender só da agenda",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Construir autoridade",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Ter previsibilidade",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Criar nova linha de receita",
+          "type": null
+        },
+        {
+          "placeholder": "Descreva...",
+          "tag": "INPUT",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Baixa",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Média",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Alta",
+          "type": null
+        },
+        {
+          "placeholder": "Anotações...",
+          "tag": "TEXTAREA",
+          "text": "",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Anterior",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Próxima",
+          "type": null
+        }
+      ],
+      "sections": [
+        "Diagnóstico Principal",
+        "Contexto Operacional",
+        "Diagnóstico de Maturidade Atual"
+      ],
+      "text": "Diagnóstico Principal • 27% concluído Nova call ETAPA 4 Diagnóstico Principal 70% da call — explore cada pilar em profundidade Contexto Operacional Atende particular ou convênio? Selecione... Particular Convênio Particular + Convênio Quantas secretárias você tem? Quais dias da semana atende? Sua agenda está com fila de espera? Selecione... Sim Não Tem programa de acompanhamento? Selecione... Sim Não Tem protocolo ou infoproduto? Selecione... Sim Não Quais procedimentos você realiza? Diagnóstico de Maturidade Atual Preenchido: 0% Saúde da operação: 0% Crítico Marketing Comercial Gestão Autoridade Produto 0 25 50 75 100 Marketing e Captação 0% Crítico 0% preenchido Comercial e Conversão 0% Crítico 0% preenchido Gestão e Crescimento 0% Crítico 0% preenchido Autoridade e Imagem 0% Crítico 0% preenchido Produto e Monetização 0% Crítico 0% preenchido Este gráfico representa a saúde atual da operação com base nas respostas do diagnóstico. Quanto menor a nota, maior a gravidade do gargalo identificado. O objetivo é evidenciar os pontos que hoje limitam crescimento, previsibilidade e faturamento. Marketing e Captação Comercial e Conversão Gestão e Crescimento Autoridade e Imagem Produto e Monetização SPIN 5.1 Interesse em produtizar Você tem interesse em transformar seu conhecimento em produtos ou novas fontes de receita? Não tenho interesse Tenho curiosidade, mas nunca pensei a fundo Tenho interesse e já pensei em algo Sim, quero estruturar isso Outro cenário Dor percebida Baixa Média Alta Observação do closer 5.2 Formatos desejados Que tipo de produto faria mais sentido para você? Selecione todas que se aplicam Consulta premium Protocolo / programa de acompanhamento Grupo / mentoria para pacientes Curso / treinamento Comunidade / assinatura Infoproduto Ainda não sei Outro cenário Dor percebida Baixa Média Alta Observação do closer 5.3 Tema monetizável Sobre qual tema você acredita que tem mais autoridade e demanda para estruturar algo? Outro cenário Dor percebida Baixa Média Alta Observação do closer Descreva o tema 5.4 Nível de maturidade Você já tentou vender algo além da consulta? Nunca Já pensei, mas não executei Já executei sem estrutura Já vendo algo, mas quero escalar Outro cenário Dor percebida Baixa Média Alta Observação do closer 5.5 Objetivo com a produtização O que mais te atrai nessa possibilidade? Selecione todas que se aplicam Aumentar faturamento Escalar sem depender só da agenda Construir autoridade Ter previsibilidade Criar nova linha de receita Outro cenário Dor percebida Baixa Média Alta Observação do closer Anterior Próxima"
+    }
+  },
+  {
+    "tab": "SPIN",
+    "data": {
+      "controls": [
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Nova call",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Particular",
+            "Convênio",
+            "Particular + Convênio"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...ParticularConvênioParticular + Convênio",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "options": [
+            "Selecione...",
+            "Sim",
+            "Não"
+          ],
+          "placeholder": null,
+          "tag": "SELECT",
+          "text": "Selecione...SimNão",
+          "type": null
+        },
+        {
+          "placeholder": "Ex: Botox, Preenchimento, Cirurgia...",
+          "tag": "INPUT",
+          "text": "",
+          "type": "text"
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Marketing e Captação",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Comercial e Conversão",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Gestão e Crescimento",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Autoridade e Imagem",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Produto e Monetização",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "SPIN",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Anterior",
+          "type": null
+        },
+        {
+          "placeholder": null,
+          "tag": "BUTTON",
+          "text": "Próxima",
+          "type": null
+        }
+      ],
+      "sections": [
+        "Diagnóstico Principal",
+        "Contexto Operacional",
+        "Diagnóstico de Maturidade Atual",
+        "Situação",
+        "Problema",
+        "Implicação",
+        "Necessidade de Solução"
+      ],
+      "text": "Diagnóstico Principal • 27% concluído Nova call ETAPA 4 Diagnóstico Principal 70% da call — explore cada pilar em profundidade Contexto Operacional Atende particular ou convênio? Selecione... Particular Convênio Particular + Convênio Quantas secretárias você tem? Quais dias da semana atende? Sua agenda está com fila de espera? Selecione... Sim Não Tem programa de acompanhamento? Selecione... Sim Não Tem protocolo ou infoproduto? Selecione... Sim Não Quais procedimentos você realiza? Diagnóstico de Maturidade Atual Preenchido: 0% Saúde da operação: 0% Crítico Marketing Comercial Gestão Autoridade Produto 0 25 50 75 100 Marketing e Captação 0% Crítico 0% preenchido Comercial e Conversão 0% Crítico 0% preenchido Gestão e Crescimento 0% Crítico 0% preenchido Autoridade e Imagem 0% Crítico 0% preenchido Produto e Monetização 0% Crítico 0% preenchido Este gráfico representa a saúde atual da operação com base nas respostas do diagnóstico. Quanto menor a nota, maior a gravidade do gargalo identificado. O objetivo é evidenciar os pontos que hoje limitam crescimento, previsibilidade e faturamento. Marketing e Captação Comercial e Conversão Gestão e Crescimento Autoridade e Imagem Produto e Monetização SPIN Situação \"Como sua operação funciona hoje?\" \"Quantos atendimentos / pacientes por mês você realiza?\" \"Quem cuida de marketing e comercial hoje?\" Problema \"Onde você sente que mais perde oportunidades?\" \"O que hoje mais te incomoda na operação?\" \"O que está travando seu crescimento?\" Implicação \"O que essa falha está custando em faturamento?\" \"Isso impacta sua rotina, agenda ou vida pessoal?\" \"O que acontece se continuar assim por mais 12 meses?\" Necessidade De Solução \"O que precisaria mudar para esse cenário ficar ideal?\" \"O que seria uma solução perfeita para você?\" \"Faz sentido ter alguém implementando isso com você?\" Anterior Próxima"
+    }
+  }
+]

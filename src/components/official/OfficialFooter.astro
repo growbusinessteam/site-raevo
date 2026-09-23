@@ -1,0 +1,17 @@
+---
+import type { OfficialContent } from "../../data/official";
+const { content } = Astro.props as { content: OfficialContent };
+---
+<footer class="official-footer">
+  <div class="official-container footer-inner">
+    <div class="footer-brand">
+      <img src="/assets/brand/raevo-logo-official-transparent.png" alt="Raevo" width="755" height="166" />
+      <p>© 2024 Raevo Consultoria. {content.footer.claim}</p>
+    </div>
+    <nav aria-label="Links do rodapé">
+      <a href="#">{content.footer.terms}</a>
+      <a href="/privacidade">{content.footer.privacy}</a>
+      <a href={content.formHref}>{content.footer.contact}</a>
+    </nav>
+  </div>
+</footer>

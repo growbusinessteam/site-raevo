@@ -1,0 +1,156 @@
+---
+import "../styles/live-semanal.css";
+import WhatsAppIcon from "../components/WhatsAppIcon.astro";
+
+const title = "Live semanal | Vendedor de IA para sua operação comercial | Raevo";
+const description =
+  "Descubra como preparar um vendedor de IA para atender, qualificar e encaminhar oportunidades sem perder o controlo da operação.";
+const whatsappUrl =
+  "https://chat.whatsapp.com/GvwmUptt85a7ffgfk1z358?s=cl&p=i&mlu=4&ilr=4";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f8f5" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://raevo.io/live-samanal-01" />
+    <meta property="og:image" content="https://raevo.io/assets/brand/raevo-brandboard.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://raevo.io/live-samanal-01" />
+    <link rel="icon" href="/favicon.ico?v=20260702" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header class="live-header">
+      <a class="live-brand" href="/" aria-label="Raevo - página inicial">
+        <img src="/assets/brand/raevo-logo-official-transparent.png" alt="Raevo" width="755" height="166" />
+      </a>
+      <p><span></span> LIVE GRATUITA · SEMANAL</p>
+      <a class="header-cta" href={whatsappUrl} data-whatsapp-cta aria-label="Entrar no grupo da live no WhatsApp">
+        <WhatsAppIcon /> Entrar no grupo
+      </a>
+    </header>
+
+    <main id="conteudo">
+      <section class="live-hero" aria-labelledby="hero-title">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span>Live 01</span> Para empresas de serviços</p>
+            <h1 id="hero-title">
+              Coloque um <strong>vendedor de IA</strong> para atender, qualificar e encaminhar oportunidades.
+            </h1>
+            <p class="hero-lead">
+              Descubra a base necessária para a IA trabalhar com qualidade - sem perder o controlo da experiência e das vendas.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-cta" href={whatsappUrl} data-whatsapp-cta aria-label="Quero entrar no grupo da live no WhatsApp">
+                <WhatsAppIcon />
+                Quero entrar no grupo da live
+              </a>
+              <p>Acesso direto. Sem formulário.<br />Grupo silencioso com os avisos da aula.</p>
+            </div>
+          </div>
+
+          <div class="command-system" aria-label="Sistema comercial formado por processo, CRM, inteligência artificial e equipe">
+            <div class="orbit orbit-outer" aria-hidden="true"></div>
+            <div class="orbit orbit-middle" aria-hidden="true"></div>
+            <div class="orbit orbit-inner" aria-hidden="true"></div>
+            <div class="system-core"><span>IA</span><small>em operação</small></div>
+            <div class="system-node node-process"><i></i><span>Processo</span></div>
+            <div class="system-node node-crm"><i></i><span>CRM</span></div>
+            <div class="system-node node-team"><i></i><span>Equipe</span></div>
+            <div class="system-node node-data"><i></i><span>Contexto</span></div>
+            <p class="system-caption">Não é só um chatbot.<br /><strong>É uma capacidade comercial conectada.</strong></p>
+          </div>
+        </div>
+
+        <div class="hero-proof" aria-label="Componentes da operação">
+          <p><span>01</span> Responde com consistência</p>
+          <p><span>02</span> Qualifica oportunidades</p>
+          <p><span>03</span> Preserva o contexto</p>
+          <p><span>04</span> Encaminha para pessoas</p>
+        </div>
+      </section>
+
+      <section class="live-learning" aria-labelledby="learning-title">
+        <div class="section-heading">
+          <p class="eyebrow dark"><span>O que você vai descobrir</span></p>
+          <h2 id="learning-title">O que precisa existir antes de colocar a IA para vender.</h2>
+          <p>Uma conversa prática sobre a operação que permite à IA ajudar de verdade - e os erros que transformam tecnologia em mais um sistema para controlar.</p>
+        </div>
+        <div class="learning-grid">
+          <article>
+            <span>01</span>
+            <h3>O papel certo para a IA</h3>
+            <p>O que ela pode responder, perguntar e executar sem ultrapassar os limites da sua operação.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Contexto que não se perde</h3>
+            <p>Como ligar WhatsApp, processo e CRM para cada oportunidade ter histórico, responsável e próxima ação.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Passagem para a equipe</h3>
+            <p>Quando a IA deve encaminhar a conversa e como entregar o contexto necessário para uma pessoa continuar.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Qualidade e evolução</h3>
+            <p>Como testar, acompanhar e melhorar a atuação sem confundir resposta automática com atendimento útil.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="live-fit" aria-labelledby="fit-title">
+        <div class="fit-intro">
+          <p class="eyebrow"><span>Esta live é para você se</span></p>
+          <h2 id="fit-title">As oportunidades chegam, mas a continuidade ainda depende da correria.</h2>
+        </div>
+        <div class="fit-list">
+          <p><i aria-hidden="true">✓</i> Você recebe contatos por WhatsApp, formulários, redes sociais ou indicação.</p>
+          <p><i aria-hidden="true">✓</i> Sua venda depende de conversa, esclarecimento, confiança e acompanhamento.</p>
+          <p><i aria-hidden="true">✓</i> Você quer usar IA sem deixar o atendimento robotizado ou perder controle.</p>
+          <p><i aria-hidden="true">✓</i> Sua equipe precisa dedicar mais tempo ao que realmente exige presença humana.</p>
+        </div>
+      </section>
+
+      <section class="live-final" aria-labelledby="final-title">
+        <div class="final-orbit" aria-hidden="true"></div>
+        <p class="eyebrow"><span>Seu próximo passo</span></p>
+        <h2 id="final-title">Descubra o que falta para o seu vendedor de IA funcionar bem.</h2>
+        <p>Entre no grupo silencioso e receba o aviso da próxima live semanal da Raevo.</p>
+        <a class="primary-cta" href={whatsappUrl} data-whatsapp-cta aria-label="Entrar agora no grupo da live no WhatsApp">
+          <WhatsAppIcon />
+          Entrar agora no grupo da live
+        </a>
+        <small>Sem formulário · Sem spam · Saída livre a qualquer momento</small>
+      </section>
+    </main>
+
+    <footer class="live-footer">
+      <img src="/assets/brand/raevo-logo-official-transparent.png" alt="Raevo" width="755" height="166" />
+      <p>Processo, CRM, IA e pessoas trabalhando como um sistema.</p>
+      <p>© 2026 Raevo</p>
+    </footer>
+
+    <a class="floating-whatsapp" href={whatsappUrl} data-whatsapp-cta aria-label="Entrar no grupo da live pelo WhatsApp">
+      <WhatsAppIcon /><strong>Entrar no grupo</strong>
+    </a>
+  </body>
+</html>

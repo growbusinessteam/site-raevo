@@ -1,0 +1,17 @@
+---
+import type { OfficialContent } from "../../data/official";
+import OfficialLayout from "./OfficialLayout.astro";
+const { content } = Astro.props as { content: OfficialContent };
+---
+<OfficialLayout {content}>
+  <main class="thanks-page">
+    <div class="form-grid" aria-hidden="true"></div>
+    <div class="thanks-card">
+      <a href={content.homeHref} class="brand thanks-brand"><img src="/assets/brand/raevo-logo-official-transparent.png" alt="Raevo" width="755" height="166" /></a>
+      <span class="thanks-icon material-symbols-outlined">check</span>
+      <p class="eyebrow light">{content.thanks.eyebrow}</p>
+      <h1>{content.thanks.title}</h1><p>{content.thanks.body}</p>
+      <a class="button button-gold" href={content.homeHref}>{content.thanks.back}<span aria-hidden="true">→</span></a>
+    </div>
+  </main>
+</OfficialLayout>

@@ -1,0 +1,1188 @@
+[
+  {
+    "tab": "Marketing e Captação",
+    "cards": [
+      {
+        "buttons": [
+          "Convênios / Planos de saúde",
+          "Indicação de pacientes",
+          "Google / SEO / Google Meu Negócio",
+          "Instagram / redes sociais",
+          "Tráfego pago",
+          "Parcerias médicas ou profissionais",
+          "Eventos / palestras / comunidade",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "1.1 Fontes de pacientes",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": true,
+        "paragraphs": [
+          "1.1 Fontes de pacientes",
+          "Atualmente, quais são as principais fontes de captação de pacientes para sua clínica?",
+          "Selecione todas que se aplicam"
+        ]
+      },
+      {
+        "buttons": [
+          "Não investe",
+          "Investe até R$ 1.000/mês sem clareza de retorno",
+          "Investe entre R$ 1.000 e R$ 5.000/mês com acompanhamento parcial",
+          "Investe acima de R$ 5.000/mês com métricas claras",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "1.2 Investimento em mídia",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          },
+          {
+            "label": "Valor mensal aproximado",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "number"
+          },
+          {
+            "label": "Quem gerencia o tráfego?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "1.2 Investimento em mídia",
+          "Sua clínica investe em publicidade paga online?"
+        ]
+      },
+      {
+        "buttons": [
+          "Nunca pesquisei",
+          "Aparece mal e/ou sem avaliações fortes",
+          "Aparece razoavelmente, mas com inconsistência",
+          "Aparece bem posicionada com reputação forte",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "1.3 Presença no Google",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          },
+          {
+            "label": "Nota média no Google",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          },
+          {
+            "label": "Quantidade de avaliações",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "1.3 Presença no Google",
+          "Ao pesquisar sua especialidade + cidade, sua clínica aparece bem posicionada e com boas avaliações?"
+        ]
+      },
+      {
+        "buttons": [
+          "Quase nunca posta",
+          "1 a 2 vezes por semana sem estratégia",
+          "3 a 4 vezes por semana com alguma organização",
+          "Conteúdo frequente com estratégia clara",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "1.4 Conteúdo e constância",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          },
+          {
+            "label": "Quem produz os conteúdos?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          },
+          {
+            "label": "O médico grava?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          },
+          {
+            "label": "Existe calendário editorial?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "1.4 Conteúdo e constância",
+          "Como está a produção de conteúdo da clínica?"
+        ]
+      },
+      {
+        "buttons": [
+          "Não possui",
+          "Tem site institucional básico",
+          "Tem site razoável, mas pouco otimizado",
+          "Tem estrutura forte com foco em conversão",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "1.5 Estrutura digital para conversão",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          },
+          {
+            "label": "Botão de WhatsApp?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          },
+          {
+            "label": "Formulário?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          },
+          {
+            "label": "Pixel / rastreamento?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "1.5 Estrutura digital para conversão",
+          "Sua clínica possui site, landing page ou estrutura digital pensada para converter pacientes?"
+        ]
+      },
+      {
+        "buttons": [
+          "Ninguém cuida de forma estruturada",
+          "O próprio médico",
+          "Secretária / equipe interna",
+          "Freelancer",
+          "Agência",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "1.6 Responsável pelo marketing",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "1.6 Responsável pelo marketing",
+          "Hoje, quem cuida do marketing da clínica?"
+        ]
+      },
+      {
+        "buttons": [
+          "Nunca",
+          "Já contratei e foi ruim",
+          "Já contratei e foi mediano",
+          "Já contratei e tive algum resultado",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "1.7 Experiências passadas",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          },
+          {
+            "label": "O que frustrou?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          },
+          {
+            "label": "O que funcionou?",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "1.7 Experiências passadas",
+          "Você já contratou agência, gestor de tráfego ou alguém de marketing antes?"
+        ]
+      }
+    ],
+    "spin": []
+  },
+  {
+    "tab": "Comercial e Conversão",
+    "cards": [
+      {
+        "buttons": [
+          "Horas ou às vezes no dia seguinte",
+          "Entre 1 e 2 horas",
+          "Menos de 30 minutos",
+          "Menos de 5 minutos com padrão definido",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "2.1 Tempo de resposta",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "2.1 Tempo de resposta",
+          "Qual o tempo médio de resposta para novos pacientes no WhatsApp?"
+        ]
+      },
+      {
+        "buttons": [
+          "Não usa",
+          "Usa planilha / anotações",
+          "Usa sistema, mas mal aproveitado",
+          "Usa CRM ou software bem estruturado",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "2.2 Sistema de acompanhamento",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "2.2 Sistema de acompanhamento",
+          "Sua clínica usa CRM ou algum sistema para acompanhar leads e pacientes?"
+        ]
+      },
+      {
+        "buttons": [
+          "Não existe",
+          "Existe de forma improvisada",
+          "Existe parcialmente",
+          "Existe com script e acompanhamento",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "2.3 Qualificação do lead",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "2.3 Qualificação do lead",
+          "Existe um processo padrão para entender o motivo do contato, urgência e prontidão para agendar?"
+        ]
+      },
+      {
+        "buttons": [
+          "Não sei",
+          "0 a 2",
+          "3 a 4",
+          "5 ou mais",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "2.4 Conversão em agendamento",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "2.4 Conversão em agendamento",
+          "De cada 10 contatos, quantos agendam?"
+        ]
+      },
+      {
+        "buttons": [
+          "Nada",
+          "Tentam responder depois, sem padrão",
+          "Retornam algumas vezes",
+          "Existe uma cadência organizada",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "2.5 Follow-up de não agendados",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "2.5 Follow-up de não agendados",
+          "O que acontece quando o paciente não agenda na primeira conversa?"
+        ]
+      },
+      {
+        "buttons": [
+          "Nunca",
+          "Só orientação inicial",
+          "Eventualmente",
+          "Recorrente e estruturado",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "2.6 Secretária e treinamento",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "2.6 Secretária e treinamento",
+          "Sua equipe de atendimento recebe treinamento de vendas, objeções e experiência do paciente?"
+        ]
+      },
+      {
+        "buttons": [
+          "Demora no atendimento",
+          "Falta de follow-up",
+          "Falta de script",
+          "Preço / objeção de valor",
+          "Falta de organização",
+          "Não sei",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "2.7 Perdas comerciais",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": true,
+        "paragraphs": [
+          "2.7 Perdas comerciais",
+          "Hoje você acredita que perde pacientes mais por qual motivo?",
+          "Selecione todas que se aplicam"
+        ]
+      }
+    ],
+    "spin": []
+  },
+  {
+    "tab": "Gestão e Crescimento",
+    "cards": [
+      {
+        "buttons": [
+          "Até R$ 30 mil",
+          "R$ 30 mil a R$ 60 mil",
+          "R$ 60 mil a R$ 100 mil",
+          "Acima de R$ 100 mil",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "3.1 Faturamento atual",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          },
+          {
+            "label": "Valor estimado (R$)",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "number"
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "3.1 Faturamento atual",
+          "Qual o faturamento médio mensal atual da clínica/consultório?"
+        ]
+      },
+      {
+        "buttons": [
+          "Consultas",
+          "Procedimentos avulsos",
+          "Protocolos / programas",
+          "Cirurgias",
+          "Convênios",
+          "Retornos",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "3.2 Estrutura de monetização",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          },
+          {
+            "label": "% receita de consultas",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          },
+          {
+            "label": "% receita de procedimentos",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          }
+        ],
+        "multi": true,
+        "paragraphs": [
+          "3.2 Estrutura de monetização",
+          "Hoje, quais são as principais fontes de receita da clínica?",
+          "Selecione todas que se aplicam"
+        ]
+      },
+      {
+        "buttons": [
+          "Nenhuma",
+          "Baixa",
+          "Média",
+          "Alta",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "3.3 Previsibilidade",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "3.3 Previsibilidade",
+          "Você tem previsibilidade de agenda, demanda e faturamento?"
+        ]
+      },
+      {
+        "buttons": [
+          "Não acompanho nada",
+          "Acompanho faturamento só por alto",
+          "Acompanho alguns números",
+          "Tenho dashboard e rotina de análise",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "3.4 Indicadores",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "3.4 Indicadores",
+          "Hoje você acompanha indicadores do negócio?"
+        ]
+      },
+      {
+        "buttons": [
+          "Falta de demanda",
+          "Falta de conversão",
+          "Time despreparado",
+          "Falta de posicionamento / autoridade",
+          "Falta de gestão e indicadores",
+          "Dependência excessiva do médico",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "3.5 Gargalo principal de crescimento",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": true,
+        "paragraphs": [
+          "3.5 Gargalo principal de crescimento",
+          "O que mais trava o crescimento hoje?",
+          "Selecione todas que se aplicam"
+        ]
+      },
+      {
+        "buttons": [
+          "Médico sozinho",
+          "Médico + 1 secretária",
+          "Pequena equipe",
+          "Clínica mais estruturada",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "3.6 Estrutura da operação",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "3.6 Estrutura da operação",
+          "Como está sua estrutura hoje?"
+        ]
+      }
+    ],
+    "spin": []
+  },
+  {
+    "tab": "Autoridade e Imagem",
+    "cards": [
+      {
+        "buttons": [
+          "Não",
+          "Tenho uma ideia vaga",
+          "Tenho clareza parcial",
+          "Tenho diferenciação forte e bem comunicada",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "4.1 Proposta de valor",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "4.1 Proposta de valor",
+          "Você tem uma proposta de valor clara e um motivo forte para o paciente escolher sua clínica?"
+        ]
+      },
+      {
+        "buttons": [
+          "Nunca",
+          "Raramente",
+          "Com alguma frequência",
+          "De forma estratégica e recorrente",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "4.2 Autoridade do médico",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "4.2 Autoridade do médico",
+          "O médico produz conteúdo de autoridade?"
+        ]
+      },
+      {
+        "buttons": [
+          "Não",
+          "Parcial",
+          "Boa, mas inconsistente em alguns pontos",
+          "Muito boa e padronizada",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "4.3 Identidade visual",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "4.3 Identidade visual",
+          "A clínica possui identidade visual profissional e consistente?"
+        ]
+      },
+      {
+        "buttons": [
+          "Não",
+          "Muito pouco",
+          "Às vezes",
+          "Sim, de forma estruturada",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "4.4 Provas sociais",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "4.4 Provas sociais",
+          "Existe processo ativo de coleta e uso de depoimentos e avaliações?"
+        ]
+      },
+      {
+        "buttons": [
+          "Básica",
+          "Boa, mas sem padrão",
+          "Boa e com alguns diferenciais",
+          "Muito bem desenhada e padronizada",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "4.5 Experiência do paciente",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "4.5 Experiência do paciente",
+          "Como você avalia a jornada do paciente do primeiro contato ao pós-consulta?"
+        ]
+      }
+    ],
+    "spin": []
+  },
+  {
+    "tab": "Produto e Monetização",
+    "cards": [
+      {
+        "buttons": [
+          "Não tenho interesse",
+          "Tenho curiosidade, mas nunca pensei a fundo",
+          "Tenho interesse e já pensei em algo",
+          "Sim, quero estruturar isso",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "5.1 Interesse em produtizar",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "5.1 Interesse em produtizar",
+          "Você tem interesse em transformar seu conhecimento em produtos ou novas fontes de receita?"
+        ]
+      },
+      {
+        "buttons": [
+          "Consulta premium",
+          "Protocolo / programa de acompanhamento",
+          "Grupo / mentoria para pacientes",
+          "Curso / treinamento",
+          "Comunidade / assinatura",
+          "Infoproduto",
+          "Ainda não sei",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "5.2 Formatos desejados",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": true,
+        "paragraphs": [
+          "5.2 Formatos desejados",
+          "Que tipo de produto faria mais sentido para você?",
+          "Selecione todas que se aplicam"
+        ]
+      },
+      {
+        "buttons": [
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "5.3 Tema monetizável",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          },
+          {
+            "label": "Descreva o tema",
+            "options": [],
+            "placeholder": "",
+            "tag": "INPUT",
+            "type": "text"
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "5.3 Tema monetizável",
+          "Sobre qual tema você acredita que tem mais autoridade e demanda para estruturar algo?"
+        ]
+      },
+      {
+        "buttons": [
+          "Nunca",
+          "Já pensei, mas não executei",
+          "Já executei sem estrutura",
+          "Já vendo algo, mas quero escalar",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "5.4 Nível de maturidade",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": false,
+        "paragraphs": [
+          "5.4 Nível de maturidade",
+          "Você já tentou vender algo além da consulta?"
+        ]
+      },
+      {
+        "buttons": [
+          "Aumentar faturamento",
+          "Escalar sem depender só da agenda",
+          "Construir autoridade",
+          "Ter previsibilidade",
+          "Criar nova linha de receita",
+          "Baixa",
+          "Média",
+          "Alta"
+        ],
+        "code": "5.5 Objetivo com a produtização",
+        "fields": [
+          {
+            "label": "Outro cenário",
+            "options": [],
+            "placeholder": "Descreva...",
+            "tag": "INPUT",
+            "type": ""
+          },
+          {
+            "label": "Observação do closer",
+            "options": [],
+            "placeholder": "Anotações...",
+            "tag": "TEXTAREA",
+            "type": ""
+          }
+        ],
+        "multi": true,
+        "paragraphs": [
+          "5.5 Objetivo com a produtização",
+          "O que mais te atrai nessa possibilidade?",
+          "Selecione todas que se aplicam"
+        ]
+      }
+    ],
+    "spin": []
+  },
+  {
+    "tab": "SPIN",
+    "cards": [],
+    "spin": [
+      {
+        "prompts": [
+          "\"Como sua operação funciona hoje?\"",
+          "\"Quantos atendimentos / pacientes por mês você realiza?\"",
+          "\"Quem cuida de marketing e comercial hoje?\""
+        ],
+        "title": "Situação"
+      },
+      {
+        "prompts": [
+          "\"Onde você sente que mais perde oportunidades?\"",
+          "\"O que hoje mais te incomoda na operação?\"",
+          "\"O que está travando seu crescimento?\""
+        ],
+        "title": "Problema"
+      },
+      {
+        "prompts": [
+          "\"O que essa falha está custando em faturamento?\"",
+          "\"Isso impacta sua rotina, agenda ou vida pessoal?\"",
+          "\"O que acontece se continuar assim por mais 12 meses?\""
+        ],
+        "title": "Implicação"
+      },
+      {
+        "prompts": [
+          "\"O que precisaria mudar para esse cenário ficar ideal?\"",
+          "\"O que seria uma solução perfeita para você?\"",
+          "\"Faz sentido ter alguém implementando isso com você?\""
+        ],
+        "title": "Necessidade de Solução"
+      }
+    ]
+  }
+]

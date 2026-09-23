@@ -1,0 +1,100 @@
+---
+import type { OfficialContent } from "../../data/official";
+import OfficialLayout from "./OfficialLayout.astro";
+const { content, redirectTo } = Astro.props as { content: OfficialContent; redirectTo: string };
+---
+<OfficialLayout {content} enableGoogleTagManager>
+  <main class="form-page">
+    <div class="form-grid" aria-hidden="true"></div>
+    <header class="form-header official-container">
+      <a href={content.homeHref} class="brand form-brand" aria-label="Raevo home"><img src="/assets/brand/raevo-logo-official-transparent.png" alt="Raevo" width="755" height="166" /></a>
+      <a href={content.homeHref} class="form-close" aria-label={content.thanks.back}><span class="material-symbols-outlined">close</span></a>
+    </header>
+    <form class="lead-form official-container" novalidate data-official-lead-form data-locale={content.locale} data-country={content.country} data-prefix={content.phonePrefix} data-redirect={redirectTo} data-retry-message={content.form.retry} data-submit-label={content.form.submit} data-submitting-label={content.form.submitting}>
+      <div class="form-progress"><span data-progress></span></div>
+      <div class="form-kicker"><span data-step-number>01</span> / 03 · {content.form.intro}</div>
+      {content.form.questions.map((question, index) => (
+        <section class="form-step" data-form-step data-field={question.id} hidden={index !== 0}>
+          <label for={`official-${question.id}`}>{question.label}</label>
+          {question.id === "whatsapp" ? (
+            <div class="phone-field"><span>{content.phonePrefix}</span><input id={`official-${question.id}`} name={question.id} type="tel" inputmode="tel" autocomplete="tel-national" placeholder={question.placeholder} /></div>
+          ) : (
+            <input id={`official-${question.id}`} name={question.id} type="text" autocomplete={question.id === "name" ? "name" : "url"} placeholder={question.placeholder} />
+          )}
+          <p class="field-error" data-field-error={question.id} hidden></p>
+        </section>
+      ))}
+      <p class="submit-error" data-submit-error hidden></p>
+      <div class="form-actions">
+        <button class="button button-ghost" type="button" data-back hidden>{content.form.back}</button>
+        <button class="button button-gold" type="button" data-next>{content.form.next}<span aria-hidden="true">→</span></button>
+        <button class="button button-gold" type="submit" data-submit hidden>{content.form.submit}<span aria-hidden="true">→</span></button>
+      </div>
+    </form>
+  </main>
+</OfficialLayout>
+<script>
+  import { buildLeadPayload, normalizePhone, validateCompanyProfile, validateLead } from "../../lib/official-form.mjs";
+  const WEBHOOK = "https://hook.growautomacao.com.br/webhook/raevo-site-kommo";
+  const form = document.querySelector("[data-official-lead-form]");
+  if (form instanceof HTMLFormElement) {
+    const steps = Array.from(form.querySelectorAll("[data-form-step]"));
+    const back = form.querySelector("[data-back]");
+    const next = form.querySelector("[data-next]");
+    const submit = form.querySelector("[data-submit]");
+    const progress = form.querySelector("[data-progress]");
+    const stepNumber = form.querySelector("[data-step-number]");
+    let current = 0;
+
+    const getValues = () => {
+      const data = new FormData(form);
+      return { name: data.get("name"), whatsapp: `${form.dataset.prefix}${data.get("whatsapp") ?? ""}`, companyProfile: data.get("companyProfile") };
+    };
+    const clearErrors = () => form.querySelectorAll("[data-field-error],[data-submit-error]").forEach((el) => { el.textContent = ""; el.hidden = true; });
+    const showError = (error) => {
+      const el = form.querySelector(`[data-field-error="${error.field}"]`);
+      if (el) { el.textContent = error.code === "required" ? "Preencha este campo." : "Confira o formato informado."; el.hidden = false; }
+      form.elements.namedItem(error.field)?.focus();
+    };
+    const validateCurrent = () => {
+      const values = getValues();
+      if (current === 0 && !String(values.name ?? "").trim()) return { field: "name", code: "required" };
+      if (current === 1 && normalizePhone(values.whatsapp).length < 11) return { field: "whatsapp", code: "invalid" };
+      if (current === 2 && !validateCompanyProfile(values.companyProfile)) return { field: "companyProfile", code: "invalid" };
+      return null;
+    };
+    const render = () => {
+      steps.forEach((step, index) => { step.hidden = index !== current; });
+      if (progress instanceof HTMLElement) progress.style.width = `${((current + 1) / steps.length) * 100}%`;
+      if (stepNumber) stepNumber.textContent = String(current + 1).padStart(2, "0");
+      if (back instanceof HTMLElement) back.hidden = current === 0;
+      if (next instanceof HTMLElement) next.hidden = current === steps.length - 1;
+      if (submit instanceof HTMLElement) submit.hidden = current !== steps.length - 1;
+      steps[current]?.querySelector("input")?.focus();
+    };
+    next?.addEventListener("click", () => { clearErrors(); const error = validateCurrent(); if (error) showError(error); else { current += 1; render(); } });
+    back?.addEventListener("click", () => { clearErrors(); current = Math.max(0, current - 1); render(); });
+    form.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" || current === steps.length - 1) return;
+      event.preventDefault(); next?.dispatchEvent(new MouseEvent("click"));
+    });
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); clearErrors();
+      const values = getValues(); const error = validateLead(values);
+      if (error) { current = ["name", "whatsapp", "companyProfile"].indexOf(error.field); render(); showError(error); return; }
+      if (submit instanceof HTMLButtonElement) { submit.disabled = true; submit.setAttribute("aria-busy", "true"); submit.firstChild.textContent = form.dataset.submittingLabel ?? ""; }
+      const query = new URLSearchParams(window.location.search);
+      const utm = Object.fromEntries(["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].flatMap((key) => query.get(key) ? [[key, query.get(key)]] : []));
+      try {
+        const response = await fetch(WEBHOOK, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(buildLeadPayload(values, { locale: form.dataset.locale, country: form.dataset.country, sourceUrl: window.location.href, utm })) });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        window.location.assign(form.dataset.redirect ?? "/");
+      } catch {
+        const target = form.querySelector("[data-submit-error]");
+        if (target) { target.textContent = form.dataset.retryMessage ?? "Erro ao enviar."; target.hidden = false; }
+        if (submit instanceof HTMLButtonElement) { submit.disabled = false; submit.setAttribute("aria-busy", "false"); submit.firstChild.textContent = form.dataset.submitLabel ?? ""; }
+      }
+    });
+    render();
+  }
+</script>

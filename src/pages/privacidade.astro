@@ -1,22 +1,550 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
----
+import { readFileSync } from "node:fs";
 
-<BaseLayout title="Privacidade" description="Politica de privacidade da Raevo.">
-  <article class="article">
-    <p class="eyebrow">Privacidade</p>
-    <h1>Politica de privacidade.</h1>
-    <p>
-      A Raevo coleta apenas as informacoes enviadas voluntariamente por formularios
-      ou canais de contato, como nome, email, empresa e mensagem.
-    </p>
-    <p>
-      Esses dados sao usados para responder solicitacoes, conduzir diagnosticos
-      comerciais e manter relacionamento com potenciais clientes.
-    </p>
-    <p>
-      Para pedir atualizacao ou remocao de dados, entre em contato pelo email
-      contato@raevo.com.br.
-    </p>
+const sections = [
+  {
+    title: "1. Quem somos",
+    blocks: [
+      {
+        kind: "p",
+        text: "Para efeitos desta Política de Privacidade, a entidade responsável pelo tratamento dos dados pessoais recolhidos através deste site é a GROW BUSINESS LTDA - ME, CNPJ: 55.118.026/0001-20, nome fantasia GROW.",
+      },
+      {
+        kind: "p",
+        text: "Morada: Avenida Juracy Magalhães, 3405, Sala 04, Boa Vista, Vitória da Conquista, BA, CEP 45026-090, Brasil.",
+      },
+      {
+        kind: "p",
+        text: "E-mail de contacto: team@growbusiness.agency. Contacto Brasil: +55 62 98272-7476. Contacto Portugal: +351 963 763 408.",
+      },
+      {
+        kind: "p",
+        text: "Nesta Política, os termos Raevo, nós, nosso ou nossa referem-se à GROW BUSINESS LTDA - ME e à marca Raevo.",
+      },
+    ],
+  },
+  {
+    title: "2. Que dados pessoais recolhemos",
+    blocks: [
+      {
+        kind: "p",
+        text: "Podemos recolher diferentes tipos de dados pessoais, dependendo da forma como o utilizador interage connosco.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Dados fornecidos directamente pelo utilizador, como nome, e-mail, telefone ou telemóvel, empresa, clínica ou negócio, cargo ou função, especialidade, país ou cidade, faturação aproximada, tamanho da equipa, informações sobre atendimento, vendas, CRM, marketing ou operação comercial, mensagens e dúvidas enviadas voluntariamente.",
+          "Dados recolhidos automaticamente, como endereço IP, tipo de dispositivo, navegador utilizado, sistema operativo, páginas visitadas, tempo de permanência, origem do acesso, interações com páginas, botões ou formulários, cookies, pixels e tecnologias semelhantes.",
+          "Dados recolhidos em campanhas e anúncios, como campanha de origem, anúncio clicado, palavra-chave, público ou segmentação, página visitada, formulário preenchido, evento de conversão e interações com comunicações comerciais.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "3. Dados sensíveis e dados de saúde",
+    blocks: [
+      {
+        kind: "p",
+        text: "O nosso site, formulários e canais comerciais não se destinam à recolha de dados clínicos, dados de saúde, diagnósticos, exames, informações médicas ou quaisquer dados sensíveis de utentes, pacientes ou clientes finais de clínicas.",
+      },
+      {
+        kind: "p",
+        text: "Pedimos que o utilizador não envie dados clínicos ou informações sensíveis através dos nossos formulários, WhatsApp, e-mail ou outros canais comerciais. Caso dados sensíveis sejam enviados indevidamente, poderemos eliminá-los, desconsiderá-los ou solicitar que a comunicação seja feita por canal adequado.",
+      },
+    ],
+  },
+  {
+    title: "4. Como recolhemos os dados",
+    blocks: [
+      {
+        kind: "list",
+        items: [
+          "Formulários no site e páginas de destino.",
+          "WhatsApp, e-mail, chamadas ou reuniões.",
+          "Ferramentas de agendamento, CRM, cookies e pixels de rastreamento.",
+          "Campanhas de tráfego pago, redes sociais e comunicações comerciais realizadas pela Raevo.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "5. Para que utilizamos os dados pessoais",
+    blocks: [
+      {
+        kind: "list",
+        items: [
+          "Contacto e resposta a pedidos feitos pelo utilizador.",
+          "Qualificação comercial para compreender se a clínica, empresa ou negócio tem enquadramento nos serviços prestados pela Raevo.",
+          "Preparação de diagnóstico, proposta, plano de ação, estimativas de escopo e próximos passos.",
+          "Prestação de serviços, gestão da relação comercial, organização de entregas, acompanhamento de projetos e suporte.",
+          "Comunicação comercial sobre serviços, conteúdos, materiais, convites, atualizações, ofertas ou campanhas.",
+          "Marketing, remarketing e análise de performance do site e das campanhas.",
+          "Segurança, prevenção de spam, fraudes, acessos indevidos e abusos.",
+          "Cumprimento de obrigações legais, fiscais, contabilísticas, contratuais ou regulatórias aplicáveis.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "6. Bases legais para o tratamento dos dados",
+    blocks: [
+      {
+        kind: "p",
+        text: "O tratamento dos dados pessoais pode ser realizado com base em diferentes fundamentos legais, conforme a situação.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Execução de contrato ou diligências pré-contratuais, quando o utilizador solicita contacto, diagnóstico, proposta ou contratação.",
+          "Cumprimento de obrigação legal, quando precisamos tratar dados para fins fiscais, contabilísticos ou regulatórios.",
+          "Interesse legítimo, quando utilizamos dados para melhorar os nossos serviços, proteger os nossos canais, organizar a operação comercial ou responder a contactos.",
+          "Consentimento, quando necessário para envio de comunicações comerciais, cookies não essenciais, remarketing ou outras finalidades que exijam autorização específica.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Quando o tratamento depender de consentimento, o utilizador poderá retirá-lo a qualquer momento.",
+      },
+    ],
+  },
+  {
+    title: "7. Cookies e tecnologias semelhantes",
+    blocks: [
+      {
+        kind: "p",
+        text: "O nosso site pode utilizar cookies, pixels, tags, scripts e tecnologias semelhantes para garantir o funcionamento da página, melhorar a experiência do utilizador, medir resultados e realizar ações de marketing.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Cookies essenciais, necessários para funcionamento básico, segurança, carregamento de páginas, envio de formulários e navegação.",
+          "Cookies de análise, que ajudam a compreender como os utilizadores navegam no site e interagem com o conteúdo.",
+          "Cookies de marketing e remarketing, usados para medir campanhas, criar públicos personalizados, apresentar anúncios mais relevantes e acompanhar conversões.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "O utilizador pode gerir preferências de cookies através do banner apresentado no site, quando aplicável, ou bloquear e apagar cookies nas definições do navegador.",
+      },
+    ],
+  },
+  {
+    title: "8. Ferramentas e fornecedores que podem tratar dados",
+    blocks: [
+      {
+        kind: "p",
+        text: "Para operar o site, responder contactos, organizar processos comerciais, prestar serviços e analisar resultados, podemos utilizar ferramentas de terceiros.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Plataformas de CRM, atendimento, WhatsApp, e-mail, automação, formulários e agendamento.",
+          "Ferramentas de análise de dados, anúncios, alojamento do site, gestão de projetos, armazenamento em nuvem, reuniões online e inteligência artificial.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Esses fornecedores tratam dados de acordo com as suas próprias políticas de privacidade e, quando aplicável, na qualidade de subcontratantes, operadores ou prestadores de serviço da Raevo.",
+      },
+    ],
+  },
+  {
+    title: "9. Partilha de dados pessoais",
+    blocks: [
+      {
+        kind: "p",
+        text: "A Raevo não vende dados pessoais.",
+      },
+      {
+        kind: "p",
+        text: "Podemos partilhar dados pessoais apenas quando necessário para responder a pedidos do utilizador, prestar serviços contratados, gerir a relação comercial, operar ferramentas de CRM, atendimento, marketing, automação ou análise, cumprir obrigações legais, fiscais ou contabilísticas, proteger direitos da Raevo, dos seus clientes ou de terceiros, ou cumprir ordens de autoridades competentes.",
+      },
+    ],
+  },
+  {
+    title: "10. Transferências internacionais de dados",
+    blocks: [
+      {
+        kind: "p",
+        text: "Algumas ferramentas utilizadas pela Raevo podem armazenar ou tratar dados fora do país de residência do utilizador, incluindo países fora do Espaço Económico Europeu. Quando isso ocorrer, procuraremos utilizar fornecedores que adotem mecanismos adequados de proteção de dados, medidas de segurança e garantias compatíveis com a legislação aplicável.",
+      },
+    ],
+  },
+  {
+    title: "11. Conservação dos dados",
+    blocks: [
+      {
+        kind: "p",
+        text: "Conservamos os dados pessoais apenas pelo período necessário para cumprir as finalidades descritas nesta Política, salvo quando houver obrigação legal, contratual ou regulatória que exija prazo superior.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Dados de contacto de leads podem ser mantidos enquanto houver interesse comercial legítimo ou relação ativa.",
+          "Dados de clientes podem ser mantidos durante a vigência do contrato e pelo período necessário ao cumprimento de obrigações legais.",
+          "Dados fiscais e contabilísticos podem ser mantidos pelos prazos exigidos pela legislação aplicável.",
+          "Dados de navegação e cookies podem ser mantidos de acordo com a duração definida nas respetivas ferramentas.",
+          "Registos técnicos de segurança podem ser mantidos pelo tempo necessário para prevenção de abusos, auditoria e proteção dos sistemas.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Quando os dados deixarem de ser necessários, poderão ser eliminados, anonimizados ou arquivados de forma segura.",
+      },
+    ],
+  },
+  {
+    title: "12. Segurança dos dados",
+    blocks: [
+      {
+        kind: "p",
+        text: "Adotamos medidas técnicas e organizativas razoáveis para proteger os dados pessoais contra acesso não autorizado, perda, alteração, divulgação ou destruição indevida.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Controlo de acesso a ferramentas internas e gestão de permissões.",
+          "Utilização de plataformas seguras, autenticação em sistemas e organização de processos internos.",
+          "Limitação de acesso a dados conforme a necessidade operacional e boas práticas de segurança digital.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Apesar dos nossos esforços, nenhum sistema é totalmente imune a riscos. Recomendamos que o utilizador também adote medidas de segurança ao comunicar connosco, evitando o envio de informações sensíveis por canais inadequados.",
+      },
+    ],
+  },
+  {
+    title: "13. Direitos dos titulares dos dados",
+    blocks: [
+      {
+        kind: "p",
+        text: "Nos termos da legislação aplicável, o utilizador pode ter direito a:",
+      },
+      {
+        kind: "list",
+        items: [
+          "Confirmar se tratamos os seus dados pessoais e aceder aos seus dados.",
+          "Solicitar correção, eliminação, limitação do tratamento ou portabilidade dos dados, quando aplicável.",
+          "Opor-se a determinados tratamentos, retirar consentimentos anteriormente concedidos e solicitar informações sobre a partilha dos seus dados.",
+          "Apresentar reclamação junto da autoridade de controlo competente.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "O exercício destes direitos pode depender da legislação aplicável, da natureza dos dados e da finalidade do tratamento.",
+      },
+    ],
+  },
+  {
+    title: "14. Como exercer os seus direitos",
+    blocks: [
+      {
+        kind: "p",
+        text: "Para exercer os seus direitos ou esclarecer dúvidas sobre esta Política de Privacidade, contacte-nos pelo e-mail team@growbusiness.agency, pelo contacto Brasil +55 62 98272-7476 ou pelo contacto Portugal +351 963 763 408.",
+      },
+      {
+        kind: "p",
+        text: "Ao recebermos uma solicitação, poderemos pedir informações adicionais para confirmar a identidade do solicitante e garantir a segurança dos dados pessoais. Responderemos aos pedidos dentro dos prazos legais aplicáveis.",
+      },
+    ],
+  },
+  {
+    title: "15. Comunicações comerciais",
+    blocks: [
+      {
+        kind: "p",
+        text: "Podemos enviar comunicações comerciais relacionadas com os nossos serviços, conteúdos, materiais, eventos, diagnósticos, propostas ou campanhas.",
+      },
+      {
+        kind: "p",
+        text: "O utilizador poderá, a qualquer momento, solicitar a interrupção dessas comunicações através do link de cancelamento, quando disponível, ou entrando em contacto pelo e-mail team@growbusiness.agency. Quando exigido por lei, o envio de comunicações comerciais dependerá de consentimento prévio.",
+      },
+    ],
+  },
+  {
+    title: "16. Utilização de inteligência artificial",
+    blocks: [
+      {
+        kind: "p",
+        text: "A Raevo pode utilizar ferramentas de inteligência artificial para apoiar processos internos, análise de informações, organização comercial, criação de materiais, automações, atendimento, CRM e melhoria dos serviços prestados.",
+      },
+      {
+        kind: "p",
+        text: "Quando utilizarmos ferramentas de inteligência artificial, procuraremos limitar os dados partilhados ao necessário para a finalidade pretendida. A utilização de inteligência artificial nos serviços prestados a clientes poderá ser regulada por contrato específico, conforme o escopo contratado.",
+      },
+    ],
+  },
+  {
+    title: "17. Relação com clientes e tratamento de dados de terceiros",
+    blocks: [
+      {
+        kind: "p",
+        text: "Quando a Raevo presta serviços a clínicas, empresas ou negócios da saúde, poderá tratar dados pessoais em nome dos seus clientes, especialmente em projetos que envolvem CRM, atendimento, automações, marketing, formulários, funis comerciais ou inteligência artificial.",
+      },
+      {
+        kind: "p",
+        text: "Nesses casos, a Raevo poderá atuar como subcontratante, operador ou prestadora de serviço, conforme a legislação aplicável e os termos contratuais estabelecidos com cada cliente.",
+      },
+      {
+        kind: "p",
+        text: "O tratamento de dados pessoais de leads, utentes, pacientes ou clientes finais das clínicas deve ser regulado pelos contratos, políticas e instruções fornecidas pelo cliente responsável pelos dados.",
+      },
+    ],
+  },
+  {
+    title: "18. Links para sites de terceiros",
+    blocks: [
+      {
+        kind: "p",
+        text: "O nosso site pode conter links para sites, plataformas, redes sociais, ferramentas ou páginas de terceiros. A Raevo não é responsável pelas práticas de privacidade, conteúdos ou políticas desses terceiros.",
+      },
+      {
+        kind: "p",
+        text: "Recomendamos que o utilizador leia as respetivas políticas de privacidade antes de fornecer dados pessoais em ambientes externos ao nosso site.",
+      },
+    ],
+  },
+  {
+    title: "19. Dados de menores",
+    blocks: [
+      {
+        kind: "p",
+        text: "Os serviços e conteúdos da Raevo são direcionados a empresas, profissionais e decisores de negócios. Não temos a intenção de recolher dados pessoais de menores de idade.",
+      },
+      {
+        kind: "p",
+        text: "Caso identifiquemos a recolha indevida de dados de menores, poderemos eliminar tais informações.",
+      },
+    ],
+  },
+  {
+    title: "20. Autoridades de controlo",
+    blocks: [
+      {
+        kind: "p",
+        text: "Caso o utilizador entenda que os seus direitos não foram devidamente atendidos, poderá apresentar reclamação junto da autoridade de controlo competente.",
+      },
+      {
+        kind: "p",
+        text: "Em Portugal, a autoridade competente é a Comissão Nacional de Proteção de Dados, CNPD. No Brasil, quando aplicável, a autoridade competente é a Autoridade Nacional de Proteção de Dados, ANPD.",
+      },
+    ],
+  },
+  {
+    title: "21. Alterações a esta Política de Privacidade",
+    blocks: [
+      {
+        kind: "p",
+        text: "Podemos atualizar esta Política de Privacidade periodicamente para refletir alterações legais, operacionais, tecnológicas ou comerciais.",
+      },
+      {
+        kind: "p",
+        text: "A versão mais recente estará sempre disponível no nosso site, com indicação da data da última atualização. Recomendamos que o utilizador consulte esta página regularmente.",
+      },
+    ],
+  },
+  {
+    title: "22. Contactos",
+    blocks: [
+      {
+        kind: "p",
+        text: "Para dúvidas, solicitações ou pedidos relacionados com privacidade e proteção de dados, contacte-nos:",
+      },
+      {
+        kind: "p",
+        text: "Raevo / GROW BUSINESS LTDA - ME. CNPJ: 55.118.026/0001-20. Morada: Avenida Juracy Magalhães, 3405, Sala 04, Boa Vista, Vitória da Conquista, BA, CEP 45026-090, Brasil.",
+      },
+      {
+        kind: "p",
+        text: "E-mail: team@growbusiness.agency. Contacto Brasil: +55 62 98272-7476. Contacto Portugal: +351 963 763 408.",
+      },
+    ],
+  },
+];
+
+const stitchHtml = readFileSync(
+  new URL("../../public/stitch/index.html", import.meta.url),
+  "utf8",
+);
+
+const between = (source: string, startToken: string, endToken: string) => {
+  const start = source.indexOf(startToken);
+  const end = source.indexOf(endToken, start);
+
+  if (start === -1 || end === -1) {
+    throw new Error(`Could not find page fragment between ${startToken} and ${endToken}`);
+  }
+
+  return source.slice(start, end);
+};
+
+const internalNavigation = (html: string) =>
+  html
+    .replaceAll('href="#problema"', 'href="/#problema"')
+    .replaceAll('href="#implementacao"', 'href="/#implementacao"')
+    .replaceAll('href="#impacto-conversao"', 'href="/#impacto-conversao"')
+    .replaceAll('href="#precos"', 'href="/#precos"')
+    .replaceAll('href="#formulario-raevo"', 'href="/forms/"');
+
+const head = between(stitchHtml, "<head>", "</head>")
+  .replace("<head>", "")
+  .replace(
+    /<title>.*?<\/title>/,
+    "<title>Política de Privacidade | Raevo</title>",
+  )
+  .replace(
+    "</style>",
+    `
+        .privacy-shell {
+            background: #fef9ee;
+            color: #1F1F1F;
+        }
+        .privacy-main {
+            padding: 148px 32px 96px;
+        }
+        .privacy-article {
+            width: min(900px, 100%);
+            margin: 0 auto;
+        }
+        .privacy-kicker {
+            color: #C7A97A;
+            font-family: Inter, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        .privacy-title {
+            margin-top: 24px;
+            color: #1F1F1F;
+            font-family: Sora, sans-serif;
+            font-size: clamp(44px, 8vw, 86px);
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.04;
+        }
+        .privacy-updated {
+            margin-top: 20px;
+            color: rgba(31, 31, 31, 0.58);
+            font-weight: 600;
+        }
+        .privacy-lead {
+            margin-top: 34px;
+            display: grid;
+            gap: 18px;
+            color: rgba(31, 31, 31, 0.72);
+            font-size: 18px;
+            line-height: 1.75;
+        }
+        .privacy-section {
+            padding: 34px 0;
+            border-top: 1px solid rgba(184, 171, 152, 0.35);
+        }
+        .privacy-section:first-of-type {
+            margin-top: 44px;
+        }
+        .privacy-section h2 {
+            margin: 0 0 16px;
+            color: #1F1F1F;
+            font-family: Sora, sans-serif;
+            font-size: clamp(24px, 3.2vw, 34px);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .privacy-section p,
+        .privacy-section li {
+            color: rgba(31, 31, 31, 0.72);
+            font-size: 16px;
+            line-height: 1.76;
+        }
+        .privacy-section p,
+        .privacy-section ul {
+            margin: 0;
+        }
+        .privacy-section p + p,
+        .privacy-section p + ul,
+        .privacy-section ul + p {
+            margin-top: 14px;
+        }
+        .privacy-section ul {
+            padding-left: 22px;
+        }
+        .privacy-section li + li {
+            margin-top: 10px;
+        }
+        @media (max-width: 640px) {
+            .privacy-main {
+                padding: 132px 24px 72px;
+            }
+        }
+    </style>`,
+  );
+
+const header = internalNavigation(between(stitchHtml, "<!-- TopNavBar -->", "<main>"));
+const footer = internalNavigation(between(stitchHtml, "<!-- Footer -->", "<script>"));
+
+const renderBlocks = (blocks: (typeof sections)[number]["blocks"]) =>
+  blocks
+    .map((block) => {
+      if (block.kind === "list") {
+        return `<ul>${block.items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+      }
+
+      return `<p>${block.text}</p>`;
+    })
+    .join("");
+
+const policySections = sections
+  .map(
+    (section) => `
+      <section class="privacy-section">
+        <h2>${section.title}</h2>
+        ${renderBlocks(section.blocks)}
+      </section>
+    `,
+  )
+  .join("");
+
+const html = `<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>${head}</head>
+<body class="privacy-shell font-body-md antialiased overflow-x-hidden selection:bg-champagne selection:text-white">
+${header}
+<main class="privacy-main">
+  <article class="privacy-article">
+    <p class="privacy-kicker">Privacidade</p>
+    <h1 class="privacy-title">Política de Privacidade</h1>
+    <p class="privacy-updated">Última actualização: 09 de julho de 2026</p>
+    <div class="privacy-lead">
+      <p>A presente Política de Privacidade explica como a Raevo, marca operada pela GROW BUSINESS LTDA - ME, recolhe, utiliza, armazena, partilha e protege os dados pessoais dos utilizadores que acedem ao nosso site, preenchem formulários, entram em contacto connosco ou interagem com os nossos canais digitais.</p>
+      <p>A Raevo atua na implementação e estruturação de processos comerciais, CRM, automações, atendimento, marketing e soluções com inteligência artificial para clínicas e negócios da saúde.</p>
+      <p>Ao utilizar o nosso site ou enviar os seus dados através dos nossos formulários, WhatsApp, e-mail ou outros canais de contacto, o utilizador declara ter lido e compreendido esta Política de Privacidade.</p>
+    </div>
+    ${policySections}
   </article>
-</BaseLayout>
+</main>
+${footer}
+<script>
+  const header = document.getElementById("main-header");
+  window.addEventListener("scroll", () => {
+    header?.classList.toggle("shadow-md", window.scrollY > 50);
+  }, { passive: true });
+
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileBtn?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+    mobileMenu?.classList.toggle("flex");
+  });
+</script>
+</body>
+</html>`;
+
+return new Response(html, {
+  headers: {
+    "Content-Type": "text/html; charset=utf-8",
+  },
+});
+---
