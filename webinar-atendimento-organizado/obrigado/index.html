@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Inscrição recebida | Webinar para clínicas</title>
+  <meta name="theme-color" content="#E9E4DA" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/webinar-atendimento-organizado/styles.css" />
+  <style>
+    .thanks { padding: clamp(24px, 4vw, 56px) var(--gutter) clamp(72px, 9vw, 120px); }
+    .thanks .wrap { width: min(100%, 1100px); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(40px, 7vw, 100px); align-items: start; }
+    .progress { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 40px; }
+    .progress div { padding-top: 12px; border-top: 3px solid var(--taupe); color: var(--muted); }
+    .progress .done { border-color: var(--cian); color: var(--cian-ink); }
+    .progress .now { border-color: var(--carvao); color: var(--carvao); position: relative; overflow: hidden; }
+    .progress .now::before { content: ""; position: absolute; left: 0; top: -3px; height: 3px; width: 40%; background: var(--champagne); animation: slide 1.8s var(--ease) infinite; }
+    @keyframes slide { from { transform: translateX(-100%); } to { transform: translateX(260%); } }
+    .thanks h1 { font-size: clamp(36px, 5vw, 66px); line-height: 1.02; letter-spacing: -.05em; }
+    .thanks h1 [data-first-name] { color: var(--cian-ink); }
+    .thanks .lead { margin-top: 24px; max-width: 560px; color: var(--muted); font-size: 19px; }
+    .thanks .lead strong { color: var(--carvao); font-weight: 600; }
+    .group { margin-top: 36px; }
+    .btn-wa { width: 100%; max-width: 520px; min-height: 68px; font-size: 17px; background: var(--carvao); color: var(--pedra); border-color: var(--carvao); }
+    .btn-wa:hover { background: #000; color: var(--champagne); }
+    .btn-wa svg { width: 24px; height: 24px; color: #25D366; }
+    .group p { margin-top: 12px; color: var(--muted); font-size: 13px; }
+
+    .side { display: grid; gap: 14px; }
+    .card { padding: 26px; border: 1px solid var(--line); border-radius: 6px; background: var(--papel); }
+    .card .label { color: var(--cian-ink); }
+    .card h2 { margin-top: 10px; font-size: 21px; }
+    .card p { margin-top: 8px; color: var(--muted); font-size: 15px; }
+    .actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .link-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--carvao); border-radius: 4px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all .3s var(--ease); }
+    .link-btn:hover { background: var(--carvao); color: var(--pedra); }
+    .link-btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+
+    .reflect { padding: clamp(64px, 9vw, 120px) var(--gutter); }
+    .reflect .wrap { width: min(100%, 900px); }
+    .reflect h2 { margin-top: 24px; font-size: clamp(26px, 3.4vw, 44px); line-height: 1.15; }
+    .reflect p { margin-top: 24px; color: var(--muted-dark); font-size: 18px; }
+    .reflect .sign { margin-top: 40px; color: var(--champagne); }
+
+    @media (max-width: 900px) { .thanks .wrap { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <img class="logo" src="/assets/brand/raevo-logo-official-transparent.png" alt="Raevo" width="755" height="166" />
+    <span class="live label"><i aria-hidden="true"></i>Inscrição recebida</span>
+  </header>
+
+  <main>
+    <section class="thanks" aria-labelledby="h1">
+      <div class="wrap">
+        <div>
+          <div class="progress label" aria-label="Progresso da inscrição">
+            <div class="done">Inscrição recebida ✓</div>
+            <div class="now">Falta 1 passo</div>
+          </div>
+          <h1 id="h1"><span data-first-name></span><span data-quase>Quase</span> lá! Falta só entrar no grupo do webinar.</h1>
+          <p class="lead">O link de acesso, os lembretes e os materiais serão enviados <strong>apenas no grupo do WhatsApp</strong>. Quem não entrar no grupo não recebe o link.</p>
+          <div class="group">
+            <a class="btn btn-wa" href="https://chat.whatsapp.com/DXya5we7sNfA6TxFfbokzF" data-group target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.84 9.84 0 0 0-8.46 14.86L2.16 22l5.27-1.38A9.84 9.84 0 1 0 12.04 2Zm0 17.9a8 8 0 0 1-4.08-1.12l-.29-.17-3.13.82.84-3.05-.19-.31A8.02 8.02 0 1 1 12.04 19.9Zm4.4-6c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19a7.2 7.2 0 0 1-1.34-1.67c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.59 4.11 3.63.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/></svg>
+              Entrar no grupo do WhatsApp <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <p>O grupo é só de avisos. Sem spam, e você pode sair quando quiser.</p>
+          </div>
+        </div>
+
+        <div class="side">
+          <article class="card">
+            <p class="label">Passo 2</p>
+            <h2>Fique de olho no grupo</h2>
+            <p>A data, o horário e o link do Google Meet são avisados por lá. Ative as notificações do grupo para não perder.</p>
+          </article>
+          <article class="card">
+            <p class="label">Passo 3</p>
+            <h2>Chame quem atende</h2>
+            <p>O webinar rende mais com o gestor e a pessoa do atendimento juntos.</p>
+            <div class="actions">
+              <a class="link-btn" href="#" data-share target="_blank" rel="noopener">Compartilhar pelo WhatsApp</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reflect dark" aria-labelledby="h-reflect">
+      <div class="wrap">
+        <p class="rule label">Enquanto espera, pense nisto</p>
+        <h2 id="h-reflect">Se hoje alguém pedisse a lista de todas as pessoas que procuraram a clínica no último mês e ficaram sem próximo passo, você conseguiria encontrá-la?</h2>
+        <p>Traga a resposta para o webinar. É por aí que vamos começar.</p>
+        <p class="sign label">Até lá · Raevo</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <img src="/assets/brand/raevo-logo-official-transparent.png" alt="Raevo" width="755" height="166" />
+      <nav aria-label="Links legais"><a href="/privacidade/">Política de Privacidade</a><a href="/termos/">Termos</a></nav>
+      <p>© 2026 Raevo</p>
+    </div>
+  </footer>
+
+  <script>
+    const WEBINAR = {
+      groupUrl: "https://chat.whatsapp.com/DXya5we7sNfA6TxFfbokzF",
+      lpUrl: "https://raevo.io/webinar-atendimento-organizado/",
+    };
+
+    try {
+      const name = sessionStorage.getItem("wbFirstName");
+      if (name) { document.querySelector("[data-first-name]").textContent = `${name}, `; document.querySelector("[data-quase]").textContent = "quase"; }
+    } catch {}
+
+    const group = document.querySelector("[data-group]");
+    if (WEBINAR.groupUrl) group.href = WEBINAR.groupUrl;
+    group.addEventListener("click", (e) => {
+      window.fbq?.("trackCustom", "EntrouGrupoWhatsApp");
+    });
+
+    const share = `Me inscrevi num webinar sobre como organizar o atendimento da clínica e não perder consultas. Acho que vale você participar também: ${WEBINAR.lpUrl}`;
+    document.querySelector("[data-share]").href = `https://wa.me/?text=${encodeURIComponent(share)}`;
+
+  </script>
+</body>
+</html>
